@@ -1,0 +1,54 @@
+/* ==========================================================================
+   会社概要ページ専用スタイル
+   ========================================================================== */
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-info__row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.company-info__row:last-child {
+  border-bottom: 0;
+}
+
+.company-info__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-muted);
+}
+
+.company-info__value {
+  font-size: 14px;
+  color: var(--c-heading);
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.company-info__value a {
+  color: var(--c-link);
+  border-bottom: 1px solid var(--c-link);
+}
+
+/* --- レスポンシブ --------------------------------------------------------- */
+@media (min-width: 480px) {
+  .company-info__row {
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .company-info__label {
+    flex: 0 0 30%;
+  }
+
+  .company-info__value {
+    flex: 1;
+  }
+}
