@@ -12,11 +12,13 @@
   const openDrawer = () => {
     drawer.showModal();
     document.body.style.overflow = "hidden";
+    document.body.classList.add("has-modal-open");
   };
 
   const closeDrawer = () => {
     drawer.close();
     document.body.style.overflow = "";
+    document.body.classList.remove("has-modal-open");
   };
 
   openButton.addEventListener("click", openDrawer);
@@ -34,5 +36,6 @@
 
   drawer.addEventListener("close", () => {
     document.body.style.overflow = "";
+    document.body.classList.remove("has-modal-open");
   });
 })();

@@ -47,12 +47,14 @@
         lightboxImage.alt = trigger.getAttribute("aria-label") || "";
         lightbox.showModal();
         document.body.style.overflow = "hidden";
+        document.body.classList.add("has-modal-open");
       });
     });
 
     const closeLightbox = () => {
       lightbox.close();
       document.body.style.overflow = "";
+      document.body.classList.remove("has-modal-open");
     };
 
     lightboxClose?.addEventListener("click", closeLightbox);
@@ -64,6 +66,7 @@
 
     lightbox.addEventListener("close", () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("has-modal-open");
     });
   }
 })();

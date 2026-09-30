@@ -9,6 +9,7 @@
   --c-heading: #172033;
   --c-body: #767676;
   --c-muted: #a6b3c4;
+  --c-label: #64748b;
   --c-link: #0017c1;
   --c-white: #ffffff;
   --c-bg-alt: #f4f8fc;
@@ -30,7 +31,26 @@
   --container-width: 600px;
   --section-padding-y: 64px;
   --section-padding-x: 16px;
-  --header-height: 64px;
+  /* ヘッダーの実測フットプリント（margin-top 8px + 内側高さ72px）。
+     アンカーリンクのスクロール位置合わせに使用。 */
+  --header-height: 80px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* --- モーション設定への配慮 ---------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
 /* --- Reset ------------------------------------------------------------ */
@@ -89,6 +109,17 @@ button {
   cursor: pointer;
 }
 
+/* --- フォーカス表示（キーボード操作時のみ） ------------------------------- */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-link);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -121,15 +152,21 @@ button {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.3;
-  background: var(--gradient-blue);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--c-link);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .section-heading__label {
+    background: var(--gradient-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .section-heading__title {
-  font-size: 24px;
+  font-size: clamp(20px, 5.8vw, 24px);
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -149,6 +186,7 @@ button {
   font-size: 16px;
   color: var(--c-white);
   text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 .btn--line {
@@ -167,20 +205,41 @@ button {
   font-size: 18px;
 }
 
+.btn:active {
+  transform: scale(0.98);
+  filter: brightness(0.96);
+}
+
+/* タッチ端末では:hoverが押しっぱなし状態になるため、ポインターデバイスのみに適用 */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    box-shadow: 0 4px 14px rgba(23, 32, 51, 0.18);
+    filter: brightness(1.04);
+  }
+}
+
 /* ==========================================================================
    ヘッダー
    ========================================================================== */
 .header {
   position: sticky;
-  top: 8px;
+  top: calc(8px + var(--safe-top));
   z-index: 100;
   max-width: calc(var(--container-width) - 16px);
-  margin: 8px auto 0;
+  margin: calc(8px + var(--safe-top)) auto 0;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
   box-shadow: 0 1px 4px rgba(23, 32, 51, 0.08);
+  transition: opacity 0.2s ease;
+}
+
+/* モーダル（ドロワー／ライトボックス）表示中はヘッダーを隠し、
+   バックドロップの上に浮いて見える表示崩れを防ぐ */
+body.has-modal-open .header {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header__inner {
@@ -214,8 +273,16 @@ button {
   justify-content: center;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   font-size: 20px;
   color: var(--c-heading);
+  transition: background-color 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header__menu-button:hover {
+    background: var(--c-bg-alt);
+  }
 }
 
 /* ==========================================================================
@@ -245,7 +312,7 @@ button {
   overflow-y: auto;
   background: var(--c-white);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  padding: calc(16px + var(--safe-top)) 16px calc(16px + var(--safe-bottom));
   transform: translateX(100%);
   transition: transform 0.3s ease;
 }
@@ -261,8 +328,16 @@ button {
   width: 40px;
   height: 40px;
   margin-left: auto;
+  border-radius: 50%;
   font-size: 20px;
   color: var(--c-heading);
+  transition: background-color 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-drawer__close:hover {
+    background: var(--c-bg-alt);
+  }
 }
 
 .nav-drawer__list {
@@ -275,11 +350,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 16px 8px;
+  margin: 0 -8px;
+  border-radius: 8px;
   border-bottom: 1px dashed #d9d9d9;
   font-size: 16px;
   font-weight: 700;
   color: var(--c-heading);
+  transition: background-color 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-drawer__link:hover {
+    background: var(--c-bg-alt);
+  }
 }
 
 .nav-drawer__link i {
@@ -340,16 +424,22 @@ button {
 .cta__label {
   font-size: 14px;
   font-weight: 700;
-  background: var(--gradient-blue);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--c-link);
   margin-bottom: 8px;
 }
 
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .cta__label {
+    background: var(--gradient-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .cta__title {
-  font-size: 24px;
+  font-size: clamp(20px, 5.8vw, 24px);
   font-weight: 700;
   color: var(--c-heading);
   margin-bottom: 16px;
@@ -379,7 +469,7 @@ button {
 .footer {
   background: var(--c-footer-bg);
   color: var(--c-footer-text);
-  padding: 64px 0 32px;
+  padding: 64px 0 calc(32px + var(--safe-bottom));
   text-align: center;
 }
 
@@ -433,5 +523,11 @@ button {
 @media (min-width: 700px) {
   :root {
     --container-width: 680px;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --container-width: 760px;
   }
 }

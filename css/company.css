@@ -22,7 +22,7 @@
 .company-info__label {
   font-size: 14px;
   font-weight: 700;
-  color: var(--c-muted);
+  color: var(--c-label);
 }
 
 .company-info__value {
