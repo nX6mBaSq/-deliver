@@ -15,8 +15,10 @@
 
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/top.css">
+<link rel="stylesheet" href="css/refresh.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へスキップ</a>
 
 <!-- ==========================================================================
      ヘッダー（共通パーツ）
@@ -27,8 +29,9 @@
       <img src="images/logo-header.webp" alt="茜deliver" class="header__logo-image" width="164" height="39">
       <span class="header__logo-text">｜単身引っ越し専門</span>
     </a>
+<nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#price2">料金・エリア</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="header__estimate">無料お見積り ↗</a></nav>
     <button type="button" class="header__menu-button" data-nav-open aria-haspopup="dialog" aria-controls="nav-drawer" aria-label="メニューを開く">
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      <span class="menu-lines" aria-hidden="true"></span><span class="menu-label">MENU</span>
     </button>
   </div>
 </header>
@@ -39,7 +42,7 @@
 <dialog id="nav-drawer" class="nav-drawer" aria-label="メニュー">
   <div class="nav-drawer__panel">
     <button type="button" class="nav-drawer__close" data-nav-close aria-label="メニューを閉じる">
-      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      <span aria-hidden="true">×</span>
     </button>
 
     <ul class="nav-drawer__list">
@@ -56,8 +59,8 @@
     </ul>
 
     <div class="nav-drawer__actions">
-      <!-- TODO: LINE公式アカウントのURLが決まり次第 href="#" を差し替えてください -->
-      <a href="#" class="btn btn--line"><i class="fa-brands fa-line btn__icon" aria-hidden="true"></i>LINEで相談する</a>
+      <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
+      <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
       <a href="tel:0568281105" class="btn btn--tel"><i class="fa-solid fa-phone btn__icon" aria-hidden="true"></i>電話で相談する</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form"><i class="fa-brands fa-wpforms btn__icon" aria-hidden="true"></i>WEB見積りフォームへ</a>
     </div>
@@ -69,43 +72,37 @@
   </div>
 </dialog>
 
-<main>
+<main id="main-content">
 
   <!-- ==========================================================================
        ヒーロー
        ========================================================================== -->
   <section class="hero" id="hero">
-    <div class="container">
-      <p class="hero__tag">大阪発・長距離対応の単身引越し専門</p>
-      <h1 class="hero__title">
-        <span class="hero__title-line">少ない荷物のお引越し</span>
-        <span class="hero__title-line">低価格でサポート！</span>
-      </h1>
-      <p class="hero__lead">
-        お客様との「共同作業」でムダを省き、<br>
-        明朗会計と定時スタートで安心できる<br>
-        低価格を実現いたします！
-      </p>
-      <div class="hero__image-wrap">
-        <img src="images/hero-main.webp" alt="荷物を届けるスタッフとお客様" width="1672" height="941" loading="lazy">
+    <div class="container hero__layout">
+      <div class="hero__copy">
+        <p class="hero__eyebrow"><span></span> 大阪発 ／ 単身引越し専門</p>
+        <h1 class="hero__title">荷物は、少なく。<br>新生活は、<br><em>軽やかに。</em></h1>
+        <p class="hero__lead">少ない荷物のお引越しを、もっと気軽に。<br>お客様との共同作業で、ムダを省いた<br class="mobile-break">納得の価格をお届けします。</p>
+        <div class="hero__price">
+          <div><p class="hero__price-label">5kmまでの基本料金</p><p class="hero__price-tax">税込</p></div>
+          <p><span class="hero__price-number">5,500</span><span class="hero__price-unit">円〜</span></p>
+        </div>
+        <p class="hero__conditions">※距離・階段などの条件により追加料金がかかります。</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form hero__primary"><span>無料でお見積り・ご相談</span><span aria-hidden="true">↗</span></a>
+        <div class="hero__availability"><span>時間指定OK</span><span>即日のご相談OK</span><span>長距離対応</span></div>
       </div>
-      <div class="hero__price">
-        <p class="hero__price-label">最安基本料金</p>
-        <p><span class="hero__price-number">5,500</span><span class="hero__price-unit">円～(税込)</span></p>
+      <div class="hero__visual">
+        <div class="hero__visual-top"><span>AKANE DELIVER</span><span>OSAKA → YOUR NEW LIFE</span></div>
+        <div class="hero__photo-wrap">
+          <img class="hero__photo" src="images/hero-main.webp" alt="軽トラックのそばで、お客様から荷物を受け取るスタッフ" width="600" height="337" fetchpriority="high">
+          <span class="hero__photo-badge"><i class="fa-solid fa-truck" aria-hidden="true"></i> 大阪から、新しい暮らしへ。</span>
+        </div>
+        <div class="hero__visual-icons" aria-hidden="true"><span><i class="fa-solid fa-box-open"></i>少量のお荷物</span><span><i class="fa-solid fa-handshake"></i>共同作業</span><span><i class="fa-solid fa-house"></i>新しい暮らし</span></div>
+        <div class="hero__visual-bottom"><p>小さなお引越しに、<br>大きな安心を。</p><span class="hero__truck" aria-hidden="true"><i class="fa-solid fa-truck-fast"></i></span></div>
       </div>
-      <div class="hero__cta cta__buttons">
-        <!-- TODO: LINE公式アカウントのURLが決まり次第 href="#" を差し替えてください -->
-        <a href="#" class="btn btn--line"><i class="fa-brands fa-line btn__icon" aria-hidden="true"></i>LINEで相談する</a>
-        <a href="tel:0568281105" class="btn btn--tel"><i class="fa-solid fa-phone btn__icon" aria-hidden="true"></i>電話で相談する</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form"><i class="fa-brands fa-wpforms btn__icon" aria-hidden="true"></i>WEB見積りフォームへ</a>
-      </div>
-      <ul class="hero__badges">
-        <li class="hero__badge"><i class="fa-solid fa-clock" aria-hidden="true"></i>24時間対応可能</li>
-        <li class="hero__badge"><i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i>即日対応可能</li>
-      </ul>
-      <p class="hero__note">※作業中の場合は対応が遅れる可能性がございます。</p>
     </div>
   </section>
+  <nav class="quick-nav" aria-label="サービスのご案内"><div class="container"><a href="#price2"><i class="fa-solid fa-yen-sign" aria-hidden="true"></i>料金・エリア <span>↓</span></a><a href="#strengths"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>選ばれる理由 <span>↓</span></a><a href="#step"><i class="fa-solid fa-list-check" aria-hidden="true"></i>ご利用の流れ <span>↓</span></a><a href="#qa"><i class="fa-solid fa-comments" aria-hidden="true"></i>よくある質問 <span>↓</span></a></div></nav>
 
   <!-- ==========================================================================
        OUR STRENGTHS
@@ -113,8 +110,9 @@
   <section class="strengths section section--alt" id="strengths">
     <div class="container">
       <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
         <p class="section-heading__label">WHY WE'RE CHOSEN</p>
-        <h2 class="section-heading__title">茜deliverが選ばれる理由</h2>
+        <h2 class="section-heading__title">気軽に頼める、3つの安心。</h2>
       </div>
       <ul class="strengths__list">
         <li class="strengths__item">
@@ -136,6 +134,86 @@
     </div>
   </section>
 
+  <section class="fees section" id="price2">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-yen-sign"></i></span>
+        <p class="section-heading__label">SERVICE FEES</p>
+        <h2 class="section-heading__title">料金は、わかりやすく。</h2>
+      </div>
+
+      <div class="fees__base">
+        <p class="fees__base-label">近距離のお引越し・基本料金</p>
+        <p class="fees__base-value"><span class="fees__base-number">5,500</span><span class="fees__base-unit">円〜<small>（税込）</small></span></p>
+        <span class="fees__base-range">5kmまで</span>
+      </div>
+
+      <div class="fees__addon">
+        <p class="fees__addon-label">追加・オプション料金</p>
+        <ul class="fees__addon-list">
+          <li class="fees__addon-item">
+            <span class="fees__addon-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+            <span class="fees__addon-name">距離追加</span>
+            <span class="fees__addon-note">5km毎位</span>
+            <span class="fees__addon-price">2,200円</span>
+          </li>
+          <li class="fees__addon-item">
+            <span class="fees__addon-icon"><i class="fa-solid fa-stairs" aria-hidden="true"></i></span>
+            <span class="fees__addon-name">階段料金</span>
+            <span class="fees__addon-note">1階単位</span>
+            <span class="fees__addon-price">2,200円</span>
+          </li>
+          <li class="fees__addon-item">
+            <span class="fees__addon-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
+            <span class="fees__addon-name">高層階（5階以上）対応</span>
+            <span class="fees__addon-price">2,200円</span>
+          </li>
+          <li class="fees__addon-item">
+            <span class="fees__addon-icon"><i class="fa-solid fa-truck" aria-hidden="true"></i></span>
+            <span class="fees__addon-name">往復・複数台対応</span>
+            <span class="fees__addon-price fees__addon-price--note">現場によるが<br>※2以下料金</span>
+          </li>
+          <li class="fees__addon-item">
+            <span class="fees__addon-icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></span>
+            <span class="fees__addon-name">スタッフ追加</span>
+            <span class="fees__addon-price">11,000円～</span>
+          </li>
+          <li class="fees__addon-item">
+            <span class="fees__addon-icon"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span>
+            <span class="fees__addon-name">その他</span>
+            <span class="fees__addon-price">応相談</span>
+          </li>
+        </ul>
+        <p class="fees__disclaimer">※ 追加料金が発生する場合については<a href="important-notes.html#additional">こちら</a>。</p>
+      </div>
+
+      <div class="fees__area" id="area">
+        <p class="fees__area-label">対応エリア</p>
+        <img class="area__map" src="images/area-map.webp" alt="大阪から名古屋・東京方面への長距離対応エリアのイメージ" width="600" height="337" loading="lazy">
+        <p class="area__desc">大阪発、近畿一円はもちろん。名古屋・東京方面への長距離便にも対応。遠方のお引越しもお気軽にご相談ください。</p>
+      </div>
+
+      <div class="fees__estimate">
+        <p class="fees__estimate-label">料金目安</p>
+        <p class="fees__estimate-note">＼ 40km以上のお引越しは基本料金割引あり ／</p>
+        <ul class="fees__routes">
+          <li class="fees__route">
+            <span class="fees__route-path"><i class="fa-solid fa-car" aria-hidden="true"></i>大阪<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>京都</span>
+            <span class="fees__route-price">19,800円～</span>
+          </li>
+          <li class="fees__route">
+            <span class="fees__route-path"><i class="fa-solid fa-car" aria-hidden="true"></i>大阪<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>名古屋</span>
+            <span class="fees__route-price">44,000円～</span>
+          </li>
+          <li class="fees__route">
+            <span class="fees__route-path"><i class="fa-solid fa-car" aria-hidden="true"></i>大阪<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>東京</span>
+            <span class="fees__route-price">77,000円～</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- ==========================================================================
        RECOMMENDED
        ========================================================================== -->
@@ -143,21 +221,21 @@
     <div class="container">
       <div class="section-heading">
         <p class="section-heading__label">RECOMMENDED</p>
-        <h2 class="section-heading__title">こんなお引越しにピッタリ</h2>
+        <h2 class="section-heading__title">こんなお引越しに。</h2>
       </div>
       <ul class="recommend__list">
         <li class="recommend__item">
-          <img class="recommend__image" src="images/recommend-1.webp" alt="はじめての一人暮らしのイメージ" width="1254" height="1254" loading="lazy">
+          <div class="recommend__art"><img src="images/recommend-1.webp" alt="ダンボールを持ち、新生活を始める人のイラスト" width="600" height="600" loading="lazy"></div>
           <p class="recommend__title">はじめての一人暮らしに！</p>
           <p class="recommend__desc">新生活に必要な荷物だけをスムーズにお運びします。</p>
         </li>
         <li class="recommend__item">
-          <img class="recommend__image" src="images/recommend-2.webp" alt="引越しの手伝いのイメージ" width="1254" height="1254" loading="lazy">
+          <div class="recommend__art"><img src="images/recommend-2.webp" alt="荷物の運び出しを協力して行うイラスト" width="600" height="600" loading="lazy"></div>
           <p class="recommend__title">もう一人手が欲しい時に！</p>
           <p class="recommend__desc">荷物の積み込み・運び出しをスムーズに進めます。</p>
         </li>
         <li class="recommend__item">
-          <img class="recommend__image" src="images/recommend-3.webp" alt="少量の引越しのイメージ" width="1254" height="1254" loading="lazy">
+          <div class="recommend__art"><img src="images/recommend-3.webp" alt="少量の荷物で引越しする人のイラスト" width="600" height="600" loading="lazy"></div>
           <p class="recommend__title">少量引っ越しを低価格に！</p>
           <p class="recommend__desc">少量お引越しをお手頃価格でサポートします。</p>
         </li>
@@ -172,7 +250,7 @@
     <div class="container">
       <div class="section-heading">
         <p class="section-heading__label">STANDARD FEATURES</p>
-        <h2 class="section-heading__title">茜deliverの標準装備</h2>
+        <h2 class="section-heading__title">小さな引越しも、しっかり。</h2>
       </div>
 
       <ul class="features__list">
@@ -180,6 +258,7 @@
           <p class="features__title"><i class="fa-solid fa-truck" aria-hidden="true"></i>長物対応の大容量荷室</p>
           <p class="features__desc">マットレスなどの長物も積載可能。車両サイズ・荷室寸法・積載重量の目安をご確認いただけます。</p>
 
+          <img class="feature__overview" src="images/features-capacity.webp" alt="軽トラックの外観、荷室寸法と積載例の説明図。詳しい寸法・荷物の内容は下の詳細欄で確認できます。" width="600" height="337" loading="lazy">
           <div class="features__highlight">
             <p class="spec__weight"><span class="spec__weight-number">約350</span><span class="spec__weight-unit">kgまで</span></p>
             <p class="spec__weight-note">積載重量目安（軽トラック1台あたり）</p>
@@ -257,6 +336,7 @@
           <p class="features__title"><i class="fa-solid fa-truck-ramp-box" aria-hidden="true"></i>ひと目で分かる積載例</p>
           <p class="features__desc">単身のお引越しに最適な積載例をご紹介します。お荷物の量や内容に応じて、積載できるか事前にご確認いただけます。</p>
 
+          <img class="feature__overview" src="images/features-loading-example.webp" alt="1R・1Kと1DKの荷物の積載例。詳しい寸法・荷物の内容は下の詳細欄で確認できます。" width="600" height="337" loading="lazy">
           <div class="features__highlight features__highlight--split">
             <p class="loadex__badge loadex__badge--ok"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>1R・1K：積載可能</p>
             <p class="loadex__badge loadex__badge--ask"><i class="fa-solid fa-circle-question" aria-hidden="true"></i>1DK：要相談</p>
@@ -314,18 +394,12 @@
         </li>
 
         <li class="features__item">
-          <button type="button" class="features__image-button" data-lightbox-trigger data-lightbox-src="images/features-protection.webp" aria-label="拡大表示：家具・家電を丁寧に保護">
-            <img class="features__image" src="images/features-protection.webp" alt="大切なお荷物をしっかり保護：保護材で梱包された家具・家電の写真" width="600" height="337" loading="lazy">
-            <span class="features__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-          </button>
+          <img class="feature__photo" src="images/features-protection.webp" alt="専用の保護材で家具・家電を包み、運搬するイメージ" width="600" height="337" loading="lazy">
           <p class="features__title">家具・家電を丁寧に保護</p>
           <p class="features__desc">家具・家電は専用の保護材で丁寧に包み、傷や汚れを防ぎながら安全に運搬します。小物類は、お客様にて事前にダンボールへの梱包をお願いいたします。</p>
         </li>
         <li class="features__item">
-          <button type="button" class="features__image-button" data-lightbox-trigger data-lightbox-src="images/features-insurance.webp" aria-label="拡大表示：万が一にも安心の補償対応">
-            <img class="features__image" src="images/features-insurance.webp" alt="万が一の事故にも適切に対応・補償：保険加入についての説明図" width="600" height="337" loading="lazy">
-            <span class="features__zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-          </button>
+          <img class="feature__photo" src="images/features-insurance.webp" alt="荷物の事故や破損に備える補償の説明イメージ" width="600" height="337" loading="lazy">
           <p class="features__title">万が一にも安心の補償対応</p>
           <p class="features__desc">万が一の事故やお荷物の破損にも備えて保険へ加入。状況に応じて適切に対応・補償いたしますので、安心して大切なお荷物を安全にお任せいただけます。</p>
         </li>
@@ -336,94 +410,12 @@
   <!-- ==========================================================================
        画像拡大表示（ライトボックス）
        ========================================================================== -->
-  <dialog id="features-lightbox" class="lightbox" aria-label="画像拡大表示">
-    <button type="button" class="lightbox__close" data-lightbox-close aria-label="閉じる">
-      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-    </button>
-    <img class="lightbox__image" data-lightbox-image src="" alt="">
-  </dialog>
+
 
   <!-- ==========================================================================
        SERVICE FEES
        ========================================================================== -->
-  <section class="fees section" id="price2">
-    <div class="container">
-      <div class="section-heading">
-        <p class="section-heading__label">SERVICE FEES</p>
-        <h2 class="section-heading__title">サービス料金体系</h2>
-      </div>
 
-      <div class="fees__base">
-        <p class="fees__base-label">基本料金</p>
-        <p class="fees__base-value"><span class="fees__base-number">5,500</span><span class="fees__base-unit">円</span></p>
-        <span class="fees__base-range">5kmまで</span>
-      </div>
-
-      <div class="fees__addon">
-        <p class="fees__addon-label">追加・オプション料金</p>
-        <ul class="fees__addon-list">
-          <li class="fees__addon-item">
-            <span class="fees__addon-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
-            <span class="fees__addon-name">距離追加</span>
-            <span class="fees__addon-note">5km毎位</span>
-            <span class="fees__addon-price">2,200円</span>
-          </li>
-          <li class="fees__addon-item">
-            <span class="fees__addon-icon"><i class="fa-solid fa-stairs" aria-hidden="true"></i></span>
-            <span class="fees__addon-name">階段料金</span>
-            <span class="fees__addon-note">1階単位</span>
-            <span class="fees__addon-price">2,200円</span>
-          </li>
-          <li class="fees__addon-item">
-            <span class="fees__addon-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
-            <span class="fees__addon-name">高層階（5階以上）対応</span>
-            <span class="fees__addon-price">2,200円</span>
-          </li>
-          <li class="fees__addon-item">
-            <span class="fees__addon-icon"><i class="fa-solid fa-truck" aria-hidden="true"></i></span>
-            <span class="fees__addon-name">往復・複数台対応</span>
-            <span class="fees__addon-price fees__addon-price--note">現場によるが<br>※2以下料金</span>
-          </li>
-          <li class="fees__addon-item">
-            <span class="fees__addon-icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></span>
-            <span class="fees__addon-name">スタッフ追加</span>
-            <span class="fees__addon-price">11,000円～</span>
-          </li>
-          <li class="fees__addon-item">
-            <span class="fees__addon-icon"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span>
-            <span class="fees__addon-name">その他</span>
-            <span class="fees__addon-price">応相談</span>
-          </li>
-        </ul>
-        <p class="fees__disclaimer">※ 追加料金が発生する場合については<a href="important-notes.html#additional">こちら</a>。</p>
-      </div>
-
-      <div class="fees__area" id="area">
-        <p class="fees__area-label">対応エリア</p>
-        <img class="area__image" src="images/area-map.webp" alt="対応エリア：大阪・京都・名古屋・東京" width="1672" height="941" loading="lazy">
-        <p class="area__desc">大阪発、近畿一円はもちろん。名古屋・東京方面への長距離便にも対応。遠方のお引越しもお気軽にご相談ください。</p>
-      </div>
-
-      <div class="fees__estimate">
-        <p class="fees__estimate-label">料金目安</p>
-        <p class="fees__estimate-note">＼ 40km以上のお引越しは基本料金割引あり ／</p>
-        <ul class="fees__routes">
-          <li class="fees__route">
-            <span class="fees__route-path"><i class="fa-solid fa-car" aria-hidden="true"></i>大阪<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>京都</span>
-            <span class="fees__route-price">19,800円～</span>
-          </li>
-          <li class="fees__route">
-            <span class="fees__route-path"><i class="fa-solid fa-car" aria-hidden="true"></i>大阪<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>名古屋</span>
-            <span class="fees__route-price">44,000円～</span>
-          </li>
-          <li class="fees__route">
-            <span class="fees__route-path"><i class="fa-solid fa-car" aria-hidden="true"></i>大阪<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>東京</span>
-            <span class="fees__route-price">77,000円～</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
   <!-- ==========================================================================
        RESTRICTION
@@ -431,6 +423,7 @@
   <section class="restriction section" id="restriction">
     <div class="container">
       <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-circle-exclamation"></i></span>
         <p class="section-heading__label">RESTRICTION</p>
         <h2 class="section-heading__title">サービス対応不可条件</h2>
       </div>
@@ -450,23 +443,24 @@
   <section class="process section section--alt" id="step">
     <div class="container">
       <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-truck-fast"></i></span>
         <p class="section-heading__label">OUR PROCESS</p>
         <h2 class="section-heading__title">お引越しの流れ</h2>
       </div>
 
       <div class="process__list">
         <div class="process__item">
-          <img class="process__icon" src="images/step-1.webp" alt="" width="1254" height="1254" loading="lazy">
+          <div class="process__illustration"><img src="images/step-1.webp" alt="" width="600" height="600" loading="lazy"><span class="process__number" aria-hidden="true">01</span></div>
           <div>
             <p class="process__step">STEP１</p>
             <p class="process__title">お問い合わせ</p>
-            <p class="process__desc">LINE・電話・WEBからお気軽ご連絡下さい。</p>
+            <p class="process__desc">電話・WEBからお気軽にご連絡ください。</p>
           </div>
         </div>
         <div class="process__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-down"></i></div>
 
         <div class="process__item">
-          <img class="process__icon" src="images/step-2.webp" alt="" width="1254" height="1254" loading="lazy">
+          <div class="process__illustration"><img src="images/step-2.webp" alt="" width="600" height="600" loading="lazy"><span class="process__number" aria-hidden="true">02</span></div>
           <div>
             <p class="process__step">STEP２</p>
             <p class="process__title">お見積り</p>
@@ -476,7 +470,7 @@
         <div class="process__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-down"></i></div>
 
         <div class="process__item">
-          <img class="process__icon" src="images/step-3.webp" alt="" width="1254" height="1254" loading="lazy">
+          <div class="process__illustration"><img src="images/step-3.webp" alt="" width="600" height="600" loading="lazy"><span class="process__number" aria-hidden="true">03</span></div>
           <div>
             <p class="process__step">STEP３</p>
             <p class="process__title">事前入金</p>
@@ -486,7 +480,7 @@
         <div class="process__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-down"></i></div>
 
         <div class="process__item">
-          <img class="process__icon" src="images/step-4.webp" alt="" width="1254" height="1254" loading="lazy">
+          <div class="process__illustration"><img src="images/step-4.webp" alt="" width="600" height="600" loading="lazy"><span class="process__number" aria-hidden="true">04</span></div>
           <div>
             <p class="process__step">STEP４</p>
             <p class="process__title">前日連絡</p>
@@ -496,7 +490,7 @@
         <div class="process__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-down"></i></div>
 
         <div class="process__item">
-          <img class="process__icon" src="images/step-5.webp" alt="" width="1254" height="1254" loading="lazy">
+          <div class="process__illustration"><img src="images/step-5.webp" alt="" width="600" height="600" loading="lazy"><span class="process__number" aria-hidden="true">05</span></div>
           <div>
             <p class="process__step">STEP５</p>
             <p class="process__title">お引越し当日</p>
@@ -513,11 +507,12 @@
   <section class="message section" id="message">
     <div class="container">
       <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span>
         <p class="section-heading__label">CEO MESSAGE</p>
         <h2 class="section-heading__title">代表メッセージ</h2>
       </div>
       <div class="message__card">
-        <img class="message__photo" src="images/ceo-photo.webp" alt="茜deliver代表 酒井利明" width="1920" height="1080" loading="lazy">
+        <img class="message__portrait" src="images/ceo-photo.webp" alt="茜deliver代表 酒井利明" width="600" height="600" loading="lazy">
         <div class="message__content">
           <p class="message__name">茜deliver代表　酒井 利明</p>
           <p class="message__catch">引っ越しの「不透明」を無くし、クリーンでスマートな新生活を！</p>
@@ -533,6 +528,7 @@
   <section class="faq section section--alt" id="qa">
     <div class="container">
       <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-comments"></i></span>
         <p class="section-heading__label">Q &amp; A</p>
         <h2 class="section-heading__title">よくある質問</h2>
       </div>
@@ -546,7 +542,7 @@
           </button>
           <div class="faq__answer" id="faq-answer-1">
             <div class="faq__answer-inner">
-              <p class="faq__answer-text">ここに回答が入ります。</p>
+              <p class="faq__answer-text">お支払い方法については、お見積り・ご相談時にお問い合わせください。</p>
             </div>
           </div>
         </li>
@@ -558,7 +554,7 @@
           </button>
           <div class="faq__answer" id="faq-answer-2">
             <div class="faq__answer-inner">
-              <p class="faq__answer-text">ここに回答が入ります。</p>
+              <p class="faq__answer-text">回収の可否や条件については、お荷物の内容とあわせてお問い合わせください。</p>
             </div>
           </div>
         </li>
@@ -570,7 +566,7 @@
           </button>
           <div class="faq__answer" id="faq-answer-3">
             <div class="faq__answer-inner">
-              <p class="faq__answer-text">ここに回答が入ります。</p>
+              <p class="faq__answer-text">即日のお引越しもご相談いただけます。作業中はご返信が遅れる場合がございますので、まずはお問い合わせください。</p>
             </div>
           </div>
         </li>
@@ -601,6 +597,7 @@
   <section class="notes section" id="notes">
     <div class="container">
       <div class="section-heading">
+        <span class="section-heading__icon" aria-hidden="true"><i class="fa-solid fa-clipboard-check"></i></span>
         <p class="section-heading__label">IMPORTANT NOTES</p>
         <h2 class="section-heading__title">ご利用前の確認事項</h2>
       </div>
@@ -623,8 +620,8 @@
       <h2 class="cta__title">まずはお気軽にご相談ください</h2>
       <p class="cta__desc">お見積り・ご相談は無料です。<br>新しいスタートを全力でサポートします。</p>
       <div class="cta__buttons">
-        <!-- TODO: LINE公式アカウントのURLが決まり次第 href="#" を差し替えてください -->
-        <a href="#" class="btn btn--line"><i class="fa-brands fa-line btn__icon" aria-hidden="true"></i>LINEで相談する</a>
+        <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
+        <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
         <a href="tel:0568281105" class="btn btn--tel"><i class="fa-solid fa-phone btn__icon" aria-hidden="true"></i>電話で相談する</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form"><i class="fa-brands fa-wpforms btn__icon" aria-hidden="true"></i>WEB見積りフォームへ</a>
       </div>
@@ -668,6 +665,7 @@
   </div>
 </footer>
 
+<nav class="mobile-contact" aria-label="お見積り・お問い合わせ"><a class="mobile-contact__tel" href="tel:0568281105"><span aria-hidden="true">☎</span> 電話で相談</a><a class="mobile-contact__form" href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener">無料お見積り <span aria-hidden="true">↗</span></a></nav>
 <script src="js/common.js"></script>
 <script src="js/top.js"></script>
 </body>

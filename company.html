@@ -15,8 +15,10 @@
 
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/company.css">
+<link rel="stylesheet" href="css/refresh.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へスキップ</a>
 
 <!-- ==========================================================================
      ヘッダー（共通パーツ）
@@ -27,8 +29,9 @@
       <img src="images/logo-header.webp" alt="茜deliver" class="header__logo-image" width="164" height="39">
       <span class="header__logo-text">｜単身引っ越し専門</span>
     </a>
+<nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#price2">料金・エリア</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="header__estimate">無料お見積り ↗</a></nav>
     <button type="button" class="header__menu-button" data-nav-open aria-haspopup="dialog" aria-controls="nav-drawer" aria-label="メニューを開く">
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      <span class="menu-lines" aria-hidden="true"></span><span class="menu-label">MENU</span>
     </button>
   </div>
 </header>
@@ -39,7 +42,7 @@
 <dialog id="nav-drawer" class="nav-drawer" aria-label="メニュー">
   <div class="nav-drawer__panel">
     <button type="button" class="nav-drawer__close" data-nav-close aria-label="メニューを閉じる">
-      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      <span aria-hidden="true">×</span>
     </button>
 
     <ul class="nav-drawer__list">
@@ -56,8 +59,8 @@
     </ul>
 
     <div class="nav-drawer__actions">
-      <!-- TODO: LINE公式アカウントのURLが決まり次第 href="#" を差し替えてください -->
-      <a href="#" class="btn btn--line"><i class="fa-brands fa-line btn__icon" aria-hidden="true"></i>LINEで相談する</a>
+      <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
+      <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
       <a href="tel:0568281105" class="btn btn--tel"><i class="fa-solid fa-phone btn__icon" aria-hidden="true"></i>電話で相談する</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form"><i class="fa-brands fa-wpforms btn__icon" aria-hidden="true"></i>WEB見積りフォームへ</a>
     </div>
@@ -69,7 +72,7 @@
   </div>
 </dialog>
 
-<main>
+<main id="main-content">
 
   <!-- ==========================================================================
        COMPANY（会社概要）
@@ -131,8 +134,8 @@
       <h2 class="cta__title">まずはお気軽にご相談ください</h2>
       <p class="cta__desc">お見積り・ご相談は無料です。<br>新しいスタートを全力でサポートします。</p>
       <div class="cta__buttons">
-        <!-- TODO: LINE公式アカウントのURLが決まり次第 href="#" を差し替えてください -->
-        <a href="#" class="btn btn--line"><i class="fa-brands fa-line btn__icon" aria-hidden="true"></i>LINEで相談する</a>
+        <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
+        <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
         <a href="tel:0568281105" class="btn btn--tel"><i class="fa-solid fa-phone btn__icon" aria-hidden="true"></i>電話で相談する</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form"><i class="fa-brands fa-wpforms btn__icon" aria-hidden="true"></i>WEB見積りフォームへ</a>
       </div>
@@ -176,6 +179,7 @@
   </div>
 </footer>
 
+<nav class="mobile-contact" aria-label="お見積り・お問い合わせ"><a class="mobile-contact__tel" href="tel:0568281105"><span aria-hidden="true">☎</span> 電話で相談</a><a class="mobile-contact__form" href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener">無料お見積り <span aria-hidden="true">↗</span></a></nav>
 <script src="js/common.js"></script>
 </body>
 </html>
