@@ -261,7 +261,7 @@ body.has-modal-open .header {
 }
 
 .header__logo-text {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--c-heading);
   white-space: nowrap;
@@ -395,7 +395,7 @@ body.has-modal-open .header {
 
 .nav-drawer__sub-links a i {
   color: var(--c-muted);
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 
 /* ==========================================================================
@@ -490,7 +490,7 @@ body.has-modal-open .header {
 }
 
 .footer__nav-list a i {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 
 .footer__logo {
@@ -514,7 +514,7 @@ body.has-modal-open .header {
 }
 
 .footer__copyright {
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 
 /* ==========================================================================

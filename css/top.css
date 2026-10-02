@@ -101,7 +101,7 @@
 }
 
 .hero__note {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-body);
   text-align: center;
 }
@@ -270,7 +270,7 @@
   border-radius: 100px;
   background: rgba(23, 32, 51, 0.7);
   color: var(--c-white);
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
@@ -280,13 +280,13 @@
 }
 
 .media-placeholder__title {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--c-body);
 }
 
 .media-placeholder__desc {
-  font-size: 11px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--c-muted);
   max-width: 240px;
@@ -403,7 +403,7 @@
 }
 
 .spec__key {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-body);
 }
 
@@ -417,7 +417,7 @@
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-body);
 }
 
@@ -432,7 +432,7 @@
   gap: 8px;
   padding: 10px 12px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
@@ -467,13 +467,13 @@
 }
 
 .spec__weight-note {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-body);
   margin-bottom: 12px;
 }
 
 .spec__tags-label {
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--c-heading);
   margin-bottom: 8px;
@@ -490,7 +490,7 @@
   padding: 4px 10px;
   border-radius: 100px;
   background: var(--c-bg-alt);
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--c-heading);
 }
@@ -723,7 +723,7 @@
 
 .fees__addon-note {
   flex: none;
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-body);
 }
 
@@ -736,7 +736,7 @@
 }
 
 .fees__addon-price--note {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--c-body);
   line-height: 1.4;
@@ -818,7 +818,7 @@
 }
 
 .fees__disclaimer {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-body);
   margin-top: 8px;
 }
@@ -911,7 +911,7 @@
 
 .process__step {
   font-family: var(--font-en);
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--c-link);
   margin-bottom: 4px;

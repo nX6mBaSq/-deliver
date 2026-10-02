@@ -18,8 +18,21 @@ index.html @ 768px: OK
 company.html @ 768px: OK
 important-notes.html @ 768px: OK
 privacy-policy.html @ 768px: OK
+index.html @ 960px: OK
+company.html @ 960px: OK
+important-notes.html @ 960px: OK
+privacy-policy.html @ 960px: OK
+index.html @ 1024px: OK
+company.html @ 1024px: OK
+important-notes.html @ 1024px: OK
+privacy-policy.html @ 1024px: OK
+index.html @ 1280px: OK
+company.html @ 1280px: OK
+important-notes.html @ 1280px: OK
+privacy-policy.html @ 1280px: OK
 index.html @ 1440px: OK
 company.html @ 1440px: OK
 important-notes.html @ 1440px: OK
 privacy-policy.html @ 1440px: OK
 Menu open, Escape, menu anchor, header clearance, all accordions, no runtime errors: OK
+Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, 14px minimum visible text, new-tab labels, 200% root text at 320px: OK

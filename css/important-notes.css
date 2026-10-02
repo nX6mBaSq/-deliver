@@ -108,7 +108,7 @@
 }
 
 .important-notes__note {
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--c-label);
   margin-top: 12px;
 }

@@ -11,6 +11,7 @@
 
   const openDrawer = () => {
     drawer.showModal();
+    openButton.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
     document.body.classList.add("has-modal-open");
   };
@@ -35,6 +36,7 @@
   });
 
   drawer.addEventListener("close", () => {
+    openButton.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
     document.body.classList.remove("has-modal-open");
   });

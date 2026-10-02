@@ -14,7 +14,7 @@ const fs = require('node:fs');
       try { await image.decode(); } catch (_) { /* Report failed images below. */ }
     }));
   });
-  for (const width of [320, 375, 390, 480, 768, 1440]) {
+  for (const width of [320, 375, 390, 480, 768, 960, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: 844 });
     for (const file of ['index.html', 'company.html', 'important-notes.html', 'privacy-policy.html']) {
       await page.goto(`http://127.0.0.1:8765/${file}`);
@@ -38,6 +38,17 @@ const fs = require('node:fs');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('http://127.0.0.1:8765/index.html');
   await loadImages();
+  await page.keyboard.press('Tab');
+  assert.equal(await page.locator('.skip-link').evaluate(e => e === document.activeElement), true);
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('main').evaluate(e => e === document.activeElement), true);
+  await page.locator('[data-nav-open]').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('[data-nav-open]').getAttribute('aria-expanded'), 'true');
+  await page.keyboard.press('Escape');
+  await page.waitForFunction(() => document.querySelector('[data-nav-open]').getAttribute('aria-expanded') === 'false');
+  assert.equal(await page.locator('[data-nav-open]').getAttribute('aria-expanded'), 'false');
+  assert.equal(await page.locator('[data-nav-open]').evaluate(e => e === document.activeElement), true);
   await page.locator('[data-nav-open]').click();
   assert.equal(await page.locator('#nav-drawer').evaluate(e => e.open), true);
   await page.keyboard.press('Escape');
@@ -51,23 +62,48 @@ const fs = require('node:fs');
   for (const button of await page.locator('.features__toggle, .faq__question').all()) {
     const target = page.locator('#' + await button.getAttribute('aria-controls'));
     assert.equal(await target.isVisible(), false);
-    await button.click();
+    await button.focus();
+    await page.keyboard.press('Enter');
     assert.equal(await target.isVisible(), true);
     assert.equal(await button.getAttribute('aria-expanded'), 'true');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 390);
-    await button.click();
+    await page.keyboard.press('Space');
     assert.equal(await target.isVisible(), false);
+  }
+  for (const file of ['index.html', 'company.html', 'important-notes.html', 'privacy-policy.html']) {
+    await page.goto(`http://127.0.0.1:8765/${file}`);
+    const typography = await page.evaluate(() => [...document.querySelectorAll('body *')]
+      .filter(e => e.checkVisibility() && !e.closest('.visually-hidden, [aria-hidden="true"]') && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()))
+      .filter(e => parseFloat(getComputedStyle(e).fontSize) < 14)
+      .map(e => e.className || e.tagName));
+    assert.deepEqual(typography, [], `${file}: text smaller than 14px`);
+    for (const link of await page.locator('a[target="_blank"]').all()) {
+      assert.equal(await link.locator('.external-link-icon').count(), 1);
+      assert.equal(await link.locator('.visually-hidden').textContent(), '（新しいタブで開きます）');
+    }
+    await page.setViewportSize({ width: 320, height: 844 });
+    await page.addStyleTag({ content: 'html { font-size: 200%; }' });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 320, `${file}: enlarged text overflow`);
+    await page.setViewportSize({ width: 390, height: 844 });
   }
   await page.goto('http://127.0.0.1:8765/index.html');
   await loadImages();
   fs.mkdirSync('design-preview', { recursive: true });
   await page.screenshot({ path: 'design-preview/preview-mobile-top.png' });
   await page.screenshot({ path: 'design-preview/preview-mobile.png', fullPage: true });
+  for (const [selector, name] of [['#price2', 'fees'], ['#step', 'process']]) {
+    await page.locator(selector).screenshot({
+      path: `design-preview/dads-mobile-${name}.png`,
+      style: '.header, .mobile-contact { visibility: hidden; }'
+    });
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.screenshot({ path: 'design-preview/preview-desktop-top.png' });
   await page.screenshot({ path: 'design-preview/preview-desktop.png', fullPage: true });
   assert.deepEqual(errors, []);
   results.push('Menu open, Escape, menu anchor, header clearance, all accordions, no runtime errors: OK');
+  results.push('Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, 14px minimum visible text, new-tab labels, 200% root text at 320px: OK');
   fs.writeFileSync('design-check.txt', results.join('\n') + '\n');
   console.log(results.join('\n'));
   await browser.close();
