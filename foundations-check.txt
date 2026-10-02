@@ -1,0 +1,33 @@
+Expanded content @ 320px: OK
+Expanded content @ 700px: OK
+Expanded content @ 767px: OK
+Expanded content @ 768px: OK
+Expanded content @ 959px: OK
+Expanded content @ 960px: OK
+Expanded content @ 1199px: OK
+Expanded content @ 1200px: OK
+Expanded content @ 1440px: OK
+index.html, 200% root font @ 320px: OK
+index.html, custom text spacing @ 320px: OK
+index.html, 200% root font @ 768px: OK
+index.html, custom text spacing @ 768px: OK
+index.html, 200% root font @ 1440px: OK
+index.html, custom text spacing @ 1440px: OK
+company.html, 200% root font @ 320px: OK
+company.html, custom text spacing @ 320px: OK
+company.html, 200% root font @ 768px: OK
+company.html, custom text spacing @ 768px: OK
+company.html, 200% root font @ 1440px: OK
+company.html, custom text spacing @ 1440px: OK
+important-notes.html, 200% root font @ 320px: OK
+important-notes.html, custom text spacing @ 320px: OK
+important-notes.html, 200% root font @ 768px: OK
+important-notes.html, custom text spacing @ 768px: OK
+important-notes.html, 200% root font @ 1440px: OK
+important-notes.html, custom text spacing @ 1440px: OK
+privacy-policy.html, 200% root font @ 320px: OK
+privacy-policy.html, custom text spacing @ 320px: OK
+privacy-policy.html, 200% root font @ 768px: OK
+privacy-policy.html, custom text spacing @ 768px: OK
+privacy-policy.html, 200% root font @ 1440px: OK
+privacy-policy.html, custom text spacing @ 1440px: OK
