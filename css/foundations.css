@@ -26,6 +26,11 @@
 }
 body { font-size: var(--text-body); line-height: 1.75; letter-spacing: .02em; }
 main p { text-wrap: pretty; }
+/* Keep short editorial phrases together; allow reflow when text is enlarged. */
+.text-unit { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
+.text-sentence { display: block; }
+main, .footer, .nav-drawer { line-break: strict; }
+.policy__article-title { text-wrap: balance; }
 .message__catch, .cta__title { text-wrap: balance; }
 main, .header, .footer, .nav-drawer { overflow-wrap: anywhere; }
 .container, .header__inner {
@@ -73,14 +78,13 @@ h1.section-heading__title { font-size: var(--text-h1); }
 .important-notes__heading { font-size: var(--text-h3); line-height: 1.5; letter-spacing: .02em; }
 .spec__heading, .loadex__heading { font-size: 1.125rem; line-height: 1.6; }
 .message__catch { font-size: var(--text-h2); line-height: 1.5; }
-.hero__title { font-size: 2.125rem; line-height: 1.4; letter-spacing: .01em; }
+.hero__title { font-size: 2rem; line-height: 1.5; letter-spacing: 0; }
 .hero__price-number, .fees__base-number { font-size: 3rem; line-height: 1.4; letter-spacing: 0; }
 .hero__price-unit, .fees__base-unit, .fees__route-price { font-size: 1.25rem; line-height: 1.5; }
 .fees__addon-price { font-size: 1.125rem; line-height: 1.6; }
 .fees__addon-price--note { font-size: var(--text-small); }
 .spec__weight-number { font-size: 2rem; }
 .spec__weight-unit { font-size: var(--text-body); }
-.hero__lead br, .message__catch br { display: none; }
 
 /* Related text stays close; headings and separate groups receive more space. */
 .section-heading, .section-heading:has(.section-heading__icon) {
@@ -141,6 +145,7 @@ h1.section-heading__title { font-size: var(--text-h1); }
 .spec__value { overflow-wrap: anywhere; }
 .spec__note { gap: var(--space-1); }
 .spec__badge, .loadex__badge { padding: 10px 12px; gap: 8px; font-size: .875rem; }
+.spec__badge--info { display: block; }
 .spec__weight { flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-2); }
 .spec__weight-note, .spec__tags { margin-bottom: var(--space-2); }
 .spec__tags li { padding: var(--space-1); }
@@ -160,6 +165,7 @@ h1.section-heading__title { font-size: var(--text-h1); }
 .fees__addon-icon { grid-row: 1 / 3; }
 .fees__addon-icon { width: 32px; height: 32px; }
 .fees__disclaimer { margin-top: var(--space-3); }
+.fees__disclaimer a { display: inline-block; }
 .fees__area { margin-top: 0; }
 .fees__estimate { margin-top: 24px; }
 .fees__area-label, .fees__estimate-label { margin-bottom: var(--space-2); }
@@ -344,4 +350,19 @@ html { scroll-padding-top: calc(7rem + var(--space-2)); scroll-padding-bottom: c
   .process__item > div { grid-template-columns: minmax(0, 1fr); }
   .process__item .process__step, .process__item .process__title,
   .process__item .process__desc { grid-column: 1; grid-row: auto; }
+}
+
+/* Mobile typography is tuned at 390px, with natural reflow on smaller screens. */
+@media (max-width: 767px) {
+  .message__catch { font-size: 1.25rem; line-height: 1.75; letter-spacing: 0; }
+  .hero__price { column-gap: 16px; }
+  .process__item > div { grid-template-columns: auto minmax(0, 1fr); gap: 10px 16px; }
+  .process__item .process__step { grid-column: 1; grid-row: 1; align-self: center; padding-top: 0; }
+  .process__item .process__title { grid-column: 2; grid-row: 1; }
+  .process__item .process__desc { grid-column: 1 / -1; grid-row: 2; }
+  .faq__question { padding-inline: 0 .5rem; gap: 10px; }
+  .faq__question-mark { width: 28px; flex-basis: 28px; }
+  .faq__question-text { letter-spacing: 0; text-wrap: pretty; }
+  .footer__nav-list { column-gap: 12px; }
+  .footer__nav-list a { gap: 4px; letter-spacing: 0; }
 }
