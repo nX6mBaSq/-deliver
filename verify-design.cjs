@@ -21,7 +21,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
       await page.goto(`http://127.0.0.1:8765/${file}`);
       await loadImages();
       const state = await page.evaluate(() => ({
-        width: innerWidth, scroll: document.documentElement.scrollWidth,
+        width: document.documentElement.getBoundingClientRect().width, scroll: document.documentElement.scrollWidth,
         missing: [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.src),
         animated: [...document.querySelectorAll('*')].filter(e => {
           const c = getComputedStyle(e);
@@ -29,7 +29,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
         }).length,
         brokenAnchors: [...document.querySelectorAll('a[href^="#"]')].filter(a => !document.getElementById(a.hash.slice(1))).map(a => a.hash)
       }));
-      assert.equal(state.scroll, width, `${file} overflow at ${width}`);
+      assert(state.scroll <= state.width + 1, `${file} overflow at ${width}`);
       assert.deepEqual(state.missing, [], `${file} images`);
       assert.deepEqual(state.brokenAnchors, [], `${file} anchors`);
       assert.equal(state.animated, 0, `${file} animations`);
@@ -67,7 +67,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
     await page.keyboard.press('Enter');
     assert.equal(await target.isVisible(), true);
     assert.equal(await button.getAttribute('aria-expanded'), 'true');
-    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 390);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.getBoundingClientRect().width + 1));
     await page.keyboard.press('Space');
     assert.equal(await target.isVisible(), false);
   }
@@ -84,7 +84,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
     }
     await page.setViewportSize({ width: 320, height: 844 });
     await page.addStyleTag({ content: 'html { font-size: 200%; }' });
-    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 320, `${file}: enlarged text overflow`);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.getBoundingClientRect().width + 1), `${file}: enlarged text overflow`);
     await page.setViewportSize({ width: 390, height: 844 });
   }
   await page.goto('http://127.0.0.1:8765/index.html');

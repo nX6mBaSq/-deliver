@@ -80,3 +80,9 @@
 最新スクリーンショットは `design-preview/placeholders/`、検証結果は `design-check.txt` と `foundations-check.txt` に保存しています。再撮影時はPowerShellで `$env:DESIGN_PREVIEW_DIR = 'design-preview/placeholders'` を設定して各検証スクリプトを実行できます。
 
 ローカルプレビューは `node serve-preview.cjs` で起動し、`http://127.0.0.1:8765/` から確認できます。外部への公開は行っていません。
+
+## 2026-10-03 ヘッダーメニュー開閉時の位置ずれ修正
+
+背景のスクロールをロックするとスクロールバーが消え、本文幅が変化していました。`html` に `scrollbar-gutter: stable` を設定して表示領域の幅を保ち、展開時にヘッダーを透明にする旧指定も削除しました。メニュー内のスクロールが背景へ伝わらないよう調整しています。
+
+`node verify-header.cjs` では、スクロールバーを表示したEdgeで全4ページ×320/390/768/960/1199pxを検証。ページ先頭・途中の両方で、開閉前後のヘッダー・本文・固定連絡ボタンの座標とサイズ、スクロール位置の維持、閉じるボタン・Escape・背景クリック、フォーカス復帰を確認しました。`verify-design.cjs` の既存チェックも通過しています。結果は `header-check.txt`、開閉の比較画像は `design-preview/header/` に保存しました。

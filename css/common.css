@@ -235,12 +235,9 @@ button {
   transition: none;
 }
 
-/* モーダル（ドロワー／ライトボックス）表示中はヘッダーを隠し、
-   バックドロップの上に浮いて見える表示崩れを防ぐ */
-body.has-modal-open .header {
-  opacity: 0;
-  pointer-events: none;
-}
+/* 背景のスクロールを止めても本文・ヘッダーの幅を変えない。
+   モーダルはトップレイヤーに表示されるため、ヘッダーを隠す必要はない。 */
+html { scrollbar-gutter: stable; }
 
 .header__inner {
   display: flex;
@@ -310,6 +307,7 @@ body.has-modal-open .header {
   width: min(390px, 100%);
   height: 100%;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
   background: var(--c-white);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   padding: calc(16px + var(--safe-top)) 16px calc(16px + var(--safe-bottom));
