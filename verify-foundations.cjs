@@ -1,6 +1,8 @@
 const { chromium } = require('C:/Users/tryha/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
+fs.mkdirSync(previewDir, { recursive: true });
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   const page = await browser.newPage();
@@ -45,7 +47,7 @@ const fs = require('node:fs');
     for (const button of await page.locator('.features__toggle, .faq__question').all()) await button.click();
     await inspect(`Expanded content @ ${width}px`);
     if (width === 768) await page.locator('#features-spec-detail').screenshot({
-      path: 'design-preview/foundations-details-768.png',
+      path: `${previewDir}/foundations-details-768.png`,
       style: '.header,.mobile-contact { visibility: hidden; }'
     });
   }
@@ -62,13 +64,13 @@ const fs = require('node:fs');
     }
     for (const width of [390, 1440]) {
       await load(file, width);
-      await page.screenshot({ path: `design-preview/foundations-${file.replace('.html', '')}-${width}.png`, fullPage: file !== 'index.html' });
-      if (width === 390 && file !== 'index.html') await page.screenshot({ path: `design-preview/foundations-${file.replace('.html', '')}-top.png` });
+      await page.screenshot({ path: `${previewDir}/foundations-${file.replace('.html', '')}-${width}.png`, fullPage: file !== 'index.html' });
+      if (width === 390 && file !== 'index.html') await page.screenshot({ path: `${previewDir}/foundations-${file.replace('.html', '')}-top.png` });
     }
   }
   await load('index.html', 1440);
   for (const selector of ['#price2', '#strengths', '#cta']) {
-    await page.locator(selector).screenshot({ path: `design-preview/foundations-${selector.slice(1)}-1440.png`, style: '.header,.mobile-contact { visibility: hidden; }' });
+    await page.locator(selector).screenshot({ path: `${previewDir}/foundations-${selector.slice(1)}-1440.png`, style: '.header,.mobile-contact { visibility: hidden; }' });
   }
   fs.writeFileSync('foundations-check.txt', results.join('\n') + '\n');
   console.log(results.join('\n'));

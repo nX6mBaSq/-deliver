@@ -1,6 +1,7 @@
 const { chromium } = require('C:/Users/tryha/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   const page = await browser.newPage();
@@ -88,19 +89,19 @@ const fs = require('node:fs');
   }
   await page.goto('http://127.0.0.1:8765/index.html');
   await loadImages();
-  fs.mkdirSync('design-preview', { recursive: true });
-  await page.screenshot({ path: 'design-preview/preview-mobile-top.png' });
-  await page.screenshot({ path: 'design-preview/preview-mobile.png', fullPage: true });
+  fs.mkdirSync(previewDir, { recursive: true });
+  await page.screenshot({ path: `${previewDir}/preview-mobile-top.png` });
+  await page.screenshot({ path: `${previewDir}/preview-mobile.png`, fullPage: true });
   for (const [selector, name] of [['#price2', 'fees'], ['#step', 'process']]) {
     await page.locator(selector).screenshot({
-      path: `design-preview/dads-mobile-${name}.png`,
+      path: `${previewDir}/dads-mobile-${name}.png`,
       style: '.header, .mobile-contact { visibility: hidden; }'
     });
   }
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.screenshot({ path: 'design-preview/preview-desktop-top.png' });
-  await page.screenshot({ path: 'design-preview/preview-desktop.png', fullPage: true });
+  await page.screenshot({ path: `${previewDir}/preview-desktop-top.png` });
+  await page.screenshot({ path: `${previewDir}/preview-desktop.png`, fullPage: true });
   assert.deepEqual(errors, []);
   results.push('Menu open, Escape, menu anchor, header clearance, all accordions, no runtime errors: OK');
   results.push('Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, 14px minimum visible text, new-tab labels, 200% root text at 320px: OK');
