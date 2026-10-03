@@ -175,7 +175,7 @@ main [id] { scroll-margin-top: 90px; }
 .mobile-contact { position: fixed; bottom: 0; inset-inline: 0; z-index: 99; padding: 9px 14px calc(9px + var(--safe-bottom)); background: #ffffff; border-top: 1px solid #d1e1f1; display: grid; grid-template-columns: .85fr 1.4fr; gap: 9px; }
 .mobile-contact a { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; font-size: 0.875rem; font-weight: 700; border-radius: 4px; }
 .mobile-contact__tel { border: 1px solid #b9cde3; color: #173457; }
-.mobile-contact__form { background: #1767c5; color: white; }
+.mobile-contact__cta { background: #1767c5; color: white; }
 body.has-modal-open .mobile-contact { visibility: hidden; }
 .company-info__value { margin: 0; }
 main > .section > .container:has(.company-info), main > .section > .container:has(.privacy-policy__intro), main > .section > .container:has(.important-notes__intro) { max-width: 860px; }
@@ -411,7 +411,7 @@ main [id] { scroll-margin-top: 0; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 @media (hover: hover) and (pointer: fine) {
   .btn:hover { filter: none; box-shadow: none; }
-  .btn--form:hover, .header__estimate:hover, .mobile-contact__form:hover { background: #104f9c; }
+  .btn--form:hover, .header__estimate:hover, .mobile-contact__cta:hover { background: #104f9c; }
   .btn--tel:hover, .mobile-contact__tel:hover, .features__toggle:hover,
   .faq__question:hover, .quick-nav a:hover { background: #e0efff; }
   .policy a:hover, .company-info__value a:hover, .footer a:hover,
