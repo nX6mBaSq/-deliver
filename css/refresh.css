@@ -1,5 +1,5 @@
 /* 2026 redesign. Blue palette, existing imagery, mobile-first. No motion.
- * DADS reference: ../dads-markdown-20260909/ (see DESIGN-NOTES.md).
+ * Typography is refined in foundations.css; see DESIGN-NOTES.md for history.
  */
 :root {
   --c-heading: #173457; --c-body: #42566d; --c-label: #52657b;
@@ -348,7 +348,7 @@ main > .section > .container:has(.company-info), main > .section > .container:ha
   .process__illustration, .process__illustration img { width: 62px; height: 62px; }
 }
 
-/* DADS: body/UI 16px baseline, supplementary text 14px minimum. */
+/* Legacy base sizes; current editorial typography lives in foundations.css. */
 body { font-size: 1rem; line-height: 1.75; }
 .hero__lead, .hero__price-label, .strengths__desc,
 .fees__base-label, .fees__addon-name, .fees__route-path, .area__desc,

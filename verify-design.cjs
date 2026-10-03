@@ -73,11 +73,8 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
   }
   for (const file of ['index.html', 'company.html', 'important-notes.html', 'privacy-policy.html']) {
     await page.goto(`http://127.0.0.1:8765/${file}`);
-    const typography = await page.evaluate(() => [...document.querySelectorAll('body *')]
-      .filter(e => e.checkVisibility() && !e.closest('.visually-hidden, [aria-hidden="true"]') && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()))
-      .filter(e => parseFloat(getComputedStyle(e).fontSize) < 14)
-      .map(e => e.className || e.tagName));
-    assert.deepEqual(typography, [], `${file}: text smaller than 14px`);
+    // Type sizes now vary by editorial role. Reflow and zoom remain checked below
+    // and in verify-foundations.cjs; there is no site-wide 14px minimum.
     for (const link of await page.locator('a[target="_blank"]').all()) {
       assert.equal(await link.locator('.external-link-icon').count(), 1);
       assert.equal(await link.locator('.visually-hidden').textContent(), '（新しいタブで開きます）');
@@ -94,7 +91,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
   await page.screenshot({ path: `${previewDir}/preview-mobile.png`, fullPage: true });
   for (const [selector, name] of [['#price2', 'fees'], ['#step', 'process']]) {
     await page.locator(selector).screenshot({
-      path: `${previewDir}/dads-mobile-${name}.png`,
+      path: `${previewDir}/mobile-${name}.png`,
       style: '.header, .mobile-contact { visibility: hidden; }'
     });
   }
@@ -104,7 +101,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
   await page.screenshot({ path: `${previewDir}/preview-desktop.png`, fullPage: true });
   assert.deepEqual(errors, []);
   results.push('Menu open, Escape, menu anchor, header clearance, all accordions, no runtime errors: OK');
-  results.push('Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, 14px minimum visible text, new-tab labels, 200% root text at 320px: OK');
+  results.push('Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, new-tab labels, 200% root text at 320px: OK');
   fs.writeFileSync('design-check.txt', results.join('\n') + '\n');
   console.log(results.join('\n'));
   await browser.close();

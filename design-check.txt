@@ -35,4 +35,4 @@ company.html @ 1440px: OK
 important-notes.html @ 1440px: OK
 privacy-policy.html @ 1440px: OK
 Menu open, Escape, menu anchor, header clearance, all accordions, no runtime errors: OK
-Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, 14px minimum visible text, new-tab labels, 200% root text at 320px: OK
+Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, new-tab labels, 200% root text at 320px: OK
