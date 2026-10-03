@@ -175,18 +175,27 @@ h1.section-heading__title { font-size: var(--text-h1); }
 .fees__columns { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--column-gap); }
 .fees__columns > * { min-width: 0; }
 .fees__base, .fees__addon, .fees__estimate { padding: var(--card-space); }
+.fees__base { padding-block: 28px; }
 .fees__base-label { margin-bottom: 8px; }
 .fees__base-value { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: var(--space-1); }
-.fees__base-range { margin-top: 10px; padding: 4px 20px; }
-.fees__addon-label { margin-bottom: var(--space-2); }
-.fees__addon-item { padding-block: 14px; gap: 4px 16px; grid-template-columns: minmax(0, 1fr) minmax(0, max-content); }
-.fees__addon-name { grid-column: 1; }
-.fees__addon-note { grid-column: 1; }
-.fees__addon-price { grid-column: 2; grid-row: 1 / 3; justify-self: end; text-align: right; align-self: center; }
-.fees__addon-icon { grid-row: 1 / 3; }
-.fees__addon-icon { width: 32px; height: 32px; }
-.fees__disclaimer { margin-top: var(--space-3); }
-.fees__disclaimer a { display: inline-block; }
+.fees__base-number { font-size: 3.5rem; font-weight: 600; }
+.fees__base-range { margin-top: 14px; padding: 4px 20px; }
+.fees__addon { margin-top: 16px; }
+.fees__addon-label { width: auto; margin: 0 0 5px; font-size: 1.0625rem; font-weight: 600; text-align: left; }
+.fees__addon-intro { font-size: .8125rem; line-height: 1.8; }
+.fees__group-label { margin: 22px 0 0; padding-bottom: 10px; font-size: .8125rem; font-weight: 500; line-height: 1.7; }
+.fees__addon-list { display: block; margin: 0; }
+.fees__addon-intro + .fees__addon-list { margin-top: 16px; }
+.fees__addon-item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 12px; padding-block: 15px; align-items: center; }
+.fees__addon-item dt { min-width: 0; }
+.fees__addon-name, .fees__addon-note { display: block; line-height: 1.7; }
+.fees__addon-note { margin-top: 3px; }
+.fees__addon-price { grid-column: 2; grid-row: auto; justify-self: stretch; min-width: 0; margin: 0; font-size: 1.125rem; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.fees__addon-unit { font-size: .8125rem; font-weight: 500; margin-left: .15em; }
+.fees__addon-price--note { font-size: .8125rem; font-weight: 400; line-height: 1.7; }
+.fees__addon-price--consult { font-size: .9375rem; font-weight: 500; }
+.fees__details { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; margin-top: 20px; padding: 14px; font-size: .9375rem; font-weight: 600; line-height: 1.7; }
+.fees__details > span:first-child { min-width: 0; }
 .fees__area { margin-top: 0; }
 .fees__estimate { margin-top: 24px; }
 .fees__area-label, .fees__estimate-label { margin-bottom: var(--space-2); }
@@ -244,6 +253,7 @@ main > .section > .container:has(.important-notes__intro) {
 .policy__list--bullet > li::before, .policy__sublist > li::before { content: none; }
 .important-notes__section { margin-bottom: 36px; }
 .important-notes__heading { padding: var(--space-2); }
+.important-notes__subheading { margin: 28px 0 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.6; color: var(--c-heading); }
 .important-notes__list, .important-notes__cancel-list { margin-top: 16px; }
 .important-notes__item { padding: var(--space-2) 0; gap: var(--space-2); }
 .important-notes__cancel-item { padding: var(--space-2) 0; gap: var(--space-2); flex-wrap: wrap; }

@@ -435,3 +435,20 @@ main [id] { scroll-margin-top: 0; }
   .process__item { flex-wrap: wrap; align-items: flex-start; }
   .process__content { flex-basis: 100%; }
 }
+
+/* Pricing hierarchy: one prominent base rate, followed by grouped additions. */
+.fees__base { background: #173457; border: 1px solid #173457; border-radius: 12px; }
+.fees__base-label, .fees__base-number, .fees__base-unit,
+.fees__base-unit small { color: #ffffff; }
+.fees__base-range { background: #294767; color: #ffffff; border: 1px solid #68839e; }
+.fees__addon { border: 1px solid #d1e1f1; border-radius: 12px; background: #ffffff; }
+.fees__group-label { color: #52657b; border-bottom: 1px solid #c9daeb; }
+.fees__addon-intro + .fees__addon-list { border-top: 1px solid #c9daeb; }
+.fees__addon-item { border-bottom: 1px solid #e1ebf5; }
+.fees__addon-item:last-child { border-bottom: 0; }
+.fees__addon-price { color: #173457; }
+.fees__addon-price--note { color: #52657b; }
+.fees__details { color: #1767c5; background: #edf6ff; border: 1px solid #8aafd5; border-radius: 8px; }
+@media (hover: hover) and (pointer: fine) {
+  .fees__details:hover { background: #dfedff; text-decoration: underline; text-underline-offset: .2em; }
+}
