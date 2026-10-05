@@ -42,7 +42,7 @@ fs.mkdirSync(previewDir, { recursive: true });
     assert.deepEqual(problems, [], label);
     results.push(`${label}: OK`);
   }
-  for (const width of [320, 700, 767, 768, 959, 960, 1199, 1200, 1440]) {
+  for (const width of [320, 700, 767, 768, 959, 960, 1099, 1100, 1199, 1200, 1440]) {
     await load('index.html', width);
     for (const button of await page.locator('.features__toggle, .faq__question').all()) await button.click();
     await inspect(`Expanded content @ ${width}px`);
@@ -52,7 +52,7 @@ fs.mkdirSync(previewDir, { recursive: true });
     });
   }
   for (const file of files) {
-    for (const width of [320, 768, 1440]) {
+    for (const width of [320, 768, 960, 1100, 1440]) {
       await load(file, width);
       if (file === 'index.html') for (const button of await page.locator('.features__toggle, .faq__question').all()) await button.click();
       await page.addStyleTag({ content: 'html { font-size: 200%; }' });
