@@ -1,0 +1,96 @@
+/* Final text composition, after structure.css. No fixed text heights or clipping. */
+:root {
+  --type-leading-body: 1.9;
+  --type-leading-heading: 1.65;
+  --type-tracking-body: .01em;
+  --font-numeral: Arial, "Noto Sans JP", sans-serif;
+}
+body { line-height: var(--type-leading-body); letter-spacing: var(--type-tracking-body); font-kerning: normal; }
+main, .footer, .nav-drawer { line-break: strict; word-break: normal; }
+.text-phrase { display: inline-block; max-inline-size: 100%; vertical-align: top; overflow-wrap: anywhere; }
+
+/* Headings: restrained weight, clear hierarchy, and deliberate phrase endings. */
+.hero__title { font-weight: 600; line-height: 1.5; letter-spacing: -.025em; }
+.section-heading__title, .cta__title { font-weight: 600; line-height: var(--type-leading-heading); letter-spacing: .025em; }
+h1.section-heading__title { font-weight: 600; letter-spacing: .015em; }
+.strengths__title, .features__title, .fees__area-label, .fees__estimate-label,
+.fees__addon-label, .process__title, .service-overview h3, .booking-notes h3,
+.representative-link h3, .important-notes__heading, .contact-method__label {
+  font-size: 1.0625rem; font-weight: 600; line-height: 1.7; letter-spacing: .015em; text-wrap: balance;
+}
+.spec__heading, .loadex__heading { font-weight: 600; line-height: 1.75; letter-spacing: .01em; }
+.section-heading__label { font-family: var(--font-en); font-size: .71875rem; font-weight: 500; line-height: 1.5; letter-spacing: .13em; }
+.cta__label { font-size: .78125rem; font-weight: 500; letter-spacing: .04em; line-height: 1.65; }
+.hero__eyebrow, .small-label { font-size: .8125rem; line-height: 1.7; letter-spacing: .025em; }
+
+/* Short service copy and long reading copy use separate line spacing. */
+.hero__lead, .section-intro, .service-facts dd, .area__desc, .features__desc,
+.process__desc, .booking-notes > p, .representative-link > div > p:not(.small-label),
+.cta__desc, .document-lead, .plain-list {
+  font-size: var(--text-body); font-weight: 400; line-height: var(--type-leading-body); letter-spacing: var(--type-tracking-body);
+}
+.hero__lead { line-height: 2; }
+.service-facts dt, .fees__addon-name { font-weight: 500; line-height: 1.7; letter-spacing: .01em; }
+.strengths__desc { font-size: .875rem; line-height: 1.8; font-weight: 400; letter-spacing: 0; }
+.message__body { font-size: var(--text-body); line-height: 2.05; letter-spacing: .015em; }
+.message__catch { font-weight: 600; line-height: 1.85; letter-spacing: .025em; }
+.message__name { font-size: .8125rem; font-weight: 500; letter-spacing: .015em; }
+.faq__question-text { font-size: .9375rem; font-weight: 500; line-height: 1.8; letter-spacing: .005em; text-wrap: balance; }
+.faq__answer-text { font-size: var(--text-body); line-height: 2; letter-spacing: .01em; }
+.policy__intro, .policy__article-body, .policy__list, .important-notes__intro,
+.important-notes__item { font-size: .9375rem; font-weight: 400; line-height: 2; letter-spacing: .015em; }
+.policy__article-body, .policy__list { max-inline-size: 40em; }
+.policy__article-title { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: .65em; font-size: 1.0625rem; line-height: 1.75; letter-spacing: .01em; font-weight: 600; }
+.article-number { font-size: .8125rem; font-weight: 500; letter-spacing: .02em; line-height: 1.8; }
+.article-subject { min-width: 0; text-wrap: pretty; }
+.policy-toc a { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .65em; align-items: baseline; }
+.document-toc a, .document-links a { font-size: .875rem; line-height: 1.85; letter-spacing: .005em; font-weight: 400; }
+.company-info__label { font-size: .8125rem; font-weight: 500; line-height: 1.85; letter-spacing: .025em; }
+.company-info__value { font-size: var(--text-body); line-height: 1.9; letter-spacing: .01em; }
+
+/* Numerals keep stable widths; units and qualifications remain secondary. */
+.hero__price-number, .fees__base-number, .price-figure, .fees__addon-price:not(.fees__addon-price--note):not(.fees__addon-price--consult), .spec__weight-number {
+  font-family: var(--font-numeral); font-variant-numeric: lining-nums tabular-nums; font-weight: 500; letter-spacing: -.025em;
+}
+.hero__price-number { font-size: 3rem; line-height: 1.15; }
+.fees__base-number { font-size: 3.5rem; line-height: 1.1; }
+.hero__price-unit, .fees__base-unit { font-size: 1rem; font-weight: 500; letter-spacing: 0; }
+.fees__base-unit small { display: inline-block; font-size: .8125rem; font-weight: 400; letter-spacing: 0; margin-left: .25em; }
+.fees__base-label, .hero__price-label { font-size: .875rem; font-weight: 500; line-height: 1.8; letter-spacing: .015em; }
+.fees__route-price { display: inline-flex; flex-wrap: wrap; align-items: baseline; column-gap: .2em; font-size: 1.25rem; line-height: 1.5; }
+.price-unit, .fees__addon-unit { font-family: var(--font-jp); font-size: .8125rem; font-weight: 400; letter-spacing: 0; }
+.fees__addon-price:not(.fees__addon-price--note):not(.fees__addon-price--consult) { font-size: 1.25rem; line-height: 1.5; }
+.fees__addon-note, .fees__addon-intro, .fees__estimate-note, .fees__disclaimer,
+.spec__weight-note, .spec__heading-note, .spec__note { font-size: .8125rem; font-weight: 400; line-height: 1.85; letter-spacing: .01em; }
+.fees__estimate-note { font-weight: 500; }
+.spec__weight-number { font-size: 2.125rem; line-height: 1.2; }
+.quantity-prefix { font-family: var(--font-jp); font-size: .9375rem; font-weight: 400; letter-spacing: 0; margin-right: .2em; }
+.spec__weight-unit { font-size: .875rem; font-weight: 500; letter-spacing: 0; }
+.spec__key, .spec__value, .loadex__items li { font-size: .875rem; line-height: 1.85; letter-spacing: .01em; }
+.spec__value { font-variant-numeric: tabular-nums; }
+.process__step { font-family: var(--font-en); font-size: .75rem; font-weight: 500; letter-spacing: .055em; line-height: 1.7; }
+
+/* Controls stay concise. Focus outlines and touch target sizes are unchanged. */
+.btn, .features__toggle, .fees__details, .booking-notes__links a { font-size: .875rem; font-weight: 600; line-height: 1.75; letter-spacing: .015em; }
+.features__toggle > span:first-child, .fees__details > span:first-child { min-width: 0; }
+.header__nav, .nav-drawer__link { letter-spacing: .01em; }
+.journey-nav a { font-size: .8125rem; font-weight: 500; line-height: 1.75; letter-spacing: .005em; }
+.contact-method > p + p, .contact-preparation li { font-size: .8125rem; line-height: 1.9; letter-spacing: .01em; }
+.contact-method .btn--tel { font-family: var(--font-numeral); font-size: 1.125rem; line-height: 1.35; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: .015em; }
+.hero__conditions, .contact-method small, .contact-other, .contact-policy,
+.footer__address, .footer__tel, .footer__links { font-size: .8125rem; line-height: 1.85; letter-spacing: .01em; }
+.footer__nav-list a { font-size: .8125rem; font-weight: 400; line-height: 1.85; letter-spacing: .005em; }
+.mobile-contact a { font-size: .875rem; font-weight: 600; letter-spacing: .02em; }
+
+@media (min-width: 960px) {
+  :root { --text-body: .96875rem; }
+  .hero__title { font-size: clamp(2.25rem, 3.25vw, 3rem); letter-spacing: -.035em; line-height: 1.45; }
+  .section-heading__title, .cta__title { font-size: 1.75rem; letter-spacing: .02em; }
+  h1.section-heading__title { font-size: 2rem; }
+  .faq__question-text { font-size: 1rem; }
+  .policy__intro, .policy__article-body, .policy__list, .important-notes__intro,
+  .important-notes__item { font-size: 1rem; line-height: 2; }
+  .message__body { font-size: 1rem; }
+  .policy__article-title, .important-notes__heading { font-size: 1.125rem; }
+  .care-list .features__title { font-size: 1.0625rem; }
+}
