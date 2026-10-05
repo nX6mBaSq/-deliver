@@ -2,8 +2,10 @@
 const fs = require('node:fs');
 const dir = 'images/graphics';
 fs.mkdirSync(dir, { recursive: true });
-const navy = '#163c63', blue = '#2274bf', pale = '#dfedfa', teal = '#3f8c88', cream = '#f7d995';
+const navy = '#193b50', blue = '#1764a1', pale = '#dfeef5', teal = '#276963', cream = '#f0ce8d', amber = '#82551c';
 function svg(name, w, h, content) {
+  // Keep the existing small icon paths on the same palette as the larger scenes.
+  for (const [oldColor, newColor] of Object.entries({'#163c63':navy,'#2274bf':blue,'#3f8c88':teal,'#f7d995':cream,'#dfedfa':pale,'#e0efec':'#e5f1eb'})) content=content.replaceAll(oldColor,newColor);
   fs.writeFileSync(`${dir}/${name}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" fill="none"><g stroke="${navy}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${content}</g></svg>\n`);
 }
 const box = (x,y,s=1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 18 36 0 80 20 44 40Z" fill="${cream}"/><path d="M0 18v53l44 22V40Z" fill="#edd09a"/><path d="m44 40 36-20v53L44 93Z" fill="#dcb779"/><path d="m18 9 44 21v19l-13 6V36L7 15" stroke="none" fill="#fff0cf"/><path d="m59 61 10-5"/></g>`;
@@ -31,7 +33,7 @@ svg('cargo-side',800,560, `
   <circle cx="142" cy="465" r="34" fill="${navy}"/><circle cx="142" cy="465" r="15" fill="#d2e3ef"/>
   <circle cx="574" cy="465" r="34" fill="${navy}"/><circle cx="574" cy="465" r="15" fill="#d2e3ef"/>
   <g stroke="${teal}" stroke-width="2"><path d="M120 62h550m-550-9v18m550-18v18M252 526h418m-418-9v18m418-18v18M706 90v374m-9-374h18m-18 374h18"/><path d="m130 57-10 5 10 5m530-10 10 5-10 5M262 521l-10 5 10 5m398-10 10 5-10 5"/></g>
-  <g stroke="none" font-family="Arial,sans-serif" font-size="20" font-weight="700" text-anchor="middle"><circle cx="394" cy="62" r="23" fill="${teal}"/><text x="394" y="69" fill="white">01</text><circle cx="461" cy="526" r="23" fill="${blue}"/><text x="461" y="533" fill="white">02</text><circle cx="706" cy="276" r="23" fill="${navy}"/><text x="706" y="283" fill="white">03</text></g>`);
+  <g stroke="none" font-family="Arial,sans-serif" font-size="20" font-weight="700" text-anchor="middle"><circle cx="394" cy="62" r="23" fill="${amber}"/><text x="394" y="69" fill="white">01</text><circle cx="461" cy="526" r="23" fill="${blue}"/><text x="461" y="533" fill="white">02</text><circle cx="706" cy="276" r="23" fill="${navy}"/><text x="706" y="283" fill="white">03</text></g>`);
 svg('truck',760,440, `
   <ellipse cx="388" cy="369" rx="298" ry="21" fill="#dce8f2" stroke="none"/>
   <path d="m258 76 97-42 320 48-103 43Z" fill="#dbe9f5"/><path d="m572 125 103-43v237l-103 44Z" fill="#91b6d3"/><path d="M258 76 572 125v236l-314-45Z" fill="#f7fbff"/>

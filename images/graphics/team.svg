@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340" fill="none"><g stroke="#163c63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340" fill="none"><g stroke="#193b50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
  <path d="M53 293h694" stroke="#d1e1eb"/><path d="M610 271V101h102v171M630 121h61v55m-31-55v55" stroke="#bed6e7"/><path d="m80 271 20-104 23 104m-39-42h35" stroke="#8cbbb0"/>
- <circle cx="285" cy="79" r="29" fill="#f4d6b5"/><path d="M255 65q3-37 42-25l19 26Z" fill="#163c63"/><path d="M256 112h55l20 101h-85Z" fill="#2274bf"/>
- <path d="m261 212-14 73m54-73 17 73" stroke="#163c63" stroke-width="22"/><path d="m271 139 57 41 37-5" stroke="#f4d6b5" stroke-width="19"/>
- <circle cx="520" cy="79" r="29" fill="#f4d6b5"/><path d="M490 72q-8-39 34-36 33 3 30 55l-12-7-11-30-40 21" fill="#163c63"/><path d="M495 112h55l19 101h-88Z" fill="#3f8c88"/>
- <path d="m495 212-8 73m56-73 15 73" stroke="#163c63" stroke-width="22"/><path d="m505 139-49 41-37-5" stroke="#f4d6b5" stroke-width="19"/>
- <path d="M344 128h99v81h-99Z" fill="#f7d995"/><path d="M382 128v31h24v-31" fill="#fff1cd"/><path d="M362 190h20"/>
+ <circle cx="285" cy="79" r="29" fill="#f4d6b5"/><path d="M255 65q3-37 42-25l19 26Z" fill="#193b50"/><path d="M256 112h55l20 101h-85Z" fill="#1764a1"/>
+ <path d="m261 212-14 73m54-73 17 73" stroke="#193b50" stroke-width="22"/><path d="m271 139 57 41 37-5" stroke="#f4d6b5" stroke-width="19"/>
+ <circle cx="520" cy="79" r="29" fill="#f4d6b5"/><path d="M490 72q-8-39 34-36 33 3 30 55l-12-7-11-30-40 21" fill="#193b50"/><path d="M495 112h55l19 101h-88Z" fill="#276963"/>
+ <path d="m495 212-8 73m56-73 15 73" stroke="#193b50" stroke-width="22"/><path d="m505 139-49 41-37-5" stroke="#f4d6b5" stroke-width="19"/>
+ <path d="M344 128h99v81h-99Z" fill="#f0ce8d"/><path d="M382 128v31h24v-31" fill="#fff1cd"/><path d="M362 190h20"/>
  <path d="m244 296 23-1m41 0 22 1m147 0h23m46 0h22" stroke-width="12"/>
  <path d="M373 68h45m-23-22v44" stroke="#d5e6f4" stroke-width="8"/></g></svg>

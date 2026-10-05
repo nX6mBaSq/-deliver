@@ -1,0 +1,180 @@
+/* Final shared palette. Color-only rules; geometry and typography stay intact. */
+:root {
+  --ink: #193b50;
+  --text: #435562;
+  --muted: #596b76;
+  --paper: #fbfaf7;
+  --surface: #ffffff;
+  --mist: #edf4f7;
+  --blue-soft: #dfeef5;
+  --line: #c9d8df;
+  --control-line: #678496;
+  --action: #1764a1;
+  --action-hover: #104c7d;
+  --teal: #276963;
+  --teal-soft: #e5f1eb;
+  --amber: #82551c;
+  --amber-soft: #fbf0d9;
+  --gold: #f0ce8d;
+  --danger: #974739;
+  --danger-soft: #f8ede7;
+  --night: #102c3e;
+  --on-dark: #ffffff;
+  --on-dark-muted: #cadbe4;
+  --c-heading: var(--ink);
+  --c-body: var(--text);
+  --c-label: var(--muted);
+  --c-muted: var(--muted);
+  --c-link: var(--action);
+  --c-bg-alt: var(--mist);
+  --c-bg-cta: var(--blue-soft);
+  --c-bg-danger: var(--danger-soft);
+  --c-danger: var(--danger);
+  --c-footer-bg: var(--night);
+  --c-footer-text: var(--on-dark-muted);
+  --gradient-blue: linear-gradient(var(--action),var(--action));
+  --gradient-green: linear-gradient(var(--teal),var(--teal));
+  --gradient-orange: linear-gradient(var(--amber),var(--amber));
+}
+body { color: var(--text); background: var(--paper); }
+::selection { background: var(--gold); color: var(--ink); }
+a, button { -webkit-tap-highlight-color: var(--blue-soft); }
+.header, .nav-drawer__panel, .mobile-contact, .skip-link { background: var(--paper); border-color: var(--line); }
+.nav-drawer { color: var(--text); }
+.nav-drawer::backdrop { background: rgb(16 44 62 / .6); }
+.nav-drawer__link, .nav-drawer__sub-links a { border-color: var(--line); color: var(--ink); }
+.header__menu-button, .nav-drawer__close { color: var(--ink); }
+.site-wordmark { color: var(--ink); }
+.site-wordmark > span { color: var(--action); }
+.btn--form, .header__nav .header__estimate, .mobile-contact__cta { background: var(--action); color: var(--on-dark); }
+.btn--tel, .mobile-contact__tel, .features__toggle { background: var(--surface); color: var(--action); border-color: var(--control-line); }
+.btn.is-unavailable { background: var(--mist); color: var(--muted); }
+.text-link, .service-overview a, .booking-notes a, .document-toc a, .document-links a, .breadcrumb a { color: var(--action); }
+.section-heading__label, .graphic-kicker, .process__step { color: var(--action); }
+.process__step { background: none; -webkit-text-fill-color: currentColor; }
+.section-intro, .hero__lead, .features__desc, .process__desc, .strengths__desc { color: var(--text); }
+.small-label, .breadcrumb, .hero__conditions, .fees__disclaimer, .fees__addon-note,
+.spec__weight-note, .spec__heading-note, .spec__note, .graphic-caption,
+.capacity-figure figcaption, .detail-figure figcaption, .inventory-grid small,
+.capacity-dimensions small, .hero-figure figcaption small, .fees__addon-intro { color: var(--muted); }
+
+/* Warm welcome, followed by quiet white reading surfaces. */
+.hero { background: var(--paper); }
+.hero__title em, .hero__price-number, .hero__price-unit { color: var(--action); }
+.hero__eyebrow { color: var(--ink); }
+.hero__eyebrow > span { background: var(--teal); }
+.hero__availability { color: var(--muted); }
+.hero__availability span + span { border-color: var(--line); }
+.hero-figure { background: var(--blue-soft); }
+.hero-figure__stamp { background: var(--gold); color: var(--ink); }
+.hero-figure figcaption { color: var(--ink); }
+.journey-nav { background: var(--surface); border-color: var(--line); }
+.journey-nav p { color: var(--muted); }
+.journey-nav li:nth-child(-n+2) { border-color: var(--line); }
+.journey-nav a { color: var(--ink); }
+.journey-nav a > span:last-child { color: var(--action); }
+.service-overview { background: var(--surface); }
+.team-visual { background: var(--mist); }
+.team-equation { color: var(--ink); }
+.team-equation .team-equation__plus { color: var(--teal); }
+.service-facts > div, .service-overview__help { border-color: var(--line); }
+.service-overview__limits { background: var(--amber-soft); border-top-color: var(--amber); }
+.service-overview__limits .small-label { color: var(--amber); }
+
+/* Price is the strongest blue block before the contact section. */
+.fees { background: var(--paper); }
+.fees__base { background: var(--ink); border-color: var(--ink); }
+.fees__base-label, .fees__base-number, .fees__base-unit, .fees__base-unit small { color: var(--on-dark); }
+.fees__base-range { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+.fees__addon, .fees__estimate { background: var(--surface); border-color: var(--line); }
+.fees__addon-item, .fees__route, .fees__addon-intro + .fees__addon-list, .section-next { border-color: var(--line); }
+.fees__addon-price, .fees__route-price { color: var(--ink); }
+.fees__estimate-note { color: var(--teal); }
+.fees__details { background: var(--blue-soft); color: var(--action-hover); border-color: var(--control-line); }
+.area-figure { background: var(--mist); }
+.area-figure figcaption { background: var(--blue-soft); color: var(--ink); }
+
+/* The numbered key matches the SVG: amber long space, blue lower space, navy height. */
+.features { background: var(--mist); border-top-color: var(--line); }
+.capacity-summary, .capacity-summary > p + p { border-color: var(--line); }
+.capacity-summary span { color: var(--muted); }
+.capacity-summary strong, .capacity-dimensions dt, .capacity-dimensions strong,
+.inventory-grid span, .inventory-board__label { color: var(--ink); }
+.features__item--wide, .spec__card, .loadex__card { background: var(--surface); border-color: var(--line); }
+.features__highlight { background: var(--paper); }
+.capacity-figure, .detail-figure { background: var(--mist); }
+.inventory-board { background: var(--paper); }
+.capacity-dimensions > div, .inventory-board .graphic-caption, .spec__list li,
+.features__collapse.is-open { border-color: var(--line); }
+.diagram-key { color: var(--on-dark); background: var(--action); }
+.diagram-key--long { background: var(--amber); }
+.diagram-key--height { background: var(--ink); }
+.spec__weight-number { color: var(--action); }
+.spec__tags li { background: var(--mist); color: var(--ink); }
+.spec__badge--ok, .loadex__badge--ok { background: var(--teal-soft); color: var(--teal); }
+.spec__badge--info, .loadex__badge--ask { background: var(--amber-soft); color: var(--amber); }
+.loadex__heading--ok { background: var(--teal); color: var(--on-dark); }
+.loadex__heading--ask { background: var(--amber); color: var(--on-dark); }
+.capacity-preflight { background: var(--blue-soft); }
+.capacity-preflight h3 { color: var(--ink); }
+.capacity-preflight p { color: var(--text); }
+.capacity-preflight a { color: var(--action-hover); }
+
+/* Calm reassurance and reading sections. */
+.strengths, .faq { background: var(--surface); }
+.strengths__item { background: var(--surface); border-color: var(--line); }
+.strengths__icon { background: var(--blue-soft); }
+.care-list .features__item { background: var(--paper); border-color: var(--line); }
+.care-list .care-art { background: transparent; }
+.representative-link, .process__list, .process__item, .booking-notes,
+.booking-notes__links li, .faq__list, .faq__item { border-color: var(--line); }
+.process { background: var(--paper); }
+.process__list, .booking-notes { background: var(--surface); }
+.faq__question-mark { background: var(--blue-soft); color: var(--action-hover); }
+.faq__question, .features__toggle-icon, .faq__toggle-icon { color: var(--action); }
+.faq__question-text { color: var(--ink); }
+.faq__question[aria-expanded="true"] { background: var(--mist); }
+.faq__answer-text { color: var(--text); }
+.document-toc { background: var(--mist); border-left-color: var(--action); }
+.company-info, .company-info__row, .important-notes__item, .important-notes__cancel-item { border-color: var(--line); }
+.company-info__label, .article-number { color: var(--muted); }
+.message { background: var(--mist); }
+.message__card { background: var(--surface); border-color: var(--line); }
+.image-placeholder { color: var(--muted); background: var(--blue-soft); }
+.important-notes__heading { background: var(--blue-soft); }
+#incompatible .important-notes__heading { background: var(--danger-soft); color: var(--danger); }
+#caution .important-notes__heading, #cancel .important-notes__heading { background: var(--amber-soft); color: var(--amber); }
+.important-notes__list--warn .important-notes__icon { color: var(--amber); }
+.policy a:visited, .company-info__value a:visited { color: #624773; }
+
+/* A navy destination with white contact cards; the action color stays consistent. */
+.cta {
+  --c-heading: var(--on-dark); --c-body: var(--on-dark-muted); --c-link: #c5e1f1;
+  background: var(--ink); color: var(--on-dark-muted);
+}
+.cta__label { color: var(--gold); }
+.cta__title { color: var(--on-dark); }
+.cta__desc, .contact-other, .contact-policy { color: var(--on-dark-muted); }
+.contact-preparation { border-color: #567487; }
+.contact-preparation h3 { color: var(--on-dark); }
+.contact-method {
+  --c-heading: var(--ink); --c-body: var(--text); --c-link: var(--action);
+  background: var(--surface); color: var(--text); border-color: var(--surface);
+}
+.contact-method__label { color: var(--ink); }
+.contact-method small { color: var(--muted); }
+.contact-policy a { color: #c5e1f1; }
+.footer { background: var(--night); color: var(--on-dark-muted); }
+.footer__wordmark, .footer__wordmark > span { color: var(--on-dark); }
+.footer__address, .footer__tel, .footer__links, .footer__nav-list a, .footer__copyright { color: var(--on-dark-muted); }
+.footer__nav-list a, .footer__copyright { border-color: #466170; }
+:is(a, button, [tabindex]):focus-visible { outline-color: var(--ink); box-shadow: 0 0 0 6px var(--gold); }
+@media (hover: hover) and (pointer: fine) {
+  .btn--form:hover, .header__nav .header__estimate:hover, .mobile-contact__cta:hover { background: var(--action-hover); color: var(--on-dark); }
+  .btn--tel:hover, .features__toggle:hover, .fees__details:hover { background: var(--blue-soft); color: var(--action-hover); }
+  .faq__question:hover, .journey-nav a:hover, .nav-drawer__link:hover { background: var(--mist); color: var(--action-hover); }
+  .footer a:hover, .contact-policy a:hover { color: var(--on-dark); }
+}
+@media (forced-colors: active) {
+  :is(a, button, [tabindex]):focus-visible { outline-color: Highlight; }
+}
