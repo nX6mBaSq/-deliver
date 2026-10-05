@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/company.css">
 <link rel="stylesheet" href="css/refresh.css">
 <link rel="stylesheet" href="css/foundations.css">
+<link rel="stylesheet" href="css/structure.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -28,7 +29,7 @@
     <a href="index.html" class="header__logo">
       <span class="site-wordmark">茜<span>deliver</span></span>
     </a>
-<nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#price2">料金・エリア</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="header__estimate">無料お見積り<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a></nav>
+<nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#service">サービス</a><a href="index.html#price2">料金・エリア</a><a href="index.html#features">運べる荷物</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="#cta" class="header__estimate">無料見積り・相談</a></nav>
     <button type="button" class="header__menu-button" data-nav-open aria-haspopup="dialog" aria-expanded="false" aria-controls="nav-drawer" aria-label="メニューを開く">
       <span class="menu-lines" aria-hidden="true"></span>
     </button>
@@ -45,33 +46,30 @@
     </button>
 
     <ul class="nav-drawer__list">
-      <li><a class="nav-drawer__link" href="index.html">トップページへ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#strengths">私たちが選ばれる理由<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#price2">サービス料金体系<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#area">対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#restriction">サービス対応不可条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#step">お引っ越しの流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#message">代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html">トップページ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#notes">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#cta">お問い合わせ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="important-notes.html">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="company.html" aria-current="page">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
     </ul>
 
     <div class="nav-drawer__actions">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">WEB見積りフォームへ<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a>
         <a href="tel:0568281105" class="btn btn--tel">電話で相談する</a>
-        <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
-      <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
     </div>
 
     <div class="nav-drawer__sub-links">
-      <a href="company.html" aria-current="page">会社概要<span class="link-chevron" aria-hidden="true">›</span></a>
       <a href="privacy-policy.html">プライバシーポリシー<span class="link-chevron" aria-hidden="true">›</span></a>
     </div>
   </div>
 </dialog>
 
 <main id="main-content" tabindex="-1">
+  <nav class="breadcrumb container" aria-label="パンくずリスト"><ol><li><a href="index.html">トップページ</a></li><li aria-current="page">会社概要</li></ol></nav>
 
   <!-- ==========================================================================
        COMPANY（会社概要）
@@ -83,7 +81,9 @@
         <h1 class="section-heading__title">会社概要</h1>
       </div>
 
-      <dl class="company-info">
+      <p class="document-lead">少ない荷物の単身引越しを、お客様との共同作業でサポートしています。</p>
+      <nav class="document-links" aria-label="会社概要の目次"><a href="#company-info">会社情報<span aria-hidden="true"> ↓</span></a><a href="#message">代表メッセージ<span aria-hidden="true"> ↓</span></a></nav>
+      <dl class="company-info" id="company-info">
         <div class="company-info__row">
           <dt class="company-info__label">会社名</dt>
           <dd class="company-info__value">茜DELIVER</dd>
@@ -98,7 +98,7 @@
         </div>
         <div class="company-info__row">
           <dt class="company-info__label">連絡先</dt>
-          <dd class="company-info__value">0568-28-1105</dd>
+          <dd class="company-info__value"><a href="tel:0568281105">0568-28-1105</a></dd>
         </div>
         <div class="company-info__row">
           <dt class="company-info__label">設立年月日</dt>
@@ -118,7 +118,7 @@
         </div>
         <div class="company-info__row">
           <dt class="company-info__label">標準引越運送約款</dt>
-          <dd class="company-info__value"><a href="https://www.mlit.go.jp/notice/noticedata/sgml/1990/68227000/68227000.html" target="_blank" rel="noopener">https://www.mlit.go.jp/notice/noticedata/sgml/1990/68227000/68227000.html<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a></dd>
+          <dd class="company-info__value"><a href="https://www.mlit.go.jp/notice/noticedata/sgml/1990/68227000/68227000.html" target="_blank" rel="noopener">標準引越運送約款（国土交通省）<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a></dd>
         </div>
       </dl>
     </div>
@@ -127,17 +127,39 @@
   <!-- ==========================================================================
        CTA（お問い合わせ・共通パーツ）
        ========================================================================== -->
+  <section class="message section section--alt" id="message">
+    <div class="container">
+      <div class="section-heading">
+
+        <p class="section-heading__label">CEO MESSAGE</p>
+        <h2 class="section-heading__title">代表メッセージ</h2>
+      </div>
+      <div class="message__card">
+        <div class="message__portrait image-placeholder" role="img" aria-label="代表写真（仮置き）" data-original-src="images/ceo-photo.webp"><span>代表写真</span></div>
+        <div class="message__content">
+          <p class="message__name">茜deliver代表　酒井 利明</p>
+          <p class="message__catch"><span class="text-unit">引っ越しの「不透明」を無くし、</span><span class="text-unit">クリーンでスマートな新生活を！</span></p>
+          <p class="message__body">引っ越し業界の不明瞭な料金や時間に疑問を持ち、「茜deliver」を立ち上げました。私たちが「お客様との共同作業」という合理的なスタイルをとる理由は、定時スタートと明瞭会計を徹底し、心から安心してもらうためです。新しいスタートを全力でサポートいたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta" id="cta">
     <div class="container cta__inner">
-      <p class="cta__label">24時間年中無休受付中</p>
-      <h2 class="cta__title">まずはお気軽にご相談ください</h2>
-      <p class="cta__desc">お見積り・ご相談は無料です。<br>新しいスタートを全力でサポートします。</p>
-      <div class="cta__buttons">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">WEB見積りフォームへ<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a>
-        <a href="tel:0568281105" class="btn btn--tel">電話で相談する</a>
-        <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
-        <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
+      <p class="cta__label">CONTACT / お見積り・ご相談は無料</p>
+      <h2 class="cta__title">あなたのお引越しについて、<br>お聞かせください。</h2>
+      <p class="cta__desc">行き先・荷物・日程を伺い、料金と対応可否をご案内します。</p>
+      <div class="contact-preparation">
+        <h3>ご相談時にあるとスムーズな情報</h3>
+        <ul><li>引越しの希望日</li><li>引越し元・引越し先</li><li>荷物の種類・量・寸法</li><li>階数・エレベーターの有無</li></ul>
       </div>
+      <div class="cta__buttons">
+        <div class="contact-method"><p class="contact-method__label">WEBからお見積り</p><p>24時間受付。内容をまとめて送れます。</p><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">無料見積りフォームを開く<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a><small>Googleフォームが新しいタブで開きます。</small></div>
+        <div class="contact-method"><p class="contact-method__label">電話でご相談</p><p>荷物や日程のご相談はこちら。</p><a href="tel:0568281105" class="btn btn--tel">0568-28-1105</a><small>作業中はご返信が遅れる場合があります。</small></div>
+      </div>
+      <p class="contact-other">LINE相談は準備中です。WEBまたは電話をご利用ください。</p>
+      <p class="contact-policy"><a href="privacy-policy.html">個人情報の取り扱いについて</a></p>
     </div>
   </section>
 
@@ -150,16 +172,15 @@
   <div class="container">
     <nav class="footer__nav" aria-label="フッターナビゲーション">
       <ul class="footer__nav-list">
-        <li><a href="index.html">ページトップへ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#strengths">私たちが選ばれる理由<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#price2">サービス料金体系<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#area">対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#restriction">サービス対応不可条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#step">お引っ越しの流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#message">代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
         <li><a href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#notes">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#cta">お問い合わせ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="important-notes.html">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#cta">無料見積り・ご相談<span class="link-chevron" aria-hidden="true">›</span></a></li>
       </ul>
     </nav>
 

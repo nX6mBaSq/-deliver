@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/top.css">
 <link rel="stylesheet" href="css/refresh.css">
 <link rel="stylesheet" href="css/foundations.css">
+<link rel="stylesheet" href="css/structure.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -28,7 +29,7 @@
     <a href="index.html" class="header__logo">
       <span class="site-wordmark">茜<span>deliver</span></span>
     </a>
-<nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#price2">料金・エリア</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="header__estimate">無料お見積り<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a></nav>
+<nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#service">サービス</a><a href="index.html#price2">料金・エリア</a><a href="index.html#features">運べる荷物</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="#cta" class="header__estimate">無料見積り・相談</a></nav>
     <button type="button" class="header__menu-button" data-nav-open aria-haspopup="dialog" aria-expanded="false" aria-controls="nav-drawer" aria-label="メニューを開く">
       <span class="menu-lines" aria-hidden="true"></span>
     </button>
@@ -45,27 +46,23 @@
     </button>
 
     <ul class="nav-drawer__list">
-      <li><a class="nav-drawer__link" href="index.html">トップページへ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#strengths">私たちが選ばれる理由<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#price2">サービス料金体系<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#area">対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#restriction">サービス対応不可条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#step">お引っ越しの流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#message">代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html">トップページ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#notes">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#cta">お問い合わせ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="important-notes.html">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
     </ul>
 
     <div class="nav-drawer__actions">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">WEB見積りフォームへ<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a>
         <a href="tel:0568281105" class="btn btn--tel">電話で相談する</a>
-        <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
-      <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
     </div>
 
     <div class="nav-drawer__sub-links">
-      <a href="company.html">会社概要<span class="link-chevron" aria-hidden="true">›</span></a>
       <a href="privacy-policy.html">プライバシーポリシー<span class="link-chevron" aria-hidden="true">›</span></a>
     </div>
   </div>
@@ -73,9 +70,6 @@
 
 <main id="main-content" tabindex="-1">
 
-  <!-- ==========================================================================
-       ヒーロー
-       ========================================================================== -->
   <section class="hero" id="hero">
     <div class="container hero__layout">
       <div class="hero__intro">
@@ -86,54 +80,59 @@
         <div class="hero__photo image-placeholder" role="img" aria-label="メインビジュアル（仮置き）" data-original-src="images/hero-main.webp"><span>メインビジュアル</span></div>
       </div>
       <div class="hero__copy">
-        <p class="hero__lead"><span class="text-sentence">少ない荷物のお引越しを、もっと気軽に。</span>お客様との共同作業で、ムダを省いた<span class="text-unit">納得の価格をお届けします。</span></p>
+        <p class="hero__lead"><span class="text-sentence">少ない荷物のお引越しを、もっと気軽に。</span><span class="text-sentence">スタッフ1名と、お客様の共同作業。</span>ムダを省いた納得の価格をお届けします。</p>
         <div class="hero__price">
           <div><p class="hero__price-label">5kmまでの基本料金</p><p class="hero__price-tax">税込</p></div>
           <p><span class="hero__price-number">5,500</span><span class="hero__price-unit">円〜</span></p>
         </div>
         <p class="hero__conditions">※距離・階段などの条件により<span class="text-unit">追加料金がかかります。</span></p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form hero__primary"><span>無料でお見積り・ご相談</span><span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a>
+        <a class="hero__secondary text-link" href="#price2">料金・対応エリアを確認する<span aria-hidden="true"> ↓</span></a>
         <div class="hero__availability"><span>時間指定OK</span><span>即日のご相談OK</span><span>長距離対応</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       OUR STRENGTHS
-       ========================================================================== -->
-  <section class="strengths section section--alt" id="strengths">
+  <nav class="journey-nav" aria-label="知りたいことから探す">
+    <div class="container">
+      <p>知りたいことから探す</p>
+      <ul>
+        <li><a href="#service"><span>自分に合うサービス？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#price2"><span>料金はいくら？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#features"><span>どのくらい運べる？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#step"><span>どうやって頼む？</span><span aria-hidden="true">↓</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="service-overview section" id="service">
     <div class="container">
       <div class="section-heading">
-
-        <p class="section-heading__label">WHY WE'RE CHOSEN</p>
-        <h2 class="section-heading__title">気軽に頼める、3つの安心。</h2>
+        <p class="section-heading__label">01 / SERVICE</p>
+        <h2 class="section-heading__title">一緒に運ぶ、単身引越し。</h2>
+        <p class="section-intro">はじめての一人暮らしや、荷物を絞った住み替えに。<br>スタッフ1名とお客様の共同作業で、引越しのムダを省きます。</p>
       </div>
-      <ul class="strengths__list">
-        <li class="strengths__item">
-          <!-- 仮置き：見積書＋チェックのアイコン -->
-          <span class="strengths__icon" aria-hidden="true"></span>
-          <div class="strengths__content">
-            <h3 class="strengths__title">安心の事前見積り</h3>
-            <p class="strengths__desc">同意なしでの追加請求なし</p>
-          </div>
-        </li>
-        <li class="strengths__item">
-          <!-- 仮置き：吹き出し＋稲妻のアイコン -->
-          <span class="strengths__icon" aria-hidden="true"></span>
-          <div class="strengths__content">
-            <h3 class="strengths__title">即日対応相談可能</h3>
-            <p class="strengths__desc">急なお引越しもご相談可能</p>
-          </div>
-        </li>
-        <li class="strengths__item">
-          <!-- 仮置き：時計＋チェックのアイコン -->
-          <span class="strengths__icon" aria-hidden="true"></span>
-          <div class="strengths__content">
-            <h3 class="strengths__title">時間指定OK</h3>
-            <p class="strengths__desc">スケジュール通りに訪問</p>
-          </div>
-        </li>
-      </ul>
+      <div class="service-overview__grid">
+        <div class="service-overview__main">
+          <h3>お客様にお願いすること</h3>
+          <dl class="service-facts">
+            <div><dt>作業のお手伝い</dt><dd>積み込み・積み降ろしには、お客様のお手伝いが必要です。</dd></div>
+            <div><dt>事前のご準備</dt><dd>小物の箱詰め、家電の水抜き・配線の脱着はお客様にお願いします。</dd></div>
+            <div><dt>当日のご移動</dt><dd>新居へはお客様ご自身でご移動いただき、両方の場所でお立ち会いください。</dd></div>
+          </dl>
+          <p class="service-overview__help">お手伝いが難しい場合は、スタッフ追加が必要です。<a href="important-notes.html#additional">追加料金を確認する</a></p>
+        </div>
+        <aside class="service-overview__limits" id="restriction" aria-labelledby="restriction-title">
+          <p class="small-label">お申し込みの前に</p>
+          <h3 id="restriction-title">対応できないお引越し</h3>
+          <ul class="plain-list">
+            <li>ご家族規模のお引越し</li>
+            <li>大型家具・家電、ドラム式洗濯機・有機ELテレビの取り扱い</li>
+            <li>吊り上げ・吊り下げ作業</li>
+          </ul>
+          <a href="important-notes.html#incompatible" class="text-link">対応不可条件をすべて見る<span aria-hidden="true"> →</span></a>
+        </aside>
+      </div>
     </div>
   </section>
 
@@ -141,8 +140,9 @@
     <div class="container">
       <div class="section-heading">
 
-        <p class="section-heading__label">SERVICE FEES</p>
-        <h2 class="section-heading__title">料金は、わかりやすく。</h2>
+        <p class="section-heading__label">02 / PRICE &amp; AREA</p>
+        <h2 class="section-heading__title">料金と対応エリア</h2>
+        <p class="section-intro">基本料金に、距離や作業条件に応じた追加料金を加えてお見積りします。</p>
       </div>
 
       <div class="fees__columns">
@@ -184,7 +184,7 @@
       </div>
 
       <div class="fees__estimate">
-        <h3 class="fees__estimate-label">料金目安</h3>
+        <h3 class="fees__estimate-label">行き先別の料金目安</h3>
         <p class="fees__estimate-note">40km以上のお引越しは基本料金割引あり</p>
         <ul class="fees__routes">
           <li class="fees__route">
@@ -200,49 +200,20 @@
             <span class="fees__route-price">77,000円～</span>
           </li>
         </ul>
+        <p class="fees__disclaimer">掲載金額は目安です。荷物量・建物・作業条件を確認し、お見積りでご案内します。</p>
       </div>
       </div>
       </div>
+      <div class="section-next"><p>行き先や荷物に合わせた金額を知りたい方へ</p><a href="#cta" class="text-link">無料見積り・相談へ<span aria-hidden="true"> →</span></a></div>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       RECOMMENDED
-       ========================================================================== -->
-  <section class="recommend section">
+  <section class="features section section--alt" id="features">
     <div class="container">
       <div class="section-heading">
-        <p class="section-heading__label">RECOMMENDED</p>
-        <h2 class="section-heading__title">こんなお引越しに。</h2>
-      </div>
-      <ul class="recommend__list">
-        <li class="recommend__item">
-          <div class="recommend__art image-placeholder" role="img" aria-label="利用シーン（仮置き）" data-original-src="images/recommend-1.webp"><span>利用シーン</span></div>
-          <h3 class="recommend__title">はじめての一人暮らしに！</h3>
-          <p class="recommend__desc"><span class="text-unit">新生活に必要な荷物だけを</span><span class="text-unit">スムーズにお運びします。</span></p>
-        </li>
-        <li class="recommend__item">
-          <div class="recommend__art image-placeholder" role="img" aria-label="利用シーン（仮置き）" data-original-src="images/recommend-2.webp"><span>利用シーン</span></div>
-          <h3 class="recommend__title">もう一人手が欲しい時に！</h3>
-          <p class="recommend__desc"><span class="text-unit">荷物の積み込み・運び出しを</span><span class="text-unit">スムーズに進めます。</span></p>
-        </li>
-        <li class="recommend__item">
-          <div class="recommend__art image-placeholder" role="img" aria-label="利用シーン（仮置き）" data-original-src="images/recommend-3.webp"><span>利用シーン</span></div>
-          <h3 class="recommend__title">少量引っ越しを低価格に！</h3>
-          <p class="recommend__desc"><span class="text-unit">少量お引越しを</span><span class="text-unit">お手頃価格でサポートします。</span></p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       INCLUDED FEATURES
-       ========================================================================== -->
-  <section class="features section section--alt">
-    <div class="container">
-      <div class="section-heading">
-        <p class="section-heading__label">STANDARD FEATURES</p>
-        <h2 class="section-heading__title">小さな引越しも、しっかり。</h2>
+        <p class="section-heading__label">03 / CAPACITY</p>
+        <h2 class="section-heading__title">運べる荷物と、積載の目安。</h2>
+        <p class="section-intro">軽トラック1台・約350kgまでが目安です。お部屋の広さだけでなく、荷物の種類・寸法・量でご確認ください。</p>
       </div>
 
       <ul class="features__list">
@@ -311,11 +282,11 @@
 
         <li class="features__item features__item--wide">
           <h3 class="features__title">ひと目で分かる積載例</h3>
-          <p class="features__desc">単身のお引越しに最適な積載例をご紹介します。お荷物の量や内容に応じて、積載できるか事前にご確認いただけます。</p>
+          <p class="features__desc">冷蔵庫（2ドア）・洗濯機・衣装ケース・マットレス・ダンボールなどの積載例です。寸法や重量によって積載可否が変わるため、お見積り時にご確認ください。</p>
 
           <div class="feature__overview image-placeholder" role="img" aria-label="積載イメージ（仮置き）" data-original-src="images/features-loading-example.webp"><span>積載イメージ</span></div>
           <div class="features__highlight features__highlight--split">
-            <p class="loadex__badge loadex__badge--ok">1R・1K：積載可能</p>
+            <p class="loadex__badge loadex__badge--ok">1R・1Kの積載例</p>
             <p class="loadex__badge loadex__badge--ask">1DK：要相談</p>
           </div>
 
@@ -328,7 +299,7 @@
             <div class="features__collapse-inner">
               <div class="loadex__grid">
                 <div class="loadex__card">
-                  <p class="loadex__heading loadex__heading--ok">例1：標準的な1R・1K</p>
+                  <p class="loadex__heading loadex__heading--ok">例1：1R・1Kの荷物の目安</p>
                   <div class="media-placeholder image-placeholder" role="img" aria-label="1R・1Kの積載例（仮置き）"><span>1R・1Kの積載例</span></div>
                   <ul class="loadex__items">
                     <li>冷蔵庫（2ドア）</li>
@@ -360,7 +331,47 @@
           </div>
         </li>
 
-        <li class="features__item">
+
+
+      </ul>
+    </div>
+  </section>
+
+  <section class="strengths section" id="strengths">
+    <div class="container">
+      <div class="section-heading">
+
+        <p class="section-heading__label">04 / OUR PROMISE</p>
+        <h2 class="section-heading__title">気軽に頼める、3つの安心。</h2>
+      </div>
+      <ul class="strengths__list">
+        <li class="strengths__item">
+          <!-- 仮置き：見積書＋チェックのアイコン -->
+          <span class="strengths__icon" aria-hidden="true"></span>
+          <div class="strengths__content">
+            <h3 class="strengths__title">安心の事前見積り</h3>
+            <p class="strengths__desc">同意なしでの追加請求なし</p>
+          </div>
+        </li>
+        <li class="strengths__item">
+          <!-- 仮置き：吹き出し＋稲妻のアイコン -->
+          <span class="strengths__icon" aria-hidden="true"></span>
+          <div class="strengths__content">
+            <h3 class="strengths__title">即日対応相談可能</h3>
+            <p class="strengths__desc">急なお引越しもご相談可能</p>
+          </div>
+        </li>
+        <li class="strengths__item">
+          <!-- 仮置き：時計＋チェックのアイコン -->
+          <span class="strengths__icon" aria-hidden="true"></span>
+          <div class="strengths__content">
+            <h3 class="strengths__title">時間指定OK</h3>
+            <p class="strengths__desc">スケジュール通りに訪問</p>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="care-list">        <li class="features__item">
           <div class="feature__photo image-placeholder" role="img" aria-label="保護・梱包（仮置き）" data-original-src="images/features-protection.webp"><span>保護・梱包</span></div>
           <h3 class="features__title">家具・家電を丁寧に保護</h3>
           <p class="features__desc">家具・家電は専用の保護材で丁寧に包み、傷や汚れを防ぎながら安全に運搬します。小物類は、お客様にて事前にダンボールへの梱包をお願いいたします。</p>
@@ -369,229 +380,146 @@
           <div class="feature__photo image-placeholder" role="img" aria-label="補償（仮置き）" data-original-src="images/features-insurance.webp"><span>補償</span></div>
           <h3 class="features__title">万が一にも安心の補償対応</h3>
           <p class="features__desc">万が一の事故やお荷物の破損にも備えて保険へ加入。状況に応じて適切に対応・補償いたしますので、安心して大切なお荷物を安全にお任せいただけます。</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       画像拡大表示（ライトボックス）
-       ========================================================================== -->
-
-
-  <!-- ==========================================================================
-       SERVICE FEES
-       ========================================================================== -->
-
-
-  <!-- ==========================================================================
-       RESTRICTION
-       ========================================================================== -->
-  <section class="restriction section" id="restriction">
-    <div class="container">
-      <div class="section-heading">
-
-        <p class="section-heading__label">RESTRICTION</p>
-        <h2 class="section-heading__title">サービス対応不可条件</h2>
+        </li></ul>
+      <div class="representative-link" id="message">
+        <div><p class="small-label">茜deliver代表　酒井 利明</p><h3>明瞭な料金と、安心できる新生活を。</h3><p>共同作業というスタイルに込めた想いをご紹介します。</p></div>
+        <a href="company.html#message" class="text-link">代表メッセージ・会社概要<span aria-hidden="true"> →</span></a>
       </div>
-      <p class="restriction__lead">このようなご依頼は対応しておりません。ご利用前に以下の内容をご確認ください。</p>
-      <ul class="restriction__list">
-        <li class="restriction__item">ご家族規模でのお引っ越し</li>
-        <li class="restriction__item">大型家具・家電の取り扱い</li>
-        <li class="restriction__item">大規模な吊り上げ下げ作業</li>
-      </ul>
-      <a class="restriction__more" href="important-notes.html#incompatible">対応不可条件をもっと見る<span aria-hidden="true">→</span></a>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       OUR PROCESS
-       ========================================================================== -->
   <section class="process section section--alt" id="step">
     <div class="container">
       <div class="section-heading">
 
-        <p class="section-heading__label">OUR PROCESS</p>
-        <h2 class="section-heading__title">お引越しの流れ</h2>
+        <p class="section-heading__label">05 / HOW TO BOOK</p>
+        <h2 class="section-heading__title">ご相談から当日までの流れ</h2>
       </div>
 
-      <div class="process__list">
-        <div class="process__item">
+      <ol class="process__list">
+        <li class="process__item">
 
           <div>
             <p class="process__step">STEP１</p>
             <h3 class="process__title">お問い合わせ</h3>
-            <p class="process__desc"><span class="text-unit">電話・WEBから</span><span class="text-unit">お気軽にご連絡ください。</span></p>
+            <p class="process__desc"><span class="text-unit">希望日・行き先・荷物の内容を、</span><span class="text-unit">電話・WEBでお知らせください。</span></p>
           </div>
-        </div>
-        <div class="process__arrow" aria-hidden="true"></div>
+        </li>
 
-        <div class="process__item">
+        <li class="process__item">
 
           <div>
             <p class="process__step">STEP２</p>
             <h3 class="process__title">お見積り</h3>
-            <p class="process__desc"><span class="text-unit">最短即日！</span><span class="text-unit">スマホや電話で</span><span class="text-unit">概算をすぐにご提示。</span></p>
+            <p class="process__desc">スマホや電話で概算をご案内。料金と作業条件をご確認ください。</p>
           </div>
-        </div>
-        <div class="process__arrow" aria-hidden="true"></div>
+        </li>
 
-        <div class="process__item">
+        <li class="process__item">
 
           <div>
             <p class="process__step">STEP３</p>
             <h3 class="process__title">事前入金</h3>
             <p class="process__desc"><span class="text-unit">初回ご利用の方は、</span><span class="text-unit">事前入金でのご案内となります。</span></p>
           </div>
-        </div>
-        <div class="process__arrow" aria-hidden="true"></div>
+        </li>
 
-        <div class="process__item">
+        <li class="process__item">
 
           <div>
             <p class="process__step">STEP４</p>
             <h3 class="process__title">前日連絡</h3>
             <p class="process__desc"><span class="text-unit">前日の最終確認で、</span><span class="text-unit">当日の引っ越しを円滑に。</span></p>
           </div>
-        </div>
-        <div class="process__arrow" aria-hidden="true"></div>
+        </li>
 
-        <div class="process__item">
+        <li class="process__item">
 
           <div>
             <p class="process__step">STEP５</p>
             <h3 class="process__title">お引越し当日</h3>
-            <p class="process__desc"><span class="text-unit">当日はお客様ご自身で、</span><span class="text-unit">新居へご移動ください。</span></p>
+            <p class="process__desc">荷物の積み降ろしをお手伝いいただきます。新居へはご自身でご移動ください。</p>
           </div>
-        </div>
-      </div>
+        </li>
+      </ol>
+
+      <aside class="booking-notes" id="notes" aria-labelledby="booking-notes-title">
+        <h3 id="booking-notes-title">ご予約前の確認事項</h3>
+        <p>初回は事前入金でのご案内です。準備すること・追加料金・キャンセル条件もあわせてご確認ください。</p>
+        <ul class="booking-notes__links">
+          <li><a href="important-notes.html#caution" class="text-link">お客様にお願いする準備<span aria-hidden="true"> →</span></a></li>
+          <li><a href="important-notes.html#additional" class="text-link">追加料金・オプション<span aria-hidden="true"> →</span></a></li>
+          <li><a href="important-notes.html#cancel" class="text-link">キャンセル料金<span aria-hidden="true"> →</span></a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       CEO MESSAGE
-       ========================================================================== -->
-  <section class="message section" id="message">
+  <section class="faq section" id="qa">
     <div class="container">
-      <div class="section-heading">
-
-        <p class="section-heading__label">CEO MESSAGE</p>
-        <h2 class="section-heading__title">代表メッセージ</h2>
-      </div>
-      <div class="message__card">
-        <div class="message__portrait image-placeholder" role="img" aria-label="代表写真（仮置き）" data-original-src="images/ceo-photo.webp"><span>代表写真</span></div>
-        <div class="message__content">
-          <p class="message__name">茜deliver代表　酒井 利明</p>
-          <p class="message__catch"><span class="text-unit">引っ越しの「不透明」を無くし、</span><span class="text-unit">クリーンでスマートな新生活を！</span></p>
-          <p class="message__body">引っ越し業界の不明瞭な料金や時間に疑問を持ち、「茜deliver」を立ち上げました。私たちが「お客様との共同作業」という合理的なスタイルをとる理由は、定時スタートと明瞭会計を徹底し、心から安心してもらうためです。新しいスタートを全力でサポートいたします。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       Q & A
-       ========================================================================== -->
-  <section class="faq section section--alt" id="qa">
-    <div class="container">
-      <div class="section-heading">
-
-        <p class="section-heading__label">Q &amp; A</p>
-        <h2 class="section-heading__title">よくある質問</h2>
-      </div>
-
+      <div class="section-heading"><p class="section-heading__label">06 / Q &amp; A</p><h2 class="section-heading__title">よくある質問</h2></div>
       <ul class="faq__list">
         <li class="faq__item">
           <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
-            <span class="faq__question-mark">Q</span>
-            <span class="faq__question-text">支払い方法は何がありますか？</span>
-            <span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">手伝いができなくても依頼できますか？</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq__answer" id="faq-answer-1">
-            <div class="faq__answer-inner">
-              <p class="faq__answer-text">お支払い方法については、お見積り・ご相談時にお問い合わせください。</p>
-            </div>
-          </div>
+          <div class="faq__answer" id="faq-answer-1"><div class="faq__answer-inner"><p class="faq__answer-text">通常はスタッフ1名で伺うため、積み降ろしのお手伝いが必要です。お手伝いが難しい場合はスタッフ追加が必要となります。料金は11,000円〜です。お見積り時にご相談ください。<a href="important-notes.html#additional">追加料金・条件を確認する</a></p></div></div>
         </li>
         <li class="faq__item">
           <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
-            <span class="faq__question-mark">Q</span>
-            <span class="faq__question-text">不用品の回収だけは可能ですか？</span>
-            <span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">荷物が1台に収まるか分かりません。</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq__answer" id="faq-answer-2">
-            <div class="faq__answer-inner">
-              <p class="faq__answer-text">回収の可否や条件については、お荷物の内容とあわせてお問い合わせください。</p>
-            </div>
-          </div>
+          <div class="faq__answer" id="faq-answer-2"><div class="faq__answer-inner"><p class="faq__answer-text">荷物の種類・個数・大きさをお知らせください。軽トラック1台あたり約350kgが目安ですが、寸法や組み合わせによって積載可否が変わります。<a href="#features">荷室サイズ・積載例を確認する</a></p></div></div>
         </li>
         <li class="faq__item">
           <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
-            <span class="faq__question-mark">Q</span>
-            <span class="faq__question-text">当日依頼する事は可能ですか？</span>
-            <span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">大阪から遠方への引越しも頼めますか？</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq__answer" id="faq-answer-3">
-            <div class="faq__answer-inner">
-              <p class="faq__answer-text">即日のお引越しもご相談いただけます。作業中はご返信が遅れる場合がございますので、まずはお問い合わせください。</p>
-            </div>
-          </div>
+          <div class="faq__answer" id="faq-answer-3"><div class="faq__answer-inner"><p class="faq__answer-text">近畿一円のほか、名古屋・東京方面への長距離便にも対応しています。具体的な行き先をお知らせください。<a href="#area">対応エリアと料金目安を確認する</a></p></div></div>
         </li>
-        <!-- TODO: 質問を追加する場合は、li に hidden 属性を付けてここに追加してください。
-             「もっと見る」ボタンはhidden属性付きliがある時だけ表示され、クリックで表示されます。
-        <li class="faq__item" hidden>
+        <li class="faq__item">
           <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
-            <span class="faq__question-mark">Q</span>
-            <span class="faq__question-text">質問文</span>
-            <span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">当日依頼することは可能ですか？</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq__answer" id="faq-answer-4">
-            <div class="faq__answer-inner">
-              <p class="faq__answer-text">回答文</p>
-            </div>
-          </div>
+          <div class="faq__answer" id="faq-answer-4"><div class="faq__answer-inner"><p class="faq__answer-text">即日のお引越しもご相談いただけます。作業中はご返信が遅れる場合がございますので、まずはお問い合わせください。</p></div></div>
         </li>
-        -->
+        <li class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-5">
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">支払い方法は何がありますか？</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__answer" id="faq-answer-5"><div class="faq__answer-inner"><p class="faq__answer-text">初回ご利用の方は事前入金でのご案内です。具体的なお支払い方法は、お見積り・ご相談時にお問い合わせください。</p></div></div>
+        </li>
+        <li class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-6">
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">キャンセル料金はかかりますか？</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__answer" id="faq-answer-6"><div class="faq__answer-inner"><p class="faq__answer-text">キャンセルの時期によって料金が異なります。ご予約前に<a href="important-notes.html#cancel">キャンセル料金・返金条件</a>をご確認ください。</p></div></div>
+        </li>
+        <li class="faq__item">
+          <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-7">
+            <span class="faq__question-mark" aria-hidden="true">Q</span><span class="faq__question-text">不用品の回収だけは可能ですか？</span><span class="control-plus faq__toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__answer" id="faq-answer-7"><div class="faq__answer-inner"><p class="faq__answer-text">ゴミなどの不用品回収は対応しておりません。<a href="important-notes.html#incompatible">対応できない作業・お荷物</a>をご確認ください。</p></div></div>
+        </li>
       </ul>
-
-      <button type="button" class="faq__more">よくある質問をもっと見る</button>
     </div>
   </section>
 
-  <!-- ==========================================================================
-       IMPORTANT NOTES
-       ========================================================================== -->
-  <section class="notes section" id="notes">
-    <div class="container">
-      <div class="section-heading">
-
-        <p class="section-heading__label">IMPORTANT NOTES</p>
-        <h2 class="section-heading__title">ご利用前の確認事項</h2>
-      </div>
-      <p class="notes__lead">安全かつスムーズなお引っ越しのため、ご利用前に以下の内容をご確認ください。</p>
-      <ul class="notes__links">
-        <li><a href="important-notes.html#caution">注意事項について<span class="link-arrow" aria-hidden="true">→</span></a></li>
-        <li><a href="important-notes.html#additional">追加・キャンセル料金について<span class="link-arrow" aria-hidden="true">→</span></a></li>
-        <li><a href="important-notes.html#incompatible">対応不可条件について<span class="link-arrow" aria-hidden="true">→</span></a></li>
-      </ul>
-      <p class="notes__info">ご不安な点は、お見積り時にお気軽にご相談ください。事前確認により、より正確なご案内が可能です。</p>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CTA（お問い合わせ）
-       ========================================================================== -->
   <section class="cta" id="cta">
     <div class="container cta__inner">
-      <p class="cta__label">24時間年中無休受付中</p>
-      <h2 class="cta__title">まずはお気軽にご相談ください</h2>
-      <p class="cta__desc">お見積り・ご相談は無料です。<br>新しいスタートを全力でサポートします。</p>
-      <div class="cta__buttons">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">WEB見積りフォームへ<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a>
-        <a href="tel:0568281105" class="btn btn--tel">電話で相談する</a>
-        <!-- LINE公式URL確定後、この準備中表示をリンクへ変更 -->
-        <span class="btn btn--line is-unavailable" aria-disabled="true">LINE相談（準備中）</span>
+      <p class="cta__label">CONTACT / お見積り・ご相談は無料</p>
+      <h2 class="cta__title">あなたのお引越しについて、<br>お聞かせください。</h2>
+      <p class="cta__desc">行き先・荷物・日程を伺い、料金と対応可否をご案内します。</p>
+      <div class="contact-preparation">
+        <h3>ご相談時にあるとスムーズな情報</h3>
+        <ul><li>引越しの希望日</li><li>引越し元・引越し先</li><li>荷物の種類・量・寸法</li><li>階数・エレベーターの有無</li></ul>
       </div>
+      <div class="cta__buttons">
+        <div class="contact-method"><p class="contact-method__label">WEBからお見積り</p><p>24時間受付。内容をまとめて送れます。</p><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">無料見積りフォームを開く<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a><small>Googleフォームが新しいタブで開きます。</small></div>
+        <div class="contact-method"><p class="contact-method__label">電話でご相談</p><p>荷物や日程のご相談はこちら。</p><a href="tel:0568281105" class="btn btn--tel">0568-28-1105</a><small>作業中はご返信が遅れる場合があります。</small></div>
+      </div>
+      <p class="contact-other">LINE相談は準備中です。WEBまたは電話をご利用ください。</p>
+      <p class="contact-policy"><a href="privacy-policy.html">個人情報の取り扱いについて</a></p>
     </div>
   </section>
 
@@ -604,16 +532,15 @@
   <div class="container">
     <nav class="footer__nav" aria-label="フッターナビゲーション">
       <ul class="footer__nav-list">
-        <li><a href="index.html">ページトップへ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#strengths">私たちが選ばれる理由<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#price2">サービス料金体系<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#area">対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#restriction">サービス対応不可条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#step">お引っ越しの流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#message">代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
         <li><a href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#notes">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#cta">お問い合わせ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="important-notes.html">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        <li><a href="index.html#cta">無料見積り・ご相談<span class="link-chevron" aria-hidden="true">›</span></a></li>
       </ul>
     </nav>
 
