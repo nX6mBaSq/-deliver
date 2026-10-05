@@ -1,0 +1,9 @@
+Planner quantities, invalid input, copy, reset, 200% reflow @ 320px: OK
+Planner quantities, invalid input, copy, reset, 200% reflow @ 390px: OK
+Planner quantities, invalid input, copy, reset, 200% reflow @ 768px: OK
+Planner quantities, invalid input, copy, reset, 200% reflow @ 1100px: OK
+Planner quantities, invalid input, copy, reset, 200% reflow @ 1440px: OK
+Clipboard denied: manual selection fallback OK
+JavaScript disabled: core content, details, FAQ, contact remain available
+Local fonts blocked @ 320px: readable without overflow
+Print: disclosure content available, fixed navigation hidden

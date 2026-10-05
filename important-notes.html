@@ -3,22 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#fbfaf7">
+<meta name="color-scheme" content="light">
 <title>ご利用前の確認事項｜茜deliver</title>
 <meta name="description" content="茜deliverをご利用いただく前にご確認いただきたい注意事項・追加料金・キャンセル料金・対応不可条件についてご案内します。">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Lato:ital,wght@0,400;1,400&display=swap">
-
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/important-notes.css">
-<link rel="stylesheet" href="css/refresh.css">
-<link rel="stylesheet" href="css/foundations.css">
-<link rel="stylesheet" href="css/structure.css">
-<link rel="stylesheet" href="css/typography.css">
-<link rel="stylesheet" href="css/colors.css">
+<link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site-important-notes.min.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -29,7 +21,7 @@
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="header__logo">
-      <span class="site-wordmark">茜<span>deliver</span></span>
+      <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M5 13 16 7l11 6v13L16 31 5 26Z" fill="currentColor"/><path d="m5 13 11 6 11-6M16 19v12" fill="none" stroke="var(--paper)" stroke-width="1.5"/><path d="M16 1v3M4 5l3 3m21-3-3 3" stroke="currentColor" stroke-width="2"/></svg><span class="site-wordmark">茜<span>deliver</span></span>
     </a>
 <nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#service">サービス</a><a href="index.html#price2">料金・エリア</a><a href="index.html#features">運べる荷物</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="#cta" class="header__estimate">無料見積り・相談</a></nav>
     <button type="button" class="header__menu-button" data-nav-open aria-haspopup="dialog" aria-expanded="false" aria-controls="nav-drawer" aria-label="メニューを開く">
@@ -70,6 +62,7 @@
   </div>
 </dialog>
 
+<noscript><style>.features__toggle,.header__menu-button{display:none!important}.features__collapse,.faq__answer{display:block!important}.faq__toggle-icon{display:none!important}.faq__question{cursor:default}</style></noscript>
 <main id="main-content" tabindex="-1">
   <nav class="breadcrumb container" aria-label="パンくずリスト"><ol><li><a href="index.html">トップページ</a></li><li aria-current="page">ご利用前の確認事項</li></ol></nav>
 
@@ -217,7 +210,7 @@
 <footer class="footer">
   <div class="container">
 <div class="footer__identity">
-    <p class="site-wordmark footer__wordmark">茜<span>deliver</span></p>
+    <p class="site-wordmark footer__wordmark"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M5 13 16 7l11 6v13L16 31 5 26Z" fill="currentColor"/><path d="m5 13 11 6 11-6M16 19v12" fill="none" stroke="var(--paper)" stroke-width="1.5"/><path d="M16 1v3M4 5l3 3m21-3-3 3" stroke="currentColor" stroke-width="2"/></svg>茜<span>deliver</span></p><p class="footer__promise">小さな荷物に、<span class="text-phrase">新しい暮らしをのせて。</span></p>
 
     <p class="footer__address"><span class="text-unit">〒480-0202</span> <span class="text-unit">愛知県西春日井郡豊山町大字豊場字大山77</span></p>
     <p class="footer__tel">TEL：0568-28-1105　FAX：0568-28-6462</p>

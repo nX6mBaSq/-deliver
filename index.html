@@ -3,23 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#fbfaf7">
+<meta name="color-scheme" content="light">
 <title>茜deliver｜大阪発・長距離対応の単身引越し専門</title>
 <meta name="description" content="大阪発、少ない荷物の単身引越しを低価格でサポート。お客様との「共同作業」でムダを省き、明朗会計と定時スタートで安心できる引越しを実現します。">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Lato:ital,wght@0,400;1,400&display=swap">
-
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/top.css">
-<link rel="stylesheet" href="css/refresh.css">
-<link rel="stylesheet" href="css/foundations.css">
-<link rel="stylesheet" href="css/structure.css">
-<link rel="stylesheet" href="css/typography.css">
-<link rel="stylesheet" href="css/graphics.css">
-<link rel="stylesheet" href="css/colors.css">
+<link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site-index.min.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -30,7 +21,7 @@
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="header__logo">
-      <span class="site-wordmark">茜<span>deliver</span></span>
+      <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M5 13 16 7l11 6v13L16 31 5 26Z" fill="currentColor"/><path d="m5 13 11 6 11-6M16 19v12" fill="none" stroke="var(--paper)" stroke-width="1.5"/><path d="M16 1v3M4 5l3 3m21-3-3 3" stroke="currentColor" stroke-width="2"/></svg><span class="site-wordmark">茜<span>deliver</span></span>
     </a>
 <nav class="header__nav" aria-label="メインナビゲーション"><a href="index.html#service">サービス</a><a href="index.html#price2">料金・エリア</a><a href="index.html#features">運べる荷物</a><a href="index.html#step">ご利用の流れ</a><a href="index.html#qa">よくある質問</a><a href="#cta" class="header__estimate">無料見積り・相談</a></nav>
     <button type="button" class="header__menu-button" data-nav-open aria-haspopup="dialog" aria-expanded="false" aria-controls="nav-drawer" aria-label="メニューを開く">
@@ -71,6 +62,7 @@
   </div>
 </dialog>
 
+<noscript><style>.features__toggle,.header__menu-button{display:none!important}.features__collapse,.faq__answer{display:block!important}.faq__toggle-icon{display:none!important}.faq__question{cursor:default}</style></noscript>
 <main id="main-content" tabindex="-1">
 
   <section class="hero" id="hero">
@@ -90,7 +82,7 @@
         <a class="hero__secondary text-link" href="#price2">料金・対応エリアを確認する<span aria-hidden="true"> ↓</span></a>
         <div class="hero__availability"><span>時間指定OK</span><span>即日のご相談OK</span><span>長距離対応</span></div>
       </div>
-      <div class="hero__visual">
+      <div class="hero__visual"><p class="hero__edition"><span>OSAKA / SMALL MOVING SERVICE</span><span aria-hidden="true">01 — ∞</span></p>
         <figure class="hero-figure"><div class="hero-figure__image"><img src="images/hero-main.webp" width="600" height="337" alt="軽トラックのそばで、スタッフとお客様が一緒に荷物を運ぶイメージ" fetchpriority="high" decoding="async"><span class="hero-figure__stamp" aria-hidden="true">SMALL MOVE<br><b>BIG START.</b></span></div><figcaption><span>新しい暮らしへ、軽やかに。</span><small>写真はイメージです</small></figcaption></figure>
       </div>
     </div>
@@ -100,10 +92,10 @@
     <div class="container">
       <p>知りたいことから探す</p>
       <ul>
-        <li><a href="#service"><span>自分に合うサービス？</span><span aria-hidden="true">↓</span></a></li>
-        <li><a href="#price2"><span>料金はいくら？</span><span aria-hidden="true">↓</span></a></li>
-        <li><a href="#features"><span>どのくらい運べる？</span><span aria-hidden="true">↓</span></a></li>
-        <li><a href="#step"><span>どうやって頼む？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#service"><span class="journey-index" aria-hidden="true">01 / SERVICE</span><span>自分に合うサービス？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#price2"><span class="journey-index" aria-hidden="true">02 / PRICE</span><span>料金はいくら？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#features"><span class="journey-index" aria-hidden="true">03 / CAPACITY</span><span>どのくらい運べる？</span><span aria-hidden="true">↓</span></a></li>
+        <li><a href="#step"><span class="journey-index" aria-hidden="true">04 / BOOKING</span><span>どうやって頼む？</span><span aria-hidden="true">↓</span></a></li>
       </ul>
     </div>
   </nav>
@@ -222,14 +214,12 @@
 
       <div class="capacity-summary"><p><span>使用する車両</span><strong>軽トラック <b>1</b>台</strong></p><p><span>長物用の上部スペース</span><strong>奥行き <b>250</b>cm</strong></p><p><span>積載重量の目安</span><strong>約 <b>350</b>kgまで</strong></p></div>
       <ul class="features__list">
-        <li class="features__item features__item--wide">
+        <li class="features__item features__item--wide capacity-space">
           <h3 class="features__title"><span class="graphic-kicker">01 / SPACE</span>長物は上へ。<br>家具・家電は下の荷室へ。</h3>
           <p class="features__desc">マットレスなどの長物も<span class="text-phrase">積載可能。</span><span class="text-phrase">車両サイズ・荷室寸法・</span>積載重量の目安を<span class="text-phrase">ご確認いただけます。</span></p>
 
           <figure class="feature__overview capacity-figure"><img src="images/graphics/cargo-side.svg" width="800" height="560" alt="荷室の側面模式図。01は上部の長物スペース、02は下部の通常荷室、03は荷室全体の高さ。上にマットレス、下に家電や箱を配置したイメージ。" loading="lazy" decoding="async"><figcaption>横から見た荷室の構造イメージ</figcaption></figure>
           <div class="features__highlight"><dl class="capacity-dimensions"><div><dt><span class="diagram-key diagram-key--long">01</span>上部ロングスペース</dt><dd>奥行き <strong>250</strong>cm <small>幅120 × 高さ60cm</small></dd></div><div><dt><span class="diagram-key">02</span>通常の荷室</dt><dd>下部奥行き <strong>190</strong>cm <small>荷室幅120cm</small></dd></div><div><dt><span class="diagram-key diagram-key--height">03</span>荷室全体の高さ</dt><dd><strong>170</strong>cm</dd></div></dl>
-            <p class="spec__weight"><span class="spec__weight-number"><span class="quantity-prefix">約</span>350</span><span class="spec__weight-unit">kgまで</span></p>
-            <p class="spec__weight-note">積載重量目安（軽トラック1台あたり）</p>
             <p class="spec__badge spec__badge--ok">マットレス・布団など長物OK</p>
           </div>
 
@@ -339,6 +329,27 @@
 
 
       </ul>
+
+      <details class="load-planner" id="load-planner">
+        <summary><span><span class="graphic-kicker">YOUR MOVING NOTE</span>相談用の荷物メモをつくる</span><span class="planner-plus" aria-hidden="true">＋</span></summary>
+        <div class="planner-body">
+          <p class="planner-intro">運びたい荷物の個数を入力すると、相談時に使えるメモを作れます。積載可否・料金はお見積りでご案内します。</p>
+          <form class="planner-form" data-load-planner>
+            <fieldset><legend>運びたい荷物</legend><div class="planner-fields">
+            <label class="planner-item"><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>冷蔵庫（2ドア）</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="fridge" data-label="冷蔵庫（2ドア）" data-unit="台" aria-label="冷蔵庫（2ドア）の個数">台</span></label>
+<label class="planner-item"><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>縦型洗濯機</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="washer" data-label="縦型洗濯機" data-unit="台" aria-label="縦型洗濯機の個数">台</span></label>
+<label class="planner-item"><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>衣装ケース</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="drawers" data-label="衣装ケース" data-unit="個" aria-label="衣装ケースの個数">個</span></label>
+<label class="planner-item"><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ハンガー衣類</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="clothes" data-label="ハンガー衣類" data-unit="着" aria-label="ハンガー衣類の個数">着</span></label>
+<label class="planner-item"><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ダンボール</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="boxes" data-label="ダンボール" data-unit="個" aria-label="ダンボールの個数">個</span></label>
+<label class="planner-item"><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>マットレス</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="mattress" data-label="マットレス" data-unit="枚" aria-label="マットレスの個数">枚</span></label>
+            </div></fieldset>
+            <label class="planner-extra" for="planner-extra">ほかの荷物・大きな荷物の寸法<span>例：自転車1台、マットレス 幅97 × 長さ195cm</span></label>
+            <textarea id="planner-extra" name="extra" rows="2" maxlength="500"></textarea>
+            <div class="planner-output"><label for="planner-note">相談メモ</label><textarea id="planner-note" rows="6" readonly aria-describedby="planner-help"></textarea><p id="planner-help">メモをコピーして、見積りフォームへ貼り付けてください。このページからは送信されません。</p><div class="planner-actions"><button type="button" class="btn btn--form" data-copy-note>メモをコピーする<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M13 5V3H3v10h2"/></svg></button><button type="reset" class="planner-reset">入力をクリア</button></div><p class="planner-status" role="status" aria-live="polite" data-planner-status></p></div>
+          </form>
+          <noscript><p>自動メモの作成にはJavaScriptが必要です。荷物の種類・個数・寸法を、見積りフォームまたは電話でお知らせください。</p><style>.planner-form{display:none}</style></noscript>
+        </div>
+      </details>
       <div class="capacity-preflight"><img src="images/graphics/icon-estimate.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><div><h3>「全部載るかな？」も、そのままご相談ください。</h3><p>荷物の種類・個数・寸法をお知らせください。図解は配置のイメージで、積載を保証するものではありません。</p><a href="#cta" class="text-link">荷物量を相談する<span aria-hidden="true"> →</span></a></div></div>
     </div>
   </section>
@@ -531,7 +542,7 @@
 <footer class="footer">
   <div class="container">
 <div class="footer__identity">
-    <p class="site-wordmark footer__wordmark">茜<span>deliver</span></p>
+    <p class="site-wordmark footer__wordmark"><svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M5 13 16 7l11 6v13L16 31 5 26Z" fill="currentColor"/><path d="m5 13 11 6 11-6M16 19v12" fill="none" stroke="var(--paper)" stroke-width="1.5"/><path d="M16 1v3M4 5l3 3m21-3-3 3" stroke="currentColor" stroke-width="2"/></svg>茜<span>deliver</span></p><p class="footer__promise">小さな荷物に、<span class="text-phrase">新しい暮らしをのせて。</span></p>
 
     <p class="footer__address"><span class="text-unit">〒480-0202</span> <span class="text-unit">愛知県西春日井郡豊山町大字豊場字大山77</span></p>
     <p class="footer__tel">TEL：0568-28-1105　FAX：0568-28-6462</p>
@@ -563,5 +574,6 @@
 <nav class="mobile-contact" aria-label="お見積り・お問い合わせ"><a class="mobile-contact__cta" href="#cta">無料お見積り・ご相談<span class="link-arrow" aria-hidden="true">↓</span></a></nav>
 <script src="js/common.js"></script>
 <script src="js/top.js"></script>
+<script src="js/planner.js"></script>
 </body>
 </html>

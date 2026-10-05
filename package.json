@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node build-site.cjs",
+    "fonts": "node build-fonts.cjs",
+    "preview": "node serve-preview.cjs",
+    "check": "node verify-design.cjs && node verify-foundations.cjs && node verify-navigation.cjs && node verify-polish.cjs && node verify-colors.cjs polish"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "purgecss": "7.0.2"
+  }
+}

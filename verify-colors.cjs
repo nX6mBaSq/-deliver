@@ -11,7 +11,7 @@ async function contrast(page){return page.evaluate(()=>{
  const failures=[],unknown=[],pairs=new Map();let checked=0;
  for(const e of document.querySelectorAll('body *')){
   if(!e.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})||e.closest('.visually-hidden,.skip-link,script,style'))continue;
-  const text=[...e.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent.trim()).join('').trim();if(!text)continue;
+  const text=(e.matches('input,textarea')?e.value:[...e.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent.trim()).join('')).trim();if(!text)continue;
   const c=getComputedStyle(e);let bg=[255,255,255],gradient=false;
   const ancestors=[];for(let a=e;a;a=a.parentElement)ancestors.unshift(a);
   for(const a of ancestors){const s=getComputedStyle(a),col=rgb(s.backgroundColor);if(col)bg=blend(col,bg);if(s.backgroundImage!=='none')gradient=true;}
@@ -37,9 +37,16 @@ async function contrast(page){return page.evaluate(()=>{
     for(const id of ['hero','price2','features','strengths','cta'])await page.locator('#'+id).screenshot({path:`${dir}/${id}-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
     for(const b of await page.locator('.features__toggle,.faq__question').all())await b.click();
     report[`${file}-${width}`].expanded=await contrast(page);
+    if(phase==='polish'){
+     await page.locator('#load-planner summary').click();
+     report[`${file}-${width}`].plannerEmpty=await contrast(page);
+     await page.locator('[name="fridge"]').fill('1');
+     report[`${file}-${width}`].plannerFilled=await contrast(page);
+     await page.locator('#load-planner summary').click();
+    }
     await page.locator('#features-loadex-detail').screenshot({path:`${dir}/loadex-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
     if(width===390){await page.locator('[data-nav-open]').click();report[`${file}-${width}`].menu=await contrast(page);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('#nav-drawer').open);}
-    if(phase==='after')for(const sel of ['.hero__primary','.features__toggle','.faq__question','.cta .btn--form','.cta .btn--tel']){
+    if(phase!=='before')for(const sel of ['.hero__primary','.features__toggle','.faq__question','.cta .btn--form','.cta .btn--tel']){
      await page.locator(sel).first().hover();report[`${file}-${width}`]['hover-'+sel]=await contrast(page);
      await page.mouse.move(0,0);await page.keyboard.press('Tab');await page.locator(sel).first().focus();assert(await page.locator(sel).first().evaluate(e=>getComputedStyle(e).outlineStyle!=='none'),`Visible keyboard focus: ${sel}`);
     }
@@ -51,12 +58,14 @@ async function contrast(page){return page.evaluate(()=>{
    console.log(`${key} ${state}: ${result.checked} text nodes, ${result.failures.length} low-contrast, ${result.unknown.length} backgrounds to inspect`);
    if(result.failures.length)console.log(JSON.stringify(result.failures.slice(0,12)));bad+=result.failures.length;
   }
-  if(phase==='after'){
+  if(phase!=='before'){
    assert.equal(bad,0,'All sampled visible text must meet size-appropriate contrast');
    for(const states of Object.values(report))for(const [name,state] of Object.entries(states))if(name!=='layout')assert.equal(state.unknown.length,0,'No unmeasured image/gradient backgrounds behind sampled text');
-   const before=JSON.parse(fs.readFileSync('design-preview/colors/before/report.json','utf8'));
-   for(const key in report)assert.deepEqual(report[key].layout,before[key].layout,`${key}: color changes must preserve wording and geometry`);
-   console.log('All four pages: wording and measured layout unchanged.');
+   if(phase==='after'){
+    const before=JSON.parse(fs.readFileSync('design-preview/colors/before/report.json','utf8'));
+    for(const key in report)assert.deepEqual(report[key].layout,before[key].layout,`${key}: color changes must preserve wording and geometry`);
+    console.log('All four pages: wording and measured layout unchanged.');
+   }
   }
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});
