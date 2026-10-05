@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/foundations.css">
 <link rel="stylesheet" href="css/structure.css">
 <link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/graphics.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -89,7 +90,7 @@
         <div class="hero__availability"><span>時間指定OK</span><span>即日のご相談OK</span><span>長距離対応</span></div>
       </div>
       <div class="hero__visual">
-        <div class="hero__photo image-placeholder" role="img" aria-label="メインビジュアル（仮置き）" data-original-src="images/hero-main.webp"><span>メインビジュアル</span></div>
+        <figure class="hero-figure"><div class="hero-figure__image"><img src="images/hero-main.webp" width="600" height="337" alt="軽トラックのそばで、スタッフとお客様が一緒に荷物を運ぶイメージ" fetchpriority="high" decoding="async"><span class="hero-figure__stamp" aria-hidden="true">SMALL MOVE<br><b>BIG START.</b></span></div><figcaption><span>新しい暮らしへ、軽やかに。</span><small>写真はイメージです</small></figcaption></figure>
       </div>
     </div>
   </section>
@@ -113,13 +114,14 @@
         <h2 class="section-heading__title">一緒に運ぶ、単身引越し。</h2>
         <p class="section-intro"><span class="text-phrase">はじめての一人暮らしや、</span><span class="text-phrase">荷物を絞った住み替えに。</span><br><span class="text-phrase">スタッフ1名とお客様の共同作業で、</span><span class="text-phrase">引越しのムダを省きます。</span></p>
       </div>
+      <div class="team-visual"><img src="images/graphics/team.svg" alt="スタッフとお客様の2人で箱を運ぶイラスト" width="800" height="340" loading="lazy" decoding="async"><div class="team-visual__copy"><p class="small-label">一緒に運ぶから、シンプルに。</p><p class="team-equation"><span>スタッフ<strong>1名</strong></span><span class="team-equation__plus" aria-hidden="true">＋</span><span>お客様<strong>お手伝い</strong></span></p><p>必要なサービスに絞った、<span class="text-phrase">共同作業のお引越し。</span></p></div></div>
       <div class="service-overview__grid">
         <div class="service-overview__main">
           <h3>お客様にお願いすること</h3>
           <dl class="service-facts">
-            <div><dt>作業のお手伝い</dt><dd>積み込み・積み降ろしには、お客様のお手伝いが必要です。</dd></div>
-            <div><dt>事前のご準備</dt><dd>小物の箱詰め、家電の水抜き・配線の脱着は<span class="text-phrase">お客様にお願いします。</span></dd></div>
-            <div><dt>当日のご移動</dt><dd>新居へはお客様ご自身でご移動いただき、両方の場所でお立ち会いください。</dd></div>
+            <div><dt><img src="images/graphics/icon-move.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>作業のお手伝い</span></dt><dd>積み込み・積み降ろしには、お客様のお手伝いが必要です。</dd></div>
+            <div><dt><img src="images/graphics/icon-packing.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>事前のご準備</span></dt><dd>小物の箱詰め、家電の水抜き・配線の脱着は<span class="text-phrase">お客様にお願いします。</span></dd></div>
+            <div><dt><img src="images/graphics/icon-route.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>当日のご移動</span></dt><dd>新居へはお客様ご自身でご移動いただき、両方の場所でお立ち会いください。</dd></div>
           </dl>
           <p class="service-overview__help">お手伝いが難しい場合は、スタッフ追加が必要です。<a href="important-notes.html#additional">追加料金を確認する</a></p>
         </div>
@@ -180,7 +182,7 @@
       <div class="fees__coverage">
       <div class="fees__area" id="area">
         <h3 class="fees__area-label">対応エリア</h3>
-        <div class="area__map image-placeholder" role="img" aria-label="対応エリア（仮置き）" data-original-src="images/area-map.webp"><span>対応エリア</span></div>
+        <figure class="area-figure"><img src="images/area-map.webp" alt="大阪を起点に近畿一円、名古屋・東京方面へ対応するエリアのイメージ" width="600" height="337" loading="lazy" decoding="async"><figcaption>大阪発、近距離から長距離まで。</figcaption></figure>
         <p class="area__desc">大阪発、近畿一円はもちろん。名古屋・東京方面への長距離便にも対応。遠方のお引越しもお気軽にご相談ください。</p>
       </div>
 
@@ -217,13 +219,14 @@
         <p class="section-intro">軽トラック1台・<span class="text-phrase">約350kgまでが目安です。</span><span class="text-phrase">お部屋の広さだけでなく、</span>荷物の種類・寸法・量で<span class="text-phrase">ご確認ください。</span></p>
       </div>
 
+      <div class="capacity-summary"><p><span>使用する車両</span><strong>軽トラック <b>1</b>台</strong></p><p><span>長物用の上部スペース</span><strong>奥行き <b>250</b>cm</strong></p><p><span>積載重量の目安</span><strong>約 <b>350</b>kgまで</strong></p></div>
       <ul class="features__list">
         <li class="features__item features__item--wide">
-          <h3 class="features__title">長物対応の大容量荷室</h3>
+          <h3 class="features__title"><span class="graphic-kicker">01 / SPACE</span>長物は上へ。<br>家具・家電は下の荷室へ。</h3>
           <p class="features__desc">マットレスなどの長物も<span class="text-phrase">積載可能。</span><span class="text-phrase">車両サイズ・荷室寸法・</span>積載重量の目安を<span class="text-phrase">ご確認いただけます。</span></p>
 
-          <div class="feature__overview image-placeholder" role="img" aria-label="車両・荷室（仮置き）" data-original-src="images/features-capacity.webp"><span>車両・荷室</span></div>
-          <div class="features__highlight">
+          <figure class="feature__overview capacity-figure"><img src="images/graphics/cargo-side.svg" width="800" height="560" alt="荷室の側面模式図。01は上部の長物スペース、02は下部の通常荷室、03は荷室全体の高さ。上にマットレス、下に家電や箱を配置したイメージ。" loading="lazy" decoding="async"><figcaption>横から見た荷室の構造イメージ</figcaption></figure>
+          <div class="features__highlight"><dl class="capacity-dimensions"><div><dt><span class="diagram-key diagram-key--long">01</span>上部ロングスペース</dt><dd>奥行き <strong>250</strong>cm <small>幅120 × 高さ60cm</small></dd></div><div><dt><span class="diagram-key">02</span>通常の荷室</dt><dd>下部奥行き <strong>190</strong>cm <small>荷室幅120cm</small></dd></div><div><dt><span class="diagram-key diagram-key--height">03</span>荷室全体の高さ</dt><dd><strong>170</strong>cm</dd></div></dl>
             <p class="spec__weight"><span class="spec__weight-number"><span class="quantity-prefix">約</span>350</span><span class="spec__weight-unit">kgまで</span></p>
             <p class="spec__weight-note">積載重量目安（軽トラック1台あたり）</p>
             <p class="spec__badge spec__badge--ok">マットレス・布団など長物OK</p>
@@ -239,7 +242,7 @@
               <div class="spec__grid">
                 <div class="spec__card">
                   <p class="spec__heading">使用車両サイズ<span class="spec__heading-note">（導線確認用）</span></p>
-                  <div class="media-placeholder image-placeholder" role="img" aria-label="車両外観（仮置き）"><span>車両外観</span></div>
+                  <figure class="detail-figure"><img src="images/graphics/truck.svg" alt="幌付き軽トラックの外観を斜めから見たイラスト" width="760" height="440" loading="lazy" decoding="async"><figcaption>車両外観のイメージ</figcaption></figure>
                   <ul class="spec__list">
                     <li><span class="spec__key">幅</span><span class="spec__value">140cm</span></li>
                     <li><span class="spec__key">奥行き</span><span class="spec__value">250cm</span></li>
@@ -250,7 +253,7 @@
 
                 <div class="spec__card">
                   <p class="spec__heading">荷室サイズ<span class="spec__heading-note">（積載量確認用）</span></p>
-                  <div class="media-placeholder image-placeholder" role="img" aria-label="荷室内部（仮置き）"><span>荷室内部</span></div>
+                  <figure class="detail-figure"><img src="images/graphics/cargo-side.svg" alt="上部に長物、下部に家電や箱を置ける荷室の構造図" width="800" height="560" loading="lazy" decoding="async"><figcaption>荷室の側面イメージ</figcaption></figure>
                   <ul class="spec__list">
                     <li><span class="spec__key">幅</span><span class="spec__value">120cm</span></li>
                     <li><span class="spec__key">高さ</span><span class="spec__value">170cm</span></li>
@@ -262,7 +265,7 @@
 
                 <div class="spec__card">
                   <p class="spec__heading">積載のポイント</p>
-                  <div class="media-placeholder image-placeholder" role="img" aria-label="積み込み風景（仮置き）"><span>積み込み風景</span></div>
+                  <figure class="detail-figure"><img src="images/graphics/load-standard.svg" alt="上部に寝具、下部に家電や箱を配置した荷室のイラスト" width="600" height="480" loading="lazy" decoding="async"><figcaption>積み込みのイメージ</figcaption></figure>
                   <p class="spec__weight"><span class="spec__weight-number"><span class="quantity-prefix">約</span>350</span><span class="spec__weight-unit">kgまで</span></p>
                   <p class="spec__weight-note">（軽トラック1台あたり）</p>
                   <p class="spec__tags-label">こんなお荷物におすすめ</p>
@@ -282,10 +285,10 @@
         </li>
 
         <li class="features__item features__item--wide">
-          <h3 class="features__title">ひと目で分かる積載例</h3>
+          <h3 class="features__title"><span class="graphic-kicker">02 / LOAD EXAMPLE</span>こんな荷物を、<br>ひとつの引越しに。</h3>
           <p class="features__desc">冷蔵庫（2ドア）・洗濯機・衣装ケース・マットレス・ダンボールなどの<span class="text-phrase">積載例です。</span>寸法や重量によって<span class="text-phrase">積載可否が変わるため、</span><span class="text-phrase">お見積り時にご確認ください。</span></p>
 
-          <div class="feature__overview image-placeholder" role="img" aria-label="積載イメージ（仮置き）" data-original-src="images/features-loading-example.webp"><span>積載イメージ</span></div>
+          <div class="feature__overview inventory-board"><p class="inventory-board__label">1R・1Kの荷物の一例</p><ul class="inventory-grid"><li><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>冷蔵庫</span><small>2ドア</small></li><li><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>洗濯機</span><small>ドラム式は対象外</small></li><li><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>衣装ケース</span><small>4段</small></li><li><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ハンガー衣類</span></li><li><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ダンボール</span><small>20個程度</small></li><li><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>マットレス</span></li></ul><p class="graphic-caption">数量・大きさは目安です。<span class="text-phrase">積載可否はお見積り時に確認します。</span></p></div>
           <div class="features__highlight features__highlight--split">
             <p class="loadex__badge loadex__badge--ok">1R・1Kの積載例</p>
             <p class="loadex__badge loadex__badge--ask">1DK：要相談</p>
@@ -301,7 +304,7 @@
               <div class="loadex__grid">
                 <div class="loadex__card">
                   <p class="loadex__heading loadex__heading--ok">例1：1R・1Kの荷物の目安</p>
-                  <div class="media-placeholder image-placeholder" role="img" aria-label="1R・1Kの積載例（仮置き）"><span>1R・1Kの積載例</span></div>
+                  <figure class="detail-figure"><img src="images/graphics/load-standard.svg" alt="荷室の上部に寝具、下部に冷蔵庫・洗濯機・衣装ケース・衣類・箱を配置した積載例" width="600" height="480" loading="lazy" decoding="async"><figcaption>配置・縮尺はイメージです</figcaption></figure>
                   <ul class="loadex__items">
                     <li>冷蔵庫（2ドア）</li>
                     <li>洗濯機</li>
@@ -310,12 +313,12 @@
                     <li>ダンボール（20個程度）</li>
                     <li>マットレス</li>
                   </ul>
-                  <p class="loadex__badge loadex__badge--ok">積載可能</p>
+                  <p class="loadex__badge loadex__badge--ok">積載例：寸法・重量の確認が必要です</p>
                 </div>
 
                 <div class="loadex__card">
                   <p class="loadex__heading loadex__heading--ask">例2：荷物が多めの1DK</p>
-                  <div class="media-placeholder image-placeholder" role="img" aria-label="1DKの積載例（仮置き）"><span>1DKの積載例</span></div>
+                  <figure class="detail-figure"><img src="images/graphics/load-extra.svg" alt="家具・家電に加え自転車がある、荷物が多い場合の相談用イメージ" width="600" height="480" loading="lazy" decoding="async"><figcaption>自転車などがある場合は要相談</figcaption></figure>
                   <ul class="loadex__items">
                     <li>冷蔵庫（2ドア）</li>
                     <li>洗濯機</li>
@@ -335,6 +338,7 @@
 
 
       </ul>
+      <div class="capacity-preflight"><img src="images/graphics/icon-estimate.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><div><h3>「全部載るかな？」も、そのままご相談ください。</h3><p>荷物の種類・個数・寸法をお知らせください。図解は配置のイメージで、積載を保証するものではありません。</p><a href="#cta" class="text-link">荷物量を相談する<span aria-hidden="true"> →</span></a></div></div>
     </div>
   </section>
 
@@ -348,7 +352,7 @@
       <ul class="strengths__list">
         <li class="strengths__item">
           <!-- 仮置き：見積書＋チェックのアイコン -->
-          <span class="strengths__icon" aria-hidden="true"></span>
+          <span class="strengths__icon" aria-hidden="true"><img src="images/graphics/icon-estimate.svg" alt="" width="180" height="190" loading="lazy" decoding="async"></span>
           <div class="strengths__content">
             <h3 class="strengths__title">安心の事前見積り</h3>
             <p class="strengths__desc">同意なしでの追加請求なし</p>
@@ -356,7 +360,7 @@
         </li>
         <li class="strengths__item">
           <!-- 仮置き：吹き出し＋稲妻のアイコン -->
-          <span class="strengths__icon" aria-hidden="true"></span>
+          <span class="strengths__icon" aria-hidden="true"><img src="images/graphics/icon-chat.svg" alt="" width="180" height="190" loading="lazy" decoding="async"></span>
           <div class="strengths__content">
             <h3 class="strengths__title">即日対応相談可能</h3>
             <p class="strengths__desc">急なお引越しもご相談可能</p>
@@ -364,7 +368,7 @@
         </li>
         <li class="strengths__item">
           <!-- 仮置き：時計＋チェックのアイコン -->
-          <span class="strengths__icon" aria-hidden="true"></span>
+          <span class="strengths__icon" aria-hidden="true"><img src="images/graphics/icon-clock.svg" alt="" width="180" height="190" loading="lazy" decoding="async"></span>
           <div class="strengths__content">
             <h3 class="strengths__title">時間指定OK</h3>
             <p class="strengths__desc">スケジュール通りに訪問</p>
@@ -373,12 +377,12 @@
       </ul>
 
       <ul class="care-list">        <li class="features__item">
-          <div class="feature__photo image-placeholder" role="img" aria-label="保護・梱包（仮置き）" data-original-src="images/features-protection.webp"><span>保護・梱包</span></div>
+          <div class="feature__photo care-art"><img src="images/graphics/protection.svg" alt="保護材で包んだ荷物のイラスト" width="360" height="250" loading="lazy" decoding="async"></div>
           <h3 class="features__title"><span class="text-phrase">家具・家電を</span><span class="text-phrase">丁寧に保護</span></h3>
           <p class="features__desc">家具・家電は専用の保護材で丁寧に包み、傷や汚れを防ぎながら<span class="text-phrase">安全に運搬します。</span>小物類は、お客様にて事前にダンボールへの<span class="text-phrase">梱包をお願いいたします。</span></p>
         </li>
         <li class="features__item">
-          <div class="feature__photo image-placeholder" role="img" aria-label="補償（仮置き）" data-original-src="images/features-insurance.webp"><span>補償</span></div>
+          <div class="feature__photo care-art"><img src="images/graphics/insurance.svg" alt="荷物を大切に守る盾と手のイラスト" width="360" height="250" loading="lazy" decoding="async"></div>
           <h3 class="features__title"><span class="text-phrase">万が一にも</span><span class="text-phrase">安心の補償対応</span></h3>
           <p class="features__desc">万が一の事故やお荷物の破損にも備えて保険へ加入。状況に応じて適切に対応・補償いたしますので、安心して大切なお荷物を安全に<span class="text-phrase">お任せいただけます。</span></p>
         </li></ul>
@@ -398,45 +402,35 @@
       </div>
 
       <ol class="process__list">
-        <li class="process__item">
-
-          <div>
+        <li class="process__item"><img src="images/graphics/icon-contact.svg" alt="" class="process-art" width="180" height="190" loading="lazy" decoding="async"><div>
             <p class="process__step">STEP１</p>
             <h3 class="process__title">お問い合わせ</h3>
             <p class="process__desc"><span class="text-unit">希望日・行き先・荷物の内容を、</span><span class="text-unit">電話・WEBでお知らせください。</span></p>
           </div>
         </li>
 
-        <li class="process__item">
-
-          <div>
+        <li class="process__item"><img src="images/graphics/icon-estimate.svg" alt="" class="process-art" width="180" height="190" loading="lazy" decoding="async"><div>
             <p class="process__step">STEP２</p>
             <h3 class="process__title">お見積り</h3>
             <p class="process__desc"><span class="text-phrase">スマホや電話で概算をご案内。</span><span class="text-phrase">料金と作業条件をご確認ください。</span></p>
           </div>
         </li>
 
-        <li class="process__item">
-
-          <div>
+        <li class="process__item"><img src="images/graphics/icon-payment.svg" alt="" class="process-art" width="180" height="190" loading="lazy" decoding="async"><div>
             <p class="process__step">STEP３</p>
             <h3 class="process__title">事前入金</h3>
             <p class="process__desc"><span class="text-unit">初回ご利用の方は、</span><span class="text-unit">事前入金でのご案内となります。</span></p>
           </div>
         </li>
 
-        <li class="process__item">
-
-          <div>
+        <li class="process__item"><img src="images/graphics/icon-calendar.svg" alt="" class="process-art" width="180" height="190" loading="lazy" decoding="async"><div>
             <p class="process__step">STEP４</p>
             <h3 class="process__title">前日連絡</h3>
             <p class="process__desc"><span class="text-unit">前日の最終確認で、</span><span class="text-unit">当日の引っ越しを円滑に。</span></p>
           </div>
         </li>
 
-        <li class="process__item">
-
-          <div>
+        <li class="process__item"><img src="images/graphics/icon-move.svg" alt="" class="process-art" width="180" height="190" loading="lazy" decoding="async"><div>
             <p class="process__step">STEP５</p>
             <h3 class="process__title">お引越し当日</h3>
             <p class="process__desc">荷物の積み降ろしを<span class="text-phrase">お手伝いいただきます。</span>新居へはご自身で<span class="text-phrase">ご移動ください。</span></p>

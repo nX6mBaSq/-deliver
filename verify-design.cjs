@@ -54,6 +54,8 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
   assert.equal(await page.locator('#nav-drawer').evaluate(e => e.open), true);
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('#nav-drawer').evaluate(e => e.open), false);
+  // Native dialog closure queues the close event; wait for its cleanup handler.
+  await page.waitForFunction(() => document.body.style.overflow === '' && document.querySelector('[data-nav-open]').getAttribute('aria-expanded') === 'false');
   assert.equal(await page.locator('body').evaluate(e => e.style.overflow), '');
   await page.locator('[data-nav-open]').click();
   await page.locator('.nav-drawer__link[href="index.html#price2"]').click();
