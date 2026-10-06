@@ -1,0 +1,59 @@
+/* 2026-10-06 information architecture pass.
+   Decision order on the top page, grouped navigation, and cross-links between pages.
+   Loaded last; colours come from the tokens in colors.css. */
+
+/* Top page: alternate section surfaces after moving 安心 (05) behind 流れ (04). */
+.faq { background: var(--paper); }
+.faq__list { background: var(--surface); }
+
+/* 01 SERVICE: fit check (向いている / 対応できない), then what we ask of the customer. */
+.fit-check { display: grid; gap: 16px; margin-top: 28px; }
+.fit-check__card { min-width: 0; padding: 24px; border-radius: 6px; border-top-width: 3px; border-top-style: solid; }
+.fit-check__card--ok { background: var(--teal-soft); border-top-color: var(--teal); }
+.fit-check__card--ok .small-label { color: var(--teal); }
+.fit-check__card h3 { font-size: var(--text-h3); color: var(--ink); font-weight: 600; line-height: 1.7; }
+.fit-check__list { margin-block: 16px; display: grid; gap: 10px; }
+.fit-check__list li { position: relative; padding-left: 1.75em; color: var(--ink); font-size: .9375rem; line-height: 1.8; }
+.fit-check__list li::before { content: ''; position: absolute; left: .2em; top: .5em; width: .7em; height: .4em; border: solid var(--teal); border-width: 0 0 2px 2px; transform: rotate(-45deg); }
+.fit-check__list--ng li::before { top: .85em; width: .8em; height: 0; border-width: 0 0 2px; transform: none; border-color: var(--amber); }
+.fit-check__list small { display: block; font-size: .8125rem; color: var(--muted); }
+.fit-check__card--ok .fit-check__list { margin-bottom: 0; }
+.fit-check__card .text-link { font-size: .8125rem; }
+.service-duties { margin-top: 40px; }
+.service-duties h3 { font-size: var(--text-h3); color: var(--ink); font-weight: 600; line-height: 1.7; }
+#fit, #restriction { scroll-margin-top: calc(var(--header-height) + 16px); }
+
+/* 03 CAPACITY: the copied note now leads straight to the form. */
+.planner-form-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: .875rem; }
+
+/* Important notes: numbered in the order a customer decides. */
+.important-notes__step { margin-right: 12px; font: 500 .8125rem/1 Arial, sans-serif; letter-spacing: .06em; opacity: .8; }
+.document-crosslink { margin-top: 16px; font-size: .875rem; }
+.document-crosslink .text-link { display: inline-block; padding-block: 8px; }
+
+/* Drawer: two labelled groups instead of one long list. */
+.nav-drawer__group-label { margin: 24px 0 0; padding-bottom: 4px; font-size: .75rem; font-weight: 500; letter-spacing: .04em; color: var(--muted); }
+.nav-drawer__group-label:first-of-type { margin-top: 12px; }
+.nav-drawer__group-label + .nav-drawer__list { margin-top: 0; }
+
+/* Footer: grouped sitemap; the separate 会社概要｜プライバシー row was a duplicate. */
+.footer__nav { display: grid; gap: 28px; margin-bottom: 28px; text-align: left; }
+.footer__nav-group { min-width: 0; }
+.footer__nav-title { margin-bottom: 4px; font-size: .75rem; font-weight: 500; letter-spacing: .04em; color: var(--on-dark); }
+.footer__nav .footer__nav-list { margin: 0; }
+.footer__nav-list a[aria-current="page"] { color: var(--on-dark); }
+.footer__nav .footer__nav-group:last-child .footer__nav-list { grid-template-columns: minmax(0, 1fr); }
+
+@media (min-width: 768px) {
+  .fit-check { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .fit-check__card { padding: 28px; }
+}
+@media (min-width: 960px) {
+  .service-duties .service-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--layout-gap); }
+  .service-duties .service-facts > div { display: block; }
+  .service-duties .service-facts dt { margin-bottom: 8px; }
+  .footer__nav { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 0 var(--layout-gap); margin: 0; }
+}
+@media print {
+  .section-next, .document-crosslink, .planner-form-link { display: none !important; }
+}

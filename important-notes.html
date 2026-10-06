@@ -39,14 +39,18 @@
       <span aria-hidden="true">×</span>
     </button>
 
-    <ul class="nav-drawer__list">
+    <p class="nav-drawer__group-label" id="drawer-service-label">サービスを知る</p>
+    <ul class="nav-drawer__list" aria-labelledby="drawer-service-label">
       <li><a class="nav-drawer__link" href="index.html">トップページ<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      <li><a class="nav-drawer__link" href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+      <li><a class="nav-drawer__link" href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
+    </ul>
+    <p class="nav-drawer__group-label" id="drawer-guide-label">ご利用にあたって</p>
+    <ul class="nav-drawer__list" aria-labelledby="drawer-guide-label">
       <li><a class="nav-drawer__link" href="important-notes.html" aria-current="page">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
       <li><a class="nav-drawer__link" href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
     </ul>
@@ -76,13 +80,26 @@
         <p class="section-heading__label">IMPORTANT NOTES</p>
         <h1 class="section-heading__title">ご利用前の確認事項</h1>
       </div>
-      <p class="important-notes__intro">安全かつスムーズなお引っ越しのため、ご利用前に以下の各事項をご確認ください。</p>
+      <p class="important-notes__intro">安全かつスムーズなお引っ越しのため、ご予約の前に、上から順にご確認ください。</p>
       </div>
-      <nav class="document-toc" aria-label="このページの目次"><p>確認したい項目へ</p><ol><li><a href="#caution">お客様にお願いする準備</a></li><li><a href="#additional">追加料金・オプション</a></li><li><a href="#cancel">キャンセル料金</a></li><li><a href="#incompatible">対応できない作業・荷物</a></li></ol></nav>
+      <nav class="document-toc" aria-label="このページの目次"><p>確認したい項目へ</p><ol><li><a href="#incompatible">対応できない作業・荷物</a></li><li><a href="#caution">お客様にお願いする準備</a></li><li><a href="#additional">追加料金・オプション</a></li><li><a href="#cancel">キャンセル料金</a></li></ol></nav>
 
       <div class="document-body">
+      <div class="important-notes__section" id="incompatible">
+        <h2 class="important-notes__heading"><span class="important-notes__step" aria-hidden="true">01</span>対応できない作業・荷物</h2>
+        <ul class="important-notes__list important-notes__list--danger">
+          <li class="important-notes__item"><span>ドラム式洗濯機・有機ELテレビ、大型家電家具の取り扱い</span></li>
+          <li class="important-notes__item"><span>吊り上げ下げ作業（ベランダからの<span class="text-phrase">重量物搬入）</span></span></li>
+          <li class="important-notes__item"><span>積込み地・降ろし地の大規模な物件への養生作業、台車が使えない物件</span></li>
+          <li class="important-notes__item"><span>ハンガーBOXのご用意（<span class="text-phrase">荷室容量を確保する為）</span></span></li>
+          <li class="important-notes__item"><span>クーラーの取り外し作業</span></li>
+          <li class="important-notes__item"><span>ゴミなどの不用品回収</span></li>
+        </ul>
+        <p class="document-crosslink"><a class="text-link" href="index.html#fit">ご利用に向いているお引越しを見る<span aria-hidden="true"> →</span></a></p>
+      </div>
+
       <div class="important-notes__section" id="caution">
-        <h2 class="important-notes__heading">注意事項について</h2>
+        <h2 class="important-notes__heading"><span class="important-notes__step" aria-hidden="true">02</span>お客様にお願いする準備</h2>
         <ul class="important-notes__list important-notes__list--info">
           <li class="important-notes__item"><span>スタッフ1名での訪問の為、お荷物の積込み降ろしにはお客様の<span class="text-phrase">お手伝いが必要になります。</span></span></li>
           <li class="important-notes__item"><span>家電・家具以外の梱包はお客様自身でお願いいたします。</span></li>
@@ -96,7 +113,7 @@
       </div>
 
       <div class="important-notes__section" id="additional">
-        <h2 class="important-notes__heading">追加料金・オプション</h2>
+        <h2 class="important-notes__heading"><span class="important-notes__step" aria-hidden="true">03</span>追加料金・オプション</h2>
         <div class="fees__addon">
           <p class="fees__addon-intro">距離や作業条件に応じて加算されます。</p>
         <h3 class="fees__group-label">距離・建物による追加</h3>
@@ -141,10 +158,11 @@
           <li class="important-notes__item"><span>お客様からの事前情報になく、予約確定後に発生する大幅な作業時間が追加される場合</span></li>
           <li class="important-notes__item"><span>高速道路の使用（応相談）</span></li>
         </ul>
+        <p class="document-crosslink"><a class="text-link" href="index.html#price2">基本料金と行き先別の料金目安を見る<span aria-hidden="true"> →</span></a></p>
       </div>
 
       <div class="important-notes__section" id="cancel">
-        <h2 class="important-notes__heading">キャンセル料金について</h2>
+        <h2 class="important-notes__heading"><span class="important-notes__step" aria-hidden="true">04</span>キャンセル料金</h2>
         <ul class="important-notes__cancel-list">
           <li class="important-notes__cancel-item">
             <span class="important-notes__cancel-period">作業日の3日前まで</span>
@@ -160,18 +178,7 @@
           </li>
         </ul>
         <p class="important-notes__note">※ご返金が発生する場合は、振込手数料を差し引いた金額をご返金いたします。</p>
-      </div>
-
-      <div class="important-notes__section" id="incompatible">
-        <h2 class="important-notes__heading">対応不可条件について</h2>
-        <ul class="important-notes__list important-notes__list--danger">
-          <li class="important-notes__item"><span>ドラム式洗濯機・有機ELテレビ、大型家電家具の取り扱い</span></li>
-          <li class="important-notes__item"><span>吊り上げ下げ作業（ベランダからの<span class="text-phrase">重量物搬入）</span></span></li>
-          <li class="important-notes__item"><span>積込み地・降ろし地の大規模な物件への養生作業、台車が使えない物件</span></li>
-          <li class="important-notes__item"><span>ハンガーBOXのご用意（<span class="text-phrase">荷室容量を確保する為）</span></span></li>
-          <li class="important-notes__item"><span>クーラーの取り外し作業</span></li>
-          <li class="important-notes__item"><span>ゴミなどの不用品回収</span></li>
-        </ul>
+        <p class="document-crosslink"><a class="text-link" href="index.html#step">ご相談から当日までの流れを見る<span aria-hidden="true"> →</span></a></p>
       </div>
       </div>
     </div>
@@ -216,24 +223,27 @@
     <p class="footer__tel">TEL：0568-28-1105　FAX：0568-28-6462</p>
     </div>
     <nav class="footer__nav" aria-label="フッターナビゲーション">
-      <ul class="footer__nav-list">
-        <li><a href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="important-notes.html">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
-        <li><a href="index.html#cta">無料見積り・ご相談<span class="link-chevron" aria-hidden="true">›</span></a></li>
-      </ul>
+      <div class="footer__nav-group">
+        <p class="footer__nav-title" id="footer-service-label">サービスを知る</p>
+        <ul class="footer__nav-list" aria-labelledby="footer-service-label">
+          <li><a href="index.html#service">サービス・ご利用条件<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="index.html#price2">料金・対応エリア<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="index.html#features">運べる荷物・積載例<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="index.html#step">ご利用の流れ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="index.html#strengths">安心への取り組み<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="index.html#qa">よくある質問<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        </ul>
+      </div>
+      <div class="footer__nav-group">
+        <p class="footer__nav-title" id="footer-guide-label">ご利用にあたって</p>
+        <ul class="footer__nav-list" aria-labelledby="footer-guide-label">
+          <li><a href="important-notes.html" aria-current="page">ご利用前の確認事項<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="privacy-policy.html">プライバシーポリシー<span class="link-chevron" aria-hidden="true">›</span></a></li>
+          <li><a href="#cta">無料見積り・ご相談<span class="link-chevron" aria-hidden="true">›</span></a></li>
+        </ul>
+      </div>
     </nav>
-
-    <div class="footer__links">
-      <a href="company.html">会社概要</a>
-      <span aria-hidden="true">｜</span>
-      <a href="privacy-policy.html">プライバシーポリシー</a>
-    </div>
 
     <p class="footer__copyright">© 2026 茜deliver</p>
   </div>
