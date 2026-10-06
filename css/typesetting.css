@@ -1,0 +1,165 @@
+/* ==========================================================================
+   和文組版（全ページの最後に読み込み）
+   - 見出し：プロポーショナル詰め（palt）＋字間で、約物の空きを整える
+   - 操作・ラベル：本文サイズの短い語句は詰めず、字間のみ調整
+   - 本文：ベタ組みを基本に、長文は両端揃え
+   - 改行：見出しや短文は文節（auto-phrase）で折り返し、行頭の括弧を揃える
+   - 和欧間：英数字との間に約1/8emのアキ（text-autospace）
+   文字サイズ・行の長さ・段組みは変更しません。
+   ========================================================================== */
+
+:root {
+  --ts-display: .02em;   /* 大見出し：palt で詰めた分、わずかに戻す */
+  --ts-heading: .05em;   /* セクション見出し */
+  --ts-sub: .04em;       /* カード見出し・強調文 */
+  --ts-ui: .04em;        /* ボタン・ナビゲーション */
+  --ts-body: .02em;      /* 本文（ベタ組み＋わずかな字送り） */
+  --ts-note: .03em;      /* 小さな注記：小さいほど字間を開く */
+}
+
+/* --------------------------------------------------------------------------
+   1. 和欧間のアキ
+   日本語と英数字（例：スタッフ1名、5kmまで、Googleフォーム）の間に自動でアキを入れる。
+   金額・寸法・ロゴなど、数字と単位を個別に組んでいる箇所は既存の間隔を優先。
+   -------------------------------------------------------------------------- */
+body { text-autospace: normal; }
+:is(.hero__price, .fees__base-value, .fees__route-price, .fees__addon-price, .spec__weight,
+    .capacity-dimensions dd, .capacity-summary, .site-wordmark, .btn--tel, .footer__tel,
+    .hero-figure__stamp, .team-equation, .diagram-key, .process__step, .persona__index,
+    .section-heading__label, .graphic-kicker, .journey-index, .hero__edition, .important-notes__step,
+    input, textarea) { text-autospace: no-autospace; }
+
+/* --------------------------------------------------------------------------
+   2. 文節で折り返す要素
+   見出し・カード内の短文・注記・ボタンは、単語の途中（例：サービ／ス、運／んで）で切らない。
+   3行程度までの短い文が対象。長文は文字単位で折り返し、両端揃えで整える（5.）。
+   1語が行に収まらない場合のみ、語の途中で折り返す。
+   -------------------------------------------------------------------------- */
+:is(h1, h2, h3, h4, dt, summary, .btn, .text-link,
+    .hero__title, .hero__eyebrow, .hero__lead, .hero__conditions, .section-heading__title, .section-intro,
+    .cta__title, .cta__label, .cta__desc, .message__catch,
+    .persona__text, .strengths__title, .strengths__desc, .features__title,
+    .process__title, .process__desc, .faq__question-text, .faq-help__title, .faq-help p,
+    .contact-method__label, .contact-method > p, .contact-method small, .contact-other, .contact-heading,
+    .journey-nav a, .quick-nav a, .nav-drawer__link, .footer__nav-list a, .footer__promise,
+    .small-label, .graphic-caption, .ph__label, .team-visual__copy > p,
+    .service-facts dd, .service-overview__help, .fit-check__list li, .area__desc,
+    .fees__addon-name, .section-next p, .fees__addon-intro, .fees__estimate-note, .fees__disclaimer,
+    .fees__group-label, .spec__badge, .loadex__badge, .spec__heading-note, .inventory-board__label, .capacity-preflight p,
+    .area-figure figcaption, .hero-figure figcaption,
+    .policy__article-title, .important-notes__heading, .important-notes__subheading,
+    .document-toc a, .company-info__label, .message-art > span, .representative-link p) {
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
+}
+
+/* 見出しは行の長さを揃え、2行目が極端に短くならないようにする */
+:is(h1, h2, h3, h4, .hero__title, .section-heading__title, .cta__title, .message__catch,
+    .persona__text, .strengths__title, .features__title, .process__title,
+    .faq__question-text, .faq-help__title, .contact-method__label, .policy__article-title,
+    .important-notes__heading, .capacity-preflight h3,
+    .quick-nav a, .journey-nav a, .nav-drawer__link, .footer__nav-list a, .strengths__desc,
+    .fees__addon-name, .section-next p) { text-wrap: balance; }
+/* 文章は最終行の孤立を避ける（HTML側でも文末4文字を .nobr でまとめている） */
+main :is(p, li, dd) { text-wrap: pretty; }
+
+/* 行頭の括弧は字面を揃える（見出し・短文） */
+:is(h1, h2, h3, h4, .hero__title, .section-heading__title, .cta__title, .message__catch,
+    .faq__question-text, .persona__text, .capacity-preflight h3, .btn, .text-link) {
+  text-spacing-trim: trim-start;
+}
+
+/* --------------------------------------------------------------------------
+   3. 見出し：プロポーショナル詰め＋字間
+   -------------------------------------------------------------------------- */
+:is(h1, h2, h3, h4, .hero__title, .section-heading__title, .cta__title, .message__catch,
+    .strengths__title, .features__title, .process__title, .persona__text,
+    .faq__question-text, .faq-help__title, .contact-method__label,
+    .fees__base-label, .fees__area-label, .fees__estimate-label, .fees__addon-label,
+    .spec__heading, .loadex__heading, .policy__article-title,
+    .important-notes__heading, .important-notes__subheading, .team-equation strong,
+    .capacity-summary strong, .site-wordmark) {
+  font-feature-settings: "palt";
+}
+
+/* 数字と単位・括弧書きの金額・文末の数文字は1行にまとめる（行に収まらない拡大時のみ折り返す） */
+.nobr { display: inline-block; max-inline-size: 100%; text-indent: 0; overflow-wrap: anywhere; }
+
+.hero__title { letter-spacing: var(--ts-display); line-height: 1.42; }
+.hero__title em { letter-spacing: inherit; }
+body .section-heading__title, body .cta__title { letter-spacing: var(--ts-heading); line-height: 1.5; }
+body h1.section-heading__title { letter-spacing: var(--ts-heading); }
+.message__catch { letter-spacing: var(--ts-heading); line-height: 1.7; }
+
+body :is(.strengths__title, .features__title, .process__title, .persona__text, .contact-method__label,
+    .fees__base-label, .fees__area-label, .fees__estimate-label, .fees__addon-label,
+    .spec__heading, .loadex__heading, .policy__article-title, .important-notes__heading,
+    .important-notes__subheading, .service-overview h3, .booking-notes h3, .representative-link h3,
+    .fit-check__card h3, .service-duties h3, .capacity-preflight h3, .contact-preparation h3,
+    .faq-help__title, .team-equation strong, .capacity-summary strong) {
+  letter-spacing: var(--ts-sub);
+}
+body .faq__question-text { letter-spacing: .03em; line-height: 1.7; }
+body .capacity-dimensions dt, body .inventory-grid span { letter-spacing: .03em; }
+body .features__item--wide > .features__title { letter-spacing: var(--ts-sub); line-height: 1.6; }
+
+/* --------------------------------------------------------------------------
+   4. 操作・ナビゲーション・ラベル
+   本文サイズの短い語句は詰めずに組み（中黒「・」が窮屈にならない）、字間のみ整える。
+   英字ラベルは大文字の字間を広めに。
+   -------------------------------------------------------------------------- */
+body :is(.btn, .header__nav a, .nav-drawer__link, .quick-nav a, .journey-nav a, .features__toggle,
+    .fees__details, .load-planner > summary, .mobile-contact a, .fees__base-range,
+    .footer__nav-list a, .booking-notes__links a) { letter-spacing: var(--ts-ui); }
+body :is(.hero__eyebrow, .small-label, .cta__label, .nav-drawer__group-label, .footer__nav-title,
+    .company-info__label, .message__name, .fees__group-label) { letter-spacing: .06em; }
+body .contact-method .btn--tel { letter-spacing: .04em; }
+body .text-link { letter-spacing: .03em; }
+
+/* 英字ラベル：Arial の大文字は字間を開け、和文ラベルと並べたときの密度を合わせる */
+body :is(.section-heading__label, .graphic-kicker) { letter-spacing: .16em; }
+body :is(.persona__index, .journey-index, .hero__edition) { letter-spacing: .1em; }
+body .process__step { letter-spacing: .1em; }
+
+/* --------------------------------------------------------------------------
+   5. 本文
+   ベタ組み（palt なし）で読みやすさを優先。長文は両端揃えで右端を整える。
+   文節単位の囲み（.text-phrase）を含む段落は、字間が間延びしないため左揃えのまま。
+   -------------------------------------------------------------------------- */
+body { letter-spacing: var(--ts-body); }
+body :is(.hero__lead, .section-intro, .service-facts dd, .area__desc, .features__desc,
+    .process__desc, .booking-notes > p, .cta__desc, .document-lead, .plain-list,
+    .faq__answer-text, .company-info__value, .strengths__desc) { letter-spacing: var(--ts-body); }
+body .message__body { letter-spacing: .03em; }
+body :is(.policy__intro, .policy__article-body, .policy__list, .important-notes__intro,
+    .important-notes__item) { letter-spacing: .025em; }
+
+:is(.message__body, .policy__intro, .policy__article-body, .policy__list > li, .policy__sublist > li,
+    .important-notes__intro, .important-notes__item, .faq__answer-text, .document-lead,
+    .features__item:not(.features__item--wide) > .features__desc,
+    .company-info__value):not(:has(.text-phrase, .text-unit, br)) {
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+/* 小さな注記は字間をわずかに開き、つぶれを防ぐ */
+body :is(.hero__conditions, .fees__addon-note, .fees__addon-intro, .fees__estimate-note,
+    .fees__disclaimer, .spec__weight-note, .spec__heading-note, .spec__note, .graphic-caption,
+    .contact-method small, .contact-other, .contact-policy, .footer__address, .footer__links,
+    .footer__promise, .capacity-figure figcaption, .detail-figure figcaption, .capacity-dimensions small,
+    .inventory-grid small, .planner-extra > span, .planner-output > p) { letter-spacing: var(--ts-note); }
+
+/* --------------------------------------------------------------------------
+   6. 数字
+   金額・寸法は等幅数字。カンマとの間を詰め、単位は数字のベースラインに揃える。
+   -------------------------------------------------------------------------- */
+:is(.hero__price-number, .fees__base-number, .price-figure, .spec__weight-number,
+    .capacity-dimensions strong, .capacity-summary b, .fees__addon-price) {
+  font-variant-numeric: lining-nums tabular-nums;
+  font-kerning: normal;
+}
+.hero__price-unit, .fees__base-unit, .price-unit, .fees__addon-unit { margin-inline-start: .2em; }
+.hero__price-tax, .fees__base-unit small { letter-spacing: .04em; }
+
+/* 料金項目名は狭い列に置かれるため、字間は従来値のまま */
+body .fees__addon-name { letter-spacing: .01em; }
