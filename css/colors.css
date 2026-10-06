@@ -72,11 +72,6 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 .hero-figure { background: var(--blue-soft); }
 .hero-figure__stamp { background: var(--gold); color: var(--ink); }
 .hero-figure figcaption { color: var(--ink); }
-.journey-nav { background: var(--surface); border-color: var(--line); }
-.journey-nav p { color: var(--muted); }
-.journey-nav li:nth-child(-n+2) { border-color: var(--line); }
-.journey-nav a { color: var(--ink); }
-.journey-nav a > span:last-child { color: var(--action); }
 .service-overview { background: var(--surface); }
 .team-visual { background: var(--mist); }
 .team-equation { color: var(--ink); }
@@ -176,7 +171,7 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 @media (hover: hover) and (pointer: fine) {
   .btn--form:hover, .header__nav .header__estimate:hover, .mobile-contact__cta:hover { background: var(--action-hover); color: var(--on-dark); }
   .btn--tel:hover, .features__toggle:hover, .fees__details:hover { background: var(--blue-soft); color: var(--action-hover); }
-  .faq__question:hover, .journey-nav a:hover, .nav-drawer__link:hover { background: var(--mist); color: var(--action-hover); }
+  .faq__question:hover, .nav-drawer__link:hover { background: var(--mist); color: var(--action-hover); }
   .footer a:hover, .contact-policy a:hover { color: var(--on-dark); }
 }
 @media (forced-colors: active) {

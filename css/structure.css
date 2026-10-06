@@ -4,13 +4,6 @@
 .text-link, .service-overview a, .booking-notes a, .document-toc a, .breadcrumb a, .contact-policy a { color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
 .text-link { display: inline-block; font-weight: 500; padding-block: 8px; }
 .hero__secondary { margin-top: 8px; font-size: .8125rem; }
-.journey-nav { border-block: 1px solid #d6e4f0; background: #f7faff; }
-.journey-nav .container { padding-block: 18px; }
-.journey-nav p { font-size: .75rem; color: #52657b; margin-bottom: 8px; }
-.journey-nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
-.journey-nav a { min-height: 48px; padding-block: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: .8125rem; color: var(--c-heading); }
-.journey-nav a > span:last-child { color: var(--c-link); flex: none; }
-.journey-nav li:nth-child(-n+2) { border-bottom: 1px solid #d6e4f0; }
 .service-overview__grid { display: grid; gap: 24px; }
 .service-overview h3, .booking-notes h3, .representative-link h3 { font-size: var(--text-h3); color: var(--c-heading); font-weight: 600; line-height: 1.7; }
 .service-facts { margin: 20px 0 0; }
@@ -72,17 +65,8 @@
   .service-facts dt { margin: 0; }
   .booking-notes__links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-@media (min-width: 960px) {
-  .journey-nav .container { display: grid; grid-template-columns: 10rem minmax(0, 1fr); align-items: center; gap: 24px; }
-  .journey-nav p { margin: 0; }
-  .journey-nav ul { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-  .journey-nav li:nth-child(-n+2) { border: 0; }
-}
 @media (min-width: 1200px) {
   .cta__buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 48rem; }
-}
-@media (hover: hover) and (pointer: fine) {
-  .journey-nav a:hover { color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; }
 }
 
 /* 2026-10-05 layout pass. Shared edges, measured media, and readable columns. */
@@ -95,9 +79,6 @@
 .hero__primary { max-width: none; }
 .hero__photo.image-placeholder { aspect-ratio: 2 / 1; min-height: 0; height: auto; }
 .hero__availability { flex-wrap: wrap; row-gap: 8px; }
-.journey-nav .container { padding-block: 20px; }
-.journey-nav ul { gap: 0 24px; }
-.journey-nav a { min-height: 54px; }
 .service-overview__grid { gap: 28px; }
 .service-overview__limits { padding: 24px; }
 .fees__columns { gap: 32px; }
@@ -210,8 +191,6 @@
   .hero__photo.image-placeholder { aspect-ratio: 6 / 5; }
   .hero__title { font-size: clamp(2.25rem, 3.25vw, 3rem); }
   .hero__primary { max-width: 25rem; }
-  .journey-nav .container { grid-template-columns: 9rem minmax(0, 1fr); }
-  .journey-nav ul { gap: 24px; }
   .service-overview__grid { gap: var(--layout-gap); }
   .service-facts > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 20px; }
   .service-facts dt { margin: 0; }

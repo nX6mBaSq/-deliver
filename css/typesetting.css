@@ -26,7 +26,7 @@ body { text-autospace: normal; }
 :is(.hero__price, .fees__base-value, .fees__route-price, .fees__addon-price, .spec__weight,
     .capacity-dimensions dd, .capacity-summary, .site-wordmark, .btn--tel, .footer__tel,
     .hero-figure__stamp, .team-equation, .diagram-key, .process__step, .persona__index,
-    .section-heading__label, .graphic-kicker, .journey-index, .hero__edition, .important-notes__step,
+    .section-heading__label, .graphic-kicker, .hero__edition, .important-notes__step,
     input, textarea) { text-autospace: no-autospace; }
 
 /* --------------------------------------------------------------------------
@@ -41,7 +41,7 @@ body { text-autospace: normal; }
     .persona__text, .strengths__title, .strengths__desc, .features__title,
     .process__title, .process__desc, .faq__question-text, .faq-help__title, .faq-help p,
     .contact-method__label, .contact-method > p, .contact-method small, .contact-other, .contact-heading,
-    .journey-nav a, .quick-nav a, .nav-drawer__link, .footer__nav-list a, .footer__promise,
+    .quick-nav a, .nav-drawer__link, .footer__nav-list a, .footer__promise,
     .small-label, .graphic-caption, .ph__label, .team-visual__copy > p,
     .service-facts dd, .service-overview__help, .fit-check__list li, .area__desc,
     .fees__addon-name, .section-next p, .fees__addon-intro, .fees__estimate-note, .fees__disclaimer,
@@ -58,7 +58,7 @@ body { text-autospace: normal; }
     .persona__text, .strengths__title, .features__title, .process__title,
     .faq__question-text, .faq-help__title, .contact-method__label, .policy__article-title,
     .important-notes__heading, .capacity-preflight h3,
-    .quick-nav a, .journey-nav a, .nav-drawer__link, .footer__nav-list a, .strengths__desc,
+    .quick-nav a, .nav-drawer__link, .footer__nav-list a, .strengths__desc,
     .fees__addon-name, .section-next p) { text-wrap: balance; }
 /* 文章は最終行の孤立を避ける（HTML側でも文末4文字を .nobr でまとめている） */
 main :is(p, li, dd) { text-wrap: pretty; }
@@ -108,7 +108,7 @@ body .features__item--wide > .features__title { letter-spacing: var(--ts-sub); l
    本文サイズの短い語句は詰めずに組み（中黒「・」が窮屈にならない）、字間のみ整える。
    英字ラベルは大文字の字間を広めに。
    -------------------------------------------------------------------------- */
-body :is(.btn, .header__nav a, .nav-drawer__link, .quick-nav a, .journey-nav a, .features__toggle,
+body :is(.btn, .header__nav a, .nav-drawer__link, .quick-nav a, .features__toggle,
     .fees__details, .load-planner > summary, .mobile-contact a, .fees__base-range,
     .footer__nav-list a, .booking-notes__links a) { letter-spacing: var(--ts-ui); }
 body :is(.hero__eyebrow, .small-label, .cta__label, .nav-drawer__group-label, .footer__nav-title,
@@ -118,7 +118,7 @@ body .text-link { letter-spacing: .03em; }
 
 /* 英字ラベル：Arial の大文字は字間を開け、和文ラベルと並べたときの密度を合わせる */
 body :is(.section-heading__label, .graphic-kicker) { letter-spacing: .16em; }
-body :is(.persona__index, .journey-index, .hero__edition) { letter-spacing: .1em; }
+body :is(.persona__index, .hero__edition) { letter-spacing: .1em; }
 body .process__step { letter-spacing: .1em; }
 
 /* --------------------------------------------------------------------------

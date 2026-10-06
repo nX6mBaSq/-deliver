@@ -46,8 +46,8 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview/structure';
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`${origin}/index.html`);
       await page.evaluate(() => document.fonts.ready);
-      for (const href of await page.locator('.journey-nav a').evaluateAll(links => links.map(a => a.getAttribute('href')))) {
-        await page.locator(`.journey-nav a[href="${href}"]`).click();
+      for (const href of ['#service', '#price2', '#features', '#step']) {
+        await page.evaluate(hash => { location.hash = hash; }, href);
         const box = await page.locator(href).boundingBox();
         const header = await page.locator('.header').boundingBox();
         assert(box.y >= header.y + header.height && box.y < 900, `${href}: target visible below header at ${width}`);
@@ -60,7 +60,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview/structure';
       const cancelBox = await page.locator('#cancel').boundingBox();
       const header = await page.locator('.header').boundingBox();
       assert(cancelBox.y >= header.y + header.height && cancelBox.y < 900, `Cancellation jump at ${width}`);
-      results.push(`Purpose navigation, company message and cancellation destination @ ${width}px: OK`);
+      results.push(`Section anchors, company message and cancellation destination @ ${width}px: OK`);
       await page.goto(`${origin}/index.html`);
       await page.locator('.mobile-contact__cta, .header__estimate').filter({ visible: true }).first().click();
       assert.equal(new URL(page.url()).hash, '#cta');

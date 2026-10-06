@@ -74,7 +74,6 @@ h1.section-heading__title { font-weight: 600; letter-spacing: .015em; }
 .btn, .features__toggle, .fees__details, .booking-notes__links a { font-size: .875rem; font-weight: 600; line-height: 1.75; letter-spacing: .015em; }
 .features__toggle > span:first-child, .fees__details > span:first-child { min-width: 0; }
 .header__nav, .nav-drawer__link { letter-spacing: .01em; }
-.journey-nav a { font-size: .8125rem; font-weight: 500; line-height: 1.75; letter-spacing: .005em; }
 .contact-method > p + p, .contact-preparation li { font-size: .8125rem; line-height: 1.9; letter-spacing: .01em; }
 .contact-method .btn--tel { font-family: var(--font-numeral); font-size: 1.125rem; line-height: 1.35; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: .015em; }
 .hero__conditions, .contact-method small, .contact-other, .contact-policy,
