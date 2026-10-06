@@ -2,10 +2,12 @@
 const fs = require('node:fs');
 const dir = 'images/graphics';
 fs.mkdirSync(dir, { recursive: true });
-const navy = '#193b50', blue = '#1764a1', pale = '#dfeef5', teal = '#276963', cream = '#f0ce8d', amber = '#82551c';
+const navy = '#0b2f5b', blue = '#0866d6', pale = '#dbeefc', teal = '#087a72', cream = '#f6d68f', amber = '#8a5200';
+// Fresh sky tints replace the earlier grey-blue shading (applied after the palette swap below).
+const sky = {'#dce8f2':'#d9eafa','#dbe9f4':'#d6eafb','#97bfda':'#8cc4ef','#91b6d3':'#86bdea','#e4eff7':'#e3f1fd','#d2e3ef':'#d3e8fb','#bdd5e6':'#bcdcf6','#6894b8':'#5d97d1','#b3d6e7':'#aedaf7','#dbe9f5':'#d6eafb','#d8e5ec':'#d6e8f7','#d8e7ec':'#d4e9fa','#78a6b2':'#6aa4d4','#b3cedf':'#a9cdeb','#8eb5ce':'#80b5e0','#438dd1':'#3b8fe6','#a5caec':'#9fd0f7','#c4dfd8':'#bfe8e1','#e7f1fb':'#e4f2fd','#d1e1eb':'#d3e6f5','#bed6e7':'#b8d9f2','#d5e6f4':'#d3e9fb','#b6cfdf':'#acd2ee'};
 function svg(name, w, h, content) {
   // Keep the existing small icon paths on the same palette as the larger scenes.
-  for (const [oldColor, newColor] of Object.entries({'#163c63':navy,'#2274bf':blue,'#3f8c88':teal,'#f7d995':cream,'#dfedfa':pale,'#e0efec':'#e5f1eb'})) content=content.replaceAll(oldColor,newColor);
+  for (const [oldColor, newColor] of Object.entries({'#163c63':navy,'#2274bf':blue,'#3f8c88':teal,'#f7d995':cream,'#dfedfa':pale,'#e0efec':'#def5f1',...sky})) content=content.replaceAll(oldColor,newColor);
   fs.writeFileSync(`${dir}/${name}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" fill="none"><g stroke="${navy}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${content}</g></svg>\n`);
 }
 const box = (x,y,s=1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 18 36 0 80 20 44 40Z" fill="${cream}"/><path d="M0 18v53l44 22V40Z" fill="#edd09a"/><path d="m44 40 36-20v53L44 93Z" fill="#dcb779"/><path d="m18 9 44 21v19l-13 6V36L7 15" stroke="none" fill="#fff0cf"/><path d="m59 61 10-5"/></g>`;

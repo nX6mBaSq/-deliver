@@ -1,26 +1,30 @@
-/* Final shared palette. Color-only rules; geometry and typography stay intact. */
+/* Final shared palette: "morning sky" — clear azure on crisp cool white.
+   Color-only rules; geometry and typography stay intact. */
 :root {
-  --ink: #193b50;
-  --text: #435562;
-  --muted: #596b76;
-  --paper: #fbfaf7;
+  --ink: #0b2f5b;
+  --text: #304760;
+  --muted: #536a80;
+  --paper: #f6fafd;
   --surface: #ffffff;
-  --mist: #edf4f7;
-  --blue-soft: #dfeef5;
-  --line: #c9d8df;
-  --control-line: #678496;
-  --action: #1764a1;
-  --action-hover: #104c7d;
-  --teal: #276963;
-  --teal-soft: #e5f1eb;
-  --amber: #82551c;
-  --amber-soft: #fbf0d9;
-  --gold: #f0ce8d;
-  --danger: #974739;
-  --danger-soft: #f8ede7;
-  --night: #102c3e;
+  --mist: #ebf5fd;
+  --blue-soft: #dbeefc;
+  --line: #d0e2f0;
+  --control-line: #6b8fb3;
+  --action: #0866d6;
+  --action-hover: #0450a8;
+  --deep: #0b4aa8;
+  --sky: #3fb5f2;
+  --sky-wash: #e4f2fd;
+  --teal: #087a72;
+  --teal-soft: #def5f1;
+  --amber: #8a5200;
+  --amber-soft: #fff3d6;
+  --gold: #ffd95a;
+  --danger: #b03a2e;
+  --danger-soft: #fdece9;
+  --night: #061f45;
   --on-dark: #ffffff;
-  --on-dark-muted: #cadbe4;
+  --on-dark-muted: #cfe4f8;
   --c-heading: var(--ink);
   --c-body: var(--text);
   --c-label: var(--muted);
@@ -39,14 +43,14 @@
 body { color: var(--text); background: var(--paper); }
 ::selection { background: var(--gold); color: var(--ink); }
 a, button { -webkit-tap-highlight-color: var(--blue-soft); }
-.header, .nav-drawer__panel, .mobile-contact, .skip-link { background: var(--paper); border-color: var(--line); }
+.header, .nav-drawer__panel, .mobile-contact, .skip-link { background: var(--surface); border-color: var(--line); }
 .nav-drawer { color: var(--text); }
-.nav-drawer::backdrop { background: rgb(16 44 62 / .6); }
+.nav-drawer::backdrop { background: rgb(6 31 69 / .55); }
 .nav-drawer__link, .nav-drawer__sub-links a { border-color: var(--line); color: var(--ink); }
 .header__menu-button, .nav-drawer__close { color: var(--ink); }
 .site-wordmark { color: var(--ink); }
 .site-wordmark > span { color: var(--action); }
-.btn--form, .header__nav .header__estimate, .mobile-contact__cta { background: var(--action); color: var(--on-dark); }
+.btn--form, .header__nav .header__estimate, .mobile-contact__cta { background: var(--action); color: var(--on-dark); box-shadow: 0 6px 16px -6px rgb(8 102 214 / .55); }
 .btn--tel, .mobile-contact__tel, .features__toggle { background: var(--surface); color: var(--action); border-color: var(--control-line); }
 .btn.is-unavailable { background: var(--mist); color: var(--muted); }
 .text-link, .service-overview a, .booking-notes a, .document-toc a, .document-links a, .breadcrumb a { color: var(--action); }
@@ -58,11 +62,11 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 .capacity-figure figcaption, .detail-figure figcaption, .inventory-grid small,
 .capacity-dimensions small, .hero-figure figcaption small, .fees__addon-intro { color: var(--muted); }
 
-/* Warm welcome, followed by quiet white reading surfaces. */
-.hero { background: var(--paper); }
+/* A bright sky welcome, followed by crisp white reading surfaces. */
+.hero { background: linear-gradient(180deg, var(--sky-wash) 0%, var(--paper) 78%); }
 .hero__title em, .hero__price-number, .hero__price-unit { color: var(--action); }
 .hero__eyebrow { color: var(--ink); }
-.hero__eyebrow > span { background: var(--teal); }
+.hero__eyebrow > span { background: var(--sky); }
 .hero__availability { color: var(--muted); }
 .hero__availability span + span { border-color: var(--line); }
 .hero-figure { background: var(--blue-soft); }
@@ -83,7 +87,7 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 
 /* Price is the strongest blue block before the contact section. */
 .fees { background: var(--paper); }
-.fees__base { background: var(--ink); border-color: var(--ink); }
+.fees__base { background: linear-gradient(135deg, var(--deep) 0%, var(--action) 100%); border-color: var(--deep); }
 .fees__base-label, .fees__base-number, .fees__base-unit, .fees__base-unit small { color: var(--on-dark); }
 .fees__base-range { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 .fees__addon, .fees__estimate { background: var(--surface); border-color: var(--line); }
@@ -149,13 +153,13 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 
 /* A navy destination with white contact cards; the action color stays consistent. */
 .cta {
-  --c-heading: var(--on-dark); --c-body: var(--on-dark-muted); --c-link: #c5e1f1;
-  background: var(--ink); color: var(--on-dark-muted);
+  --c-heading: var(--on-dark); --c-body: var(--on-dark-muted); --c-link: #d6ecff;
+  background: radial-gradient(120% 90% at 100% 0%, rgb(63 181 242 / .14) 0%, transparent 65%), var(--deep); color: var(--on-dark-muted);
 }
 .cta__label { color: var(--gold); }
 .cta__title { color: var(--on-dark); }
 .cta__desc, .contact-other, .contact-policy { color: var(--on-dark-muted); }
-.contact-preparation { border-color: #567487; }
+.contact-preparation { border-color: #4f7fc4; }
 .contact-preparation h3 { color: var(--on-dark); }
 .contact-method {
   --c-heading: var(--ink); --c-body: var(--text); --c-link: var(--action);
@@ -163,11 +167,11 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 }
 .contact-method__label { color: var(--ink); }
 .contact-method small { color: var(--muted); }
-.contact-policy a { color: #c5e1f1; }
+.contact-policy a { color: #d6ecff; }
 .footer { background: var(--night); color: var(--on-dark-muted); }
 .footer__wordmark, .footer__wordmark > span { color: var(--on-dark); }
 .footer__address, .footer__tel, .footer__links, .footer__nav-list a, .footer__copyright { color: var(--on-dark-muted); }
-.footer__nav-list a, .footer__copyright { border-color: #466170; }
+.footer__nav-list a, .footer__copyright { border-color: #24477a; }
 :is(a, button, [tabindex]):focus-visible { outline-color: var(--ink); box-shadow: 0 0 0 6px var(--gold); }
 @media (hover: hover) and (pointer: fine) {
   .btn--form:hover, .header__nav .header__estimate:hover, .mobile-contact__cta:hover { background: var(--action-hover); color: var(--on-dark); }

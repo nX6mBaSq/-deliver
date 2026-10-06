@@ -12,12 +12,15 @@ async function contrast(page){return page.evaluate(()=>{
  for(const e of document.querySelectorAll('body *')){
   if(!e.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})||e.closest('.visually-hidden,.skip-link,script,style'))continue;
   const text=(e.matches('input,textarea')?e.value:[...e.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent.trim()).join('')).trim();if(!text)continue;
-  const c=getComputedStyle(e);let bg=[255,255,255],gradient=false;
+  const c=getComputedStyle(e);let bgs=[[255,255,255]],image=false;
   const ancestors=[];for(let a=e;a;a=a.parentElement)ancestors.unshift(a);
-  for(const a of ancestors){const s=getComputedStyle(a),col=rgb(s.backgroundColor);if(col)bg=blend(col,bg);if(s.backgroundImage!=='none')gradient=true;}
-  if(gradient){unknown.push({class:e.className,text:text.slice(0,45)});continue;}
+  // Color-only gradients are measured conservatively: the text is checked against every stop.
+  for(const a of ancestors){const s=getComputedStyle(a),col=rgb(s.backgroundColor);if(col)bgs=bgs.map(b=>blend(col,b));
+   if(s.backgroundImage==='none')continue;if(/url\(/.test(s.backgroundImage)){image=true;continue;}
+   const stops=(s.backgroundImage.match(/rgba?\([^)]*\)/g)||[]).map(rgb);bgs=bgs.flatMap(b=>stops.map(st=>blend(st,b)));}
+  if(image){unknown.push({class:e.className,text:text.slice(0,45)});continue;}
   const fg=rgb(c.color);if(!fg)continue;
-  const effective=blend(fg,bg),l1=lum(effective),l2=lum(bg),ratio=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);
+  let ratio=Infinity,bg;for(const b of bgs){const l1=lum(blend(fg,b)),l2=lum(b),r=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);if(r<ratio){ratio=r;bg=b;}}
   const min=parseFloat(c.fontSize)>=24||(parseFloat(c.fontSize)>=18.66&&parseInt(c.fontWeight)>=700)?3:4.5;
   const item={class:e.className,text:text.slice(0,55),foreground:c.color,background:bg,ratio:+ratio.toFixed(2),min};
   checked++;pairs.set(`${c.color}/${bg}/${min}`,item);if(ratio+.01<min)failures.push(item);
