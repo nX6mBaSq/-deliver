@@ -2,7 +2,7 @@ const fs=require('node:fs');
 const esbuild=require('esbuild');
 const {PurgeCSS}=require('purgecss');
 const common=['refresh','foundations','structure','typography'];
-const pageStyles={index:['common','top',...common,'graphics','colors','polish','architecture'],company:['common','company',...common,'colors','polish','architecture'],'important-notes':['common','important-notes',...common,'colors','polish','architecture'],'privacy-policy':['common','privacy-policy',...common,'colors','polish','architecture']};
+const pageStyles={index:['common','top',...common,'graphics','colors','polish','architecture','layout'],company:['common','company',...common,'colors','polish','architecture','layout'],'important-notes':['common','important-notes',...common,'colors','polish','architecture','layout'],'privacy-policy':['common','privacy-policy',...common,'colors','polish','architecture','layout']};
 (async()=>{
  for(const [page,styles] of Object.entries(pageStyles)){
   const css=['fonts',...styles].map(name=>fs.readFileSync(`css/${name}.css`,'utf8')).join('\n');

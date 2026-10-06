@@ -1,0 +1,211 @@
+/* 2026-10-06 layout pass: image- and icon-led composition.
+   Loaded last on every page. Media use only two ratios: 1:1 and 16:9.
+   `.ph` marks a solid-colour placeholder; swap it for an <img> of the same ratio. */
+
+/* ---------- Placeholder media ---------- */
+.ph { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; min-width: 0; margin: 0; padding: 12px 14px; overflow: hidden; border-radius: 6px; background: var(--blue-soft); color: var(--ink); list-style: none; }
+.ph--1x1 { aspect-ratio: 1 / 1; }
+.ph--16x9 { aspect-ratio: 16 / 9; }
+.ph--navy { background: var(--ink); color: var(--on-dark); }
+.ph--sky { background: #c4dfeb; }
+.ph--sand { background: #eedcb6; }
+.ph::before { content: ''; position: absolute; top: 50%; left: 50%; width: 28px; height: 28px; margin: -22px 0 0 -14px; background: currentColor; opacity: .35;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.ph__tag { font: 500 .6875rem/1.4 Arial, sans-serif; letter-spacing: .08em; opacity: .75; }
+.ph__label { font-size: .875rem; font-weight: 600; line-height: 1.5; }
+
+/* Shared icon tile for inline SVG icons. */
+.fee-icon, .contact-method__icon, .notes-icon, .document-badge { display: inline-grid; place-items: center; flex: none; border-radius: 10px; background: var(--blue-soft); color: var(--action); }
+.fee-icon svg, .contact-method__icon svg, .notes-icon svg, .document-badge svg { display: block; }
+
+/* ---------- Hero: main 16:9 photo + 1:1 mosaic ---------- */
+.hero__visual { gap: 0; }
+.hero-mosaic { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 10px 0 0; padding: 0; list-style: none; }
+.hero-mosaic .ph { padding: 8px 10px; border-radius: 4px; }
+.hero-mosaic .ph::before { width: 22px; height: 22px; margin: -18px 0 0 -11px; }
+.hero-mosaic .ph__tag { display: none; }
+.hero-mosaic .ph__label { font-size: .75rem; }
+.hero-mosaic .ph:last-child { border-bottom-right-radius: 28px; }
+
+/* ---------- Journey nav: icon tiles ---------- */
+.journey-nav ul { gap: 10px; }
+.journey-nav li, .journey-nav li:nth-child(-n+2) { border: 0; }
+.journey-nav a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto; align-items: start; gap: 2px 8px; height: 100%; min-height: 0; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; text-decoration: none; }
+.journey-nav a:hover { border-color: var(--action); }
+.journey-icon { grid-column: 1; grid-row: 1; width: 44px; height: 44px; margin-bottom: 8px; object-fit: contain; }
+.journey-nav a > .journey-index { grid-column: 1 / -1; grid-row: 2; }
+.journey-nav a > span:nth-of-type(2) { grid-column: 1 / -1; grid-row: 3; font-weight: 600; }
+.journey-nav a > span:last-child { grid-column: 2; grid-row: 1; }
+
+/* ---------- 01 Service: persona row, duty cards ---------- */
+.persona-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 16px 0 0; padding: 0; list-style: none; }
+.persona { min-width: 0; padding: 8px 8px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; text-align: center; }
+.persona > img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 4px; background: var(--mist); }
+.persona__index { margin-top: 10px; color: var(--action); font: 500 .625rem/1.6 Arial, sans-serif; letter-spacing: .06em; }
+.persona__text { margin-top: 2px; color: var(--ink); font-size: .75rem; font-weight: 600; line-height: 1.6; }
+
+.service-duties .service-facts { display: grid; gap: 12px; }
+.service-duties .service-facts > div { display: block; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.service-duties .service-facts dt { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; }
+.service-duties .service-facts dt img { width: 56px; height: 56px; padding: 8px; border-radius: 12px; background: var(--blue-soft); }
+.service-overview__help { margin-top: 16px; }
+
+/* ---------- 02 Price: icons and destination thumbnails ---------- */
+.fees__addon-item dt:has(.fee-icon) { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; align-items: center; }
+.fee-icon { grid-row: 1 / 3; width: 40px; height: 40px; }
+.fees__addon-item dt > .fees__addon-name, .fees__addon-item dt > .fees__addon-note { grid-column: 2; }
+.fees__route { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 2px 14px; align-items: center; }
+.fees__route-thumb { grid-row: 1 / 3; width: 52px; padding: 0; justify-content: center; align-items: center; border-radius: 6px; }
+.fees__route-thumb::before, .fees__route-thumb .ph__tag { display: none; }
+.fees__route-thumb .ph__label { font-size: .75rem; }
+.fees__route > .fees__route-path, .fees__route > .fees__route-price { grid-column: 2; }
+.area-figure { overflow: hidden; border-radius: 8px; }
+.area-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+
+.area-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.area-chips li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--blue-soft); color: var(--ink); font-size: .8125rem; font-weight: 500; }
+.area-chips svg { color: var(--action); }
+
+/* ---------- 03 Capacity: photo strip ---------- */
+.photo-strip { margin-top: 32px; }
+.photo-strip .graphic-kicker { margin-bottom: 12px; }
+.photo-strip__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.photo-strip__list > li { min-width: 0; }
+.photo-strip__list > li:first-child { grid-column: 1 / -1; }
+.photo-strip__list > li:not(:first-child) .ph__tag { display: none; }
+.photo-strip__list > li:not(:first-child) .ph__label { font-size: .75rem; }
+
+/* ---------- 04 Process: illustrated step cards ---------- */
+.process > .container { display: block; max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.process .section-heading { margin-bottom: 32px; }
+.process .process__list { display: grid; align-items: stretch; gap: 12px; padding: 0; margin: 0; border: 0; background: none; list-style: none; }
+.process .process__item { position: relative; display: grid; grid-template-columns: 88px minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 2px 16px; align-items: start; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.process .process__item:last-child { border-bottom: 1px solid var(--line); }
+.process .process-art { grid-column: 1; grid-row: 1 / 4; width: 88px; height: 88px; padding: 6px; object-fit: contain; border-radius: 6px; background: var(--mist); }
+.process .process__item > div { display: contents; }
+.process .process__item .process__step { grid-column: 2; grid-row: 1; margin: 2px 0 0; padding: 0; font-size: .75rem; }
+.process .process__item .process__title { grid-column: 2; grid-row: 2; margin: 0; }
+.process .process__item .process__desc { grid-column: 2; grid-row: 3; margin: 4px 0 0; font-size: .875rem; }
+.process .booking-notes { margin-top: 24px; }
+
+/* ---------- 05 Promise: media-first care cards, portrait link ---------- */
+.strengths .care-list .features__item { display: flex; flex-direction: column; gap: 0; padding: 0; overflow: hidden; border-radius: 8px; }
+.strengths .care-list .feature__photo { display: grid; place-items: center; width: 100%; height: auto; aspect-ratio: 16 / 9; margin: 0; padding: 0; border-radius: 0; background: var(--blue-soft); }
+.strengths .care-list .feature__photo img { width: auto; height: 58%; max-width: 70%; object-fit: contain; }
+.strengths .care-list .features__title { margin: 20px 20px 8px; align-self: auto; text-align: left; }
+.strengths .care-list .features__desc .text-phrase, .process .process__desc :is(.text-unit, .text-phrase) { display: inline; }
+.strengths .care-list .features__desc { margin: 0 20px 22px; }
+.representative-link { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 16px 20px; padding: 20px; background: var(--mist); border: 0; border-radius: 8px; }
+.representative-link__photo { width: 72px; height: 72px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; background: var(--surface); }
+.representative-link > .text-link { grid-column: 1 / -1; justify-self: start; }
+
+/* ---------- 06 FAQ: help card ---------- */
+.faq-help { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: start; margin-top: 24px; padding: 20px; background: var(--mist); border-radius: 8px; }
+.faq-help > img { width: 64px; height: 64px; padding: 8px; border-radius: 12px; background: var(--surface); object-fit: contain; }
+.faq-help__title { color: var(--ink); font-weight: 600; }
+.faq-help p + p { margin-top: 4px; font-size: .875rem; }
+.faq-help .text-link { display: inline-block; margin-top: 8px; font-size: .875rem; }
+
+/* ---------- Contact: method icons ---------- */
+.contact-method__icon { width: 44px; height: 44px; margin-bottom: 12px; }
+
+/* ---------- Sub pages ---------- */
+.company-visual { margin-top: 24px; }
+.message-art > img.message-art__photo { display: block; width: 140px; height: 140px; aspect-ratio: 1 / 1; margin: 24px auto; object-fit: cover; border-radius: 50%; background: var(--surface); }
+.document-visual { margin-top: 20px; }
+.notes-icon { width: 32px; height: 32px; margin-right: 10px; vertical-align: middle; border-radius: 8px; background: var(--surface); color: currentColor; }
+.notes-icon svg { width: 20px; height: 20px; }
+.important-notes__heading { display: flex; align-items: center; flex-wrap: wrap; }
+.document-heading:has(.document-badge) { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.document-badge { width: 56px; height: 56px; border-radius: 14px; }
+.document-badge svg { width: 30px; height: 30px; }
+
+/* ---------- ≥768px ---------- */
+@media (min-width: 768px) {
+  .hero-mosaic { gap: 12px; margin-top: 12px; }
+  .journey-nav ul { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .persona-grid { gap: 20px; margin-top: 20px; }
+  .persona { padding: 12px 12px 20px; }
+  .persona__index { font-size: .6875rem; }
+  .persona__text { font-size: .9375rem; }
+  .service-duties .service-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .service-duties .service-facts > div { display: block; padding: 24px; }
+  .service-duties .service-facts dt { flex-direction: column; align-items: flex-start; }
+  .service-duties .service-facts dt img { width: 64px; height: 64px; }
+  .photo-strip__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .photo-strip__list > li:first-child { grid-column: auto; }
+  .photo-strip__list > li:not(:first-child) .ph__tag { display: block; }
+  .photo-strip__list > li:not(:first-child) .ph__label { font-size: .875rem; }
+  .process .process__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .process .process__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .representative-link { grid-template-columns: 112px minmax(0, 1fr) auto; padding: 24px 28px; }
+  .representative-link__photo { width: 112px; height: 112px; }
+  .representative-link > .text-link { grid-column: 3; justify-self: end; }
+  .faq-help { grid-template-columns: 72px minmax(0, 1fr); }
+  .faq-help > img { width: 72px; height: 72px; }
+  .document-heading:has(.document-visual) { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: var(--layout-gap); align-items: end; align-content: end; }
+  .document-heading:has(.document-visual) > .section-heading, .document-heading:has(.document-visual) > .important-notes__intro { grid-column: 1; }
+  .document-visual { grid-column: 2; grid-row: 1 / 3; margin: 0; }
+}
+
+/* ---------- ≥960px ---------- */
+@media (min-width: 960px) {
+  /* Hero: image column slightly wider, mosaic under the main photo. */
+  .hero__layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); }
+  .hero__visual { align-self: start; }
+
+  /* Journey: label above the tiles, tiles read as a row of four cards. */
+  .journey-nav .container { display: block; padding-block: 28px; }
+  .journey-nav p { margin-bottom: 12px; }
+  .journey-nav a { grid-template-columns: 52px minmax(0, 1fr) auto; grid-template-rows: auto auto; align-items: center; gap: 2px 14px; padding: 16px 18px; }
+  .journey-icon { grid-row: 1 / 3; width: 52px; height: 52px; margin: 0; }
+  .journey-nav a > .journey-index { grid-column: 2; grid-row: 1; }
+  .journey-nav a > span:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+  .journey-nav a > span:last-child { grid-column: 3; grid-row: 1 / 3; }
+
+  /* Price: base + add-ons left, area map right, destinations as a full-width band. */
+  .fees__columns { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; }
+  .fees__pricing, .fees__coverage { display: contents; }
+  .fees__base { grid-column: 1 / 6; grid-row: 1; }
+  .fees__addon { grid-column: 1 / 6; grid-row: 2; }
+  .fees__area { display: flex; flex-direction: column; grid-column: 6 / 13; grid-row: 1 / 3; align-self: stretch; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+  .fees__area .area-chips { margin-top: auto; padding-top: 20px; }
+  .fees__estimate { grid-column: 1 / -1; grid-row: 3; border: 1px solid var(--line); border-radius: 8px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr); grid-template-rows: auto auto 1fr; gap: 8px 40px; align-items: start; }
+  .fees__estimate > .fees__estimate-label { grid-column: 1; grid-row: 1; margin: 0; }
+  .fees__estimate > .fees__estimate-note { grid-column: 1; grid-row: 2; margin: 0; }
+  .fees__estimate > .fees__disclaimer { grid-column: 1; grid-row: 3; margin: 8px 0 0; }
+  .fees__estimate > .fees__routes { grid-column: 2; grid-row: 1 / 4; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; }
+  .fees__routes .fees__route { grid-template-columns: minmax(0, 1fr); gap: 6px; align-content: start; padding: 0 0 4px; border: 0; }
+  .fees__routes .fees__route-thumb { grid-row: auto; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 8px; border-radius: 6px; }
+  .fees__routes .fees__route-thumb .ph__label { font-size: 1rem; }
+  .fees__routes .fees__route > * { grid-column: 1; }
+
+  /* Process: five illustrated cards in sequence. */
+  .process .process__list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .process .process__item:last-child:nth-child(odd) { grid-column: auto; }
+  .process .process__item { display: flex; flex-direction: column; gap: 4px; padding: 14px 14px 20px; }
+  .process .process-art { width: 100%; height: auto; aspect-ratio: 1 / 1; padding: 10px; margin-bottom: 12px; }
+  .process .process__item:not(:last-child)::after { content: ''; position: absolute; top: 25%; right: -13px; z-index: 1; width: 10px; height: 10px; border: solid var(--action); border-width: 2px 2px 0 0; transform: rotate(45deg); }
+  .process .booking-notes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 0 var(--layout-gap); align-items: start; max-width: none; }
+  .process .booking-notes > h3, .process .booking-notes > p { grid-column: 1; }
+  .process .booking-notes__links { grid-column: 2; grid-row: 1 / 3; margin: 0; }
+
+  /* Promise: wider media cards. */
+  .strengths .care-list .features__title { margin: 24px 28px 8px; }
+  .strengths .care-list .features__desc { margin: 0 28px 28px; }
+
+  /* FAQ: help card under the heading in the left column. */
+  .faq > .container { grid-template-rows: auto 1fr; }
+  .faq .section-heading { grid-row: 1; }
+  .faq .faq__list { grid-column: 2; grid-row: 1 / 3; }
+  .faq-help { grid-column: 1; grid-row: 2; align-self: start; grid-template-columns: minmax(0, 1fr); margin-top: 32px; }
+}
+@media (min-width: 960px) and (max-width: 1099px) {
+  .process .process__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .process .process__item:nth-child(3)::after { content: none; }
+}
+
+@media print {
+  .ph, .hero-mosaic, .photo-strip { display: none !important; }
+}
