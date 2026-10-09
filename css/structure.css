@@ -243,7 +243,7 @@
   .company-heading .document-links { display: grid; gap: 4px; }
 }
 @media (max-width: 359px) {
-  .features__item--wide, .fees__base, .fees__addon, .fees__estimate, .service-overview__limits, .booking-notes, .contact-method { padding: 20px 16px; }
+  .features__item--wide, .fees__base, .fees__addon, .fees__estimate, .fit-check__card, .booking-notes, .contact-method { padding: 20px 16px; }
   .process__list { padding-inline: 16px; }
   .care-list .features__item { padding: 16px; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
   .care-list .feature__photo { width: 64px; height: 64px; }

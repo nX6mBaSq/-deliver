@@ -1,4 +1,4 @@
-159 internal links, all local styles/scripts, page headings, unique IDs and disclosure targets: OK
+158 internal links, all local styles/scripts, page headings, unique IDs and disclosure targets: OK
 Section anchors, company message and cancellation destination @ 390px: OK
 Contact destination and existing form/phone links @ 390px: OK (no submissions or calls)
 Section anchors, company message and cancellation destination @ 1440px: OK

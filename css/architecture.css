@@ -6,7 +6,7 @@
 .faq { background: var(--paper); }
 .faq__list { background: var(--surface); }
 
-/* 01 SERVICE: fit check (向いている / 対応できない), then what we ask of the customer. */
+/* 01 SERVICE: fit check — what we cannot take on (×), then what we ask of the customer (✓). */
 .fit-check { display: grid; gap: 16px; margin-top: 28px; }
 .fit-check__card { min-width: 0; padding: 24px; border-radius: 6px; border-top-width: 3px; border-top-style: solid; }
 .fit-check__card h3 { font-size: var(--text-h3); color: var(--ink); font-weight: 600; line-height: 1.7; }
@@ -17,9 +17,7 @@
 .fit-check__list--ng li::before { left: 0; top: .4em; width: 1em; height: 1em; border: 0; transform: none; background: var(--amber); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c9.4-9.4 24.6-9.4 33.9 0l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c9.4-9.4 24.6-9.4 33.9 0l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9z'/%3E%3C/svg%3E") center / contain no-repeat; }
 .fit-check__list small { display: block; font-size: .8125rem; color: var(--muted); }
 .fit-check__card .text-link { font-size: .8125rem; }
-.service-duties { margin-top: 40px; }
-.service-duties h3 { font-size: var(--text-h3); color: var(--ink); font-weight: 600; line-height: 1.7; }
-#fit, #restriction { scroll-margin-top: calc(var(--header-height) + 16px); }
+#fit, #duties, #restriction { scroll-margin-top: calc(var(--header-height) + 16px); }
 
 /* 03 CAPACITY: the copied note now leads straight to the form. */
 .planner-form-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: .875rem; }
@@ -47,9 +45,9 @@
   .fit-check__body .fit-check__list { margin-top: 0; }
 }
 @media (min-width: 960px) {
-  .service-duties .service-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--layout-gap); }
-  .service-duties .service-facts > div { display: block; }
-  .service-duties .service-facts dt { margin-bottom: 8px; }
+  .fit-check { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fit-check__card { display: block; align-self: stretch; }
+  .fit-check__body .fit-check__list { margin-top: 16px; }
   .footer__nav { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 0 var(--layout-gap); margin: 0; }
 }
 @media print {

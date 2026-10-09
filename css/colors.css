@@ -79,6 +79,8 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 .service-facts > div, .service-overview__help { border-color: var(--line); }
 .service-overview__limits { background: var(--amber-soft); border-top-color: var(--amber); }
 .service-overview__limits .small-label { color: var(--amber); }
+.service-overview__duties { background: var(--teal-soft); border-top-color: var(--teal); }
+.service-overview__duties .small-label { color: var(--teal); }
 
 /* Price is the strongest blue block before the contact section. */
 .fees { background: var(--paper); }

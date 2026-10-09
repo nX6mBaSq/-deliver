@@ -37,11 +37,6 @@
 .persona__index { margin-top: 10px; color: var(--action); font: 500 .625rem/1.6 Arial, sans-serif; letter-spacing: .06em; }
 .persona__text { margin-top: 2px; color: var(--ink); font-size: .75rem; font-weight: 600; line-height: 1.6; }
 
-.service-duties .service-facts { display: grid; gap: 12px; }
-.service-duties .service-facts > div { display: block; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
-.service-duties .service-facts dt { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; }
-.service-duties .service-facts dt img { width: 56px; height: 56px; padding: 8px; border-radius: 12px; background: var(--blue-soft); }
-.service-overview__help { margin-top: 16px; }
 
 /* ---------- 02 Price: icons and destination thumbnails ---------- */
 .fees__addon-item dt:has(.fee-icon) { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; align-items: center; }
@@ -120,10 +115,6 @@
   .persona { padding: 12px 12px 20px; }
   .persona__index { font-size: .6875rem; }
   .persona__text { font-size: .9375rem; }
-  .service-duties .service-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .service-duties .service-facts > div { display: block; padding: 24px; }
-  .service-duties .service-facts dt { flex-direction: column; align-items: flex-start; }
-  .service-duties .service-facts dt img { width: 64px; height: 64px; }
   .photo-strip__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
   .photo-strip__list > li:first-child { grid-column: auto; }
   .photo-strip__list > li:not(:first-child) .ph__tag { display: block; }
