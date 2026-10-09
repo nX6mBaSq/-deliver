@@ -42,17 +42,28 @@
 .fees__addon-item dt:has(.fee-icon) { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; align-items: center; }
 .fee-icon { grid-row: 1 / 3; width: 40px; height: 40px; }
 .fees__addon-item dt > .fees__addon-name, .fees__addon-item dt > .fees__addon-note { grid-column: 2; }
-.fees__route { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 2px 14px; align-items: center; }
-.fees__route-thumb { grid-row: 1 / 3; width: 52px; padding: 0; justify-content: center; align-items: center; border-radius: 6px; }
+/* Phone: thumb | route | price on one row, so the price fills the right side of the card. */
+.fees__route { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 2px 14px; align-items: center; }
+.fees__route-thumb { width: 52px; padding: 0; justify-content: center; align-items: center; border-radius: 6px; }
 .fees__route-thumb::before, .fees__route-thumb .ph__tag { display: none; }
 .fees__route-thumb .ph__label { font-size: .75rem; }
-.fees__route > .fees__route-path, .fees__route > .fees__route-price { grid-column: 2; }
+.fees__route > .fees__route-path { grid-column: 2; }
+.fees__route > .fees__route-price { grid-column: 3; justify-content: flex-end; text-align: right; }
+.fees__route-path { white-space: nowrap; }
+@media (max-width: 479px) {
+  /* Narrow phones: the thumb only repeats the destination, so give its width to the route and price. */
+  .fees__route { grid-template-columns: minmax(0, 1fr) auto; }
+  .fees__route-thumb { display: none; }
+  .fees__route > .fees__route-path { grid-column: 1; }
+  .fees__route > .fees__route-price { grid-column: 2; }
+}
 .area-figure { overflow: hidden; border-radius: 8px; }
+/* Price: one shared form button after the estimates, where the "目安" wording leaves off. */
+.fees__cta { display: grid; justify-items: center; gap: 12px; margin-top: 32px; text-align: center; }
+.fees__cta p { margin: 0; color: var(--ink); font-weight: 500; }
+.fees__cta .btn { max-width: 25rem; }
 .area-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 
-.area-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
-.area-chips li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--blue-soft); color: var(--ink); font-size: .8125rem; font-weight: 500; }
-.area-chips svg { color: var(--action); }
 
 /* ---------- 03 Capacity: photo strip ---------- */
 .photo-strip { margin-top: 32px; }
@@ -143,16 +154,17 @@
   .fees__base { grid-column: 1 / 6; grid-row: 1; }
   .fees__addon { grid-column: 1 / 6; grid-row: 2; }
   .fees__area { display: flex; flex-direction: column; grid-column: 6 / 13; grid-row: 1 / 3; align-self: stretch; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
-  .fees__area .area-chips { margin-top: auto; padding-top: 20px; }
-  .fees__estimate { grid-column: 1 / -1; grid-row: 3; border: 1px solid var(--line); border-radius: 8px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr); grid-template-rows: auto auto 1fr; gap: 8px 40px; align-items: start; }
-  .fees__estimate > .fees__estimate-label { grid-column: 1; grid-row: 1; margin: 0; }
-  .fees__estimate > .fees__estimate-note { grid-column: 1; grid-row: 2; margin: 0; }
-  .fees__estimate > .fees__disclaimer { grid-column: 1; grid-row: 3; margin: 8px 0 0; }
-  .fees__estimate > .fees__routes { grid-column: 2; grid-row: 1 / 4; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; }
+  /* The map panel absorbs the extra height so the card bottoms stay aligned with the add-on list. */
+  .fees__area .area-figure { flex: 1; display: grid; place-items: center; background: var(--paper); }
+  /* Destinations: heading on top, three routes across the full card width (the side column had nothing left under the heading). */
+  .fees__estimate { grid-column: 1 / -1; grid-row: 3; border: 1px solid var(--line); border-radius: 8px; }
+  .fees__estimate > .fees__estimate-label { margin: 0 0 20px; }
+  .fees__estimate > .fees__routes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; }
   .fees__routes .fees__route { grid-template-columns: minmax(0, 1fr); gap: 6px; align-content: start; padding: 0 0 4px; border: 0; }
-  .fees__routes .fees__route-thumb { grid-row: auto; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 8px; border-radius: 6px; }
+  .fees__routes .fees__route-thumb { grid-row: auto; width: 100%; aspect-ratio: 5 / 2; margin-bottom: 8px; border-radius: 6px; }
   .fees__routes .fees__route-thumb .ph__label { font-size: 1rem; }
   .fees__routes .fees__route > * { grid-column: 1; }
+  .fees__routes .fees__route > .fees__route-price { justify-content: flex-start; text-align: left; }
 
   /* Process: five illustrated cards in sequence. */
   .process .process__list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
@@ -182,3 +194,7 @@
 @media print {
   .ph, .hero-mosaic, .photo-strip { display: none !important; }
 }
+
+/* Sticky contact bar: hidden for now (2026-10-09). The markup stays on every page; delete this rule to bring it back. */
+.mobile-contact { display: none; }
+.footer { padding-bottom: calc(32px + var(--safe-bottom)); } /* was sized to clear the bar */

@@ -62,7 +62,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview/structure';
       assert(cancelBox.y >= header.y + header.height && cancelBox.y < 900, `Cancellation jump at ${width}`);
       results.push(`Section anchors, company message and cancellation destination @ ${width}px: OK`);
       await page.goto(`${origin}/index.html`);
-      await page.locator('.mobile-contact__cta, .header__estimate').filter({ visible: true }).first().click();
+      await page.locator('.mobile-contact__cta, .header__estimate, main a[href="#cta"]').filter({ visible: true }).first().click();
       assert.equal(new URL(page.url()).hash, '#cta');
       assert.equal(await page.locator('#cta a[href^="https://docs.google.com/forms/"]').count(), 1);
       assert.equal(await page.locator('#cta a[href="tel:0568281105"]').count(), 1);
