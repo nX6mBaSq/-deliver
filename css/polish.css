@@ -14,9 +14,19 @@
 .section-heading__question { color: var(--muted); font-size: .875rem; font-weight: 500; line-height: 1.6; }
 .capacity-space .features__highlight { background: transparent; padding: 0; }
 .capacity-dimensions { margin-bottom: 16px; }
+.capacity-dimensions > div { padding-block: 14px; }
 .capacity-dimensions > div:first-child { padding-top: 0; }
-.capacity-dimensions small { margin-top: 2px; }
+.capacity-dimensions dd { margin-top: 2px; line-height: 1.7; }
+.spec__list li { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: baseline; column-gap: 16px; }
+.spec__list .spec__value { margin-left: auto; text-align: right; }
+.spec__list--stacked li { flex-direction: column; align-items: stretch; }
+.spec__list--stacked .spec__value { margin-left: 28px; text-align: left; }
+.spec__key .diagram-key { width: 20px; height: 20px; margin-right: 8px; font-size: .625rem; vertical-align: 1px; }
 .capacity-figure { border-radius: 4px; }
+.loadex__card { padding: 14px 14px 18px; }
+.loadex__card .loadex__heading { margin-bottom: 14px; }
+.loadex__card .detail-figure { margin-bottom: 16px; padding: 12px 12px 8px; }
+.loadex__card .loadex__items { margin: 0; padding-left: 1.5em; }
 .features__item--wide { border-radius: 6px; }
 .capacity-summary b { letter-spacing: -.05em; }
 .inventory-board { border-radius: 4px; }
@@ -61,6 +71,7 @@
 @media(min-width: 768px) {
   .hero__layout { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
   .hero__visual { align-self: center; }
+  .loadex__card { padding: 18px 18px 22px; }
   .capacity-space { grid-template-columns: minmax(0,1.3fr) minmax(0,.7fr); grid-template-rows: auto auto auto auto auto; }
   .capacity-space > .features__title { grid-column: 1 / -1; grid-row: 1; }
   .capacity-space > .features__desc { grid-column: 1 / -1; grid-row: 2; max-width: 45rem; }
@@ -68,6 +79,8 @@
   .capacity-space > .features__highlight { grid-column: 2; grid-row: 3; margin-top: 12px; }
   .capacity-space > .features__toggle { grid-column: 2; grid-row: 4; }
   .capacity-space > .features__collapse { grid-column: 1 / -1; grid-row: 5; }
+  /* 詳細：車両（図あり）を左、荷室サイズを右に並べる */
+  .capacity-space .spec__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .planner-fields { grid-template-columns: repeat(3,minmax(0,1fr)); }
   .planner-body { padding: 0 32px 32px; }
   .load-planner > summary { padding: 28px 32px; }

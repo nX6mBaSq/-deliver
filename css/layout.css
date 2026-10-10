@@ -60,9 +60,9 @@
 }
 .area-figure { overflow: hidden; border-radius: 8px; }
 /* Price: one shared form button after the estimates, where the "目安" wording leaves off. */
-.fees__cta { display: grid; justify-items: center; gap: 12px; margin-top: 32px; text-align: center; }
-.fees__cta p { margin: 0; color: var(--ink); font-weight: 500; }
-.fees__cta .btn { max-width: 25rem; }
+.fees__cta, .section-cta { display: grid; justify-items: center; gap: 12px; margin-top: 32px; text-align: center; }
+.fees__cta p, .section-cta p { margin: 0; color: var(--ink); font-weight: 500; }
+.fees__cta .btn, .section-cta .btn { max-width: 25rem; }
 .area-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 
 
