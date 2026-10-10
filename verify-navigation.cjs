@@ -52,9 +52,10 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview/structure';
         const header = await page.locator('.header').boundingBox();
         assert(box.y >= header.y + header.height && box.y < 900, `${href}: target visible below header at ${width}`);
       }
-      await page.locator('a[href="company.html#message"]').first().click();
-      assert.equal(new URL(page.url()).hash, '#message');
-      assert(await page.locator('#message .message__body').isVisible(), 'Representative message remains accessible');
+      assert(await page.locator('#message .message__body').isVisible(), 'Representative message is shown on the top page');
+      await page.locator('#message a[href="company.html"]').click();
+      assert.equal(new URL(page.url()).pathname, '/company.html');
+      assert(await page.locator('#company-info').isVisible(), 'Company info is reachable from the message section');
       await page.goto(`${origin}/important-notes.html`);
       await page.locator('.document-toc a[href="#cancel"]').click();
       const cancelBox = await page.locator('#cancel').boundingBox();

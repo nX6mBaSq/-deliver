@@ -108,8 +108,9 @@
 .representative-link { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 16px 20px; padding: 20px; background: var(--mist); border: 0; border-radius: 8px; }
 .representative-link__photo { width: 72px; height: 72px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; background: var(--surface); }
 .representative-link > .text-link { grid-column: 1 / -1; justify-self: start; }
-.message-band { padding-block: 40px; }
-.message-band .representative-link { margin-top: 0; padding-top: 20px; background: var(--surface); }
+.message__card { overflow: hidden; }
+.message__content { padding: 0 20px 28px; }
+.message__link { display: inline-block; margin-top: 20px; }
 
 /* ---------- 06 FAQ: help card ---------- */
 .faq-help { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: start; margin-top: 24px; padding: 20px; background: var(--mist); border-radius: 8px; }
@@ -159,8 +160,8 @@
   .representative-link { grid-template-columns: 112px minmax(0, 1fr) auto; padding: 24px 28px; }
   .representative-link__photo { width: 112px; height: 112px; }
   .representative-link > .text-link { grid-column: 3; justify-self: end; }
-  .message-band { padding-block: 56px; }
-  .message-band .representative-link { padding-top: 24px; }
+  .message__card { align-items: stretch; }
+  .message__content { align-self: center; padding: 36px 40px 36px 0; }
   .faq-help { grid-template-columns: 72px minmax(0, 1fr); }
   .faq-help > img { width: 72px; height: 72px; }
   .document-heading:has(.document-visual) { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: var(--layout-gap); align-items: end; align-content: end; }
