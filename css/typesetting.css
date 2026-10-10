@@ -39,7 +39,7 @@ body { text-autospace: normal; }
     .hero__title, .hero__eyebrow, .hero__lead, .hero__conditions, .section-heading__title, .section-intro,
     .cta__title, .cta__label, .cta__desc, .message__catch,
     .persona__text, .strengths__title, .strengths__desc, .features__title,
-    .process__title, .process__desc, .faq__question-text, .faq-help__title, .faq-help p,
+    .process__title, .process__desc, .faq__question-text,
     .contact-method__label, .contact-method > p, .contact-method small, .contact-other, .contact-heading,
     .quick-nav a, .nav-drawer__link, .footer__nav-list a, .footer__promise,
     .small-label, .graphic-caption, .ph__label, .team-visual__copy > p,
@@ -56,7 +56,7 @@ body { text-autospace: normal; }
 /* 見出しは行の長さを揃え、2行目が極端に短くならないようにする */
 :is(h1, h2, h3, h4, .hero__title, .section-heading__title, .cta__title, .message__catch,
     .persona__text, .strengths__title, .features__title, .process__title,
-    .faq__question-text, .faq-help__title, .contact-method__label, .policy__article-title,
+    .faq__question-text, .contact-method__label, .policy__article-title,
     .important-notes__heading, .capacity-preflight h3,
     .quick-nav a, .nav-drawer__link, .footer__nav-list a, .strengths__desc,
     .fees__addon-name, .section-next p) { text-wrap: balance; }
@@ -74,7 +74,7 @@ main :is(p, li, dd) { text-wrap: pretty; }
    -------------------------------------------------------------------------- */
 :is(h1, h2, h3, h4, .hero__title, .section-heading__title, .cta__title, .message__catch,
     .strengths__title, .features__title, .process__title, .persona__text,
-    .faq__question-text, .faq-help__title, .contact-method__label,
+    .faq__question-text, .contact-method__label,
     .fees__base-label, .fees__area-label, .fees__estimate-label, .fees__addon-label,
     .spec__heading, .loadex__heading, .policy__article-title,
     .important-notes__heading, .important-notes__subheading, .team-equation strong,
@@ -96,7 +96,7 @@ body :is(.strengths__title, .features__title, .process__title, .persona__text, .
     .spec__heading, .loadex__heading, .policy__article-title, .important-notes__heading,
     .important-notes__subheading, .service-overview h3, .booking-notes h3, .representative-link h2,
     .fit-check__card h3, .capacity-preflight h3, .contact-preparation h3,
-    .faq-help__title, .team-equation strong, .capacity-summary strong) {
+    .team-equation strong, .capacity-summary strong) {
   letter-spacing: var(--ts-sub);
 }
 body .faq__question-text { letter-spacing: .03em; line-height: 1.7; }

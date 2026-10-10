@@ -112,12 +112,19 @@
 .message__content { padding: 0 20px 28px; }
 .message__link { display: inline-block; margin-top: 20px; }
 
-/* ---------- 06 FAQ: help card ---------- */
-.faq-help { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: start; margin-top: 24px; padding: 20px; background: var(--mist); border-radius: 8px; }
-.faq-help > img { width: 64px; height: 64px; padding: 8px; border-radius: 12px; background: var(--surface); object-fit: contain; }
-.faq-help__title { color: var(--ink); font-weight: 600; }
-.faq-help p + p { margin-top: 4px; font-size: .875rem; }
-.faq-help .text-link { display: inline-block; margin-top: 8px; font-size: .875rem; }
+/* Phone: inner padding so the Q mark and answer clear the list edges; questions sized to stay on one line when closed. */
+@media (max-width: 767px) {
+  .faq .faq__question { padding: 18px 14px; gap: 10px; align-items: center; }
+  .faq .faq__question-mark { width: 28px; height: 28px; flex-basis: 28px; font-size: 1rem; }
+  .faq .faq__question-text { font-size: .875rem; letter-spacing: 0; line-height: 1.6; }
+  .faq .faq__toggle-icon { width: 20px; height: 20px; font-size: 1.25rem; }
+  .faq .faq__answer-text { padding: 4px 18px 24px; font-size: .875rem; line-height: 1.9; }
+}
+@media (max-width: 359px) {
+  .faq .faq__question { padding-inline: 10px; gap: 8px; }
+  .faq .faq__question-text { font-size: .8125rem; }
+  .faq .faq__answer-text { padding-inline: 12px; }
+}
 
 /* ---------- Contact: method icons ---------- */
 .contact-method__icon { width: 44px; height: 44px; margin-bottom: 12px; }
@@ -162,8 +169,6 @@
   .representative-link > .text-link { grid-column: 3; justify-self: end; }
   .message__card { align-items: stretch; }
   .message__content { align-self: center; padding: 36px 40px 36px 0; }
-  .faq-help { grid-template-columns: 72px minmax(0, 1fr); }
-  .faq-help > img { width: 72px; height: 72px; }
   .document-heading:has(.document-visual) { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: var(--layout-gap); align-items: end; align-content: end; }
   .document-heading:has(.document-visual) > .section-heading, .document-heading:has(.document-visual) > .important-notes__intro { grid-column: 1; }
   .document-visual { grid-column: 2; grid-row: 1 / 3; margin: 0; }
@@ -203,12 +208,6 @@
   /* Promise: wider media cards. */
   .strengths .care-list .features__title { margin: 24px 28px 8px; }
   .strengths .care-list .features__desc { margin: 0 28px 28px; }
-
-  /* FAQ: help card under the heading in the left column. */
-  .faq > .container { grid-template-rows: auto 1fr; }
-  .faq .section-heading { grid-row: 1; }
-  .faq .faq__list { grid-column: 2; grid-row: 1 / 3; }
-  .faq-help { grid-column: 1; grid-row: 2; align-self: start; grid-template-columns: minmax(0, 1fr); margin-top: 32px; }
 }
 @media (min-width: 960px) and (max-width: 1099px) {
   .process .process__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
