@@ -15,7 +15,7 @@ main, .footer, .nav-drawer { line-break: strict; word-break: normal; }
 h1.section-heading__title { font-weight: 600; letter-spacing: .015em; }
 .strengths__title, .features__title, .fees__area-label, .fees__estimate-label,
 .fees__addon-label, .process__title, .service-overview h3, .booking-notes h3,
-.representative-link h3, .important-notes__heading, .contact-method__label {
+.representative-link h2, .important-notes__heading, .contact-method__label {
   font-size: 1.0625rem; font-weight: 600; line-height: 1.7; letter-spacing: .015em; text-wrap: balance;
 }
 .spec__heading, .loadex__heading { font-weight: 600; line-height: 1.75; letter-spacing: .01em; }
