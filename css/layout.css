@@ -128,17 +128,28 @@
 
 /* ---------- Contact: method icons ---------- */
 .contact-method__icon { width: 44px; height: 44px; margin-bottom: 12px; }
-/* Before contacting: what to tell us, then the booking conditions — one block, two groups on the same rhythm. */
-.contact-preparation__group { margin-top: 14px; }
-.contact-preparation__group + .contact-preparation__group { padding-top: 14px; border-top: 1px dashed rgb(79 127 196 / .6); }
+/* Before contacting: links to the booking conditions. */
 .contact-preparation > h3 { font-size: .9375rem; }
-.cta .contact-preparation h4 { font-size: .75rem; font-weight: 400; letter-spacing: .06em; color: var(--on-dark-muted); }
-.contact-preparation__group > ul { margin-top: 8px; }
 .contact-preparation .contact-preparation__links li { list-style: none; }
+.contact-preparation__links a { display: inline-flex; gap: 6px; color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
+/* Contact methods: WEB / phone / LINE as one full-width row beneath the heading and booking links. */
 @media (min-width: 768px) and (max-width: 959px) {
   .contact-preparation .contact-preparation__links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cta__buttons { grid-template-columns: minmax(0, 1fr); max-width: 30rem; }
 }
-.contact-preparation__links a { display: inline-flex; gap: 6px; color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
+@media (min-width: 960px) {
+  .contact-preparation { grid-column: 2; grid-row: 1; align-self: end; }
+  .contact-options { grid-column: 1 / -1; grid-row: 2; align-self: start; margin-top: 32px; }
+  .cta__buttons { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; }
+  /* Share rows across the three cards so buttons line up even when captions wrap. */
+  @supports (grid-template-rows: subgrid) {
+    .contact-method { display: grid; grid-row: span 5; grid-template-rows: subgrid; }
+    .contact-method__icon { justify-self: start; }
+  }
+}
+@media (min-width: 1200px) {
+  .contact-preparation .contact-preparation__links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
 /* ---------- Sub pages ---------- */
 .company-visual { margin-top: 24px; }
