@@ -9,6 +9,8 @@
 .hero-figure figcaption small { font-size: .6875rem; color: #52657b; }
 .team-visual { background: #f0f6fb; border-radius: 12px; margin-bottom: 32px; overflow: hidden; }
 .team-visual > img { display: block; width: 100%; height: auto; }
+.fees__base.fees__base--image { display: block; padding: 0; border: 0; background: #0a5bd3; border-radius: 12px; overflow: hidden; }
+.fees__base--image > img { display: block; width: 100%; height: auto; }
 .team-equation { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; color: #163c63; }
 .team-equation > span { font-size: .8125rem; }
 .team-equation strong { display: block; font-weight: 600; font-size: 1.25rem; }
