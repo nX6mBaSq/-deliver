@@ -1,4 +1,5 @@
 const fs=require('node:fs');
+const crypto=require('node:crypto');
 const esbuild=require('esbuild');
 const {PurgeCSS}=require('purgecss');
 const common=['refresh','foundations','structure','typography'];
@@ -10,10 +11,12 @@ const pageStyles={index:['common','top',...common,'graphics','colors','polish','
   // typesetting.css is appended after PurgeCSS, which drops valid :is()/:has() selectors.
   const finalCss=usedCss+'\n'+fs.readFileSync('css/typesetting.css','utf8');
   await esbuild.build({stdin:{contents:finalCss,loader:'css',resolveDir:__dirname+'/css'},outfile:file,minify:true,charset:'utf8',legalComments:'none',target:['chrome110','safari16.4','firefox115']});
+  // Content hash busts stale browser/CDN caches after each deploy.
+  const hash=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,8);
   let html=fs.readFileSync(page+'.html','utf8');
   html=html.replace(/<link[^>]+(?:rel="stylesheet"|rel="preconnect")[^>]*>\s*/g,'');
   html=html.replace(/<link[^>]+rel="preload"[^>]*>\s*/g,'');
-  html=html.replace('</head>',`<link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="${file}">\n</head>`);
+  html=html.replace('</head>',`<link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="${file}?v=${hash}">\n</head>`);
   fs.writeFileSync(page+'.html',html);console.log(`${page}: ${Buffer.byteLength(css)} → ${fs.statSync(file).size} CSS bytes`);
  }
 })().catch(e=>{console.error(e);process.exitCode=1});
