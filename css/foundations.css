@@ -207,7 +207,7 @@ h1.section-heading__title { font-size: var(--text-h1); }
 .faq > .container, .notes > .container, .restriction > .container, .process > .container,
 main > .section > .container:has(.company-info),
 main > .section > .container:has(.policy),
-main > .section > .container:has(.important-notes__intro) {
+main > .section > .container:has(.important-notes__section) {
   max-width: calc(var(--reading-width) + 2 * var(--page-gutter));
 }
 .restriction__lead, .notes__lead { text-align: left; margin-bottom: var(--space-3); }

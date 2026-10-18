@@ -25,7 +25,7 @@ fs.mkdirSync(previewDir, { recursive: true });
       }
       if (document.documentElement.scrollWidth > innerWidth) problems.push('page overflow');
       for (const e of document.querySelectorAll('main p, main h1, main h2, main h3, main button, .btn, .header__logo, .header__menu-button')) {
-        if (!e.checkVisibility() || !e.getClientRects().length) continue;
+        if (!e.checkVisibility() || !e.getClientRects().length || e.matches('.visually-hidden')) continue;
         if (e.scrollWidth > e.clientWidth + 2) problems.push(`clipped: ${e.className}`);
       }
       const logo = document.querySelector('.header__logo').getBoundingClientRect();

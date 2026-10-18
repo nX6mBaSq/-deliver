@@ -68,25 +68,34 @@
 
 <noscript><style>.features__toggle,.header__menu-button{display:none!important}.features__collapse,.faq__answer{display:block!important}.faq__toggle-icon{display:none!important}.faq__question{cursor:default}</style></noscript>
 <main id="main-content" tabindex="-1">
-  <nav class="breadcrumb container" aria-label="パンくずリスト"><ol><li><a href="index.html">トップページ</a></li><li aria-current="page">会社概要</li></ol></nav>
+  <!-- ==========================================================================
+       PAGE HERO（下層ページ共通）
+       ========================================================================== -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト"><ol><li><a href="index.html">トップページ</a></li><li aria-current="page">会社概要</li></ol></nav>
+      <div class="page-hero__inner">
+        <div class="page-hero__text section-heading">
+          <p class="section-heading__label">COMPANY</p>
+          <h1 class="section-heading__title" id="page-title">会社概要</h1>
+          <p class="page-hero__lead">少ない荷物の単身引越しを、お客様との共同作業でサポートして<span class="nobr">います。</span></p>
+        </div>
+        <span class="page-hero__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V6l7-3v17"/><path d="M11 9h9v11"/><path d="M3 20h18"/><path d="M7 8h1M7 12h1M7 16h1M14 13h2M14 16h2"/></svg></span>
+      </div>
+    </div>
+  </section>
 
   <!-- ==========================================================================
        COMPANY（会社概要）
        ========================================================================== -->
-  <section class="section">
-    <div class="container company-layout">
-      <div class="company-heading">
-      <div class="section-heading">
-        <p class="section-heading__label">COMPANY</p>
-        <h1 class="section-heading__title">会社概要</h1>
-      </div>
-
-      <p class="document-lead">少ない荷物の単身引越しを、お客様との共同作業でサポートして<span class="nobr">います。</span></p>
-      <nav class="document-links" aria-label="会社概要の目次"><a href="#company-info">会社情報<span aria-hidden="true"> ↓</span></a><a href="#message">代表メッセージ<span aria-hidden="true"> ↓</span></a></nav>
-      <!-- 仮置き（16:9）：事務所・車両の写真 -->
-      <div class="ph ph--16x9 ph--navy company-visual" aria-hidden="true"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">事務所・車両</span></div>
-      </div>
-      <dl class="company-info" id="company-info">
+  <section class="section" aria-labelledby="company-info-title">
+    <div class="container document-layout">
+      <h2 class="visually-hidden" id="company-info-title">会社情報</h2>
+      <nav class="document-toc" aria-label="このページの目次"><p>このページの内容</p><ol><li><a href="#company-info">会社情報</a></li><li><a href="#message">代表メッセージ</a></li></ol></nav>
+      <!-- 仮置き（16:9）：事務所・車両の写真。下層ページのヒーロー統一（2026-10-17）で非表示に。
+      <div class="ph ph--16x9 ph--navy" aria-hidden="true"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">事務所・車両</span></div>
+      -->
+      <dl class="company-info document-body" id="company-info">
         <div class="company-info__row">
           <dt class="company-info__label">会社名</dt>
           <dd class="company-info__value">茜DELIVER</dd>

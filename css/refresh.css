@@ -178,7 +178,7 @@ main [id] { scroll-margin-top: 90px; }
 .mobile-contact__cta { background: #1767c5; color: white; }
 body.has-modal-open .mobile-contact { visibility: hidden; }
 .company-info__value { margin: 0; }
-main > .section > .container:has(.company-info), main > .section > .container:has(.privacy-policy__intro), main > .section > .container:has(.important-notes__intro) { max-width: 860px; }
+main > .section > .container:has(.company-info), main > .section > .container:has(.privacy-policy__intro), main > .section > .container:has(.important-notes__section) { max-width: 860px; }
 @media (min-width: 700px) {
   :root { --section-padding-x: 36px; --section-padding-y: 80px; }
   .hero { padding: 52px 0; }

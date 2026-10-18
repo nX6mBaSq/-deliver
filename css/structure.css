@@ -45,10 +45,6 @@
 .breadcrumb { padding-top: 22px; font-size: .75rem; }
 .breadcrumb ol { display: flex; flex-wrap: wrap; gap: 8px 12px; }
 .breadcrumb li + li::before { content: '/'; padding-right: 12px; color: #65768b; }
-.breadcrumb + .section { padding-top: 28px; }
-.document-lead { max-width: var(--reading-width); margin: 0 auto 28px; }
-.document-links { display: flex; flex-wrap: wrap; gap: 8px 24px; max-width: var(--reading-width); margin: 0 auto 24px; }
-.document-links a { display: inline-block; padding-block: 8px; font-size: .875rem; color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; }
 .document-toc { max-width: var(--reading-width); margin: 28px auto 36px; padding: 20px 24px; background: #f4f8fc; border-left: 3px solid #1767c5; }
 .document-toc > p { font-size: .875rem; font-weight: 600; color: var(--c-heading); margin-bottom: 8px; }
 .document-toc ol { display: grid; gap: 0 24px; }
@@ -127,10 +123,8 @@
 .contact-method { display: flex; flex-direction: column; min-width: 0; padding: 24px; }
 .contact-method > p + p { margin-bottom: 20px; }
 .contact-method .btn { margin-top: auto; }
-.document-heading, .document-body, .company-heading { min-width: 0; }
+.document-body { min-width: 0; }
 .document-toc { margin-block: 0 32px; }
-.document-layout .section-heading { margin-bottom: 24px; }
-.document-layout .important-notes__intro { margin-bottom: 28px; }
 .document-layout .important-notes__section:last-child, .document-body .policy__article:last-child { margin-bottom: 0; }
 .company-info { border-top: 1px solid #d6e4f0; }
 .company-info__row { padding-block: 20px; }
@@ -141,7 +135,6 @@
 .footer__nav-list { margin-bottom: 24px; }
 .footer__nav-list li { min-width: 0; }
 .footer__nav-list a { height: 100%; }
-.breadcrumb + .section { padding-top: 36px; }
 
 @media (min-width: 480px) {
   .hero__copy { max-width: 36rem; }
@@ -232,15 +225,9 @@
   .message__portrait.image-placeholder { width: 100%; max-width: 240px; height: auto; aspect-ratio: 6 / 7; }
 }
 @media (min-width: 1100px) {
-  main > .section > .container.document-layout, main > .section > .container.company-layout { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.7fr); gap: 36px var(--layout-gap); align-items: start; }
-  .document-heading { grid-column: 1 / -1; }
-  .document-heading .important-notes__intro { margin-bottom: 0; }
+  main > .section > .container.document-layout { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.7fr); gap: 36px var(--layout-gap); align-items: start; }
   .document-toc { grid-column: 1; margin: 0; width: 100%; padding: 20px; }
   .document-body { grid-column: 2; max-width: var(--reading-width); }
-  .company-heading { grid-column: 1; }
-  .company-info { grid-column: 2; }
-  .company-heading .document-lead { margin-bottom: 20px; }
-  .company-heading .document-links { display: grid; gap: 4px; }
 }
 @media (max-width: 359px) {
   .features__item--wide, .fees__base, .fees__addon, .fees__estimate, .fit-check__card, .booking-notes, .contact-method { padding: 20px 16px; }

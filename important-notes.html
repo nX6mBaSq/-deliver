@@ -68,22 +68,31 @@
 
 <noscript><style>.features__toggle,.header__menu-button{display:none!important}.features__collapse,.faq__answer{display:block!important}.faq__toggle-icon{display:none!important}.faq__question{cursor:default}</style></noscript>
 <main id="main-content" tabindex="-1">
-  <nav class="breadcrumb container" aria-label="パンくずリスト"><ol><li><a href="index.html">トップページ</a></li><li aria-current="page">ご利用前の確認事項</li></ol></nav>
+  <!-- ==========================================================================
+       PAGE HERO（下層ページ共通）
+       ========================================================================== -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト"><ol><li><a href="index.html">トップページ</a></li><li aria-current="page">ご利用前の確認事項</li></ol></nav>
+      <div class="page-hero__inner">
+        <div class="page-hero__text section-heading">
+          <p class="section-heading__label">IMPORTANT NOTES</p>
+          <h1 class="section-heading__title" id="page-title">ご利用前の確認事項</h1>
+          <p class="page-hero__lead">安全かつスムーズなお引っ越しのため、ご予約の前に、上から順にご確認く<span class="nobr">ださい。</span></p>
+        </div>
+        <span class="page-hero__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m8.5 11 1.5 1.5 3-3"/><path d="M8.5 16.5h7"/></svg></span>
+      </div>
+    </div>
+  </section>
 
   <!-- ==========================================================================
        IMPORTANT NOTES（ご利用前の確認事項）
        ========================================================================== -->
   <section class="section">
     <div class="container document-layout">
-      <div class="document-heading">
-      <div class="section-heading">
-        <p class="section-heading__label">IMPORTANT NOTES</p>
-        <h1 class="section-heading__title">ご利用前の確認事項</h1>
-      </div>
-      <p class="important-notes__intro">安全かつスムーズなお引っ越しのため、ご予約の前に、上から順にご確認く<span class="nobr">ださい。</span></p>
-      <!-- 仮置き（16:9）：お引越し準備のイメージ写真 -->
-      <div class="ph ph--16x9 ph--sand document-visual" aria-hidden="true"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">お引越しの準備</span></div>
-      </div>
+      <!-- 仮置き（16:9）：お引越し準備のイメージ写真。下層ページのヒーロー統一（2026-10-17）で非表示に。
+      <div class="ph ph--16x9 ph--sand" aria-hidden="true"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">お引越しの準備</span></div>
+      -->
       <nav class="document-toc" aria-label="このページの目次"><p>確認したい項目へ</p><ol><li><a href="#incompatible">対応できない作業・荷物</a></li><li><a href="#caution">お客様にお願いする準備</a></li><li><a href="#additional">追加料金・オプション</a></li><li><a href="#cancel">キャンセル料金</a></li></ol></nav>
 
       <div class="document-body">
