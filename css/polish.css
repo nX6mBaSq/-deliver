@@ -17,6 +17,9 @@
 .capacity-dimensions > div { padding-block: 14px; }
 .capacity-dimensions > div:first-child { padding-top: 0; }
 .capacity-dimensions dd { margin-top: 2px; line-height: 1.7; }
+/* 車両サイズは図の番号と対応しないため、番号なしで区切って置く */
+.capacity-dimensions > .capacity-dimensions__vehicle { margin-top: 8px; padding-bottom: 0; border-bottom: 0; }
+.capacity-dimensions__vehicle dd { margin-left: 0; }
 .spec__list li { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: baseline; column-gap: 16px; }
 .spec__list .spec__value { margin-left: auto; text-align: right; }
 .spec__list--stacked li { flex-direction: column; align-items: stretch; }
@@ -74,12 +77,8 @@
   .capacity-space { grid-template-columns: minmax(0,1.3fr) minmax(0,.7fr); grid-template-rows: auto auto auto auto auto; }
   .capacity-space > .features__title { grid-column: 1 / -1; grid-row: 1; }
   .capacity-space > .features__desc { grid-column: 1 / -1; grid-row: 2; max-width: 45rem; }
-  .capacity-space > .feature__overview { grid-column: 1; grid-row: 3 / 5; align-self: center; }
-  .capacity-space > .features__highlight { grid-column: 2; grid-row: 3; margin-top: 12px; }
-  .capacity-space > .features__toggle { grid-column: 2; grid-row: 4; }
-  .capacity-space > .features__collapse { grid-column: 1 / -1; grid-row: 5; }
-  /* 詳細：車両（図あり）を左、荷室サイズを右に並べる */
-  .capacity-space .spec__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .capacity-space > .feature__overview { grid-column: 1; grid-row: 3; align-self: center; }
+  .capacity-space > .features__highlight { grid-column: 2; grid-row: 3; align-self: center; }
   .planner-fields { grid-template-columns: repeat(3,minmax(0,1fr)); }
   .planner-body { padding: 0 32px 32px; }
   .load-planner > summary { padding: 28px 32px; }

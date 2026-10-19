@@ -46,7 +46,7 @@ fs.mkdirSync(previewDir, { recursive: true });
     await load('index.html', width);
     for (const button of await page.locator('.features__toggle, .faq__question').all()) await button.click();
     await inspect(`Expanded content @ ${width}px`);
-    if (width === 768) await page.locator('#features-spec-detail').screenshot({
+    if (width === 768) await page.locator('#features-loadex-detail').screenshot({
       path: `${previewDir}/foundations-details-768.png`,
       style: '.header,.mobile-contact { visibility: hidden; }'
     });

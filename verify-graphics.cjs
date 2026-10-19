@@ -19,7 +19,7 @@ const assert = require('node:assert/strict');
     await page.locator('#'+id).screenshot({path:`${dir}/${id}-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
    }
    for(const button of await page.locator('.features__toggle').all())await button.click();
-   for(const id of ['features-spec-detail','features-loadex-detail'])await page.locator('#'+id).screenshot({path:`${dir}/${id}-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
+   for(const id of ['features-loadex-detail'])await page.locator('#'+id).screenshot({path:`${dir}/${id}-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
    console.log(`Graphics @ ${width}px: decoded, alternatives present, key dimensions and six-item inventory visible, details open without overflow.`);
   }
