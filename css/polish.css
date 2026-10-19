@@ -24,6 +24,8 @@
 .capacity-examples { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
 .capacity-examples__label { margin: 0 0 12px; color: #163c63; font-size: .9375rem; font-weight: 700; }
 .capacity-examples .graphic-caption { margin: 12px 0 0; }
+/* 外側のカード内に入るため、例ごとの枠・余白は付けない */
+.capacity-examples .loadex__card { padding: 0; border: 0; border-radius: 0; background: none; }
 .spec__list li { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: baseline; column-gap: 16px; }
 .spec__list .spec__value { margin-left: auto; text-align: right; }
 .spec__list--stacked li { flex-direction: column; align-items: stretch; }
