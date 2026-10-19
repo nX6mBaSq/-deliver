@@ -30,7 +30,7 @@
 .features__item--wide { background: #fff; border: 1px solid #d5e2ed; border-radius: 12px; box-shadow: none; }
 .graphic-kicker { display: block; font: 500 .71875rem/1.7 Arial, sans-serif; letter-spacing: .12em; color: #366d94; margin-bottom: 10px; }
 .features__item--wide > .features__title { font-size: 1.25rem; line-height: 1.7; }
-.features__item--wide > .feature__overview { min-width: 0; height: auto; margin: 24px 0; }
+.features__item--wide > .feature__overview { min-width: 0; height: auto; aspect-ratio: auto; margin: 24px 0; }
 .capacity-figure { background: #f3f7fa; border-radius: 10px; padding: 12px 0; }
 .capacity-figure img { display: block; width: 100%; height: auto; }
 .capacity-figure figcaption, .graphic-caption, .detail-figure figcaption { font-size: .75rem; line-height: 1.8; color: #52657b; }
