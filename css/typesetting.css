@@ -62,8 +62,6 @@ body { text-autospace: normal; }
     .fees__addon-name, .section-next p) { text-wrap: balance; }
 /* 文章は最終行の孤立を避ける（HTML側でも文末4文字を .nobr でまとめている） */
 main :is(p, li, dd) { text-wrap: pretty; }
-/* Safari の pretty は段落全体の行長を揃えるため、短い導入文の右端が早めに折り返される。導入文は通常の折り返しにする */
-.section-intro { text-wrap: wrap; }
 
 /* 行頭の括弧は字面を揃える（見出し・短文） */
 :is(h1, h2, h3, h4, .hero__title, .section-heading__title, .cta__title, .message__catch,
