@@ -48,8 +48,7 @@ const root = 'design-preview/typography';
           }
           await page.locator('.faq__question').first().click();
           await page.locator('#qa').screenshot({path:`${dir}/faq-open-${width}.png`,style:'.header,.mobile-contact { visibility: hidden; }'});
-          await page.locator('.features__toggle').first().click();
-          await page.locator('#features-loadex-detail').screenshot({path:`${dir}/loadex-open-${width}.png`,style:'.header,.mobile-contact { visibility: hidden; }'});
+          await page.locator('.capacity-examples').screenshot({path:`${dir}/capacity-examples-${width}.png`,style:'.header,.mobile-contact { visibility: hidden; }'});
         }
         if(file === 'company.html') await page.locator('#message').screenshot({path:`${dir}/message-${width}.png`,style:'.header,.mobile-contact { visibility: hidden; }'});
         if(file === 'privacy-policy.html') await page.locator('#article-3').screenshot({path:`${dir}/policy-text-${width}.png`,style:'.header,.mobile-contact { visibility: hidden; }'});

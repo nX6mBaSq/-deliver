@@ -47,9 +47,9 @@ async function contrast(page){return page.evaluate(()=>{
      report[`${file}-${width}`].plannerFilled=await contrast(page);
      await page.locator('#load-planner summary').click();
     }
-    await page.locator('#features-loadex-detail').screenshot({path:`${dir}/loadex-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
+    await page.locator('.capacity-examples').screenshot({path:`${dir}/loadex-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
     if(width===390){await page.locator('[data-nav-open]').click();report[`${file}-${width}`].menu=await contrast(page);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('#nav-drawer').open);}
-    if(phase!=='before')for(const sel of ['.hero__primary','.features__toggle','.faq__question','.cta .btn--form','.cta .btn--tel']){
+    if(phase!=='before')for(const sel of ['.hero__primary','.faq__question','.cta .btn--form','.cta .btn--tel']){
      await page.locator(sel).first().hover();report[`${file}-${width}`]['hover-'+sel]=await contrast(page);
      await page.mouse.move(0,0);await page.keyboard.press('Tab');await page.locator(sel).first().focus();assert(await page.locator(sel).first().evaluate(e=>getComputedStyle(e).outlineStyle!=='none'),`Visible keyboard focus: ${sel}`);
     }
