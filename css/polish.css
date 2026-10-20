@@ -24,8 +24,10 @@
 .capacity-examples { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
 .capacity-examples__label { margin: 0 0 12px; color: #163c63; font-size: .9375rem; font-weight: 700; }
 .capacity-examples .graphic-caption { margin: 12px 0 0; }
-/* 外側のカード内に入るため、例ごとの枠・余白は付けない */
-.capacity-examples .loadex__card { padding: 0; border: 0; border-radius: 0; background: none; }
+/* 荷物一覧：旧 01 / LOAD EXAMPLE と同じ見た目。480px未満は2列×3段、以上は3列×2段 */
+.capacity-examples .inventory-grid { max-width: 640px; margin-inline: auto; }
+@media(min-width: 480px) { .capacity-examples .inventory-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.capacity-examples .inventory-grid :is(span, small) { word-break: keep-all; }
 .spec__list li { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: baseline; column-gap: 16px; }
 .spec__list .spec__value { margin-left: auto; text-align: right; }
 .spec__list--stacked li { flex-direction: column; align-items: stretch; }
