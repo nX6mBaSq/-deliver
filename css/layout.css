@@ -87,15 +87,15 @@
 .process .process__item .process__title { grid-column: 2; grid-row: 2; margin: 0; }
 .process .process__item .process__desc { grid-column: 2; grid-row: 3; margin: 4px 0 0; font-size: .875rem; }
 @media (max-width: 767px) {
-  /* Phones: art and title on the left edge, STEP on the right edge, a full-width rule, then a two-line description
-     (one break per unit) — the same frame repeated on every card. */
-  .process .process__item { grid-template-columns: 64px minmax(0, 1fr) auto; grid-template-rows: auto auto; gap: 0 16px; align-items: center; padding: 16px; }
-  .process .process-art { grid-column: 1; grid-row: 1; width: 64px; height: 64px; padding: 4px; }
-  .process .process__item .process__title { grid-column: 2; grid-row: 1; }
-  .process .process__item .process__step { grid-column: 3; grid-row: 1; align-self: start; margin: 0; }
-  .process .process__item .process__desc { grid-column: 1 / -1; grid-row: 2; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
-  .process .process__item .process__desc > .text-unit, .process .process__item .process__desc > .text-phrase { display: block; }
-  .process .process__item .process__desc > * > .text-phrase { display: inline-block; }
+  /* Phones: art on the left; STEP, title and description stacked in the right column so the eye reads straight
+     down it. Every description is two units of ≤11 characters (fits the 360px column), one per line, so each card
+     repeats the same shape. */
+  .process .process__item { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); grid-template-rows: auto auto auto; gap: 0 14px; align-items: start; padding: 16px; }
+  .process .process-art { grid-column: 1; grid-row: 1 / 4; align-self: center; width: 100%; height: auto; aspect-ratio: 1 / 1; padding: 10px; border-radius: 50%; }
+  .process .process__item .process__step { grid-column: 2; grid-row: 1; margin: 0 0 2px; }
+  .process .process__item .process__title { grid-column: 2; grid-row: 2; }
+  .process .process__item .process__desc { grid-column: 2; grid-row: 3; margin: 6px 0 0; }
+  .process .process__item .process__desc > .text-unit { display: block; }
 }
 
 /* ---------- 05 Promise: media-first care cards, portrait link ---------- */
