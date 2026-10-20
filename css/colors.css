@@ -125,8 +125,6 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 .strengths, .faq { background: var(--surface); }
 .strengths__item { background: var(--surface); border-color: var(--line); }
 .strengths__icon { background: var(--blue-soft); }
-.care-list .features__item { background: var(--paper); border-color: var(--line); }
-.care-list .care-art { background: transparent; }
 .representative-link, .process__list, .process__item, .booking-notes,
 .booking-notes__links li, .faq__list, .faq__item { border-color: var(--line); }
 .process { background: var(--paper); }

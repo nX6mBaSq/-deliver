@@ -58,7 +58,7 @@ body { text-autospace: normal; }
     .persona__text, .strengths__title, .features__title, .process__title,
     .faq__question-text, .contact-method__label, .policy__article-title,
     .important-notes__heading, .capacity-preflight h3,
-    .quick-nav a, .nav-drawer__link, .footer__nav-list a, .strengths__desc,
+    .quick-nav a, .nav-drawer__link, .footer__nav-list a,
     .fees__addon-name, .section-next p) { text-wrap: balance; }
 /* 文章は最終行の孤立を避ける（HTML側でも文末4文字を .nobr でまとめている） */
 main :is(p, li, dd) { text-wrap: pretty; }
