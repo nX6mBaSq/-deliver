@@ -72,10 +72,6 @@
 .planner-actions .btn:disabled { background: var(--mist); color: var(--muted); border: 1px solid var(--control-line); cursor: default; }
 .planner-reset { min-height: 44px; color: var(--action); font-size: .875rem; text-decoration: underline; text-underline-offset: .25em; }
 .planner-status { min-height: 1.8em; color: var(--teal); }
-.message-art { min-width: 0; padding: 28px; background: var(--blue-soft); color: var(--ink); border-radius: 4px; }
-.message-art > p { font: 500 1.25rem/1.5 Arial,sans-serif; letter-spacing: -.02em; }
-.message-art > img { width: 100%; height: auto; margin: 24px auto; }
-.message-art > span { font-size: .8125rem; }
 .message__card { border-radius: 6px; }
 :is(summary,input,textarea):focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--gold); }
 @media(min-width: 768px) {

@@ -48,7 +48,7 @@ body { text-autospace: normal; }
     .fees__group-label, .spec__badge, .loadex__badge, .spec__heading-note, .inventory-board__label, .capacity-preflight p,
     .area-figure figcaption, .hero-figure figcaption,
     .policy__article-title, .important-notes__heading, .important-notes__subheading,
-    .document-toc a, .company-info__label, .message-art > span, .representative-link p) {
+    .document-toc a, .company-info__label, .message__tagline, .representative-link p) {
   word-break: auto-phrase;
   overflow-wrap: anywhere;
 }

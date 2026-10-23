@@ -120,9 +120,32 @@
 .representative-link { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 16px 20px; padding: 20px; background: var(--mist); border: 0; border-radius: 8px; }
 .representative-link__photo { width: 72px; height: 72px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; background: var(--surface); }
 .representative-link > .text-link { grid-column: 1 / -1; justify-self: start; }
-.message__card { overflow: hidden; }
-.message__content { padding: 0 20px 28px; }
-.message__link { display: inline-block; margin-top: 20px; }
+/* 代表メッセージ：左＝顔写真と署名（誰が）、右＝言葉（何を）。スマホは写真と署名を横並びにして高さを抑える */
+.message__card { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; align-items: stretch; max-width: none; overflow: hidden; text-align: left; }
+.message__profile { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 20px; min-width: 0; padding: 24px 20px; background: var(--blue-soft); }
+.message__photo { display: block; width: 96px; height: 96px; margin: 0; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; border: 4px solid var(--surface); background: var(--surface); }
+.message__signature { min-width: 0; }
+.message__name { display: flex; flex-direction: column; gap: 4px; margin: 0; }
+.message__role { color: var(--muted); font-size: .75rem; font-weight: 500; }
+.message__person { color: var(--ink); font-size: 1.25rem; font-weight: 700; letter-spacing: .08em; }
+.message__tagline { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--text); font-size: .8125rem; line-height: 1.7; }
+.message__content { align-self: center; min-width: 0; max-width: none; padding: 28px 20px 32px; }
+.message__eyebrow { margin-bottom: 12px; color: var(--action); font: 600 .75rem/1.4 Arial, sans-serif; letter-spacing: .14em; }
+.message__catch { margin-bottom: 20px; }
+.message__link { display: inline-block; margin-top: 24px; }
+@media (min-width: 768px) {
+  .message__card { grid-template-columns: 240px minmax(0, 1fr); }
+  .message__profile { grid-template-columns: minmax(0, 1fr); justify-items: center; align-content: center; gap: 20px; padding: 40px 24px; text-align: center; }
+  .message__photo { width: 152px; height: 152px; }
+  .message__name { align-items: center; }
+  .message__tagline { display: inline-block; }
+  .message__content { padding: 40px 44px; }
+}
+@media (min-width: 1100px) {
+  .message__card { grid-template-columns: 300px minmax(0, 1fr); }
+  .message__photo { width: 176px; height: 176px; }
+  .message__content { padding: 48px 64px; }
+}
 
 /* Phone: inner padding so the Q mark and answer clear the list edges; questions sized to stay on one line when closed. */
 @media (max-width: 767px) {
@@ -164,7 +187,6 @@
 }
 
 /* ---------- Sub pages ---------- */
-.message-art > img.message-art__photo { display: block; width: 140px; height: 140px; aspect-ratio: 1 / 1; margin: 24px auto; object-fit: cover; border-radius: 50%; background: var(--surface); }
 .notes-icon { width: 32px; height: 32px; margin-right: 10px; vertical-align: middle; border-radius: 8px; background: var(--surface); color: currentColor; }
 .notes-icon svg { width: 20px; height: 20px; }
 .important-notes__heading { display: flex; align-items: center; flex-wrap: wrap; }
@@ -200,8 +222,6 @@
   .representative-link { grid-template-columns: 112px minmax(0, 1fr) auto; padding: 24px 28px; }
   .representative-link__photo { width: 112px; height: 112px; }
   .representative-link > .text-link { grid-column: 3; justify-self: end; }
-  .message__card { align-items: stretch; }
-  .message__content { align-self: center; padding: 36px 40px 36px 0; }
   .page-hero { padding-bottom: 48px; }
   .page-hero__icon { display: inline-grid; }
   .page-hero + .section { padding-top: 48px; }
