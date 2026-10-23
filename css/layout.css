@@ -167,6 +167,17 @@
 .contact-preparation > h3 { font-size: .9375rem; }
 .contact-preparation .contact-preparation__links li { list-style: none; }
 .contact-preparation__links a { display: inline-flex; gap: 6px; color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
+/* Phone: a translucent panel of full-width tap rows instead of bare underlined links. */
+@media (max-width: 767px) {
+  .contact-preparation { margin: 8px 0 24px; padding: 20px 20px 8px; border: 1px solid rgb(255 255 255 / .16); border-radius: 10px; background: rgb(255 255 255 / .07); }
+  .contact-preparation > h3 { display: flex; align-items: center; gap: 8px; }
+  .contact-preparation > h3::before { content: ''; width: 4px; height: 1em; border-radius: 2px; background: var(--gold); }
+  .contact-preparation .contact-preparation__links { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 8px; }
+  .contact-preparation__links li + li { border-top: 1px solid rgb(255 255 255 / .14); }
+  .contact-preparation__links a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding-block: 12px; color: var(--on-dark); font-size: .875rem; text-decoration: none; }
+  .contact-preparation__links a span { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: rgb(255 255 255 / .12); color: #d6ecff; font-size: .8125rem; transition: background-color .2s, transform .2s; }
+  .contact-preparation__links a:active span { background: rgb(255 255 255 / .24); transform: translateX(2px); }
+}
 /* Contact methods: WEB / phone / LINE as one full-width row beneath the heading and booking links. */
 @media (min-width: 768px) and (max-width: 959px) {
   .contact-preparation .contact-preparation__links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
