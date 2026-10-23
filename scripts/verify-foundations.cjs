@@ -72,7 +72,7 @@ fs.mkdirSync(previewDir, { recursive: true });
   for (const selector of ['#price2', '#strengths', '#cta']) {
     await page.locator(selector).screenshot({ path: `${previewDir}/foundations-${selector.slice(1)}-1440.png`, style: '.header,.mobile-contact { visibility: hidden; }' });
   }
-  fs.writeFileSync('foundations-check.txt', results.join('\n') + '\n');
+  fs.writeFileSync('reports/foundations-check.txt', results.join('\n') + '\n');
   console.log(results.join('\n'));
   await browser.close();
 })().catch(e => { console.error(e); process.exit(1); });

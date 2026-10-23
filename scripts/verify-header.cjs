@@ -59,7 +59,7 @@ const fs = require('node:fs');
     await page.screenshot({ path: 'design-preview/header/closed.png' });
     await clickWithoutScrolling('[data-nav-open]');
     await page.screenshot({ path: 'design-preview/header/open.png' });
-    fs.writeFileSync('header-check.txt', results.join('\n') + '\n');
+    fs.writeFileSync('reports/header-check.txt', results.join('\n') + '\n');
     console.log(results.join('\n'));
   } finally {
     await browser.close();

@@ -104,7 +104,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview';
   assert.deepEqual(errors, []);
   results.push('Menu open, Escape, menu anchor, header clearance, all accordions, no runtime errors: OK');
   results.push('Keyboard skip link, menu focus restoration/state, Enter/Space disclosures, new-tab labels, 200% root text at 320px: OK');
-  fs.writeFileSync('design-check.txt', results.join('\n') + '\n');
+  fs.writeFileSync('reports/design-check.txt', results.join('\n') + '\n');
   console.log(results.join('\n'));
   await browser.close();
 })().catch(e => { console.error(e); process.exit(1); });

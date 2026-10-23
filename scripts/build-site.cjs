@@ -10,7 +10,7 @@ const pageStyles={index:['common','top',...common,'graphics','colors','polish','
   const [{css:usedCss}]=await new PurgeCSS().purge({content:[page+'.html','js/*.js'],css:[{raw:css}],safelist:['is-open','has-modal-open','visually-hidden'],dynamicAttributes:['aria-expanded','aria-current','aria-invalid','open']});
   // typesetting.css is appended after PurgeCSS, which drops valid :is()/:has() selectors.
   const finalCss=usedCss+'\n'+fs.readFileSync('css/typesetting.css','utf8');
-  await esbuild.build({stdin:{contents:finalCss,loader:'css',resolveDir:__dirname+'/css'},outfile:file,minify:true,charset:'utf8',legalComments:'none',target:['chrome110','safari16.4','firefox115']});
+  await esbuild.build({stdin:{contents:finalCss,loader:'css',resolveDir:require('node:path').resolve(__dirname,'../css')},outfile:file,minify:true,charset:'utf8',legalComments:'none',target:['chrome110','safari16.4','firefox115']});
   // Content hash busts stale browser/CDN caches after each deploy.
   const hash=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,8);
   let html=fs.readFileSync(page+'.html','utf8');

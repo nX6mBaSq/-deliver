@@ -73,7 +73,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview/structure';
         await page.locator(selector).screenshot({ path: `${previewDir}/${selector.slice(1)}-${width}.png`, style: '.header,.mobile-contact { visibility: hidden; }' });
       }
     }
-    fs.writeFileSync('navigation-check.txt', results.join('\n') + '\n');
+    fs.writeFileSync('reports/navigation-check.txt', results.join('\n') + '\n');
     console.log(results.join('\n'));
   } finally {
     await browser.close();

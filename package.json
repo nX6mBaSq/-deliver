@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "build": "node build-site.cjs",
-    "fonts": "node build-fonts.cjs",
-    "preview": "node serve-preview.cjs",
-    "check": "node verify-design.cjs && node verify-foundations.cjs && node verify-navigation.cjs && node verify-polish.cjs && node verify-colors.cjs polish"
+    "build": "node scripts/build-site.cjs",
+    "fonts": "node scripts/build-fonts.cjs",
+    "preview": "node scripts/serve-preview.cjs",
+    "check": "node scripts/verify-design.cjs && node scripts/verify-foundations.cjs && node scripts/verify-navigation.cjs && node scripts/verify-polish.cjs && node scripts/verify-colors.cjs polish"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^7.3.1",
