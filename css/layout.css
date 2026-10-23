@@ -102,8 +102,10 @@
 .strengths .strengths__list { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 .strengths .strengths__item { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; text-align: left; border-radius: 8px; }
 .strengths .strengths__item::before { content: none; }
-.strengths .strengths__art { width: 100%; justify-content: center; align-items: center; text-align: center; border-radius: 0; }
-.strengths .strengths__art::before { content: none; }
+/* Transparent 16:9 illustrations sit on a soft tint so each reads as a framed scene. */
+.strengths .strengths__art { aspect-ratio: 16 / 9; margin: 0; background: #bfe2fa; }
+.strengths .strengths__art--sand { background: #c9eee8; }
+.strengths .strengths__art img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .strengths .strengths__content { padding: 20px 20px 24px; }
 .strengths .strengths__num { margin: 0 0 4px; }
 .strengths .strengths__title { font-size: 1.0625rem; line-height: 1.6; }
