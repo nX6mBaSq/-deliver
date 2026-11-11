@@ -81,7 +81,8 @@
 .process .process__list { display: grid; align-items: stretch; gap: 12px; padding: 0; margin: 0; border: 0; background: none; list-style: none; }
 .process .process__item { position: relative; display: grid; grid-template-columns: 88px minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 2px 16px; align-items: start; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
 .process .process__item:last-child { border-bottom: 1px solid var(--line); }
-.process .process-art { grid-column: 1; grid-row: 1 / 4; width: 88px; height: 88px; padding: 6px; object-fit: contain; border-radius: 6px; background: var(--mist); }
+/* アイコン素材（Design/HOW-TO-BOOK/assets）は淡いブルーの面を含む正方形。枠は円形に切り抜き、背景色・内側余白は持たない。 */
+.process .process-art { grid-column: 1; grid-row: 1 / 4; width: 88px; height: 88px; padding: 0; object-fit: cover; border-radius: 50%; background: none; }
 .process .process__item > div { display: contents; }
 .process .process__item .process__step { grid-column: 2; grid-row: 1; margin: 2px 0 0; padding: 0; font-size: .75rem; }
 .process .process__item .process__title { grid-column: 2; grid-row: 2; margin: 0; }
@@ -91,7 +92,7 @@
      down it. Every description is two units of ≤11 characters (fits the 360px column), one per line, so each card
      repeats the same shape. */
   .process .process__item { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); grid-template-rows: auto auto auto; gap: 0 14px; align-items: start; padding: 16px; }
-  .process .process-art { grid-column: 1; grid-row: 1 / 4; align-self: center; width: 100%; height: auto; aspect-ratio: 1 / 1; padding: 10px; border-radius: 50%; }
+  .process .process-art { grid-column: 1; grid-row: 1 / 4; align-self: center; width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 50%; }
   .process .process__item .process__step { grid-column: 2; grid-row: 1; margin: 0 0 2px; }
   .process .process__item .process__title { grid-column: 2; grid-row: 2; }
   .process .process__item .process__desc { grid-column: 2; grid-row: 3; margin: 6px 0 0; }
@@ -281,7 +282,7 @@
   .process .process__list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
   .process .process__item:last-child:nth-child(odd) { grid-column: auto; }
   .process .process__item { display: flex; flex-direction: column; gap: 4px; padding: 14px 14px 20px; }
-  .process .process-art { width: 100%; height: auto; aspect-ratio: 1 / 1; padding: 10px; margin-bottom: 12px; }
+  .process .process-art { width: 100%; height: auto; aspect-ratio: 1 / 1; margin-bottom: 12px; }
   .process .process__item:not(:last-child)::after { content: ''; position: absolute; top: 25%; right: -13px; z-index: 1; width: 10px; height: 10px; border: solid var(--action); border-width: 2px 2px 0 0; transform: rotate(45deg); }
 
 }

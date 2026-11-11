@@ -1,0 +1,64 @@
+/* トップの ご利用の流れ（#step）：デザインシステム適用（2026-11-11）
+   アイコン：Design/HOW-TO-BOOK（円形の切り抜きは layout.css の .process .process-art）。
+   レイアウト（スマホ：アイコン｜文字の横並びカード、600px〜：2列、960px〜：5列＋矢印）は layout.css のまま。
+   ここでは色・文字・余白・角丸だけを css/design-system.css のトークンにそろえる。
+   旧指定が top / refresh / foundations / structure / typography / layout / colors に分散しているため、
+   .process.section を付けて詳細度を上げ、capacity.css の後に読み込む。 */
+
+.process.section { padding-block: var(--ds-section-y); background: var(--ds-bg-alt); color: var(--ds-body); }
+
+/* ---- セクション見出し：SERVICE・積載と同じ形（英字の小見出し → 2行の h2、後半を青） ---- */
+.process.section .section-heading { margin-bottom: var(--ds-space-xl); }
+.process.section .section-heading__label {
+  margin: 0 0 14px; color: var(--ds-brand);
+  font-family: inherit; font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.process.section .section-heading__label::before { width: 24px; height: 2px; }
+.process.section .section-heading__title {
+  margin: 0; color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
+}
+.process.section .section-heading__title em { font-style: normal; color: var(--ds-brand); }
+
+/* ---- カード ---- */
+.process.section .process__list { gap: var(--ds-space-sm); }
+.process.section .process__item {
+  padding: var(--ds-space-md); border: 1px solid var(--ds-line); border-radius: var(--ds-radius-md); background: var(--ds-bg);
+}
+.process.section .process__item .process__step {
+  color: var(--ds-brand); font-family: inherit;
+  font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.process.section .process__item .process__title {
+  margin-top: var(--ds-space-2xs); color: var(--ds-heading);
+  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); letter-spacing: .03em;
+}
+.process.section .process__item .process__desc {
+  margin-top: var(--ds-space-xs); color: var(--ds-body);
+  font-size: var(--ds-fs-small); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-body); letter-spacing: .02em;
+}
+
+/* ---- 狭い画面（〜359px） ---- */
+@media (max-width: 359px) {
+  .process.section .section-heading__title { font-size: 1.625rem; }
+}
+
+/* ---- タブレット（600px〜） ---- */
+@media (min-width: 600px) {
+  .process.section .section-heading__title { font-size: 2.25rem; }
+  .process.section .process__list { gap: var(--ds-space-md); }
+}
+
+/* ---- 600〜767px：スマホと同じ横並びのまま。アイコンが3割幅だと約180pxに膨らみ、文字の行が縦に間延びするため、
+   768px〜 と同じ 88px に固定し、文字の塊を上下中央に寄せる ---- */
+@media (min-width: 600px) and (max-width: 767px) {
+  .process.section .process__item { grid-template-columns: 88px minmax(0, 1fr); align-content: center; column-gap: var(--ds-space-md); }
+}
+
+/* ---- PC（960px〜）：5列のカード（縦積み）。矢印は青1色 ---- */
+@media (min-width: 960px) {
+  .process.section .section-heading__title { font-size: 2.5rem; }
+  .process.section .process__item { padding: var(--ds-space-md) var(--ds-space-md) var(--ds-space-lg); }
+  .process.section .process__item .process__title { margin-top: 0; }
+  .process.section .process__item:not(:last-child)::after { border-color: var(--ds-brand); }
+}
