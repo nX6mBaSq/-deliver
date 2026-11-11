@@ -1,0 +1,79 @@
+/* トップの 料金・エリア（#price2）：デザインシステム適用（2026-11-11）
+   レイアウト・部品の形は現行のまま、色・文字・余白・角丸だけを css/design-system.css のトークンにそろえる。
+   旧指定が top / foundations / refresh / typography / structure / layout / polish / colors に分散しているため、
+   .fees を付けて詳細度を上げ、service.css の後に読み込む。セクション専用（他セクションの .section-heading には効かせない）。 */
+
+.fees.section { padding-block: var(--ds-section-y); background: var(--ds-bg-alt); color: var(--ds-body); }
+
+/* ---- セクション見出し：SERVICE と同じ寸法 ---- */
+.fees .section-heading { margin-bottom: var(--ds-space-xl); }
+.fees .section-heading__label {
+  margin: 0 0 14px; color: var(--ds-brand);
+  font-family: inherit; font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.fees .section-heading__label::before { width: 24px; height: 2px; }
+.fees .section-heading__title {
+  margin: 0; color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
+}
+.fees .section-intro { margin-top: var(--ds-space-md); color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+
+/* ---- カード（基本料金・追加料金・対応エリア・行き先別）：角丸と内側余白をそろえる ---- */
+.fees .fees__base, .fees .fees__addon, .fees .fees__estimate { border-radius: var(--ds-radius-lg); }
+.fees .fees__addon, .fees .fees__estimate { padding: var(--ds-space-lg); }
+
+/* ---- ブロック見出し（カード内の h3） ---- */
+.fees :is(.fees__addon-label, .fees__area-label, .fees__estimate-label) {
+  margin: 0 0 var(--ds-heading-gap); padding: 0; color: var(--ds-heading); background: none;
+  font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em; text-align: left;
+}
+.fees .fees__addon-label { margin-bottom: var(--ds-space-2xs); }
+
+/* ---- 追加料金の一覧 ---- */
+.fees .fees__addon-intro { color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+.fees .fees__addon-intro + .fees__addon-list { margin-top: var(--ds-space-md); border-top: 1px solid var(--ds-line); }
+.fees .fees__addon-item { border-color: var(--ds-line); }
+.fees .fees__addon-name { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); }
+.fees .fees__addon-note { margin-top: 2px; color: var(--ds-sub); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-body); }
+.fees .fee-icon { background: var(--ds-tint-strong); color: var(--ds-brand); }
+.fees :is(.fees__addon-price, .fees__route-price) { color: var(--ds-heading); }
+
+/* 「追加料金・オプションをすべて見る」：ボタン型のまま、色と文字をトークンに */
+.fees .fees__details {
+  min-height: var(--ds-tap); margin-top: var(--ds-space-lg); border: 1px solid var(--control-line); border-radius: var(--ds-radius-md);
+  background: var(--ds-tint); color: var(--ds-brand);
+  font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+}
+@media (hover: hover) and (pointer: fine) {
+  .fees .fees__details:hover { background: var(--ds-tint-strong); color: var(--ds-brand-hover); }
+}
+
+/* ---- 対応エリア ---- */
+/* 説明文 → 地図の順（見出しの直下に説明文、その下に地図） */
+.fees .area-figure { margin: var(--ds-space-md) 0 0; border-radius: var(--ds-radius-md); }
+.fees .area__desc { margin-top: 0; color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); text-align: left; }
+
+/* ---- 行き先別の料金目安 ---- */
+.fees .fees__estimate { margin-top: var(--ds-space-lg); }
+.fees .fees__route { border-color: var(--ds-line); }
+.fees .fees__route-path { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); }
+.fees .route-pin { color: var(--ds-brand); }
+
+/* ---- 狭い画面（〜359px）：カード内の余白を詰め、項目名を語の途中で折り返さない ---- */
+@media (max-width: 359px) {
+  .fees .section-heading__title { font-size: 1.625rem; }
+  .fees .fees__addon, .fees .fees__estimate { padding: var(--ds-space-lg) var(--ds-space-md); }
+  .fees .fees__addon-name { word-break: keep-all; white-space: nowrap; }
+  .fees .fees__route-path { font-size: var(--ds-fs-card); }
+}
+
+/* ---- タブレット（600px〜）・PC（960px〜）：見出しの拡大は SERVICE と同じ ---- */
+@media (min-width: 600px) {
+  .fees .section-heading__title { font-size: 2.25rem; }
+}
+@media (min-width: 960px) {
+  .fees .section-heading__title { font-size: 2.5rem; }
+  .fees .section-intro { font-size: 1.0625rem; }
+  .fees .fees__addon, .fees .fees__estimate { padding: 28px; }
+  .fees .fees__estimate > .fees__estimate-label { margin-bottom: var(--ds-space-lg); }
+}

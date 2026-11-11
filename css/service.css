@@ -1,130 +1,121 @@
 /* トップの SERVICE（2026-11-11 リニューアル案）
-   デザイン：Design/SERVICE/SERVICE-mobile-390.png・デザイン仕様書.md
+   デザイン：Design/SERVICE/SERVICE-mobile-390.png・デザイン仕様書.md・修正指示_対象外カード/
+   色・文字・余白は css/design-system.css のトークン（--ds-*）で指定する。
    旧 .service-overview / .fit-check の指定が複数ファイルに残っているため、.svc__* で組み、
    ヒーローの後（typesetting.css の直前）に読み込む。
    スマホ：1列。PC（960px〜）：導入と写真を左右に、準備と対象外を左右に並べる。 */
 
 .svc {
-  --svc-ink: #0d2744;
-  --svc-text: #2b415d;
-  --svc-blue: #005bc9;
-  --svc-tint: #eaf4fc;
-  --svc-tag: 72px;
-  --svc-col-gap: 12px;
   position: relative;
-  padding-block: 32px 48px;
-  background: var(--surface);
-  color: var(--svc-text);
+  /* ヒーローの波から続くため、上だけ --ds-section-y より詰める */
+  padding-block: var(--ds-space-xl) var(--ds-section-y);
+  background: var(--ds-bg);
+  color: var(--ds-body);
 }
 .svc__inner { display: grid; grid-template-columns: minmax(0, 1fr); }
 .svc p { margin: 0; }
 
-/* ---- 導入 ---- */
+/* ---- 導入（セクション見出しの共通形：英字の小見出し＋2行の見出し＋リード） ---- */
 .svc__label {
-  display: flex; align-items: center; gap: 12px; margin-bottom: 14px !important;
-  color: var(--svc-blue); font-size: .8125rem; font-weight: 700; line-height: 1.4; letter-spacing: .14em;
+  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: 14px !important;
+  color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .svc__label::before { content: ''; flex: none; width: 24px; height: 2px; background: currentColor; }
 .svc__title {
-  margin: 0 0 16px; color: var(--svc-ink);
-  font-size: 1.875rem; font-weight: 700; line-height: 1.32; letter-spacing: .02em; font-feature-settings: "palt";
+  margin: 0 0 var(--ds-space-md); color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
 }
-.svc__title em { font-style: normal; color: var(--svc-blue); }
-.svc__lead { font-size: 1rem; line-height: 1.7; letter-spacing: .02em; }
-.svc__lead strong { color: var(--svc-ink); font-weight: 700; }
+.svc__title em { font-style: normal; color: var(--ds-brand); }
+.svc__lead { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+.svc__lead strong { color: var(--ds-heading); font-weight: var(--ds-fw-bold); }
 
 /* ---- 写真＋キャプション ---- */
-.svc__figure { margin: 24px 0 0; overflow: hidden; border-radius: 12px; background: var(--svc-ink); }
+.svc__figure { margin: var(--ds-space-lg) 0 0; overflow: hidden; border-radius: var(--ds-radius-lg); background: var(--ds-dark); }
 .svc__photo { display: block; width: 100%; height: auto; aspect-ratio: 350 / 168; object-fit: cover; object-position: center; }
 .svc__caption {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 56px; padding: 10px 16px;
-  color: var(--on-dark); font-size: 1rem; font-weight: 700; line-height: 1.4; text-align: center; letter-spacing: .04em;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 56px; padding: 10px var(--ds-space-md);
+  color: var(--ds-on-dark); font-size: var(--ds-fs-body); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); text-align: center; letter-spacing: .04em;
 }
-.svc__plus { padding-inline: 12px; color: #9ccaf5; font-size: 1.375rem; font-weight: 400; line-height: 1; }
+.svc__plus { padding-inline: var(--ds-space-sm); color: var(--ds-on-dark-sub); font-size: 1.375rem; font-weight: var(--ds-fw-body); line-height: 1; }
 
 /* ---- スタッフ追加の注記 ---- */
 .svc__note {
-  margin-top: 12px !important; padding: 6px 0 6px 14px; border-left: 3px solid #b9d8f2;
-  font-size: .875rem; line-height: 1.7;
+  margin-top: var(--ds-space-sm) !important; padding: 6px 0 6px 14px; border-left: 3px solid var(--ds-line-accent);
+  font-size: var(--ds-fs-small); line-height: var(--ds-lh-body);
 }
-.svc__note strong { color: var(--svc-blue); font-weight: 700; }
+.svc__note strong { color: var(--ds-brand); font-weight: var(--ds-fw-bold); }
 
-/* ---- 準備・対象外（共通） ---- */
-.svc__block { margin-top: 48px; }
+/* ---- 準備・対象外（共通：ブロック見出し・タグ・詳細リンク） ---- */
+.svc__block { margin-top: var(--ds-block-gap); }
 .svc__heading {
-  display: flex; align-items: center; gap: 8px; margin: 0 0 14px; color: var(--svc-ink);
-  font-size: 1.25rem; font-weight: 700; line-height: 1.4; letter-spacing: .02em;
+  display: flex; align-items: center; gap: var(--ds-space-xs); margin: 0 0 var(--ds-heading-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em;
 }
 /* 見出し左の縦線：形は共通、色だけブロックごとに変える（準備＝青、対象外＝茶） */
-.svc__heading::before { content: ''; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--svc-accent, var(--svc-blue)); }
-.svc__limits { --svc-accent: #9a704b; }
+.svc__heading::before { content: ''; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--svc-accent, var(--ds-brand)); }
+.svc__limits { --svc-accent: var(--ds-caution); }
 .svc__tag {
-  display: grid; place-items: center; width: var(--svc-tag); min-height: 26px; padding: 2px 4px; border-radius: 999px;
-  background: var(--svc-tint); color: var(--svc-blue);
-  font-size: .75rem; font-weight: 700; line-height: 1.4; text-align: center; letter-spacing: .02em;
+  display: grid; place-items: center; width: var(--ds-label-col); min-height: 26px; padding: 2px var(--ds-space-2xs); border-radius: var(--ds-radius-pill);
+  background: var(--ds-tint); color: var(--ds-brand);
+  font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); text-align: center; letter-spacing: .02em;
 }
 .svc__more {
-  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px;
-  color: var(--svc-blue); font-size: .875rem; font-weight: 700; line-height: 1.4;
+  display: inline-flex; align-items: center; gap: var(--ds-space-xs); min-height: var(--ds-tap); margin-top: var(--ds-link-gap);
+  color: var(--ds-brand); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
   text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .3em;
 }
 .svc__more svg { flex: none; }
 @media (hover: hover) and (pointer: fine) {
-  .svc__more:hover { color: var(--action-hover); text-decoration-thickness: 2px; }
+  .svc__more:hover { color: var(--ds-brand-hover); text-decoration-thickness: 2px; }
 }
 
 /* ---- 準備：ラベルを縦線でつなぐ順序リスト ---- */
 .svc__steps { margin: 0; padding: 0; list-style: none; }
 .svc__steps li {
-  position: relative; display: grid; grid-template-columns: var(--svc-tag) minmax(0, 1fr); column-gap: var(--svc-col-gap);
+  position: relative; display: grid; grid-template-columns: var(--ds-label-col) minmax(0, 1fr); column-gap: var(--ds-col-gap);
   align-items: start; padding-bottom: 18px;
 }
 .svc__steps li:not(:last-child)::before {
-  content: ''; position: absolute; left: calc(var(--svc-tag) / 2); top: 26px; bottom: 0; width: 1px; background: #c6d6e4;
+  content: ''; position: absolute; left: calc(var(--ds-label-col) / 2); top: 26px; bottom: 0; width: 1px; background: var(--ds-line);
 }
 .svc__steps .svc__tag { position: relative; margin-top: 1px; }
-/* 最後の項目は下余白なし：リンクまでの間隔を対象外カードと同じ（.svc__more の margin-top）にそろえる */
+/* 最後の項目は下余白なし：リンクまでの間隔を対象外カードと同じ（--ds-link-gap）にそろえる */
 .svc__steps li:last-child { padding-bottom: 0; }
-.svc__item-title { color: var(--svc-ink); font-size: 1rem; font-weight: 700; line-height: 1.6; }
-.svc__item-desc { margin-top: 4px !important; font-size: .875rem; line-height: 1.7; }
+.svc__item-title { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); }
+.svc__item-desc { margin-top: var(--ds-space-2xs) !important; font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
 
 /* ---- 対象外：白地に項目カードを縦一列（2026-11-11 修正指示_対象外カード） ---- */
 .svc__limits { margin-top: 28px; }
-.svc__ng { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.svc__ng { display: grid; gap: var(--ds-space-xs); margin: 0; padding: 0; list-style: none; }
 .svc__ng li {
   display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: center;
-  min-height: 48px; padding: 10px 13px; border: 1px solid #eae2d6; border-radius: 9px; background: #faf8f4;
-  color: var(--svc-ink); font-size: .9375rem; line-height: 1.65;
+  min-height: 48px; padding: 10px 13px; border: 1px solid var(--ds-caution-line); border-radius: var(--ds-radius-md); background: var(--ds-caution-bg);
+  color: var(--ds-heading); font-size: var(--ds-fs-card); line-height: 1.65;
 }
 /* 目印：細い円＋中央の短い横線（装飾。疑似要素なので読み上げ対象外） */
 .svc__ng li::before {
-  content: ''; width: 16px; height: 16px; border: 1px solid #b99d83; border-radius: 50%;
-  background: linear-gradient(#8d694d, #8d694d) center / 6px 1.5px no-repeat;
+  content: ''; width: 16px; height: 16px; border: 1px solid var(--ds-caution-ring); border-radius: 50%;
+  background: linear-gradient(var(--ds-caution-ink), var(--ds-caution-ink)) center / 6px 1.5px no-repeat;
 }
 
 /* ---- 狭い画面（〜359px）・文字拡大時：ラベル列を縮め、本文列を折り返す ---- */
 @media (max-width: 359px) {
-  .svc { --svc-tag: 64px; --svc-col-gap: 10px; }
+  .svc { --ds-label-col: 64px; --ds-col-gap: 10px; }
   .svc__title { font-size: 1.625rem; }
-  .svc__caption { padding-inline: 8px; font-size: .9375rem; }
+  .svc__caption { padding-inline: var(--ds-space-xs); font-size: .9375rem; }
   .svc__plus { padding-inline: 6px; }
-}
-
-/* ---- スマホ：左右20px ---- */
-@media (max-width: 599px) {
-  .svc > .container { padding-inline: 20px; }
 }
 
 /* ---- タブレット（600px〜） ---- */
 @media (min-width: 600px) {
-  .svc { padding-block: 48px 64px; }
+  .svc { padding-block: var(--ds-space-2xl) var(--ds-section-y); }
   .svc__inner { max-width: calc(36rem + 2 * var(--page-gutter)); }
   .svc__title { font-size: 2.25rem; }
 }
 
 /* ---- PC（960px〜）：導入｜写真、準備｜対象外 ---- */
 @media (min-width: 960px) {
-  .svc { padding-block: 64px 88px; }
+  .svc { padding-block: var(--ds-space-3xl) var(--ds-section-y); }
   .svc__inner {
     max-width: calc(var(--content-width) + 2 * var(--page-gutter));
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); column-gap: 56px;
@@ -134,7 +125,6 @@
   .svc__note { grid-column: 1; grid-row: 2; align-self: start; margin-top: 20px !important; }
   .svc__title { font-size: 2.5rem; }
   .svc__lead { font-size: 1.0625rem; }
-  .svc__block { margin-top: 64px; }
   .svc__duties { grid-column: 1; grid-row: 3; }
-  .svc__limits { grid-column: 2; grid-row: 3; align-self: start; }
+  .svc__limits { grid-column: 2; grid-row: 3; align-self: start; margin-top: var(--ds-block-gap); }
 }

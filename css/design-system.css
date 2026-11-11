@@ -1,0 +1,85 @@
+/* 茜deliver デザインシステム（トークン）
+   説明と使い方：Design/DESIGN_SYSTEM.md
+   リニューアル後のセクション（hero.css / service.css / 以降）はここの変数だけで色・文字・余白を指定する。
+   色の基準はヒーロー（colors.css の --ink / --text / --action など）。ここでは役割名を付けて追加分を定義する。
+   ブレークポイントは変数にできないため固定値：〜359px（狭い画面）／600px〜（タブレット）／960px〜（PC）。 */
+
+:root {
+  /* ---- 色：役割名（値は colors.css のヒーロー基準パレットを参照） ---- */
+  --ds-heading: var(--ink);          /* #0b2f5b 見出し・強調した本文 */
+  --ds-body: var(--text);            /* #304760 本文 */
+  --ds-sub: var(--muted);            /* #536a80 補足・注釈（白〜--blue-soft 上で4.5:1以上） */
+  --ds-brand: var(--action);         /* #0866d6 見出しの要点・リンク・主ボタン・ラベル文字 */
+  --ds-brand-hover: var(--action-hover);
+  --ds-bg: var(--surface);           /* #ffffff セクションの基本背景 */
+  --ds-bg-alt: var(--paper);         /* #f6fafd 交互のセクション背景 */
+  --ds-tint: var(--mist);            /* #ebf5fd ラベル・タグの面 */
+  --ds-tint-strong: var(--blue-soft);/* #dbeefc アイコン円など（この上の文字は --ds-brand 以上の濃さ） */
+  --ds-dark: var(--night);           /* #061f45 写真キャプション帯など濃色の面 */
+  --ds-on-dark: var(--on-dark);
+  --ds-on-dark-sub: var(--on-dark-muted);
+  --ds-line: var(--line);            /* #d0e2f0 区切り線・タイムラインの線（装飾） */
+  --ds-line-accent: #b9d8f2;         /* 注記の左罫線（装飾） */
+  --ds-highlight: var(--gold);       /* 価格の下線など演出のみ。文字色には使わない */
+  /* 注意・対象外（承認済みの「対応できない作業・荷物」カード） */
+  --ds-caution: #9a704b;             /* 見出しの縦線（非テキスト3:1以上） */
+  --ds-caution-ink: #8d694d;         /* 目印の線。文字に使う場合は白・淡色面で4.5:1以上 */
+  --ds-caution-ring: #b99d83;        /* 目印の円（装飾） */
+  --ds-caution-bg: #faf8f4;
+  --ds-caution-line: #eae2d6;
+
+  /* ---- 文字：サイズ（スマホ基準。PC での拡大は各セクションの @media で下記の値に切り替える） ---- */
+  --ds-fs-section: 1.875rem;         /* 30px セクション見出し h2。600px〜 2.25rem、960px〜 2.5rem */
+  --ds-fs-block: 1.25rem;            /* 20px ブロック見出し h3 */
+  --ds-fs-item: 1rem;                /* 16px 項目名（太字） */
+  --ds-fs-body: 1rem;                /* 16px 本文・リード。960px〜 1.0625rem まで可 */
+  --ds-fs-card: .9375rem;            /* 15px カード内の項目名（対象外カード） */
+  --ds-fs-small: .875rem;            /* 14px 説明・注記・テキストリンク */
+  --ds-fs-eyebrow: .8125rem;         /* 13px 英字の小見出し（SERVICE など） */
+  --ds-fs-label: .75rem;             /* 12px タグ・ラベル。これ未満は使わない */
+  /* 行の高さ */
+  --ds-lh-title: 1.32;
+  --ds-lh-heading: 1.4;
+  --ds-lh-item: 1.6;
+  --ds-lh-body: 1.7;
+  /* 太さ（Noto Sans JP 400〜700 の可変フォント） */
+  --ds-fw-body: 400;
+  --ds-fw-medium: 500;
+  --ds-fw-bold: 700;
+
+  /* ---- 余白：4px 刻みのスケール ---- */
+  --ds-space-2xs: 4px;
+  --ds-space-xs: 8px;
+  --ds-space-sm: 12px;
+  --ds-space-md: 16px;
+  --ds-space-lg: 24px;
+  --ds-space-xl: 32px;
+  --ds-space-2xl: 48px;
+  --ds-space-3xl: 64px;
+  /* 役割ごとの余白 */
+  --ds-gutter: 20px;                 /* スマホの左右余白（600px〜は --page-gutter） */
+  --ds-section-y: 48px;              /* セクション上下。600px〜 64px、960px〜 88px */
+  --ds-block-gap: 48px;              /* セクション内のブロック間。960px〜 64px */
+  --ds-heading-gap: 14px;            /* ブロック見出し → 内容 */
+  --ds-link-gap: 6px;                /* 内容 → 「詳細を見る」リンク */
+  --ds-label-col: 72px;              /* ラベル列の幅（〜359px は 64px） */
+  --ds-col-gap: 12px;                /* ラベル列と本文列の間（〜359px は 10px） */
+  --ds-tap: 44px;                    /* リンク・ボタンのタップ領域の最小高さ */
+
+  /* ---- 角丸 ---- */
+  --ds-radius-lg: 12px;              /* 写真・大きな面 */
+  --ds-radius-md: 9px;               /* 項目カード */
+  --ds-radius-pill: 999px;           /* タグ・ボタン */
+}
+
+/* 画面幅で変わるトークン */
+/* スマホの左右余白をトップページ全体で 20px にそろえる（ヘッダー・各 .container が参照する --page-gutter を上書き） */
+@media (min-width: 360px) and (max-width: 599px) {
+  :root { --page-gutter: var(--ds-gutter); }
+}
+@media (min-width: 600px) {
+  :root { --ds-section-y: 64px; }
+}
+@media (min-width: 960px) {
+  :root { --ds-section-y: 88px; --ds-block-gap: 64px; }
+}
