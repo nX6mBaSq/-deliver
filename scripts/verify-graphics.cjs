@@ -12,13 +12,13 @@ const assert = require('node:assert/strict');
    await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(async i=>{i.loading='eager';await i.decode()}));});
    assert.equal(await page.locator('main .image-placeholder').count(),0);
    assert.equal(await page.locator('img:not([alt])').count(),0);
-   assert.equal(await page.locator('.capacity-examples .loadex__card').count(),2);
-   assert(await page.locator('.capacity-dimensions').isVisible());
-   assert(await page.locator('.capacity-examples').isVisible());
+   assert.equal(await page.locator('.cap__examples .loadex__card').count(),2);
+   assert(await page.locator('.cap__specs').isVisible());
+   assert(await page.locator('.cap__examples').isVisible());
    for(const id of ['hero','service','price2','features','strengths','step']){
     await page.locator('#'+id).screenshot({path:`${dir}/${id}-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
    }
-   await page.locator('.capacity-examples').screenshot({path:`${dir}/capacity-examples-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
+   await page.locator('.cap__examples').screenshot({path:`${dir}/capacity-examples-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
    console.log(`Graphics @ ${width}px: decoded, alternatives present, key dimensions and both load examples visible without overflow.`);
   }

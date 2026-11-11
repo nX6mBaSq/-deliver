@@ -33,7 +33,7 @@ const dir='design-preview/polish';fs.mkdirSync(dir,{recursive:true});
   }
   const nojs=await browser.newContext({javaScriptEnabled:false});const staticPage=await nojs.newPage();await staticPage.setViewportSize({width:390,height:844});await staticPage.goto('http://127.0.0.1:8765/index.html');assert(await staticPage.locator('#faq-answer-1').isVisible());assert(await staticPage.locator('.hero__primary').isVisible());await nojs.close();result.push('JavaScript disabled: core content, details, FAQ, contact remain available');
   await page.route('**/fonts/*.woff2',r=>r.abort());await goto(320);assert.deepEqual(await overflow(),[],'Fallback font');result.push('Local fonts blocked @ 320px: readable without overflow');
-  await page.emulateMedia({media:'print'});assert(await page.locator('.capacity-examples').isVisible());assert.equal(await page.locator('.mobile-contact').isVisible(),false);result.push('Print: disclosure content available, fixed navigation hidden');
+  await page.emulateMedia({media:'print'});assert(await page.locator('.cap__examples').isVisible());assert.equal(await page.locator('.mobile-contact').isVisible(),false);result.push('Print: disclosure content available, fixed navigation hidden');
   assert.deepEqual(errors,[]);fs.writeFileSync(`${dir}/check.txt`,result.join('\n')+'\n');console.log(result.join('\n'));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});

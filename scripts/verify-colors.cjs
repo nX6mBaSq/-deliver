@@ -47,7 +47,7 @@ async function contrast(page){return page.evaluate(()=>{
      report[`${file}-${width}`].plannerFilled=await contrast(page);
      await page.locator('#load-planner summary').click();
     }
-    await page.locator('.capacity-examples').screenshot({path:`${dir}/loadex-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
+    await page.locator('.cap__examples').screenshot({path:`${dir}/loadex-${width}.png`,style:'.header,.mobile-contact{visibility:hidden}'});
     if(width===390){await page.locator('[data-nav-open]').click();report[`${file}-${width}`].menu=await contrast(page);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('#nav-drawer').open);}
     if(phase!=='before')for(const sel of ['.kv__cta','.faq__question','.cta .btn--form','.cta .btn--tel']){
      await page.locator(sel).first().hover();report[`${file}-${width}`]['hover-'+sel]=await contrast(page);

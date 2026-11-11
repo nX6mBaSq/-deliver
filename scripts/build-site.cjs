@@ -3,11 +3,12 @@ const crypto=require('node:crypto');
 const esbuild=require('esbuild');
 const {PurgeCSS}=require('purgecss');
 const common=['refresh','foundations','structure','typography'];
-const pageStyles={index:['common','top',...common,'graphics','colors','polish','architecture','layout','design-system','hero','service','price'],company:['common','company',...common,'colors','polish','architecture','layout'],'important-notes':['common','important-notes',...common,'colors','polish','architecture','layout'],'privacy-policy':['common','privacy-policy',...common,'colors','polish','architecture','layout']};
+const pageStyles={index:['common','top',...common,'graphics','colors','polish','architecture','layout','design-system','hero','service','price','capacity'],company:['common','company',...common,'colors','polish','architecture','layout'],'important-notes':['common','important-notes',...common,'colors','polish','architecture','layout'],'privacy-policy':['common','privacy-policy',...common,'colors','polish','architecture','layout']};
 (async()=>{
  for(const [page,styles] of Object.entries(pageStyles)){
   const css=['fonts',...styles].map(name=>fs.readFileSync(`css/${name}.css`,'utf8')).join('\n');  const file=`css/site-${page}.min.css`;
-  const [{css:usedCss}]=await new PurgeCSS().purge({content:[page+'.html','js/*.js'],css:[{raw:css}],safelist:['is-open','has-modal-open','visually-hidden'],dynamicAttributes:['aria-expanded','aria-current','aria-invalid','open']});
+  // HTML comments (shelved old designs) are dropped so their CSS is not kept as "used"; rebuild after restoring one.
+  const [{css:usedCss}]=await new PurgeCSS().purge({content:[{raw:fs.readFileSync(page+'.html','utf8').replace(/<!--[\s\S]*?-->/g,''),extension:'html'},'js/*.js'],css:[{raw:css}],safelist:['is-open','has-modal-open','visually-hidden'],dynamicAttributes:['aria-expanded','aria-current','aria-invalid','open']});
   // typesetting.css is appended after PurgeCSS, which drops valid :is()/:has() selectors.
   const finalCss=usedCss+'\n'+fs.readFileSync('css/typesetting.css','utf8');
   await esbuild.build({stdin:{contents:finalCss,loader:'css',resolveDir:require('node:path').resolve(__dirname,'../css')},outfile:file,minify:true,charset:'utf8',legalComments:'none',target:['chrome110','safari16.4','firefox115']});

@@ -11,7 +11,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"茜deliver","description":"大阪発、少ない荷物の単身引越し。スタッフ1名とお客様の共同作業で、明朗会計と定時スタートの引越しを行います。","telephone":"+81-568-28-1105","faxNumber":"+81-568-28-6462","address":{"@type":"PostalAddress","postalCode":"480-0202","addressRegion":"愛知県","addressLocality":"西春日井郡豊山町","streetAddress":"大字豊場字大山77","addressCountry":"JP"},"areaServed":["近畿","名古屋","東京"],"founder":{"@type":"Person","name":"酒井 利明"}}</script>
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-index.min.css?v=f494dee2">
+<link rel="stylesheet" href="css/site-index.min.css?v=3e0ff38f">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -207,6 +207,10 @@
     </div>
   </section>
 
+  <!-- 旧デザインの積載セクション（2026-11-11 リニューアル前。css/capacity.css 導入前の .features / .capacity-* 版）
+       戻す場合：下の <section class="cap"> と差し替え、この中の「<!- -」「- ->」から、間の半角スペースを取り除いて元のコメント記号に戻す。
+       旧CSSは各ファイルに残っているが、PurgeCSS で未使用扱いになるため、戻したら npm run build を実行する。
+       写真の仮置きと相談用メモ（旧セクション内のコメント）は新セクション内にそのまま残している。
   <section class="features section section--alt" id="features">
     <div class="container">
       <div class="section-heading">
@@ -215,9 +219,9 @@
         <p class="section-intro">軽トラック1台・約350kgまでが目安です。お部屋の広さだけでなく、荷物の種類・寸法・量でご確認ください。</p>
       </div>
 
-      <!-- 下の寸法表と内容が重複するため一旦非表示：<div class="capacity-summary"><p><span>使用する車両</span><strong>軽トラック <b>1</b>台</strong></p><p><span>長物用の上部スペース</span><strong>奥行き <b>250</b>cm</strong></p><p><span>積載重量の目安</span><strong>約 <b>350</b>kgまで</strong></p></div> -->
+      <!- - 下の寸法表と内容が重複するため一旦非表示：<div class="capacity-summary"><p><span>使用する車両</span><strong>軽トラック <b>1</b>台</strong></p><p><span>長物用の上部スペース</span><strong>奥行き <b>250</b>cm</strong></p><p><span>積載重量の目安</span><strong>約 <b>350</b>kgまで</strong></p></div> - ->
       <ul class="features__list">
-        <!-- 「SPACE / LOAD EXAMPLE」（旧 02 / SPACE）に積載例を統合したため一旦非表示（戻す場合はこのコメントを外す）
+        <!- - 「SPACE / LOAD EXAMPLE」（旧 02 / SPACE）に積載例を統合したため一旦非表示（戻す場合はこのコメントを外す）
         <li class="features__item features__item--wide">
           <h3 class="features__title"><span class="graphic-kicker">01 / LOAD EXAMPLE</span>こんな荷物を、<br>ひとつの引越しに。</h3>
           <p class="features__desc">冷蔵庫（2ドア）・洗濯機・衣装ケース・マットレス・ダンボールなどの積載例です。寸法や重量によって積載可否が変わるため、お見積り時にご確認ください。</p>
@@ -260,28 +264,76 @@
             </div>
           </div>
         </li>
-        -->
+        - ->
 
         <li class="features__item features__item--wide capacity-space">
           <h3 class="features__title"><span class="graphic-kicker">SPACE / LOAD EXAMPLE</span>上下2段の荷室で、<br>長物もまとめて運べます。</h3>
           <p class="features__desc">荷室の上部に、奥行き250cmのロングスペースがあります。マットレスや布団は上へ、家具・家電は下の荷室へ。</p>
 
           <figure class="feature__overview capacity-figure"><img src="images/graphics/cargo-side.svg" width="800" height="560" alt="荷室の側面模式図。01は上部の長物スペース、02は下部の通常荷室、03は荷室全体の高さ。上にマットレス、下に家電や箱を配置したイメージ。" loading="lazy" decoding="async"><figcaption>横から見た荷室の構造イメージ</figcaption></figure>
-          <div class="features__highlight"><dl class="capacity-dimensions"><div><dt><span class="diagram-key diagram-key--long">01</span>上部ロングスペース</dt><dd>奥行き250 × 幅120 × 高さ60cm<small>マットレス・布団などの長物</small></dd></div><div><dt><span class="diagram-key">02</span>下の荷室</dt><dd>奥行き190 × 幅120 × 高さ約110cm<small>冷蔵庫・洗濯機・衣装ケースなど</small></dd></div><div><dt><span class="diagram-key diagram-key--height">03</span>荷室全体の高さ</dt><dd>170cm<small>上下2段を合わせた高さ</small></dd></div><div class="capacity-dimensions__vehicle"><dt>使用車両サイズ</dt><dd>幅140 × 奥行き250 × 高さ250cm<!--<small>道幅・駐車スペースの確認用</small>--></dd></div></dl></div>
+          <div class="features__highlight"><dl class="capacity-dimensions"><div><dt><span class="diagram-key diagram-key--long">01</span>上部ロングスペース</dt><dd>奥行き250 × 幅120 × 高さ60cm<small>マットレス・布団などの長物</small></dd></div><div><dt><span class="diagram-key">02</span>下の荷室</dt><dd>奥行き190 × 幅120 × 高さ約110cm<small>冷蔵庫・洗濯機・衣装ケースなど</small></dd></div><div><dt><span class="diagram-key diagram-key--height">03</span>荷室全体の高さ</dt><dd>170cm<small>上下2段を合わせた高さ</small></dd></div><div class="capacity-dimensions__vehicle"><dt>使用車両サイズ</dt><dd>幅140 × 奥行き250 × 高さ250cm<!- -<small>道幅・駐車スペースの確認用</small>- -></dd></div></dl></div>
 
           <div class="capacity-examples">
             <p class="capacity-examples__label">積載例：1R・1Kの荷物の目安</p>
-            <!-- 例2（荷物が多めの1DK）は例1と内容が近いため削除。
-                 積み方の図（load-standard.svg）は上の荷室構造図と内容が重なるため外し、荷物一覧のみ表示 -->
+            <!- - 例2（荷物が多めの1DK）は例1と内容が近いため削除。
+                 積み方の図（load-standard.svg）は上の荷室構造図と内容が重なるため外し、荷物一覧のみ表示 - ->
             <div class="inventory-board"><ul class="inventory-grid"><li><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>冷蔵庫</span><small>2ドア</small></li><li><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>洗濯機</span><small>ドラム式は<wbr>対象外</small></li><li><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>衣装ケース</span><small>4段</small></li><li><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ハンガー<wbr>衣類</span></li><li><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ダンボール</span><small>20個程度</small></li><li><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>マットレス</span></li></ul></div>
             <p class="graphic-caption"><span class="text-phrase">数量・大きさは目安です。</span><span class="text-phrase">積載可否はお見積り時に確認します。</span></p>
-            <!-- <p class="graphic-caption"><span class="text-phrase">寸法や重量によって積載可否が変わるため、</span><span class="text-phrase">お見積り時に確認します。</span></p> -->
+            <!- - <p class="graphic-caption"><span class="text-phrase">寸法や重量によって積載可否が変わるため、</span><span class="text-phrase">お見積り時に確認します。</span></p> - ->
           </div>
         </li>
 
 
 
       </ul>
+    </div>
+  </section>
+  -->
+
+  <section class="cap" id="features" aria-labelledby="features-title">
+    <div class="cap__top">
+      <div class="container cap__inner">
+        <div class="cap__intro">
+          <p class="cap__label">03 / CAPACITY</p>
+          <h2 class="cap__title" id="features-title"><span class="text-unit">荷物は、</span><br><em class="text-unit">上下2段に分けて。</em></h2>
+          <p class="cap__lead"><span class="text-unit">マットレスや布団は上へ。</span><br><span class="text-unit">家具・家電や段ボールは下へ。</span></p>
+        </div>
+
+        <figure class="cap__figure">
+          <div class="cap__visual">
+            <img class="cap__photo" src="images/capacity-cargo.webp" srcset="images/capacity-cargo-800.webp 800w, images/capacity-cargo.webp 1536w" sizes="(min-width: 960px) 34rem, (min-width: 600px) 36rem, calc(100vw - 40px)" width="1536" height="1024" alt="軽トラックの荷室を横から見たイメージ。01の上段にマットレスと布団、02の下段に冷蔵庫・衣装ケース・段ボール箱を積んでいる。" loading="lazy" decoding="async">
+            <span class="cap__pin cap__pin--upper" aria-hidden="true">01</span>
+            <span class="cap__pin cap__pin--lower" aria-hidden="true">02</span>
+          </div>
+          <figcaption class="cap__caption">荷室と積み方のイメージ</figcaption>
+        </figure>
+
+        <div class="cap__data">
+          <p class="cap__weight"><span class="cap__weight-label"><span class="cap__weight-sub">軽トラック1台あたり</span><strong>積載重量の目安</strong></span><span class="cap__weight-value">約<b>350</b>kg</span></p>
+          <dl class="cap__specs">
+            <div><dt><span class="cap__key">01</span>上部ロングスペース</dt><dd>奥行き250 × 幅120 × 高さ60cm</dd></div>
+            <div><dt><span class="cap__key cap__key--lower">02</span>下の荷室</dt><dd>奥行き190 × 幅120 × 高さ約110cm</dd></div>
+            <div><dt><span class="cap__key" aria-hidden="true"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 1v12M2.5 4.5 6 1l3.5 3.5M2.5 9.5 6 13l3.5-3.5"/></svg></span>荷室全体の高さ</dt><dd>170cm</dd></div>
+            <div class="cap__specs-vehicle"><dt><span class="cap__key cap__key--vehicle" aria-hidden="true"><svg width="15" height="12" viewBox="0 0 15 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1.5h8v6.5H1zM9 4h2.8L14 6.5V8H9"/><circle cx="4" cy="9.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="11.5" cy="9.5" r="1.5" fill="currentColor" stroke="none"/></svg></span>使用車両サイズ</dt><dd>幅140 × 奥行き250 × 高さ250cm</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="cap__bottom">
+      <div class="container cap__inner">
+        <div class="cap__examples">
+          <h3 class="cap__heading">1R・1Kの積載例</h3>
+          <ul class="cap__items">
+            <li><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">冷蔵庫</span><span class="cap__item-note">2ドア</span></li>
+            <li><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">洗濯機</span><span class="cap__item-note">ドラム式は<wbr>対象外</span></li>
+            <li><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">衣装ケース</span><span class="cap__item-note">4段</span></li>
+            <li><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ハンガー<wbr>衣類</span><span class="cap__item-note">ラック1台分</span><!-- 仮の補足：実際の目安に差し替え --></li>
+            <li><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ダンボール</span><span class="cap__item-note">20個程度</span></li>
+            <li><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">マットレス</span><span class="cap__item-note">シングル</span><!-- 仮の補足：実際の対応サイズに差し替え --></li>
+          </ul>
+          <p class="cap__note"><span class="text-unit">数量・大きさは目安です。</span><span class="text-unit">積載可否は、</span><span class="text-unit">寸法・重量をもとに</span><span class="text-unit">お見積り時に確認します。</span></p>
+        </div>
 
       <!-- 写真が用意できるまで一旦非表示（仮置き16:9：実際の作業写真。差し替え時は img width="1600" height="900" alt="…" に）
       <div class="photo-strip">
@@ -316,6 +368,7 @@
         </div>
       </details>
       -->
+      </div>
     </div>
   </section>
 
