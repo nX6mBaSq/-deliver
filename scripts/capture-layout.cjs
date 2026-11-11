@@ -20,7 +20,7 @@ const phase = process.argv[2] || 'after';
             const text = walker.currentNode.textContent.replace(/\s+/g, ' ').trim();
             if(text) texts.push(text);
           }
-          return { height: document.documentElement.scrollHeight, text: texts.sort(), heroCta: document.querySelector('.hero__primary')?.getBoundingClientRect().top };
+          return { height: document.documentElement.scrollHeight, text: texts.sort(), heroCta: document.querySelector('.kv__cta')?.getBoundingClientRect().top };
         });
         await page.screenshot({ path: `${dir}/${file.replace('.html','')}-${width}-top.png` });
         if (width !== 768) await page.screenshot({ path: `${dir}/${file.replace('.html','')}-${width}.png`, fullPage: true });

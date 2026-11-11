@@ -1,0 +1,189 @@
+/* トップのヒーロー（2026-10-23 リニューアル案）
+   旧 .hero__* の指定が複数ファイルに残っているため、新しいヒーローは .kv__* で組み、
+   トップページの最後（typesetting.css の直前）に読み込む。
+   スマホ：写真を右側いっぱいに敷き、左から白へ溶かして文字を重ねる。
+   PC（960px〜）：左に文字、右半分に写真。 */
+
+.hero.kv {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--sky-wash) 100%);
+  isolation: isolate;
+}
+.kv__inner { position: relative; z-index: 1; padding-bottom: 72px; }
+
+/* ---- 写真＋文字の重なり部分 ---- */
+.kv__stage { position: relative; padding-top: 20px; padding-bottom: 28px; }
+.kv__media {
+  position: absolute; z-index: -1;
+  inset: 0 calc(-1 * var(--page-gutter)) -56px calc(-1 * var(--page-gutter));
+  overflow: hidden;
+  /* 写真の左と下を背景へ溶かす（文字の下は写真を薄くしてコントラストを確保） */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / .1) 30%, rgb(0 0 0 / .7) 52%, #000 66%), linear-gradient(0deg, transparent 0, #000 24%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / .1) 30%, rgb(0 0 0 / .7) 52%, #000 66%), linear-gradient(0deg, transparent 0, #000 24%);
+  mask-composite: intersect;
+}
+.kv__photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 47% center; }
+
+.kv__body { position: relative; }
+.kv__eyebrow {
+  display: inline-flex; align-items: center; gap: 6px; margin: 0 0 20px; padding: 6px 16px 6px 12px;
+  border-radius: 999px; background: rgb(255 255 255 / .9); box-shadow: 0 2px 10px -4px rgb(11 47 91 / .18);
+  color: var(--ink); font-size: .875rem; font-weight: 700; line-height: 1.5; letter-spacing: .04em;
+}
+.kv__eyebrow svg { flex: none; color: var(--action); }
+.kv__eyebrow-sep { margin-inline: 6px; color: var(--muted); font-weight: 400; }
+
+.kv__title {
+  margin: 0 0 16px; color: var(--ink);
+  font-size: clamp(1.75rem, 7.6vw, 2.25rem); font-weight: 700; line-height: 1.38; letter-spacing: .01em;
+  font-feature-settings: "palt"; text-wrap: nowrap;
+}
+.kv__title em { font-style: normal; color: var(--action); font-size: 1.14em; letter-spacing: .02em; }
+.kv__lead {
+  max-width: 15em; margin: 0 0 24px; color: var(--text);
+  font-size: .9375rem; font-weight: 500; line-height: 1.85; letter-spacing: .06em; text-wrap: wrap;
+}
+
+/* ---- 料金カード ---- */
+.kv__price {
+  position: relative; width: min(100% - 36px, 16.5rem); margin: 0; padding: 16px 18px 14px;
+  border-radius: 14px; background: rgb(255 255 255 / .96); box-shadow: 0 10px 28px -14px rgb(11 47 91 / .35);
+}
+.kv__price p { margin: 0; }
+.kv__price-label { color: var(--ink); font-size: .875rem; font-weight: 700; line-height: 1.5; }
+.kv__price-label small { font-size: .6875rem; font-weight: 500; color: var(--muted); }
+.kv__price-value { display: flex; align-items: baseline; margin-top: 2px !important; color: var(--action); text-autospace: no-autospace; }
+.kv__price-number {
+  position: relative; z-index: 0; font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -.04em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+/* 数字の下の黄色マーカー */
+.kv__price-number::after {
+  content: ''; position: absolute; z-index: -1; left: -4px; right: -52px; bottom: 2px; height: 10px;
+  border-radius: 999px; background: var(--gold); opacity: .75; transform: rotate(-1.5deg);
+}
+.kv__price-unit { margin-left: 4px; font-size: 1.375rem; font-weight: 700; line-height: 1; }
+.kv__price-note { margin-top: 8px !important; color: var(--muted); font-size: .6875rem; line-height: 1.6; }
+
+.kv__badge {
+  position: absolute; top: -26px; right: -36px;
+  display: grid; place-content: center; width: 78px; height: 78px; border-radius: 50%;
+  background: var(--action); color: var(--on-dark); text-align: center; line-height: 1.25;
+  box-shadow: 0 0 0 3px var(--surface), 0 6px 14px -6px rgb(8 102 214 / .6);
+}
+.kv__badge span { font-size: .75rem; font-weight: 700; }
+.kv__badge b { font-size: 1.125rem; font-weight: 700; letter-spacing: .12em; }
+/* バッジ左上のきらめき */
+.kv__badge::before {
+  content: ''; position: absolute; top: -12px; left: -6px; width: 18px; height: 18px;
+  background:
+    linear-gradient(var(--gold), var(--gold)) 50% 0 / 3px 8px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) 0 60% / 8px 3px no-repeat;
+  transform: rotate(20deg);
+}
+
+/* ---- CTA ---- */
+.kv__cta {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 10px; width: 100%; min-height: 60px; padding: 14px 18px 14px 22px;
+  border-radius: 999px; background: var(--action); color: var(--on-dark); text-decoration: none;
+  box-shadow: 0 10px 22px -10px rgb(8 102 214 / .7);
+  font-size: 1rem; font-weight: 700; line-height: 1.4; letter-spacing: .02em;
+}
+.kv__cta-icon { width: 26px; height: 26px; }
+.kv__cta-icon { flex: none; }
+.kv__cta-label { flex: 1; text-align: center; word-break: auto-phrase; }
+.kv__cta-arrow { flex: none; }
+.kv__cta:active { transform: scale(.98); }
+@media (hover: hover) and (pointer: fine) {
+  .kv__cta:hover { background: var(--action-hover); color: var(--on-dark); }
+}
+
+/* ---- 3つのポイント ---- */
+.kv__points {
+  display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 4px; margin: 24px 0 0; padding: 0; list-style: none;
+}
+.kv__points li {
+  display: flex; align-items: center; gap: 6px; min-width: 0;
+  color: var(--ink); font-size: .75rem; font-weight: 700; line-height: 1.45;
+}
+.kv__point-icon {
+  display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--blue-soft); color: var(--action);
+}
+.kv__point-icon svg { width: 22px; height: 22px; }
+
+/* ---- 手書き風コピー（仮置き） ---- */
+.kv__tagline {
+  position: absolute; right: calc(var(--page-gutter) + 4px); bottom: 14px; z-index: 1; margin: 0;
+  display: flex; flex-direction: column; align-items: flex-end;
+  color: var(--action); font-family: "Klee One", "Yomogi", "Hiragino Maru Gothic ProN", "Yu Gothic", cursive;
+  font-size: 1.25rem; font-weight: 500; line-height: 1.35; letter-spacing: .08em;
+  transform: rotate(-7deg); transform-origin: right bottom;
+}
+.kv__tagline span:first-child { margin-right: 2.2em; }
+.kv__tagline::after {
+  content: ''; width: 9em; height: 6px; margin-top: 2px; border-bottom: 1.5px solid currentColor; border-radius: 0 0 50% 50%; opacity: .6;
+}
+
+.kv__points li > span:last-child { white-space: nowrap; }
+.kv__wave { position: absolute; z-index: 0; left: 0; bottom: -1px; width: 100%; height: 56px; color: var(--paper); }
+
+/* ---- 狭い画面（〜359px） ---- */
+@media (max-width: 359px) {
+  .kv__points { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .kv__cta { padding-inline: 16px; }
+  .kv__price { width: calc(100% - 28px); padding-top: 22px; }
+  .kv__badge { top: -36px; right: -20px; width: 66px; height: 66px; }
+  .kv__badge span { font-size: .6875rem; }
+  .kv__badge b { font-size: 1rem; }
+}
+
+/* ---- タブレット（600px〜） ---- */
+@media (min-width: 600px) {
+  .kv__stage { padding-top: 32px; padding-bottom: 40px; }
+  .kv__title { font-size: 2.5rem; }
+  .kv__lead { font-size: 1rem; }
+  .kv__cta { max-width: 32rem; font-size: 1.0625rem; }
+  .kv__cta-icon { width: 30px; height: 30px; }
+  .kv__points { gap: 12px; }
+  .kv__points li { gap: 8px; font-size: .8125rem; }
+  .kv__point-icon { width: 44px; height: 44px; }
+  .kv__points { max-width: 36rem; }
+  .kv__tagline { font-size: 1.5rem; }
+}
+
+/* ---- PC（960px〜）：左に文字、右に写真 ---- */
+@media (min-width: 960px) {
+  .kv__inner { padding-bottom: 96px; }
+  .kv__inner, .kv__stage { position: static; }
+  .kv__stage { padding-top: 56px; padding-bottom: 36px; }
+  .kv__media { inset: 0 0 0 auto; width: 58%; }
+  .kv__media {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 32%), linear-gradient(0deg, transparent 0, #000 20%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 32%), linear-gradient(0deg, transparent 0, #000 20%);
+  }
+  .kv__photo { object-position: 60% center; }
+  .kv__body { max-width: 34rem; }
+  .kv__eyebrow { margin-bottom: 28px; font-size: .9375rem; }
+  .kv__title { font-size: clamp(2.75rem, 4vw, 3.5rem); }
+  .kv__lead { max-width: none; margin-bottom: 32px; font-size: 1.0625rem; }
+  .kv__price { width: 21rem; padding: 22px 24px 18px; }
+  .kv__price-label { font-size: 1rem; }
+  .kv__price-number { font-size: 3.75rem; }
+  .kv__price-unit { font-size: 1.625rem; }
+  .kv__price-note { font-size: .75rem; }
+  .kv__badge { top: -30px; right: -44px; width: 92px; height: 92px; }
+  .kv__badge span { font-size: .875rem; }
+  .kv__badge b { font-size: 1.375rem; }
+  .kv__cta { max-width: 30rem; min-height: 68px; font-size: 1.125rem; }
+  .kv__points { max-width: 34rem; margin-top: 28px; gap: 16px; }
+  .kv__points li { font-size: .875rem; }
+  .kv__point-icon { width: 52px; height: 52px; }
+  .kv__point-icon svg { width: 26px; height: 26px; }
+  .kv__tagline { right: calc(var(--page-gutter) + 24px); bottom: 40px; font-size: 1.875rem; }
+  .kv__wave { height: 72px; }
+}

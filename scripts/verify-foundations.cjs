@@ -20,7 +20,7 @@ fs.mkdirSync(previewDir, { recursive: true });
     const problems = await page.evaluate(() => {
       const problems = [];
       if (location.pathname.endsWith('/index.html')) {
-        const copy = document.querySelector('.hero__copy');
+        const copy = document.querySelector('.kv__body');
         if (!copy || !copy.closest('.hero')) problems.push('hero content is outside hero');
       }
       if (document.documentElement.scrollWidth > innerWidth) problems.push('page overflow');
