@@ -11,7 +11,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"茜deliver","description":"大阪発、少ない荷物の単身引越し。スタッフ1名とお客様の共同作業で、明朗会計と定時スタートの引越しを行います。","telephone":"+81-568-28-1105","faxNumber":"+81-568-28-6462","address":{"@type":"PostalAddress","postalCode":"480-0202","addressRegion":"愛知県","addressLocality":"西春日井郡豊山町","streetAddress":"大字豊場字大山77","addressCountry":"JP"},"areaServed":["近畿","名古屋","東京"],"founder":{"@type":"Person","name":"酒井 利明"}}</script>
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-index.min.css?v=5d3df6ec">
+<link rel="stylesheet" href="css/site-index.min.css?v=78084139">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -547,6 +547,9 @@
     </div>
   </section>
 
+  <!-- 代表メッセージ（2026-11-11 トップページから削除し、会社概要ページ company.html#message に集約）
+       戻す場合：下の Q&A セクションの直前にこのブロックを戻し、Q&A の番号を「07」に戻す。
+       旧CSSは残っているが、PurgeCSS で未使用扱いになるため、戻したら npm run build を実行する。
   <section class="message section section--alt" id="message">
     <div class="container">
       <div class="section-heading">
@@ -571,10 +574,14 @@
       </div>
     </div>
   </section>
+  -->
 
   <section class="faq section" id="qa">
     <div class="container">
-      <div class="section-heading"><p class="section-heading__label">07 / Q &amp; A</p><h2 class="section-heading__title">よくある質問</h2></div>
+      <div class="section-heading">
+        <p class="section-heading__label">06 / Q &amp; A</p>
+        <h2 class="section-heading__title"><span class="text-unit">ご依頼の前に</span><br><em class="text-unit">よくある質問</em></h2>
+      </div>
       <ul class="faq__list">
         <li class="faq__item">
           <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">

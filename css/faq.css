@@ -1,0 +1,88 @@
+/* トップの よくある質問（#qa）：デザインシステム適用（2026-11-11）
+   レイアウト（スマホ：1列のアコーディオン、960px〜：左に見出し・右に一覧の2列）は structure.css のまま。
+   ここでは色・文字・余白・角丸だけを css/design-system.css のトークンにそろえる。
+   旧指定が top / refresh / foundations / structure / typography / layout / colors / typesetting に分散しているため、
+   .faq.section を付けて詳細度を上げ、promise.css の後に読み込む。
+   開閉の動き（.is-open / aria-expanded）は js/top.js のまま。 */
+
+.faq.section { padding-block: var(--ds-section-y); background: var(--ds-bg-alt); color: var(--ds-body); }
+
+/* ---- セクション見出し：SERVICE・ご利用の流れと同じ形（英字の小見出し → 2行の h2、後半を青） ---- */
+.faq.section .section-heading { margin-bottom: var(--ds-space-xl); }
+.faq.section .section-heading__label {
+  margin: 0 0 14px; color: var(--ds-brand);
+  font-family: inherit; font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.faq.section .section-heading__label::before { width: 24px; height: 2px; }
+.faq.section .section-heading__title {
+  margin: 0; color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
+}
+.faq.section .section-heading__title em { font-style: normal; color: var(--ds-brand); }
+
+/* ---- 一覧：白い面を1枚にまとめ、項目は区切り線で分ける ---- */
+.faq.section .faq__list {
+  gap: 0; margin: 0; overflow: hidden;
+  border: 1px solid var(--ds-line); border-radius: var(--ds-radius-md); background: var(--ds-bg);
+}
+.faq.section .faq__item { border: 0; border-radius: 0; background: transparent; }
+.faq.section .faq__item + .faq__item { border-top: 1px solid var(--ds-line); }
+
+/* ---- 質問（開閉ボタン） ---- */
+.faq.section .faq__question {
+  min-height: var(--ds-tap); padding: var(--ds-space-md); gap: var(--ds-space-sm); align-items: center;
+  background: transparent; color: var(--ds-brand);
+}
+.faq.section .faq__question[aria-expanded="true"] { background: var(--ds-tint); }
+@media (hover: hover) and (pointer: fine) {
+  .faq.section .faq__question:hover { background: var(--ds-tint); color: var(--ds-brand-hover); }
+}
+/* Q の目印：アイコン円（--ds-tint-strong の上は --ds-brand の太字で 4.55:1） */
+.faq.section .faq__question-mark {
+  width: 28px; height: 28px; flex: 0 0 28px; border-radius: 50%;
+  background: var(--ds-tint-strong); color: var(--ds-brand);
+  font-family: inherit; font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); line-height: 1;
+}
+.faq.section .faq__question-text {
+  color: var(--ds-heading);
+  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); letter-spacing: .03em;
+}
+.faq.section .faq__toggle-icon { width: 24px; height: 24px; color: var(--ds-brand); font-size: 1.5rem; }
+
+/* ---- 回答 ---- */
+.faq.section .faq__answer-text {
+  margin: 0; padding: 0 var(--ds-space-md) var(--ds-space-lg); color: var(--ds-body);
+  font-size: var(--ds-fs-small); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-body); letter-spacing: .02em;
+}
+.faq.section .faq__question[aria-expanded="true"] + .faq__answer .faq__answer-text { padding-top: var(--ds-space-md); }
+/* 回答内のリンク：詳細リンクと同じ青・太字・1.5px の下線（文中にあるため矢印はつけない） */
+.faq.section .faq__answer-text a {
+  color: var(--ds-brand); font-weight: var(--ds-fw-bold);
+  text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .faq.section .faq__answer-text a:hover { color: var(--ds-brand-hover); }
+}
+
+/* ---- 狭い画面（〜359px） ---- */
+@media (max-width: 359px) {
+  .faq.section .section-heading__title { font-size: 1.625rem; }
+  .faq.section .faq__question { padding-inline: var(--ds-space-sm); gap: var(--ds-space-xs); }
+  .faq.section .faq__question-text { font-size: var(--ds-fs-card); }
+  .faq.section .faq__answer-text { padding-inline: var(--ds-space-sm); }
+}
+
+/* ---- タブレット（600px〜）：回答の左端を質問文にそろえる（余白16＋円28＋間隔12） ---- */
+@media (min-width: 600px) {
+  .faq.section .section-heading__title { font-size: 2.25rem; }
+  .faq.section .faq__answer-text { padding-left: 56px; padding-right: var(--ds-space-lg); }
+}
+
+/* ---- PC（960px〜）：左に見出し、右に一覧（配置は structure.css） ---- */
+@media (min-width: 960px) {
+  .faq.section .section-heading { margin: 0; }
+  .faq.section .section-heading__title { font-size: 2.5rem; }
+  .faq.section .faq__question { padding: 20px var(--ds-space-lg); gap: var(--ds-space-md); }
+  .faq.section .faq__answer-text { padding: 0 var(--ds-space-xl) var(--ds-space-lg) 68px; font-size: var(--ds-fs-body); }
+  .faq.section .faq__question[aria-expanded="true"] + .faq__answer .faq__answer-text { padding-top: var(--ds-space-md); }
+}
