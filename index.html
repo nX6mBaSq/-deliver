@@ -11,7 +11,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"茜deliver","description":"大阪発、少ない荷物の単身引越し。スタッフ1名とお客様の共同作業で、明朗会計と定時スタートの引越しを行います。","telephone":"+81-568-28-1105","faxNumber":"+81-568-28-6462","address":{"@type":"PostalAddress","postalCode":"480-0202","addressRegion":"愛知県","addressLocality":"西春日井郡豊山町","streetAddress":"大字豊場字大山77","addressCountry":"JP"},"areaServed":["近畿","名古屋","東京"],"founder":{"@type":"Person","name":"酒井 利明"}}</script>
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-index.min.css?v=c45340e5">
+<link rel="stylesheet" href="css/site-index.min.css?v=5d3df6ec">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -457,6 +457,9 @@
     </div>
   </section>
 
+  <!-- 旧デザインの OUR PROMISE（2026-11-11 リニューアル前。項目ごとのイラスト付きカード .strengths__* 版）
+       戻す場合：下の <section class="prm section"> と差し替え、この中の「<!- -」「- ->」から、間の半角スペースを取り除いて元のコメント記号に戻す。
+       旧CSS・旧画像（images/promise-0N-*.webp）は残っているが、PurgeCSS で未使用扱いになるため、戻したら npm run build を実行する。
   <section class="strengths section" id="strengths">
     <div class="container">
       <div class="section-heading">
@@ -464,7 +467,7 @@
         <p class="section-heading__label">05 / OUR PROMISE</p>
         <h2 class="section-heading__title">気軽に頼める、4つの安心。</h2>
       </div>
-      <!-- 即日対応はFAQ「当日の依頼もできますか？」と重複するため除外。小物の梱包のお願いは important-notes.html#caution に記載済み -->
+      <!- - 即日対応はFAQ「当日の依頼もできますか？」と重複するため除外。小物の梱包のお願いは important-notes.html#caution に記載済み - ->
       <ul class="strengths__list">
         <li class="strengths__item">
           <div class="strengths__art strengths__art--sky"><img src="images/promise-01-estimate.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></div>
@@ -499,6 +502,48 @@
           </div>
         </li>
       </ul>
+    </div>
+  </section>
+  -->
+
+  <section class="prm section" id="strengths" aria-labelledby="strengths-title">
+    <div class="container">
+      <div class="section-heading prm__heading">
+        <p class="section-heading__label">05 / OUR PROMISE</p>
+        <h2 class="section-heading__title" id="strengths-title"><span class="text-unit">気軽に頼める、</span><br><em class="text-unit">4つの安心。</em></h2>
+      </div>
+      <!-- 即日対応はFAQ「当日の依頼もできますか？」と重複するため除外。小物の梱包のお願いは important-notes.html#caution に記載済み -->
+      <div class="prm__panel">
+        <figure class="prm__photo">
+          <img src="images/promise-walkthrough.webp" srcset="images/promise-walkthrough-800.webp 800w, images/promise-walkthrough.webp 1600w" sizes="(min-width: 960px) 420px, (min-width: 600px) 100vw, 350px" alt="紺色の制服のスタッフが、お客様と一緒に書類で作業内容を確認している様子" width="1600" height="800" loading="lazy" decoding="async">
+        </figure>
+        <ol class="prm__list">
+          <li class="prm__item">
+            <img class="prm__icon" src="images/promise-icon-01-estimate.webp" alt="" width="48" height="48" loading="lazy" decoding="async">
+            <p class="prm__num">PROMISE 01</p>
+            <h3 class="prm__title"><span class="text-phrase">安心の</span><span class="text-phrase">事前見積り</span></h3>
+            <p class="prm__desc">荷物量・建物・作業条件をうかがい、作業前に料金をご案内します。ご同意のない追加請求は<span class="text-phrase">いたしません。</span></p>
+          </li>
+          <li class="prm__item">
+            <img class="prm__icon" src="images/promise-icon-02-on-time.webp" alt="" width="48" height="48" loading="lazy" decoding="async">
+            <p class="prm__num">PROMISE 02</p>
+            <h3 class="prm__title">時間指定OK</h3>
+            <p class="prm__desc">ご希望の時間に合わせて伺います。前日に最終確認のご連絡を入れ、当日は予定どおりの時間に<span class="text-phrase">作業を始めます。</span></p>
+          </li>
+          <li class="prm__item">
+            <img class="prm__icon" src="images/promise-icon-03-protection.webp" alt="" width="48" height="48" loading="lazy" decoding="async">
+            <p class="prm__num">PROMISE 03</p>
+            <h3 class="prm__title"><span class="text-phrase">家具・家電を</span><span class="text-phrase">丁寧に保護</span></h3>
+            <p class="prm__desc">家具・家電は専用の保護材で丁寧に<span class="text-phrase">包みます。</span>運搬中の傷や汚れを防ぎ、<span class="text-phrase">新居まで</span><span class="text-phrase">安全に運びます。</span></p>
+          </li>
+          <li class="prm__item">
+            <img class="prm__icon" src="images/promise-icon-04-insurance.webp" alt="" width="48" height="48" loading="lazy" decoding="async">
+            <p class="prm__num">PROMISE 04</p>
+            <h3 class="prm__title"><span class="text-phrase">万が一の</span><span class="text-phrase">補償対応</span></h3>
+            <p class="prm__desc">万が一の事故やお荷物の破損に備えて保険に加入しています。状況に応じて適切に<span class="text-phrase">対応・補償いたします。</span></p>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 

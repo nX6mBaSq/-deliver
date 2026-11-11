@@ -25,6 +25,8 @@
 | `--ds-on-dark` / `--ds-on-dark-sub` | #FFFFFF / #CFE4F8 | 濃色の面に置く文字 |
 | `--ds-line` | #D0E2F0 | 区切り線、タイムラインの線 |
 | `--ds-line-accent` | #B9D8F2 | 注記の左罫線 |
+| `--ds-panel` | #F3F8FD | 写真とつなげた一覧の面（OUR PROMISE） |
+| `--ds-line-strong` | #C5DDF2 | 淡色の面の上の区切り線（OUR PROMISE） |
 | `--ds-highlight` | #FFD95A | 価格の下線などの演出のみ。文字色には使わない |
 | `--ds-caution` | #9A704B | 注意・対象外の見出しにつける縦線 |
 | `--ds-caution-ink` / `--ds-caution-ring` | #8D694D / #B99D83 | 対象外カードの目印 |
@@ -62,6 +64,7 @@
 | （ヒーロー専用） | 28〜36px | 40px | 44〜56px | 1.38 | 700 | ページの大見出し h1 |
 | `--ds-fs-section` | 30px | 36px | 40px | 1.32 | 700 | セクション見出し h2（2行まで。要点を青に） |
 | `--ds-fs-block` | 20px | 20px | 20px | 1.4 | 700 | ブロック見出し h3（左に縦線） |
+| `--ds-fs-list-title` | 18px | 18px | 18px | 1.4 | 700 | 一覧の項目見出し（OUR PROMISE） |
 | `--ds-fs-item` | 16px | 16px | 16px | 1.6 | 700 | 項目名 |
 | `--ds-fs-body` | 16px | 16px | 17px | 1.7 | 400 | 本文・リード |
 | `--ds-fs-card` | 15px | 15px | 15px | 1.65 | 400 | カード内の項目名 |

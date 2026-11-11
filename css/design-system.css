@@ -20,6 +20,8 @@
   --ds-on-dark-sub: var(--on-dark-muted);
   --ds-line: var(--line);            /* #d0e2f0 区切り線・タイムラインの線（装飾） */
   --ds-line-accent: #b9d8f2;         /* 注記の左罫線（装飾） */
+  --ds-panel: #f3f8fd;               /* 写真とつなげた一覧の面（OUR PROMISE） */
+  --ds-line-strong: #c5ddf2;         /* 淡色の面の上の区切り線（OUR PROMISE。--ds-line では見えにくいため） */
   --ds-highlight: var(--gold);       /* 価格の下線など演出のみ。文字色には使わない */
   /* 注意・対象外（承認済みの「対応できない作業・荷物」カード） */
   --ds-caution: #9a704b;             /* 見出しの縦線（非テキスト3:1以上） */
@@ -31,6 +33,7 @@
   /* ---- 文字：サイズ（スマホ基準。PC での拡大は各セクションの @media で下記の値に切り替える） ---- */
   --ds-fs-section: 1.875rem;         /* 30px セクション見出し h2。600px〜 2.25rem、960px〜 2.5rem */
   --ds-fs-block: 1.25rem;            /* 20px ブロック見出し h3 */
+  --ds-fs-list-title: 1.125rem;      /* 18px 一覧の項目見出し（OUR PROMISE） */
   --ds-fs-item: 1rem;                /* 16px 項目名（太字） */
   --ds-fs-body: 1rem;                /* 16px 本文・リード。960px〜 1.0625rem まで可 */
   --ds-fs-card: .9375rem;            /* 15px カード内の項目名（対象外カード） */
