@@ -1,0 +1,84 @@
+/* トップのお問い合わせ（#cta）：デザインシステム適用（2026-11-11）
+   仕様：Design/CTA/Claude向け実装指示書.md・CTA-mobile-390-v2.png
+   レイアウト（スマホ：1列、960px〜：左に見出し・右に確認事項、下に3ボタン横並び）と背景（colors.css の濃い青）は旧デザインのまま。
+   ここでは色・文字・余白・角丸を css/design-system.css のトークンにそろえ、
+   3ボタンのアイコンを「左：淡い青の円＋青い図柄」「右：16px角の枠に12pxの図柄」で統一する。
+   旧指定が common / refresh / foundations / structure / typography / layout / colors / typesetting に分散しているため、
+   .cta を付けて詳細度を上げ、faq.css の後に読み込む。 */
+
+.cta { padding-block: var(--ds-section-y); }
+
+/* ---- 見出し：英字の小見出し（金）→ h2（白）→ リード ---- */
+.cta .cta__label {
+  margin: 0 0 var(--ds-space-sm);
+  font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+}
+.cta .cta__title {
+  margin: 0 0 var(--ds-space-md); color: var(--ds-on-dark);
+  font-size: clamp(1.375rem, 5.6vw, 1.75rem); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+  letter-spacing: .02em; font-feature-settings: "palt";
+}
+.cta .cta__desc {
+  margin: 0 0 var(--ds-space-xl); color: var(--ds-on-dark-sub);
+  font-size: var(--ds-fs-small); line-height: var(--ds-lh-body);
+}
+@media (min-width: 600px) {
+  .cta .cta__desc { font-size: var(--ds-fs-body); }
+}
+
+/* ---- ご予約前の確認事項 ---- */
+.cta .contact-preparation > h3 {
+  color: var(--ds-on-dark);
+  font-size: var(--ds-fs-card); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+}
+.cta .contact-preparation__links a { font-size: var(--ds-fs-small); line-height: var(--ds-lh-item); }
+@media (max-width: 767px) {
+  .cta .contact-preparation {
+    margin: 0 0 var(--ds-space-lg); padding: var(--ds-space-lg) var(--ds-space-md) var(--ds-space-xs);
+    border-radius: var(--ds-radius-lg);
+  }
+  .cta .contact-preparation .contact-preparation__links { margin-top: var(--ds-space-xs); }
+  .cta .contact-preparation__links a { gap: var(--ds-space-sm); min-height: 52px; padding-block: var(--ds-space-sm); }
+}
+
+/* ---- 3つの問い合わせボタン ---- */
+.cta .contact-actions { gap: var(--ds-space-sm); }
+.cta .contact-action {
+  gap: var(--ds-space-sm); min-height: 60px; padding: 10px var(--ds-space-md) 10px 10px;
+  border-radius: var(--ds-radius-md); background: var(--ds-bg); color: var(--ds-heading);
+  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+}
+/* 左：40px の円に 20px の図柄。3ボタンとも同じ色にそろえる */
+.cta .contact-action .contact-action__icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--ds-tint-strong); color: var(--ds-brand);
+}
+.cta .contact-action__icon svg { width: 20px; height: 20px; }
+/* 右：16px 角の枠の中央に 12px の図柄。右余白・高さの中心を3ボタンでそろえる */
+.cta .contact-action__end {
+  display: grid; place-items: center; flex: none; width: 16px; height: 16px;
+  color: var(--ds-brand); transition: transform .2s;
+}
+.cta .contact-action__end svg { display: block; width: 12px; height: 12px; }
+.cta .contact-action--tel .contact-action__text {
+  font-size: var(--ds-fs-list-title); font-weight: var(--ds-fw-bold); letter-spacing: .04em;
+}
+@media (hover: hover) {
+  .cta .contact-action:hover { background: var(--ds-bg-alt); }
+  .cta .contact-action:hover .contact-action__end { transform: translateX(2px); }
+  .cta .contact-action--form:hover .contact-action__end { transform: translate(1px, -1px); }
+}
+@media (max-width: 374px) {
+  .cta .contact-action { gap: 10px; padding-right: var(--ds-space-sm); font-size: var(--ds-fs-card); }
+}
+
+/* ---- 注記・個人情報リンク ---- */
+.cta .contact-actions__note {
+  margin-top: var(--ds-space-2xs); color: var(--ds-on-dark-sub);
+  font-size: var(--ds-fs-label); line-height: var(--ds-lh-body); text-align: center;
+}
+.cta .contact-policy { margin-top: var(--ds-space-sm); font-size: var(--ds-fs-small); text-align: center; }
+@media (min-width: 960px) {
+  .cta .contact-actions { gap: var(--ds-space-sm) var(--ds-space-md); }
+  .cta .contact-actions__note, .cta .contact-policy { text-align: left; }
+}
