@@ -1,0 +1,85 @@
+/* ==========================================================================
+   ヘッダー展開時（ハンバーガーメニュー）
+   - 上端にヘッダーと同じ位置・大きさでロゴと閉じるボタンを置き、開閉で位置がずれないようにする
+   - 問い合わせボタンは CTA セクションの3ボタン（フォーム・電話・LINE）と同じ構成・見た目
+   ========================================================================== */
+
+/* design-system.css と同じ値。トップページ以外は design-system.css を読み込まない
+   （ページ余白の上書きが入っているため）ので、メニュー内で使う分だけここで定義する */
+.nav-drawer {
+  --ds-heading: var(--ink);
+  --ds-sub: var(--muted);
+  --ds-brand: var(--action);
+  --ds-bg: var(--surface);
+  --ds-bg-alt: var(--paper);
+  --ds-tint-strong: var(--blue-soft);
+  --ds-line: var(--line);
+  --ds-fs-list-title: 1.125rem;
+  --ds-fs-item: 1rem;
+  --ds-fs-card: .9375rem;
+  --ds-fs-label: .75rem;
+  --ds-lh-heading: 1.4;
+  --ds-lh-body: 1.7;
+  --ds-fw-bold: 700;
+  --ds-space-2xs: 4px;
+  --ds-space-xs: 8px;
+  --ds-space-sm: 12px;
+  --ds-space-md: 16px;
+  --ds-space-lg: 24px;
+  --ds-radius-md: 9px;
+}
+
+/* ---- 上端：ロゴ＋閉じるボタン（.header__inner と同じ高さ・余白） ---- */
+.nav-drawer__panel { padding-top: 0; }
+.nav-drawer__head {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-md);
+  min-height: 73px; /* .header__inner 72px ＋ 下罫線 1px */
+  margin-inline: calc(-1 * var(--space-3));
+  padding: var(--safe-top) var(--page-gutter) 0;
+  border-bottom: 1px solid #dce7f2; /* .header の下罫線と同じ */
+  background: var(--ds-bg);
+}
+/* パネルが画面幅いっぱいでないとき（タブレット以上）はパネルの余白に合わせる */
+@media (min-width: 391px) {
+  .nav-drawer__head { padding-inline: var(--space-3); }
+}
+.nav-drawer__head .nav-drawer__close { flex: none; margin-left: 0; }
+
+/* ---- 問い合わせボタン（CTA セクションと同じ3ボタン） ---- */
+.nav-drawer .contact-actions {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "form" "tel" "line" "reply";
+  gap: var(--ds-space-sm); max-width: none; margin-top: var(--ds-space-lg);
+}
+.nav-drawer .contact-action {
+  gap: var(--ds-space-sm); min-height: 60px; padding: 10px var(--ds-space-md) 10px 10px;
+  border: 1px solid var(--ds-line); border-radius: var(--ds-radius-md);
+  background: var(--ds-bg); color: var(--ds-heading); box-shadow: none;
+  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+}
+.nav-drawer .contact-action .contact-action__icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--ds-tint-strong); color: var(--ds-brand);
+}
+.nav-drawer .contact-action__icon svg { width: 20px; height: 20px; }
+.nav-drawer .contact-action__end {
+  display: grid; place-items: center; flex: none; width: 16px; height: 16px;
+  color: var(--ds-brand); transition: transform .2s;
+}
+.nav-drawer .contact-action__end svg { display: block; width: 12px; height: 12px; }
+.nav-drawer .contact-action--tel .contact-action__text {
+  font-size: var(--ds-fs-list-title); font-weight: var(--ds-fw-bold); letter-spacing: .04em;
+}
+@media (hover: hover) {
+  .nav-drawer .contact-action:hover { background: var(--ds-bg-alt); box-shadow: none; transform: none; }
+  .nav-drawer .contact-action:hover .contact-action__end { transform: translateX(2px); }
+  .nav-drawer .contact-action--form:hover .contact-action__end { transform: translate(1px, -1px); }
+}
+@media (max-width: 374px) {
+  .nav-drawer .contact-action { gap: 10px; padding-right: var(--ds-space-sm); font-size: var(--ds-fs-card); }
+}
+.nav-drawer .contact-actions__note {
+  margin-top: var(--ds-space-2xs); color: var(--ds-sub);
+  font-size: var(--ds-fs-label); line-height: var(--ds-lh-body); text-align: center;
+}

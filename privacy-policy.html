@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-privacy-policy.min.css?v=c2ad31a9">
+<link rel="stylesheet" href="css/site-privacy-policy.min.css?v=08ae101d">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -35,9 +35,14 @@
      ========================================================================== -->
 <dialog id="nav-drawer" class="nav-drawer" aria-label="メニュー">
   <div class="nav-drawer__panel">
-    <button type="button" class="nav-drawer__close" data-nav-close aria-label="メニューを閉じる">
-      <span aria-hidden="true">×</span>
-    </button>
+    <div class="nav-drawer__head">
+      <a href="index.html" class="header__logo nav-drawer__logo">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M5 13 16 7l11 6v13L16 31 5 26Z" fill="currentColor"/><path d="m5 13 11 6 11-6M16 19v12" fill="none" stroke="var(--paper)" stroke-width="1.5"/><path d="M16 1v3M4 5l3 3m21-3-3 3" stroke="currentColor" stroke-width="2"/></svg><span class="site-wordmark">茜<span>deliver</span></span>
+      </a>
+      <button type="button" class="nav-drawer__close" data-nav-close autofocus aria-label="メニューを閉じる">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
 
     <p class="nav-drawer__group-label" id="drawer-service-label">サービスを知る</p>
     <ul class="nav-drawer__list" aria-labelledby="drawer-service-label">
@@ -55,9 +60,20 @@
       <li><a class="nav-drawer__link" href="company.html">会社概要・代表メッセージ<span class="link-chevron" aria-hidden="true">›</span></a></li>
     </ul>
 
+    <!-- 旧デザインのメニュー内ボタン（2026-11-11 まで。WEB見積りフォーム＋電話の2ボタン）
+         戻す場合：下の div.contact-actions と差し替え、npm run build を実行する。
     <div class="nav-drawer__actions">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="btn btn--form">WEB見積りフォームへ<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a>
         <a href="tel:0568281105" class="btn btn--tel">電話で相談する</a>
+    </div>
+    -->
+    <div class="contact-actions nav-drawer__actions">
+      <!-- Icons: Font Awesome Free 7.3.1 file-pen / phone / comment / arrow-up-right-from-square / chevron-right by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0) Copyright 2026 Fonticons, Inc. -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="contact-action contact-action--form"><span class="contact-action__icon" aria-hidden="true"><svg viewBox="0 0 640 512" width="20" height="20" focusable="false"><path fill="currentColor" d="M128.1 0c-35.3 0-64 28.7-64 64l0 384c0 35.3 28.7 64 64 64l146.2 0 10.9-54.5c4.3-21.7 15-41.6 30.6-57.2l132.2-132.2 0-97.5c0-17-6.7-33.3-18.7-45.3L322.8 18.7C310.8 6.7 294.5 0 277.6 0L128.1 0zM389.6 176l-93.5 0c-13.3 0-24-10.7-24-24l0-93.5 117.5 117.5zM332.3 466.9l-11.9 59.6c-.2 .9-.3 1.9-.3 2.9 0 8 6.5 14.6 14.6 14.6 1 0 1.9-.1 2.9-.3l59.6-11.9c12.4-2.5 23.8-8.6 32.7-17.5l118.9-118.9-80-80-118.9 118.9c-8.9 8.9-15 20.3-17.5 32.7zm267.8-123c22.1-22.1 22.1-57.9 0-80s-57.9-22.1-80 0l-28.8 28.8 80 80 28.8-28.8z"/></svg></span><span class="contact-action__text">無料見積りフォームを<span class="nobr">開く</span></span><span class="contact-action__end" aria-hidden="true"><svg viewBox="0 0 512 512" width="12" height="12" focusable="false"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"/></svg></span><span class="visually-hidden">（新しいタブで開きます）</span></a>
+      <a href="tel:0568281105" class="contact-action contact-action--tel"><span class="contact-action__icon" aria-hidden="true"><svg viewBox="0 0 512 512" width="20" height="20" focusable="false"><path fill="currentColor" d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></svg></span><span class="contact-action__text"><span class="visually-hidden">電話で相談：</span>0568-28-1105</span><span class="contact-action__end" aria-hidden="true"><svg viewBox="0 0 320 512" width="12" height="12" focusable="false"><path fill="currentColor" d="M311.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L243.2 256 73.9 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></span></a>
+      <!-- TODO: LINE公式アカウントのURL確定後、href="#" を差し替える -->
+      <a href="#" class="contact-action contact-action--line"><span class="contact-action__icon" aria-hidden="true"><svg viewBox="0 0 512 512" width="20" height="20" focusable="false"><path fill="currentColor" d="M512 240c0 132.5-114.6 240-256 240-37.1 0-72.3-7.4-104.1-20.7L33.5 510.1c-9.4 4-20.2 1.7-27.1-5.8S-2 485.8 2.8 476.8l48.8-92.2C19.2 344.3 0 294.3 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240z"/></svg></span><span class="contact-action__text">LINEで相談する</span><span class="contact-action__end" aria-hidden="true"><svg viewBox="0 0 320 512" width="12" height="12" focusable="false"><path fill="currentColor" d="M311.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L243.2 256 73.9 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></span></a>
+      <p class="contact-actions__note contact-actions__note--reply"><span class="text-phrase">※作業中はお電話・ご返信が</span><span class="text-phrase">遅れる場合があります</span></p>
     </div>
 
     <div class="nav-drawer__sub-links">
