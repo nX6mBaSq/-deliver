@@ -130,7 +130,7 @@
 }
 
 .kv__points li > span:last-child { white-space: nowrap; }
-.kv__wave { position: absolute; z-index: 0; left: 0; bottom: -1px; width: 100%; height: 56px; color: var(--paper); }
+.kv__wave { position: absolute; z-index: 0; left: 0; bottom: -1px; width: 100%; height: 56px; color: var(--surface); }
 
 /* ---- 狭い画面（〜359px） ---- */
 @media (max-width: 359px) {

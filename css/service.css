@@ -1,0 +1,138 @@
+/* トップの SERVICE（2026-11-11 リニューアル案）
+   デザイン：Design/SERVICE/SERVICE-mobile-390.png・デザイン仕様書.md
+   旧 .service-overview / .fit-check の指定が複数ファイルに残っているため、.svc__* で組み、
+   ヒーローの後（typesetting.css の直前）に読み込む。
+   スマホ：1列。PC（960px〜）：導入と写真を左右に、準備と対象外を左右に並べる。 */
+
+.svc {
+  --svc-ink: #0d2744;
+  --svc-text: #2b415d;
+  --svc-blue: #005bc9;
+  --svc-tint: #eaf4fc;
+  --svc-wash: #f7fafc;
+  --svc-rule: #dbe5ee;
+  --svc-tag: 72px;
+  --svc-col-gap: 12px;
+  position: relative;
+  padding-block: 32px 48px;
+  background: var(--surface);
+  color: var(--svc-text);
+}
+.svc__inner { display: grid; grid-template-columns: minmax(0, 1fr); }
+.svc p { margin: 0; }
+
+/* ---- 導入 ---- */
+.svc__label {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 14px !important;
+  color: var(--svc-blue); font-size: .8125rem; font-weight: 700; line-height: 1.4; letter-spacing: .14em;
+}
+.svc__label::before { content: ''; flex: none; width: 24px; height: 2px; background: currentColor; }
+.svc__title {
+  margin: 0 0 16px; color: var(--svc-ink);
+  font-size: 1.875rem; font-weight: 700; line-height: 1.32; letter-spacing: .02em; font-feature-settings: "palt";
+}
+.svc__title em { font-style: normal; color: var(--svc-blue); }
+.svc__lead { font-size: 1rem; line-height: 1.7; letter-spacing: .02em; }
+.svc__lead strong { color: var(--svc-ink); font-weight: 700; }
+
+/* ---- 写真＋キャプション ---- */
+.svc__figure { margin: 24px 0 0; overflow: hidden; border-radius: 12px; background: var(--svc-ink); }
+.svc__photo { display: block; width: 100%; height: auto; aspect-ratio: 350 / 168; object-fit: cover; object-position: center; }
+.svc__caption {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 56px; padding: 10px 16px;
+  color: var(--on-dark); font-size: 1rem; font-weight: 700; line-height: 1.4; text-align: center; letter-spacing: .04em;
+}
+.svc__plus { padding-inline: 12px; color: #9ccaf5; font-size: 1.375rem; font-weight: 400; line-height: 1; }
+
+/* ---- スタッフ追加の注記 ---- */
+.svc__note {
+  margin-top: 12px !important; padding: 6px 0 6px 14px; border-left: 3px solid #b9d8f2;
+  font-size: .875rem; line-height: 1.7;
+}
+.svc__note strong { color: var(--svc-blue); font-weight: 700; }
+
+/* ---- 準備・対象外（共通） ---- */
+.svc__block { margin-top: 48px; }
+.svc__heading {
+  margin: 0 0 18px; color: var(--svc-ink);
+  font-size: 1.375rem; font-weight: 700; line-height: 1.4; letter-spacing: .02em;
+}
+.svc__tag {
+  display: grid; place-items: center; width: var(--svc-tag); min-height: 26px; padding: 2px 4px; border-radius: 999px;
+  background: var(--svc-tint); color: var(--svc-blue);
+  font-size: .75rem; font-weight: 700; line-height: 1.4; text-align: center; letter-spacing: .02em;
+}
+.svc__more {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-left: calc(var(--svc-tag) + var(--svc-col-gap));
+  color: var(--svc-blue); font-size: .875rem; font-weight: 700; line-height: 1.4;
+  text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .3em;
+}
+.svc__more svg { flex: none; }
+@media (hover: hover) and (pointer: fine) {
+  .svc__more:hover { color: var(--action-hover); text-decoration-thickness: 2px; }
+}
+
+/* ---- 準備：ラベルを縦線でつなぐ順序リスト ---- */
+.svc__steps { margin: 0; padding: 0; list-style: none; }
+.svc__steps li {
+  position: relative; display: grid; grid-template-columns: var(--svc-tag) minmax(0, 1fr); column-gap: var(--svc-col-gap);
+  align-items: start; padding-bottom: 18px;
+}
+.svc__steps li:not(:last-child)::before {
+  content: ''; position: absolute; left: calc(var(--svc-tag) / 2); top: 26px; bottom: 0; width: 1px; background: #c6d6e4;
+}
+.svc__steps .svc__tag { position: relative; margin-top: 1px; }
+.svc__item-title { color: var(--svc-ink); font-size: 1rem; font-weight: 700; line-height: 1.6; }
+.svc__item-desc { margin-top: 4px !important; font-size: .875rem; line-height: 1.7; }
+.svc__duties .svc__more { margin-top: 2px; }
+
+/* ---- 対象外：分類ラベルと項目の対応 ---- */
+.svc__limits {
+  margin-inline: -8px; padding: 24px 8px 12px;
+  border-top: 2px solid #a9c8e4; border-radius: 0 0 8px 8px; background: var(--svc-wash);
+}
+.svc__ng { margin: 0; border-bottom: 1px solid var(--svc-rule); }
+.svc__ng > div {
+  display: grid; grid-template-columns: var(--svc-tag) minmax(0, 1fr); column-gap: var(--svc-col-gap); align-items: center;
+  padding-block: 12px; border-top: 1px solid var(--svc-rule);
+}
+.svc__ng dd { margin: 0; color: var(--svc-ink); font-size: 1rem; line-height: 1.6; }
+.svc__limits .svc__more { margin-top: 8px; }
+
+/* ---- 狭い画面（〜359px）・文字拡大時：ラベル列を縮め、本文列を折り返す ---- */
+@media (max-width: 359px) {
+  .svc { --svc-tag: 64px; --svc-col-gap: 10px; }
+  .svc__title { font-size: 1.625rem; }
+  .svc__caption { padding-inline: 8px; font-size: .9375rem; }
+  .svc__plus { padding-inline: 6px; }
+}
+
+/* ---- スマホ：左右20px ---- */
+@media (max-width: 599px) {
+  .svc > .container { padding-inline: 20px; }
+}
+
+/* ---- タブレット（600px〜） ---- */
+@media (min-width: 600px) {
+  .svc { padding-block: 48px 64px; }
+  .svc__inner { max-width: calc(36rem + 2 * var(--page-gutter)); }
+  .svc__title { font-size: 2.25rem; }
+  .svc__limits { margin-inline: -16px; padding-inline: 16px; }
+}
+
+/* ---- PC（960px〜）：導入｜写真、準備｜対象外 ---- */
+@media (min-width: 960px) {
+  .svc { padding-block: 64px 88px; }
+  .svc__inner {
+    max-width: calc(var(--content-width) + 2 * var(--page-gutter));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); column-gap: 56px;
+  }
+  .svc__intro { grid-column: 1; grid-row: 1; align-self: end; }
+  .svc__figure { grid-column: 2; grid-row: 1 / 3; align-self: start; margin-top: 0; }
+  .svc__note { grid-column: 1; grid-row: 2; align-self: start; margin-top: 20px !important; }
+  .svc__title { font-size: 2.5rem; }
+  .svc__lead { font-size: 1.0625rem; }
+  .svc__block { margin-top: 64px; }
+  .svc__duties { grid-column: 1; grid-row: 3; padding-top: 30px; }
+  .svc__limits { grid-column: 2; grid-row: 3; align-self: start; margin-inline: 0; padding: 28px 24px 16px; border-radius: 0 0 12px 12px; }
+}

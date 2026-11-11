@@ -3,7 +3,7 @@ const crypto=require('node:crypto');
 const esbuild=require('esbuild');
 const {PurgeCSS}=require('purgecss');
 const common=['refresh','foundations','structure','typography'];
-const pageStyles={index:['common','top',...common,'graphics','colors','polish','architecture','layout','hero'],company:['common','company',...common,'colors','polish','architecture','layout'],'important-notes':['common','important-notes',...common,'colors','polish','architecture','layout'],'privacy-policy':['common','privacy-policy',...common,'colors','polish','architecture','layout']};
+const pageStyles={index:['common','top',...common,'graphics','colors','polish','architecture','layout','hero','service'],company:['common','company',...common,'colors','polish','architecture','layout'],'important-notes':['common','important-notes',...common,'colors','polish','architecture','layout'],'privacy-policy':['common','privacy-policy',...common,'colors','polish','architecture','layout']};
 (async()=>{
  for(const [page,styles] of Object.entries(pageStyles)){
   const css=['fonts',...styles].map(name=>fs.readFileSync(`css/${name}.css`,'utf8')).join('\n');  const file=`css/site-${page}.min.css`;
