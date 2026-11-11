@@ -9,8 +9,6 @@
   --svc-text: #2b415d;
   --svc-blue: #005bc9;
   --svc-tint: #eaf4fc;
-  --svc-wash: #f7fafc;
-  --svc-rule: #dbe5ee;
   --svc-tag: 72px;
   --svc-col-gap: 12px;
   position: relative;
@@ -54,16 +52,19 @@
 /* ---- 準備・対象外（共通） ---- */
 .svc__block { margin-top: 48px; }
 .svc__heading {
-  margin: 0 0 18px; color: var(--svc-ink);
-  font-size: 1.375rem; font-weight: 700; line-height: 1.4; letter-spacing: .02em;
+  display: flex; align-items: center; gap: 8px; margin: 0 0 14px; color: var(--svc-ink);
+  font-size: 1.25rem; font-weight: 700; line-height: 1.4; letter-spacing: .02em;
 }
+/* 見出し左の縦線：形は共通、色だけブロックごとに変える（準備＝青、対象外＝茶） */
+.svc__heading::before { content: ''; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--svc-accent, var(--svc-blue)); }
+.svc__limits { --svc-accent: #9a704b; }
 .svc__tag {
   display: grid; place-items: center; width: var(--svc-tag); min-height: 26px; padding: 2px 4px; border-radius: 999px;
   background: var(--svc-tint); color: var(--svc-blue);
   font-size: .75rem; font-weight: 700; line-height: 1.4; text-align: center; letter-spacing: .02em;
 }
 .svc__more {
-  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-left: calc(var(--svc-tag) + var(--svc-col-gap));
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px;
   color: var(--svc-blue); font-size: .875rem; font-weight: 700; line-height: 1.4;
   text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .3em;
 }
@@ -82,22 +83,24 @@
   content: ''; position: absolute; left: calc(var(--svc-tag) / 2); top: 26px; bottom: 0; width: 1px; background: #c6d6e4;
 }
 .svc__steps .svc__tag { position: relative; margin-top: 1px; }
+/* 最後の項目は下余白なし：リンクまでの間隔を対象外カードと同じ（.svc__more の margin-top）にそろえる */
+.svc__steps li:last-child { padding-bottom: 0; }
 .svc__item-title { color: var(--svc-ink); font-size: 1rem; font-weight: 700; line-height: 1.6; }
 .svc__item-desc { margin-top: 4px !important; font-size: .875rem; line-height: 1.7; }
-.svc__duties .svc__more { margin-top: 2px; }
 
-/* ---- 対象外：分類ラベルと項目の対応 ---- */
-.svc__limits {
-  margin-inline: -8px; padding: 24px 8px 12px;
-  border-top: 2px solid #a9c8e4; border-radius: 0 0 8px 8px; background: var(--svc-wash);
+/* ---- 対象外：白地に項目カードを縦一列（2026-11-11 修正指示_対象外カード） ---- */
+.svc__limits { margin-top: 28px; }
+.svc__ng { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.svc__ng li {
+  display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: center;
+  min-height: 48px; padding: 10px 13px; border: 1px solid #eae2d6; border-radius: 9px; background: #faf8f4;
+  color: var(--svc-ink); font-size: .9375rem; line-height: 1.65;
 }
-.svc__ng { margin: 0; border-bottom: 1px solid var(--svc-rule); }
-.svc__ng > div {
-  display: grid; grid-template-columns: var(--svc-tag) minmax(0, 1fr); column-gap: var(--svc-col-gap); align-items: center;
-  padding-block: 12px; border-top: 1px solid var(--svc-rule);
+/* 目印：細い円＋中央の短い横線（装飾。疑似要素なので読み上げ対象外） */
+.svc__ng li::before {
+  content: ''; width: 16px; height: 16px; border: 1px solid #b99d83; border-radius: 50%;
+  background: linear-gradient(#8d694d, #8d694d) center / 6px 1.5px no-repeat;
 }
-.svc__ng dd { margin: 0; color: var(--svc-ink); font-size: 1rem; line-height: 1.6; }
-.svc__limits .svc__more { margin-top: 8px; }
 
 /* ---- 狭い画面（〜359px）・文字拡大時：ラベル列を縮め、本文列を折り返す ---- */
 @media (max-width: 359px) {
@@ -117,7 +120,6 @@
   .svc { padding-block: 48px 64px; }
   .svc__inner { max-width: calc(36rem + 2 * var(--page-gutter)); }
   .svc__title { font-size: 2.25rem; }
-  .svc__limits { margin-inline: -16px; padding-inline: 16px; }
 }
 
 /* ---- PC（960px〜）：導入｜写真、準備｜対象外 ---- */
@@ -133,6 +135,6 @@
   .svc__title { font-size: 2.5rem; }
   .svc__lead { font-size: 1.0625rem; }
   .svc__block { margin-top: 64px; }
-  .svc__duties { grid-column: 1; grid-row: 3; padding-top: 30px; }
-  .svc__limits { grid-column: 2; grid-row: 3; align-self: start; margin-inline: 0; padding: 28px 24px 16px; border-radius: 0 0 12px 12px; }
+  .svc__duties { grid-column: 1; grid-row: 3; }
+  .svc__limits { grid-column: 2; grid-row: 3; align-self: start; }
 }
