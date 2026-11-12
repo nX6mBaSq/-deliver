@@ -11,7 +11,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"茜deliver","description":"大阪発、少ない荷物の単身引越し。スタッフ1名とお客様の共同作業で、明朗会計と定時スタートの引越しを行います。","telephone":"+81-568-28-1105","faxNumber":"+81-568-28-6462","address":{"@type":"PostalAddress","postalCode":"480-0202","addressRegion":"愛知県","addressLocality":"西春日井郡豊山町","streetAddress":"大字豊場字大山77","addressCountry":"JP"},"areaServed":["近畿","名古屋","東京"],"founder":{"@type":"Person","name":"酒井 利明"}}</script>
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-index.min.css?v=c210424b">
+<link rel="stylesheet" href="css/site-index.min.css?v=2f9be33e">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -204,9 +204,13 @@
 
       <div class="fees__coverage">
       <div class="fees__area" id="area">
+        <!-- 旧（見出し → 説明文 → 地図）：2026-11-12 地図を見出しの上へ移し、左列（料金画像 → 追加料金の一例）と並びをそろえた
+        <h3 class="fees__area-label">対応エリア</h3>
+        <p class="area__desc">…</p>
+        <figure class="area-figure">…</figure> -->
+        <figure class="area-figure"><img src="images/area-map-2.webp" alt="大阪を起点に近畿一円、名古屋・東京方面へ対応するエリアのイメージ" width="600" height="337" loading="lazy" decoding="async"></figure>
         <h3 class="fees__area-label">対応エリア</h3>
         <p class="area__desc">大阪を起点に、近畿一円から名古屋・<span class="nobr">東京方面</span>の長距離便まで対応しています。<span class="text-phrase"></span></p>
-        <figure class="area-figure"><img src="images/area-map-2.webp" alt="大阪を起点に近畿一円、名古屋・東京方面へ対応するエリアのイメージ" width="600" height="337" loading="lazy" decoding="async"></figure>
       </div>
 
       <div class="fees__estimate">
@@ -215,17 +219,18 @@
         <!-- 割引の条件が確認できるまで非表示：<p class="fees__estimate-note">40km以上のお引越しは基本料金割引あり</p> -->
         <!-- 仮置き（1:1）：行き先の街並み写真 -->
         <!-- Pin: Font Awesome Free 7.3.1 location-dot by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0) Copyright 2026 Fonticons, Inc. -->
+        <!-- 2026-11-12 仮置きタイルの色を ph--sky にそろえた（旧：京都 ph--sky／名古屋 ph--sand／東京 ph--navy） -->
         <ul class="fees__routes">
           <li class="fees__route">
             <span class="ph ph--1x1 ph--sky fees__route-thumb" aria-hidden="true"><span class="ph__tag">1:1</span><span class="ph__label">京都</span></span><span class="fees__route-path"><svg class="route-pin" viewBox="0 0 384 512" width="14" height="18" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>大阪<span class="link-arrow" aria-hidden="true">→</span>京都</span>
             <span class="fees__route-price"><span class="price-figure">19,800</span><span class="price-unit">円〜</span></span>
           </li>
           <li class="fees__route">
-            <span class="ph ph--1x1 ph--sand fees__route-thumb" aria-hidden="true"><span class="ph__tag">1:1</span><span class="ph__label">名古屋</span></span><span class="fees__route-path"><svg class="route-pin" viewBox="0 0 384 512" width="14" height="18" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>大阪<span class="link-arrow" aria-hidden="true">→</span>名古屋</span>
+            <span class="ph ph--1x1 ph--sky fees__route-thumb" aria-hidden="true"><span class="ph__tag">1:1</span><span class="ph__label">名古屋</span></span><span class="fees__route-path"><svg class="route-pin" viewBox="0 0 384 512" width="14" height="18" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>大阪<span class="link-arrow" aria-hidden="true">→</span>名古屋</span>
             <span class="fees__route-price"><span class="price-figure">44,000</span><span class="price-unit">円〜</span></span>
           </li>
           <li class="fees__route">
-            <span class="ph ph--1x1 ph--navy fees__route-thumb" aria-hidden="true"><span class="ph__tag">1:1</span><span class="ph__label">東京</span></span><span class="fees__route-path"><svg class="route-pin" viewBox="0 0 384 512" width="14" height="18" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>大阪<span class="link-arrow" aria-hidden="true">→</span>東京</span>
+            <span class="ph ph--1x1 ph--sky fees__route-thumb" aria-hidden="true"><span class="ph__tag">1:1</span><span class="ph__label">東京</span></span><span class="fees__route-path"><svg class="route-pin" viewBox="0 0 384 512" width="14" height="18" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>大阪<span class="link-arrow" aria-hidden="true">→</span>東京</span>
             <span class="fees__route-price"><span class="price-figure">77,000</span><span class="price-unit">円〜</span></span>
           </li>
         </ul>

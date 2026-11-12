@@ -45,7 +45,8 @@
   margin: 0 0 var(--ds-heading-gap); padding: 0; color: var(--ds-heading); background: none;
   font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em; text-align: left;
 }
-.fees .fees__addon-label { margin-bottom: var(--ds-space-2xs); }
+/* 見出し → 説明文は 4px。対応エリアも同じ形にそろえる（2026-11-12。旧：.fees__area-label は --ds-heading-gap の 14px） */
+.fees :is(.fees__addon-label, .fees__area-label) { margin-bottom: var(--ds-space-2xs); }
 
 /* ---- 追加料金の一覧 ---- */
 .fees .fees__addon-intro { color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
@@ -83,8 +84,10 @@
 /* 説明文 → 地図の順（見出しの直下に説明文、その下に地図） */
 /* 地図：画像の淡い青が背景（--ds-bg-alt）に溶けて輪郭が見えないため、画像だけを白い面＋線＋角丸で囲む（2026-11-12）。
    旧指定：.fees .area-figure { margin: var(--ds-space-md) 0 0; border-radius: var(--ds-radius-md); } */
-.fees .area-figure { margin: var(--ds-space-md) 0 0; overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg); }
-.fees .area__desc { margin-top: 0; color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); text-align: left; }
+/* 2026-11-12 地図を見出しの上へ。料金画像 → 追加料金の見出しと同じく、画像から見出しまで 32px（旧：説明文の下 margin: var(--ds-space-md) 0 0） */
+.fees .area-figure { margin: 0 0 var(--ds-space-xl); overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg); }
+/* 2026-11-12 追加料金の一例の説明文（.fees__addon-intro）とそろえて 14px・補足色に（旧：color: var(--ds-body); font-size: var(--ds-fs-body);） */
+.fees .area__desc { margin-top: 0; color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); text-align: left; }
 
 /* ---- 行き先別の料金目安：対応エリアの中の小見出し（h4）。縦線なし・項目名と同じ大きさにして、対応エリアの h3 より一段下げる ---- */
 .fees .fees__estimate { margin-top: 0; }
@@ -104,8 +107,22 @@
   /* 行き先別（縦に並ぶ一覧）：カードがなくなったので、追加料金の一覧と同じ実線で上下を閉じる（旧：行の間だけ点線） */
   .fees .fees__routes { gap: 0; border-top: 1px solid var(--ds-line); }
   .fees .fees__route, .fees .fees__route:last-child { border-bottom: 1px solid var(--ds-line); }
+  /* 行の高さを「追加料金の一例」（上下 12px＋アイコン 28px）にそろえる（2026-11-12。旧：refresh.css の padding: 14px 0 ほか） */
+  .fees .fees__routes .fees__route { min-height: 53px; padding-block: var(--ds-space-sm); }
+  .fees .fees__routes .fees__route-path { line-height: var(--ds-lh-item); }
+  /* 仮置きタイル（行き先名の繰り返し）は〜479px で既に隠している（layout.css）。一覧表示の〜959px 全体で隠し、行の高さをそろえる
+     旧：480〜959px は 52px 角のタイル付きで 1行 77px */
+  .fees .fees__routes .fees__route { grid-template-columns: minmax(0, 1fr) auto; }
+  .fees .fees__routes .fees__route-thumb { display: none; }
+  .fees .fees__routes .fees__route > .fees__route-path { grid-column: 1; }
+  .fees .fees__routes .fees__route > .fees__route-price { grid-column: 2; }
 }
 .fees .fees__route { border-color: var(--ds-line); }
+/* 金額：「追加料金の一例」と同じ書き方にそろえる（2026-11-12）。17px の太字、単位は数字に詰める。
+   旧指定：typography.css .fees__route-price { font-size: 1.25rem; column-gap: .2em; } / .price-figure { font-weight: 500; } / .price-unit { font-weight: 400; } */
+.fees .fees__route-price { column-gap: 0; font-size: 1.0625rem; line-height: var(--ds-lh-item); }
+.fees .fees__route-price .price-figure { font-weight: var(--ds-fw-semibold); }
+.fees .fees__route-price .price-unit { font-weight: var(--ds-fw-medium); }
 .fees .fees__route-path { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); }
 .fees .route-pin { color: var(--ds-brand); }
 
@@ -135,6 +152,14 @@
   .fees .fees__coverage { display: flex; flex-direction: column; gap: var(--ds-space-xl); grid-column: 6 / 13; grid-row: 1 / 3; align-self: start; }
   .fees .fees__coverage > * { grid-column: auto; grid-row: auto; }
   .fees .fees__estimate > .fees__routes { gap: var(--ds-space-md); }
+  /* 行き先ごとに1枚のカード（2026-11-12）：写真（仮置きタイル）・経路・金額を地図と同じ白い面＋線＋角丸でまとめる。
+     旧指定（layout.css）：.fees__routes .fees__route { gap: 6px; padding: 0 0 4px; border: 0; } / .fees__route-thumb { margin-bottom: 8px; border-radius: 6px; } */
+  .fees .fees__routes .fees__route {
+    gap: var(--ds-space-2xs); padding: 0 0 var(--ds-space-sm); overflow: hidden;
+    border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg);
+  }
+  .fees .fees__routes .fees__route-thumb { margin-bottom: var(--ds-space-xs); border-radius: 0; }
+  .fees .fees__routes .fees__route > :is(.fees__route-path, .fees__route-price) { padding-inline: var(--ds-space-md); }
   /* 対応エリア：PCだけ付いていた白いカードをやめる（2026-11-12）。地図も行の高さまで引き伸ばさず、画像の比率のまま表示する。
      旧指定（layout.css）：.fees__area { … align-self: stretch; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
                           .fees__area .area-figure { flex: 1; display: grid; place-items: center; background: var(--paper); } */
