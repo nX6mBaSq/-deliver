@@ -151,3 +151,133 @@
   margin-top: var(--ds-space-2xs); color: var(--ds-sub);
   font-size: var(--ds-fs-label); line-height: var(--ds-lh-body); text-align: center;
 }
+
+/* ==========================================================================
+   展開時リデザイン（2026-11-12）
+   - 画面いっぱい（100vw × 100dvh）の濃紺（フッターと同じ --night）に反転し、本文と別の画面だと分かるようにする
+   - リンクは2列、問い合わせは「フォーム（白・主役）」＋「電話｜LINE」の2段にして、iPhone SE でも1画面に収める
+   - 収まらない極端に小さい画面だけパネル内スクロール（overflow-y: auto は common.css のまま）
+   旧デザイン（右から出る白いパネル）に戻す場合：このブロックを削除し、ドロワーのロゴを logo-ink.webp に戻して npm run build
+   ========================================================================== */
+.nav-drawer {
+  --ds-heading: var(--on-dark);
+  --ds-sub: var(--on-dark-muted);
+  --ds-brand: var(--on-dark);
+  --ds-bg: var(--night);
+  --ds-bg-alt: rgb(255 255 255 / .08);
+  --ds-tint-strong: rgb(255 255 255 / .12);
+  --ds-line: rgb(255 255 255 / .22);
+  --drawer-width: 560px;
+  color: var(--on-dark);
+}
+.nav-drawer .nav-drawer__panel {
+  display: flex; flex-direction: column;
+  width: 100%; height: 100%;
+  padding: 0 0 calc(var(--ds-space-md) + var(--safe-bottom));
+  background: var(--night); box-shadow: none; transform: none;
+}
+/* ヘッダー帯以外は中央の 560px 幅にまとめる（スマホでは左右 --page-gutter） */
+.nav-drawer__panel > :not(.nav-drawer__head) {
+  width: min(var(--drawer-width), 100% - 2 * var(--page-gutter));
+  margin-inline: auto;
+}
+
+/* ---- 上端：ロゴ（白版）と閉じるボタン。位置はページのヘッダーと同じ ---- */
+.nav-drawer .nav-drawer__head {
+  flex: none; margin-inline: 0;
+  padding-inline: max(var(--page-gutter), (100% - var(--content-width)) / 2);
+  border-bottom-color: rgb(255 255 255 / .14);
+  background: var(--night);
+}
+.nav-drawer__head .nav-drawer__close { background: rgb(255 255 255 / .1); color: var(--on-dark); }
+@media (hover: hover) and (pointer: fine) {
+  .nav-drawer__head .nav-drawer__close:hover { background: rgb(255 255 255 / .18); }
+}
+
+/* ---- グループ見出し＋リンク（2列） ---- */
+.nav-drawer .nav-drawer__group-label {
+  margin-top: var(--ds-space-md); padding-bottom: var(--ds-space-2xs);
+  color: var(--on-dark-muted); font-size: var(--ds-fs-label); font-weight: 500;
+}
+.nav-drawer .nav-drawer__group-label:first-of-type { margin-top: var(--ds-space-lg); }
+.nav-drawer .nav-drawer__list {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--ds-space-md); margin-top: 0;
+}
+.nav-drawer .nav-drawer__link {
+  gap: var(--ds-space-xs); min-height: 48px; margin: 0; padding: 8px 0;
+  border-radius: 0; border-bottom: 1px solid rgb(255 255 255 / .14);
+  color: var(--on-dark); font-size: .9375rem; font-weight: 600; line-height: 1.45;
+}
+.nav-drawer .nav-drawer__link .link-chevron { color: var(--on-dark-muted); font-size: 1rem; }
+/* 現在のページ：色で強調すると1項目だけ重く見えるため、文字を控えめにして小さな点で示す */
+.nav-drawer .nav-drawer__link[aria-current="page"] { justify-content: flex-start; gap: 6px; color: var(--on-dark-muted); }
+.nav-drawer .nav-drawer__link[aria-current="page"]::before {
+  content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%; background: currentColor;
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-drawer .nav-drawer__link:hover { background: transparent; color: var(--gold); }
+}
+@media (max-width: 359px) {
+  .nav-drawer .nav-drawer__link { font-size: .875rem; }
+}
+
+/* ---- 問い合わせ：フォーム（1段目）＋電話・LINE（2段目の2列）。3つとも同じ枠線ボタン ----
+   margin-top: auto で画面の下側に寄せる（縦に余裕がある端末ではリンクとの間が空く） */
+.nav-drawer .contact-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "form form" "tel line" "reply reply";
+  gap: var(--ds-space-xs); margin-top: auto; padding-top: var(--ds-space-lg);
+}
+.nav-drawer .contact-action {
+  gap: var(--ds-space-xs); min-height: 52px; padding: 8px;
+  border-color: var(--ds-line); background: transparent; color: var(--on-dark);
+  font-size: .9375rem;
+}
+.nav-drawer .contact-action .contact-action__icon { width: 32px; height: 32px; }
+.nav-drawer .contact-action__icon svg { width: 16px; height: 16px; }
+.nav-drawer :is(.contact-action--tel, .contact-action--line) .contact-action__end { display: none; }
+.nav-drawer .contact-action--tel .contact-action__text { font-size: .9375rem; letter-spacing: .02em; white-space: nowrap; }
+/* フォームだけ白にすると情報の重さが偏るため、3つとも同じ枠線ボタンにそろえる（CTA セクションの「同じ重さの3ボタン」と同じ考え方） */
+.nav-drawer .contact-action--form { padding-right: var(--ds-space-md); }
+@media (hover: hover) {
+  .nav-drawer .contact-action:hover { background: var(--ds-bg-alt); }
+}
+@media (max-width: 374px) {
+  .nav-drawer .contact-action { font-size: .875rem; }
+  .nav-drawer .contact-action--tel .contact-action__text { font-size: .875rem; letter-spacing: 0; }
+}
+.nav-drawer .contact-actions__note { margin-top: 0; color: var(--on-dark-muted); }
+
+/* ---- プライバシーポリシー：注記の下に小さく中央寄せ ---- */
+.nav-drawer .nav-drawer__sub-links { align-items: center; margin-top: var(--ds-space-2xs); }
+.nav-drawer .nav-drawer__sub-links a {
+  justify-content: center; gap: 2px; min-height: 40px; padding: 4px 8px;
+  color: var(--on-dark-muted); font-size: .8125rem; font-weight: 500;
+}
+.nav-drawer .nav-drawer__sub-links .link-chevron { margin-left: 0; color: inherit; font-size: 1rem; }
+@media (hover: hover) and (pointer: fine) {
+  .nav-drawer .nav-drawer__sub-links a:hover { color: var(--on-dark); }
+}
+
+/* ---- 調整（2026-11-12）----
+   スマホの2列では › があると文字幅が足りず項目名が2行に折れて散らかるため、› を外して1行に収める。
+   2つ目のグループ（「会社概要・代表メッセージ」は12字あり2列に収まらない）だけ1列にする */
+.nav-drawer .nav-drawer__link { min-height: 44px; padding-block: 6px; }
+.nav-drawer .nav-drawer__link .link-chevron { display: none; }
+.nav-drawer .nav-drawer__list[aria-labelledby="drawer-guide-label"] { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 399px) {
+  .nav-drawer .nav-drawer__list { column-gap: var(--ds-space-sm); }
+  .nav-drawer .nav-drawer__link { font-size: .875rem; }
+  .nav-drawer .contact-action:is(.contact-action--tel, .contact-action--line) { gap: 6px; }
+  .nav-drawer :is(.contact-action--tel, .contact-action--line) .contact-action__icon { width: 28px; height: 28px; }
+  .nav-drawer :is(.contact-action--tel, .contact-action--line) .contact-action__text { font-size: .875rem; letter-spacing: 0; white-space: nowrap; }
+}
+/* タブレット以上は縦に余裕があるので、下寄せをやめてリンク〜ボタンをひとかたまりで上下中央に置く */
+@media (min-width: 600px) {
+  .nav-drawer .nav-drawer__list[aria-labelledby="drawer-guide-label"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-drawer .nav-drawer__group-label:first-of-type { margin-top: auto; padding-top: var(--ds-space-lg); }
+  .nav-drawer .contact-actions { margin-top: 0; padding-top: 40px; }
+  .nav-drawer .nav-drawer__sub-links { margin-bottom: auto; }
+  .nav-drawer .nav-drawer__link .link-chevron { display: inline; }
+}

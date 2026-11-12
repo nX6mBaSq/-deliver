@@ -31,7 +31,8 @@ const fs = require('node:fs');
         for (const offset of [0, 500]) {
           await page.evaluate(y => scrollTo(0, y), offset);
           const before = await snapshot();
-          for (const method of ['button', 'escape', ...(width > 390 ? ['backdrop'] : [])]) {
+          // 2026-11-12：メニューを全画面にしたため背景（backdrop）が見えず、背景クリックで閉じる確認は不要
+          for (const method of ['button', 'escape']) {
             await clickWithoutScrolling('[data-nav-open]');
             assert.deepEqual(await snapshot(), before, `${file} ${width}px ${offset}: opening shifts layout`);
             assert.equal(await page.locator('[data-nav-open]').getAttribute('aria-expanded'), 'true');
