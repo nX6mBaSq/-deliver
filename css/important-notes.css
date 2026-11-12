@@ -1,6 +1,152 @@
 /* ==========================================================================
-   ご利用前の確認事項ページ専用スタイル
+   ご利用前の確認事項ページ（2026-11-12 トップページのデザインシステムに合わせて更新）
+   色・文字・余白は css/design-system.css のトークン（--ds-*）だけで指定する。
+   部品はトップの形をそのまま使う：
+     ページ見出し＝SERVICE の見出し（英字の小見出し＋h1＋リード）
+     各項目の見出し＝SERVICE「お客様にお願いすること」の縦線見出し（01 は対象外カードと同じ茶）
+     01 の一覧＝SERVICE の対象外カード／03 の料金表＝PRICE「追加料金の一例」の1行の表
+     「〜を見る」＝共通の詳細ボタン .ds-more
+   旧 .page-hero / .important-notes__* の指定が複数ファイルに残っているため、新しい .ntc-* で組む。
+   旧指定はこのファイルの末尾にコメントで残している。
    ========================================================================== */
+
+/* ---- ページ見出し ---- */
+.ntc-hero { padding-block: 0 var(--ds-intro-gap); background: var(--ds-bg-alt); color: var(--ds-body); }
+.ntc-hero > .container { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.ntc-hero p { margin: 0; }
+.ntc-hero .breadcrumb { padding-top: var(--ds-space-md); margin-bottom: var(--ds-space-xl); color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); }
+.ntc-hero .breadcrumb a { color: var(--ds-brand); }
+.ntc-hero .breadcrumb li + li::before { color: var(--ds-sub); }
+.ntc-hero__label {
+  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: var(--ds-eyebrow-gap) !important;
+  color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.ntc-hero__label::before { content: ""; flex: none; width: 24px; height: 2px; background: currentColor; }
+.ntc-hero__title {
+  margin: 0 0 var(--ds-lead-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
+}
+.ntc-hero__lead { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+
+/* ---- 本文の枠 ---- */
+.ntc { padding-block: var(--ds-intro-gap) var(--ds-section-y); background: var(--ds-bg); color: var(--ds-body); }
+.ntc p { margin: 0; }
+.ntc__layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ds-block-gap); max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.ntc__body { display: grid; gap: var(--ds-block-gap); min-width: 0; }
+
+/* ---- 目次：CTA の「ご予約前の確認事項」と同じ、1行ずつタップできる一覧 ---- */
+.ntc-toc { padding: var(--ds-space-md) var(--ds-space-md) var(--ds-space-xs); border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg-alt); }
+.ntc-toc__title { padding-inline: var(--ds-space-2xs); color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); }
+.ntc-toc__list { margin: var(--ds-space-xs) 0 0; padding: 0; list-style: none; }
+.ntc-toc__list li + li { border-top: 1px solid var(--ds-line); }
+.ntc-toc__list a {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) 16px; align-items: center; gap: var(--ds-space-sm);
+  min-height: 52px; padding: var(--ds-space-sm) var(--ds-space-2xs);
+  color: var(--ds-heading); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-item); text-decoration: none;
+}
+.ntc-toc__num { color: var(--ds-brand); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.ntc-toc__icon { display: block; color: var(--ds-brand); transition: transform .2s; }
+@media (hover: hover) and (pointer: fine) {
+  .ntc-toc__list a:hover { color: var(--ds-brand-hover); }
+  .ntc-toc__list a:hover .ntc-toc__icon { transform: translateY(2px); }
+}
+
+/* ---- 各項目のブロック ---- */
+.ntc-block { scroll-margin-top: calc(var(--header-height) + var(--ds-space-md)); }
+.ntc-block__title {
+  display: flex; align-items: center; gap: var(--ds-space-xs); margin: 0 0 var(--ds-heading-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em;
+}
+/* 見出し左の縦線：形は共通、色だけブロックごとに変える（01＝茶、ほか＝青）。番号は線の右に小さく */
+.ntc-block__title::before { content: ""; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--ntc-accent, var(--ds-brand)); }
+.ntc-block__num { flex: none; color: var(--ntc-accent-ink, var(--ds-brand)); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.ntc-block--caution { --ntc-accent: var(--ds-caution); --ntc-accent-ink: var(--ds-caution-ink); }
+.ntc-block__intro { margin-bottom: var(--ds-space-md) !important; color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+.ntc-block__note { margin-top: var(--ds-space-sm) !important; color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+
+/* 小見出し（03 の中の区分）：本文より一段だけ強く */
+.ntc-sub { margin: var(--ds-space-xl) 0 var(--ds-space-xs); color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); }
+.ntc-block__intro + .ntc-sub { margin-top: 0; }
+
+/* ---- 01：対応できない作業・荷物（SERVICE の対象外カードと同じ形） ---- */
+.ntc-ng { display: grid; gap: var(--ds-space-xs); margin: 0; padding: 0; list-style: none; }
+.ntc-ng li {
+  display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: center;
+  min-height: 48px; padding: 10px 13px; border: 1px solid var(--ds-caution-line); border-radius: var(--ds-radius-md); background: var(--ds-caution-bg);
+  color: var(--ds-heading); font-size: var(--ds-fs-card); line-height: 1.65;
+}
+.ntc-ng li::before {
+  content: ""; width: 16px; height: 16px; border: 1px solid var(--ds-caution-ring); border-radius: 50%;
+  background: linear-gradient(var(--ds-caution-ink), var(--ds-caution-ink)) center / 6px 1.5px no-repeat;
+}
+
+/* ---- 02・03：罫線で区切った箇条書き（先頭に青の小さな点） ---- */
+.ntc-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ds-line); }
+.ntc-list li {
+  position: relative; padding: var(--ds-space-sm) 0 var(--ds-space-sm) var(--ds-space-lg); border-bottom: 1px solid var(--ds-line);
+  color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em;
+}
+.ntc-list li::before { content: ""; position: absolute; left: 6px; top: calc(var(--ds-space-sm) + .85em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--ds-brand); }
+/* 文節の囲みは1行目が短く切れて見えるため、この一覧では通常の折り返しに（金額の .nobr だけ1まとまりのまま） */
+.ntc-list .text-phrase { display: inline; }
+/* 金額：SERVICE の帯と同じ「青の太字＋淡い金のマーカー」 */
+.ntc-list strong { white-space: nowrap; padding-inline: 2px; color: var(--ds-brand); font-weight: var(--ds-fw-bold); background: linear-gradient(transparent 62%, var(--ds-highlight-soft) 62%); }
+
+/* ---- 03：料金表（PRICE「追加料金の一例」と同じ1行の表） ---- */
+.ntc-fees { margin: 0; border-top: 1px solid var(--ds-line); }
+.ntc-fees__row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: var(--ds-space-sm);
+  min-height: 52px; padding-block: var(--ds-space-sm); border-bottom: 1px solid var(--ds-line);
+}
+.ntc-fees__row dt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--ds-space-xs); min-width: 0; }
+.ntc-fees__name { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); }
+.ntc-fees__note { margin-left: auto; color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+.ntc-fees__price { margin: 0; color: var(--ds-heading); font-size: 1.0625rem; font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); text-align: right; font-variant-numeric: tabular-nums; }
+.ntc-fees__unit { margin-left: 1px; font-size: var(--ds-fs-label); font-weight: var(--ds-fw-medium); }
+.ntc-fees__price--text { color: var(--ds-body); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-heading); }
+
+/* ---- 04：キャンセル料金（期間｜料率） ---- */
+.ntc-cancel { margin: 0; overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); }
+.ntc-cancel__row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: var(--ds-space-sm);
+  min-height: 60px; padding: var(--ds-space-sm) var(--ds-space-md); background: var(--ds-bg);
+}
+.ntc-cancel__row + .ntc-cancel__row { border-top: 1px solid var(--ds-line); }
+.ntc-cancel__row dt { color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); }
+.ntc-cancel__row dd { display: flex; align-items: baseline; gap: var(--ds-space-2xs); margin: 0; }
+.ntc-cancel__base { color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); }
+.ntc-cancel__rate { min-width: 3.2em; color: var(--ds-brand); font-size: 1.25rem; font-weight: var(--ds-fw-bold); line-height: 1.2; text-align: right; font-variant-numeric: tabular-nums; }
+/* 当日（100%）だけ対象外カードと同じ茶の面で注意を示す（茶の文字は淡い面でも 4.5:1 以上） */
+.ntc-cancel__row--full { background: var(--ds-caution-bg); }
+.ntc-cancel__row--full .ntc-cancel__rate { color: var(--ds-caution-ink); }
+
+/* ---- 狭い画面（〜359px） ---- */
+@media (max-width: 359px) {
+  .ntc-hero__title { font-size: 1.5rem; }
+  .ntc-cancel__row { padding-inline: var(--ds-space-sm); }
+}
+
+/* ---- タブレット（600px〜） ---- */
+@media (min-width: 600px) {
+  .ntc-hero > .container, .ntc__layout { max-width: calc(36rem + 2 * var(--page-gutter)); }
+  .ntc-hero .breadcrumb { padding-top: var(--ds-space-lg); }
+  .ntc-hero__title { font-size: 2.25rem; }
+}
+
+/* ---- PC（960px〜）：左に目次（追従）、右に本文 ---- */
+@media (min-width: 960px) {
+  .ntc-hero > .container, .ntc__layout { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+  .ntc-hero__title { font-size: 2.5rem; }
+  .ntc-hero__lead { font-size: 1.0625rem; }
+  .ntc__layout { grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); column-gap: 56px; align-items: start; }
+  .ntc-toc { position: sticky; top: calc(var(--header-height) + var(--ds-space-lg)); }
+  .ntc__body { max-width: 44rem; }
+}
+
+/* ==== 旧指定（2026-11-12 まで。.important-notes__* の帯見出し・破線の箇条書き）。戻す場合は HTML のコメントと合わせて、内側の「*\/」を元に戻して復元する ====
+/\* ==========================================================================
+   ご利用前の確認事項ページ専用スタイル
+   ========================================================================== *\/
 
 .important-notes__section {
   margin-bottom: 40px;
@@ -21,7 +167,7 @@
   font-weight: 700;
 }
 
-/* --- 注意事項／追加料金／対応不可条件：アイコン付きリスト ------------------------ */
+/\* --- 注意事項／追加料金／対応不可条件：アイコン付きリスト ------------------------ *\/
 .important-notes__list {
   display: flex;
   flex-direction: column;
@@ -63,7 +209,7 @@
   color: var(--c-danger);
 }
 
-/* --- キャンセル料金：期間と料率の対応リスト ------------------------------------ */
+/\* --- キャンセル料金：期間と料率の対応リスト ------------------------------------ *\/
 .important-notes__cancel-list {
   display: flex;
   flex-direction: column;
@@ -105,3 +251,4 @@
   color: var(--c-label);
   margin-top: 12px;
 }
+*/
