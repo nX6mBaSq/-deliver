@@ -30,9 +30,9 @@
 }
 
 /* ---- ヘッダーの高さ：ロゴ（28px / 34px）に対して帯が高く頭でっかちに見えないよう詰める ----
-   スマホ 60px・PC 72px。ドロワー上端（.nav-drawer__head）も同じ値を使い、開閉で位置がずれないようにする */
-:root { --header-bar: 60px; }
-@media (min-width: 960px) { :root { --header-bar: 72px; } }
+   スマホ 64px・PC 76px（2026-11-12：60／72px では詰まりすぎたため 4px ずつ戻す）。ドロワー上端（.nav-drawer__head）も同じ値を使い、開閉で位置がずれないようにする */
+:root { --header-bar: 64px; }
+@media (min-width: 960px) { :root { --header-bar: 76px; } }
 .header .header__inner { min-height: var(--header-bar); padding-block: 8px; }
 .header .header__nav a { padding-block: 8px; }
 .header .header__nav .header__estimate {
