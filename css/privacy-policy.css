@@ -1,6 +1,126 @@
 /* ==========================================================================
-   プライバシーポリシーページ専用スタイル
+   プライバシーポリシーページ（2026-11-12 トップページのデザインシステムに合わせて更新）
+   色・文字・余白は css/design-system.css のトークン（--ds-*）だけで指定する。
+   部品は「ご利用前の確認事項」ページ（.ntc-*）と同じ形：
+     ページ見出し＝SERVICE の見出し（英字の小見出し＋h1＋リード）
+     目次＝CTA「ご予約前の確認事項」と同じ1行ずつの一覧（PC は左に追従）
+     各条の見出し＝青の縦線見出し（条番号は線の右に小さく）
+     第9条の窓口＝ラベル列｜値の表
+   旧 .page-hero / .policy__* の指定が複数ファイルに残っているため、新しい .pol-* で組む。
+   旧指定はこのファイルの末尾にコメントで残している。
    ========================================================================== */
+
+/* ---- ページ見出し ---- */
+.pol-hero { padding-block: 0 var(--ds-intro-gap); background: var(--ds-bg-alt); color: var(--ds-body); }
+.pol-hero > .container { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.pol-hero p { margin: 0; }
+.pol-hero .breadcrumb { padding-top: var(--ds-space-md); margin-bottom: var(--ds-space-xl); color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); }
+.pol-hero .breadcrumb a { color: var(--ds-brand); }
+.pol-hero .breadcrumb li + li::before { color: var(--ds-sub); }
+.pol-hero__label {
+  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: var(--ds-eyebrow-gap) !important;
+  color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.pol-hero__label::before { content: ""; flex: none; width: 24px; height: 2px; background: currentColor; }
+.pol-hero__title {
+  margin: 0 0 var(--ds-lead-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
+}
+.pol-hero__lead { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+
+/* ---- 本文の枠 ---- */
+.pol { padding-block: var(--ds-intro-gap) var(--ds-section-y); background: var(--ds-bg); color: var(--ds-body); }
+.pol p { margin: 0; }
+.pol__layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ds-block-gap); max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.pol__body { min-width: 0; }
+.pol__intro { padding-bottom: var(--ds-space-xl); border-bottom: 1px solid var(--ds-line); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+.pol-link { color: var(--ds-brand); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
+
+/* ---- 目次：CTA の「ご予約前の確認事項」と同じ、1行ずつタップできる一覧 ---- */
+.pol-toc { padding: var(--ds-space-md) var(--ds-space-md) var(--ds-space-xs); border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg-alt); }
+.pol-toc__title { padding-inline: var(--ds-space-2xs); color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); }
+.pol-toc__list { margin: var(--ds-space-xs) 0 0; padding: 0; list-style: none; }
+.pol-toc__list li + li { border-top: 1px solid var(--ds-line); }
+.pol-toc__list a {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) 16px; align-items: center; gap: var(--ds-space-sm);
+  min-height: var(--ds-tap); padding: var(--ds-space-xs) var(--ds-space-2xs);
+  color: var(--ds-heading); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-item); text-decoration: none;
+}
+.pol-toc__num { color: var(--ds-brand); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.pol-toc__icon { display: block; color: var(--ds-brand); transition: transform .2s; }
+@media (hover: hover) and (pointer: fine) {
+  .pol-toc__list a:hover { color: var(--ds-brand-hover); }
+  .pol-toc__list a:hover .pol-toc__icon { transform: translateY(2px); }
+}
+
+/* ---- 各条：罫線で区切り、見出しは青の縦線＋小さな条番号 ---- */
+.pol-article { padding-block: var(--ds-space-xl); border-bottom: 1px solid var(--ds-line); scroll-margin-top: calc(var(--header-height) + var(--ds-space-md)); }
+.pol-article:last-child { padding-bottom: 0; border-bottom: 0; }
+.pol-article__title {
+  display: flex; align-items: center; gap: var(--ds-space-xs); margin: 0 0 var(--ds-heading-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em;
+}
+.pol-article__title::before { content: ""; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--ds-brand); }
+.pol-article__num { flex: none; color: var(--ds-brand); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.pol-article__text { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+.pol-article__text + .pol-article__text { margin-top: var(--ds-space-sm) !important; }
+.pol-article__text + .pol-list, .pol-list + .pol-article__text, .pol-article__text + .pol-info { margin-top: var(--ds-space-md) !important; }
+.pol-article__note { margin-top: var(--ds-space-md) !important; color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+
+/* ---- 箇条書き：番号（淡い青の丸に青の数字）／点（青の小さな点）／入れ子（淡い面に白抜きの点） ---- */
+.pol-list { display: grid; gap: var(--ds-space-sm); margin: 0; padding: 0; list-style: none; counter-reset: pol; font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+.pol-list > li { position: relative; padding-left: var(--ds-space-lg); }
+.pol-list--num > li { counter-increment: pol; padding-left: 2rem; }
+.pol-list--num > li::before {
+  content: counter(pol); position: absolute; left: 0; top: calc(.85em - 11px); display: grid; place-items: center;
+  width: 22px; height: 22px; border-radius: 50%; background: var(--ds-tint);
+  color: var(--ds-brand); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); line-height: 1; font-variant-numeric: tabular-nums;
+}
+.pol-list--dot > li::before { content: ""; position: absolute; left: 6px; top: calc(.85em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--ds-brand); }
+.pol-sublist { display: grid; gap: var(--ds-space-xs); margin: var(--ds-space-sm) 0 0; padding: var(--ds-space-sm) var(--ds-space-md); list-style: none; border-radius: var(--ds-radius-md); background: var(--ds-bg-alt); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+.pol-sublist > li { position: relative; padding-left: var(--ds-space-md); }
+.pol-sublist > li::before { content: ""; position: absolute; left: 0; top: calc(.85em - 3.5px); width: 7px; height: 7px; box-sizing: border-box; border: 1.5px solid var(--ds-brand); border-radius: 50%; }
+/* 文節の囲みは1行目が短く切れて見えるため、この本文では通常の折り返しに */
+.pol-list .text-phrase, .pol-sublist .text-phrase { display: inline; }
+
+/* ---- 第9条：お問い合わせ窓口（ラベル列｜値） ---- */
+.pol-info { margin: 0; border-top: 1px solid var(--ds-line); }
+.pol-info__row {
+  display: grid; grid-template-columns: var(--ds-label-col) minmax(0, 1fr); column-gap: var(--ds-col-gap); align-items: baseline;
+  padding-block: var(--ds-space-sm); border-bottom: 1px solid var(--ds-line);
+}
+.pol-info__row dt { color: var(--ds-sub); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-item); }
+.pol-info__row dd { margin: 0; color: var(--ds-heading); font-size: var(--ds-fs-body); line-height: var(--ds-lh-item); }
+
+/* ---- 狭い画面（〜359px） ---- */
+@media (max-width: 359px) {
+  .pol-hero__title { font-size: 1.5rem; }
+  .pol-info__row { grid-template-columns: 64px minmax(0, 1fr); column-gap: 10px; }
+}
+
+/* ---- タブレット（600px〜） ---- */
+@media (min-width: 600px) {
+  .pol-hero > .container, .pol__layout { max-width: calc(36rem + 2 * var(--page-gutter)); }
+  .pol-hero .breadcrumb { padding-top: var(--ds-space-lg); }
+  .pol-hero__title { font-size: 2.25rem; }
+  .pol-info__row { grid-template-columns: 7rem minmax(0, 1fr); }
+}
+
+/* ---- PC（960px〜）：左に目次（追従）、右に本文 ---- */
+@media (min-width: 960px) {
+  .pol-hero > .container, .pol__layout { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+  .pol-hero__title { font-size: 2.5rem; }
+  .pol-hero__lead { font-size: 1.0625rem; }
+  /* 条の名前が長いため、確認事項ページ（17rem）より目次を少し広く */
+  .pol__layout { grid-template-columns: minmax(0, 18.5rem) minmax(0, 1fr); column-gap: 56px; align-items: start; }
+  .pol-toc { position: sticky; top: calc(var(--header-height) + var(--ds-space-lg)); max-height: calc(100vh - var(--header-height) - 2 * var(--ds-space-lg)); overflow-y: auto; }
+  .pol__body { max-width: 44rem; }
+}
+
+/* ==== 旧指定（2026-11-12 まで。.policy__* の罫線見出し・14px の本文）。戻す場合は HTML のコメントと合わせて、内側の「*\/」を元に戻して復元する ====
+/\* ==========================================================================
+   プライバシーポリシーページ専用スタイル
+   ========================================================================== *\/
 
 .policy__intro {
   font-size: 14px;
@@ -47,12 +167,12 @@
   margin-top: 12px;
 }
 
-/*
+/\*
  * 注意: common.cssのリセットで ul,ol { list-style:none } としているため、
  * 番号付きリストはここで明示的に list-style を指定し直す。
  * また、display:flex/grid をリスト本体に使うとマーカー(::marker)が
  * 描画されなくなる仕様があるため、間隔調整は li の margin で行う。
- */
+ *\/
 .policy__list {
   list-style: decimal;
   padding-left: 1.4em;
@@ -93,3 +213,4 @@
   color: var(--c-link);
   border-bottom: 1px solid var(--c-link);
 }
+*/
