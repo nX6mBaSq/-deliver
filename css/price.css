@@ -84,8 +84,8 @@
 /* 説明文 → 地図の順（見出しの直下に説明文、その下に地図） */
 /* 地図：画像の淡い青が背景（--ds-bg-alt）に溶けて輪郭が見えないため、画像だけを白い面＋線＋角丸で囲む（2026-11-12）。
    旧指定：.fees .area-figure { margin: var(--ds-space-md) 0 0; border-radius: var(--ds-radius-md); } */
-/* 2026-11-12 地図を見出しの上へ。料金画像 → 追加料金の見出しと同じく、画像から見出しまで 32px（旧：説明文の下 margin: var(--ds-space-md) 0 0） */
-.fees .area-figure { margin: 0 0 var(--ds-space-xl); overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg); }
+/* 2026-11-12 地図を見出しの上に置く案（margin: 0 0 var(--ds-space-xl)）も試したが、説明文の下 16px に決定 */
+.fees .area-figure { margin: var(--ds-space-md) 0 0; overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg); }
 /* 2026-11-12 追加料金の一例の説明文（.fees__addon-intro）とそろえて 14px・補足色に（旧：color: var(--ds-body); font-size: var(--ds-fs-body);） */
 .fees .area__desc { margin-top: 0; color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); text-align: left; }
 
