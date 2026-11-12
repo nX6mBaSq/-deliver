@@ -18,9 +18,27 @@
 }
 .fees .section-intro { margin-top: var(--ds-lead-gap); color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
 
-/* ---- カード（基本料金・追加料金・対応エリア・行き先別）：角丸と内側余白をそろえる ---- */
+/* ---- 基本料金画像：角丸 ---- */
+.fees .fees__base { border-radius: var(--ds-radius-lg); }
+
+/* ---- 行き先別の料金目安：カードをやめる（2026-11-12）。旧指定：
+.fees .fees__base, .fees .fees__estimate { border-radius: var(--ds-radius-lg); }
+.fees .fees__estimate { padding: var(--ds-space-lg); }
+   ほか 〜359px の padding、960px〜 の padding: 28px・layout.css の border / border-radius、colors.css の白背景も外している */
+.fees .fees__estimate { padding: 0; border: 0; border-radius: 0; background: none; }
+
+/* ---- 追加料金の一例：カードをやめ、SERVICE の「お客様にお願いすること」と同じ縦線見出しで始める（2026-11-12）
+   旧指定（白いカード）：
 .fees .fees__base, .fees .fees__addon, .fees .fees__estimate { border-radius: var(--ds-radius-lg); }
 .fees .fees__addon, .fees .fees__estimate { padding: var(--ds-space-lg); }
+   ほか 〜359px・960px〜 の .fees__addon の padding も同様に外している */
+.fees .fees__addon { padding: 0; border: 0; border-radius: 0; background: none; }
+/* 縦線見出しは「対応エリア」にも適用（2026-11-12）。旧指定：.fees .fees__addon-label { … } / .fees .fees__addon-label::before { … } */
+/* 「行き先別の料金目安」は対応エリアの中の小見出し（h4）なので縦線を付けない（2026-11-12） */
+.fees :is(.fees__addon-label, .fees__area-label) { display: flex; align-items: center; gap: var(--ds-space-xs); }
+.fees :is(.fees__addon-label, .fees__area-label)::before { content: ''; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--ds-brand); }
+/* 面がなくなるので、一覧の下端にも線を引いて表を閉じる */
+.fees .fees__addon-item:last-child { border-bottom: 1px solid var(--ds-line); }
 
 /* ---- ブロック見出し（カード内の h3） ---- */
 .fees :is(.fees__addon-label, .fees__area-label, .fees__estimate-label) {
@@ -35,7 +53,8 @@
 .fees .fees__addon-item { border-color: var(--ds-line); }
 .fees .fees__addon-name { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); }
 .fees .fees__addon-note { margin-top: 2px; color: var(--ds-sub); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-body); }
-.fees .fee-icon { background: var(--ds-tint-strong); color: var(--ds-brand); }
+/* アイコン（Font Awesome Free 7.3.1 route / stairs / building）：角丸の四角（layout.css の border-radius: 10px）から丸型へ（2026-11-12） */
+.fees .fee-icon { border-radius: var(--ds-radius-pill); background: var(--ds-tint-strong); color: var(--ds-brand); }
 .fees :is(.fees__addon-price, .fees__route-price) { color: var(--ds-heading); }
 
 /* 「追加料金・オプションをすべて見る」：ボタン型のまま、色と文字をトークンに */
@@ -50,20 +69,29 @@
 
 /* ---- 対応エリア ---- */
 /* 説明文 → 地図の順（見出しの直下に説明文、その下に地図） */
-.fees .area-figure { margin: var(--ds-space-md) 0 0; border-radius: var(--ds-radius-md); }
+/* 地図：画像の淡い青が背景（--ds-bg-alt）に溶けて輪郭が見えないため、画像だけを白い面＋線＋角丸で囲む（2026-11-12）。
+   旧指定：.fees .area-figure { margin: var(--ds-space-md) 0 0; border-radius: var(--ds-radius-md); } */
+.fees .area-figure { margin: var(--ds-space-md) 0 0; overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg); }
 .fees .area__desc { margin-top: 0; color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); text-align: left; }
 
-/* ---- 行き先別の料金目安 ---- */
+/* ---- 行き先別の料金目安：対応エリアの中の小見出し（h4）。縦線なし・項目名と同じ大きさにして、対応エリアの h3 より一段下げる ---- */
 .fees .fees__estimate { margin-top: 0; }
+.fees .fees__estimate > .fees__estimate-label {
+  margin: 0 0 var(--ds-space-sm); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item);
+}
 
 /* ---- カードの間隔（〜959px）：同じまとまりのカードは 16px、料金 → 対応エリアはブロック間隔、地図 → 行き先別は 32px ---- */
 @media (max-width: 959px) {
   .fees .fees__columns { row-gap: var(--ds-block-gap); }
-  .fees .fees__pricing { gap: var(--ds-space-md); }
+  /* 基本料金画像 → 追加料金：カードをやめたため 16px → 32px（料金 → 対応エリアの 48px より狭くして、同じまとまりに見せる） */
+  .fees .fees__pricing { gap: var(--ds-space-xl); }
   .fees .fees__coverage { gap: var(--ds-space-xl); }
   /* refresh.css の旧配置（grid-column 2・grid-row 2〜4）が残ると、768px〜で列の先頭に空の行や左の空き列ができ、
      カードの上端がずれたり、対応エリア以下が右に寄ったりする */
   .fees :is(.fees__base, .fees__addon, .fees__area, .fees__estimate) { grid-column: auto; grid-row: auto; }
+  /* 行き先別（縦に並ぶ一覧）：カードがなくなったので、追加料金の一覧と同じ実線で上下を閉じる（旧：行の間だけ点線） */
+  .fees .fees__routes { gap: 0; border-top: 1px solid var(--ds-line); }
+  .fees .fees__route, .fees .fees__route:last-child { border-bottom: 1px solid var(--ds-line); }
 }
 .fees .fees__route { border-color: var(--ds-line); }
 .fees .fees__route-path { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); }
@@ -72,7 +100,6 @@
 /* ---- 狭い画面（〜359px）：カード内の余白を詰め、項目名を語の途中で折り返さない ---- */
 @media (max-width: 359px) {
   .fees .section-heading__title { font-size: 1.5rem; }
-  .fees .fees__addon, .fees .fees__estimate { padding: var(--ds-space-lg) var(--ds-space-md); }
   .fees .fees__addon-name { word-break: keep-all; white-space: nowrap; }
   .fees .fees__route-path { font-size: var(--ds-fs-card); }
 }
@@ -84,6 +111,17 @@
 @media (min-width: 960px) {
   .fees .section-heading__title { font-size: 2.5rem; }
   .fees .section-intro { font-size: 1.0625rem; }
-  .fees .fees__addon, .fees .fees__estimate { padding: 28px; }
-  .fees .fees__estimate > .fees__estimate-label { margin-bottom: var(--ds-space-lg); }
+  /* 列の間隔 24px ＋ 8px ＝ 画像から 32px（スマホと同じ） */
+  .fees .fees__addon { margin-top: var(--ds-space-xs); }
+  /* 対応エリア＋行き先別を右の列にまとめる（2026-11-12）：行き先別は対応エリアの一部なので、横いっぱいの帯をやめ、地図の下に置く。
+     旧指定（layout.css）：.fees__coverage { display: contents; } / .fees__area { grid-column: 6 / 13; grid-row: 1 / 3; } /
+                          .fees__estimate { grid-column: 1 / -1; grid-row: 3; } */
+  .fees .fees__coverage { display: flex; flex-direction: column; gap: var(--ds-space-xl); grid-column: 6 / 13; grid-row: 1 / 3; align-self: start; }
+  .fees .fees__coverage > * { grid-column: auto; grid-row: auto; }
+  .fees .fees__estimate > .fees__routes { gap: var(--ds-space-md); }
+  /* 対応エリア：PCだけ付いていた白いカードをやめる（2026-11-12）。地図も行の高さまで引き伸ばさず、画像の比率のまま表示する。
+     旧指定（layout.css）：.fees__area { … align-self: stretch; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+                          .fees__area .area-figure { flex: 1; display: grid; place-items: center; background: var(--paper); } */
+  .fees .fees__area { align-self: start; padding: 0; border: 0; border-radius: 0; background: none; }
+  .fees .fees__area .area-figure { flex: none; display: block; }
 }
