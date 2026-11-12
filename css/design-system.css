@@ -64,6 +64,9 @@
   --ds-gutter: 20px;                 /* スマホの左右余白（600px〜は --page-gutter） */
   --ds-section-y: 48px;              /* セクション上下。600px〜 64px、960px〜 88px */
   --ds-block-gap: 48px;              /* セクション内のブロック間。960px〜 64px */
+  --ds-eyebrow-gap: 14px;            /* 英字の小見出し → セクション見出し h2 */
+  --ds-lead-gap: 16px;               /* セクション見出し h2 → リード */
+  --ds-intro-gap: 32px;              /* セクション見出しのまとまり → 内容。600px〜 40px、960px〜 48px */
   --ds-heading-gap: 14px;            /* ブロック見出し → 内容 */
   --ds-link-gap: 6px;                /* 内容 → 「詳細を見る」リンク */
   --ds-label-col: 72px;              /* ラベル列の幅（〜359px は 64px） */
@@ -82,8 +85,8 @@
   :root { --page-gutter: var(--ds-gutter); }
 }
 @media (min-width: 600px) {
-  :root { --ds-section-y: 64px; --ds-fs-block: 1.25rem; --ds-fs-list-title: 1.125rem; }
+  :root { --ds-section-y: 64px; --ds-intro-gap: 40px; --ds-fs-block: 1.25rem; --ds-fs-list-title: 1.125rem; }
 }
 @media (min-width: 960px) {
-  :root { --ds-section-y: 88px; --ds-block-gap: 64px; }
+  :root { --ds-section-y: 88px; --ds-block-gap: 64px; --ds-intro-gap: 48px; }
 }

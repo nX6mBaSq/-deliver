@@ -8,9 +8,9 @@
 .process.section { padding-block: var(--ds-section-y); background: var(--ds-bg-alt); color: var(--ds-body); }
 
 /* ---- セクション見出し：SERVICE・積載と同じ形（英字の小見出し → 2行の h2、後半を青） ---- */
-.process.section .section-heading { margin-bottom: var(--ds-space-xl); }
+.process.section .section-heading { gap: 0; margin-bottom: var(--ds-intro-gap); }
 .process.section .section-heading__label {
-  margin: 0 0 14px; color: var(--ds-brand);
+  margin: 0 0 var(--ds-eyebrow-gap); color: var(--ds-brand);
   font-family: inherit; font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .process.section .section-heading__label::before { width: 24px; height: 2px; }

@@ -16,19 +16,19 @@
 
 /* 導入（SERVICE と同じセクション見出しの形） */
 .cap__label {
-  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: 14px !important;
+  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: var(--ds-eyebrow-gap) !important;
   color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .cap__label::before { content: ''; flex: none; width: 24px; height: 2px; background: currentColor; }
 .cap__title {
-  margin: 0 0 var(--ds-space-md); color: var(--ds-heading);
+  margin: 0 0 var(--ds-lead-gap); color: var(--ds-heading);
   font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
 }
 .cap__title em { font-style: normal; color: var(--ds-brand); }
 .cap__lead { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
 
 /* 荷室の図：SERVICE の写真と同じく左右余白の内側に収め、角丸12px。番号はHTMLで重ね、寸法表の 01・02 と対応させる */
-.cap__figure { position: relative; margin: var(--ds-space-lg) 0 0 !important; }
+.cap__figure { position: relative; margin: var(--ds-intro-gap) 0 0 !important; }
 .cap__visual { position: relative; overflow: hidden; border-radius: var(--ds-radius-lg); background: #e6f4fd; /* 画像の地色と同じ（装飾） */ }
 .cap__photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; }
 .cap__pin {

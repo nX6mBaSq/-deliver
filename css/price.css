@@ -6,9 +6,9 @@
 .fees.section { padding-block: var(--ds-section-y); background: var(--ds-bg-alt); color: var(--ds-body); }
 
 /* ---- セクション見出し：SERVICE と同じ寸法 ---- */
-.fees .section-heading { margin-bottom: var(--ds-space-xl); }
+.fees .section-heading { gap: 0; margin-bottom: var(--ds-intro-gap); }
 .fees .section-heading__label {
-  margin: 0 0 14px; color: var(--ds-brand);
+  margin: 0 0 var(--ds-eyebrow-gap); color: var(--ds-brand);
   font-family: inherit; font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .fees .section-heading__label::before { width: 24px; height: 2px; }
@@ -16,7 +16,7 @@
   margin: 0; color: var(--ds-heading);
   font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
 }
-.fees .section-intro { margin-top: var(--ds-space-md); color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+.fees .section-intro { margin-top: var(--ds-lead-gap); color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
 
 /* ---- カード（基本料金・追加料金・対応エリア・行き先別）：角丸と内側余白をそろえる ---- */
 .fees .fees__base, .fees .fees__addon, .fees .fees__estimate { border-radius: var(--ds-radius-lg); }
@@ -54,7 +54,17 @@
 .fees .area__desc { margin-top: 0; color: var(--ds-body); font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); text-align: left; }
 
 /* ---- 行き先別の料金目安 ---- */
-.fees .fees__estimate { margin-top: var(--ds-space-lg); }
+.fees .fees__estimate { margin-top: 0; }
+
+/* ---- カードの間隔（〜959px）：同じまとまりのカードは 16px、料金 → 対応エリアはブロック間隔、地図 → 行き先別は 32px ---- */
+@media (max-width: 959px) {
+  .fees .fees__columns { row-gap: var(--ds-block-gap); }
+  .fees .fees__pricing { gap: var(--ds-space-md); }
+  .fees .fees__coverage { gap: var(--ds-space-xl); }
+  /* refresh.css の旧配置（grid-column 2・grid-row 2〜4）が残ると、768px〜で列の先頭に空の行や左の空き列ができ、
+     カードの上端がずれたり、対応エリア以下が右に寄ったりする */
+  .fees :is(.fees__base, .fees__addon, .fees__area, .fees__estimate) { grid-column: auto; grid-row: auto; }
+}
 .fees .fees__route { border-color: var(--ds-line); }
 .fees .fees__route-path { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); }
 .fees .route-pin { color: var(--ds-brand); }

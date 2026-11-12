@@ -10,9 +10,9 @@
 .prm p, .prm figure, .prm ol { margin: 0; }
 
 /* ---- セクション見出し：SERVICE・積載・ご利用の流れと同じ形（英字の小見出し → 2行の h2、後半を青） ---- */
-.prm.section .section-heading { margin-bottom: var(--ds-space-xl); }
+.prm.section .section-heading { gap: 0; margin-bottom: var(--ds-intro-gap); }
 .prm.section .section-heading__label {
-  margin: 0 0 14px; color: var(--ds-brand);
+  margin: 0 0 var(--ds-eyebrow-gap); color: var(--ds-brand);
   font-family: inherit; font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .prm.section .section-heading__label::before { width: 24px; height: 2px; }

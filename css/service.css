@@ -17,12 +17,12 @@
 
 /* ---- 導入（セクション見出しの共通形：英字の小見出し＋2行の見出し＋リード） ---- */
 .svc__label {
-  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: 14px !important;
+  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: var(--ds-eyebrow-gap) !important;
   color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .svc__label::before { content: ''; flex: none; width: 24px; height: 2px; background: currentColor; }
 .svc__title {
-  margin: 0 0 var(--ds-space-md); color: var(--ds-heading);
+  margin: 0 0 var(--ds-lead-gap); color: var(--ds-heading);
   font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
 }
 .svc__title em { font-style: normal; color: var(--ds-brand); }
@@ -30,7 +30,7 @@
 .svc__lead strong { color: var(--ds-heading); font-weight: var(--ds-fw-bold); }
 
 /* ---- 写真＋キャプション ---- */
-.svc__figure { margin: var(--ds-space-lg) 0 0; overflow: hidden; border-radius: var(--ds-radius-lg); background: var(--ds-dark); }
+.svc__figure { margin: var(--ds-intro-gap) 0 0; overflow: hidden; border-radius: var(--ds-radius-lg); background: var(--ds-dark); }
 .svc__photo { display: block; width: 100%; height: auto; aspect-ratio: 350 / 168; object-fit: cover; object-position: center; }
 .svc__caption {
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 56px; padding: 10px var(--ds-space-md);
@@ -85,7 +85,8 @@
 .svc__item-desc { margin-top: var(--ds-space-2xs) !important; font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
 
 /* ---- 対象外：白地に項目カードを縦一列（2026-11-11 修正指示_対象外カード） ---- */
-.svc__limits { margin-top: 28px; }
+/* 前のブロックは「詳細を見る」のタップ領域（44px）で終わり、文字の下に約12pxの余白がある。見た目の間隔を --ds-block-gap にそろえる */
+.svc__limits { margin-top: calc(var(--ds-block-gap) - 12px); }
 .svc__ng { display: grid; gap: var(--ds-space-xs); margin: 0; padding: 0; list-style: none; }
 .svc__ng li {
   display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: center;
