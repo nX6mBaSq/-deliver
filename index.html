@@ -11,7 +11,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"茜deliver","description":"大阪発、少ない荷物の単身引越し。スタッフ1名とお客様の共同作業で、明朗会計と定時スタートの引越しを行います。","telephone":"+81-568-28-1105","faxNumber":"+81-568-28-6462","address":{"@type":"PostalAddress","postalCode":"480-0202","addressRegion":"愛知県","addressLocality":"西春日井郡豊山町","streetAddress":"大字豊場字大山77","addressCountry":"JP"},"areaServed":["近畿","名古屋","東京"],"founder":{"@type":"Person","name":"酒井 利明"}}</script>
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-index.min.css?v=3a3523bd">
+<link rel="stylesheet" href="css/site-index.min.css?v=cd18c930">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -126,9 +126,16 @@
       </div>
       <figure class="svc__figure">
         <img class="svc__photo" src="images/service-team-photo.webp" srcset="images/service-team-photo-700.webp 700w, images/service-team-photo.webp 1400w" sizes="(min-width: 960px) 34rem, (min-width: 600px) 36rem, calc(100vw - 40px)" width="1400" height="672" alt="お客様とスタッフが、車の荷台の前で段ボール箱を両側から一緒に持っている手元" loading="lazy" decoding="async">
+        <!-- 旧デザイン（キャプション帯のみ＋写真の外に左罫線の注記）：
         <figcaption class="svc__caption"><span>お客様</span><span class="svc__plus">＋</span><span>スタッフ</span></figcaption>
       </figure>
       <p class="svc__note"><span class="text-unit">お手伝いが難しい場合は</span><br><span class="text-unit">スタッフ追加（<strong>11,000円〜</strong>）が必要です。</span></p>
+        -->
+        <figcaption class="svc__band">
+          <p class="svc__caption"><span>お客様</span><span class="svc__plus" aria-hidden="true"></span><span class="visually-hidden">と</span><span>スタッフ</span></p>
+          <p class="svc__note"><span class="svc__note-lead">お手伝いが難しい場合は</span><span class="text-unit">スタッフ追加（<strong>11,000円〜</strong>）</span><span class="text-unit">が必要です。</span></p>
+        </figcaption>
+      </figure>
 
       <div class="svc__block svc__duties" id="duties">
         <h3 class="svc__heading">お客様にお願いすること</h3>
