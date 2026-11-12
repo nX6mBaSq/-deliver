@@ -92,6 +92,21 @@
 /* 金額：SERVICE の帯と同じ「青の太字＋淡い金のマーカー」 */
 .ntc-list strong { white-space: nowrap; padding-inline: 2px; color: var(--ds-brand); font-weight: var(--ds-fw-bold); background: linear-gradient(transparent 62%, var(--ds-highlight-soft) 62%); }
 
+/* 02「梱包」の段ボール購入リンク（URLは見せず、ボタン風のリンク文言で案内） */
+.ntc-buy { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ds-space-xs) var(--ds-space-sm); margin: var(--ds-space-xs) 0 0; }
+.ntc-buy__lead { color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-item); }
+.ntc-buy__link {
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--ds-tap); padding: 0 var(--ds-space-md);
+  border: 1px solid var(--ds-brand); border-radius: var(--ds-radius-pill); background: var(--ds-bg);
+  color: var(--ds-brand); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-semibold); line-height: 1.4; text-decoration: none;
+}
+.ntc-buy__icon { flex: none; }
+.ntc-buy__shop { font-weight: var(--ds-fw-body); }
+.ntc-buy__ext { font-size: .85em; }
+@media (hover: hover) and (pointer: fine) {
+  .ntc-buy__link:hover { background: var(--ds-brand-surface); color: var(--ds-brand-hover); }
+}
+
 /* ---- 03：料金表（PRICE「追加料金の一例」と同じ1行の表） ---- */
 .ntc-fees { margin: 0; border-top: 1px solid var(--ds-line); }
 .ntc-fees__row {
