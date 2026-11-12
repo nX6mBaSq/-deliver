@@ -273,6 +273,21 @@
   .nav-drawer :is(.contact-action--tel, .contact-action--line) .contact-action__icon { width: 28px; height: 28px; }
   .nav-drawer :is(.contact-action--tel, .contact-action--line) .contact-action__text { font-size: .875rem; letter-spacing: 0; white-space: nowrap; }
 }
+/* ---- 余白の整理（2026-11-12）----
+   4px 刻みで「近いものほど狭く」の3段にそろえる。
+   見出し→リンク 8px ＜ グループ間 32px ＜ リンク群→問い合わせ 40px以上（縦に余裕があれば下寄せでさらに空く）。
+   ヘッダー帯→最初の見出しは 28px（グループ間より少し狭くし、見出しが帯に近すぎないように）。
+   問い合わせ側はボタン間 8px・注記まで 8px・プライバシーポリシーまで 4px（リンク自体に 40px の高さがある）。 */
+.nav-drawer .nav-drawer__group-label { margin-top: var(--ds-space-xl); padding-bottom: var(--ds-space-xs); line-height: 1.4; }
+.nav-drawer .nav-drawer__group-label:first-of-type { margin-top: 28px; }
+.nav-drawer .contact-actions { padding-top: 40px; }
+/* 縦が短い画面（iPhone SE 375×667 など）は1画面に収めるため、比率を保ったまま 1段ずつ詰める（32→24・40→32） */
+@media (max-height: 700px) {
+  .nav-drawer .nav-drawer__group-label { margin-top: var(--ds-space-lg); }
+  .nav-drawer .nav-drawer__group-label:first-of-type { margin-top: var(--ds-space-lg); }
+  .nav-drawer .contact-actions { padding-top: var(--ds-space-xl); }
+}
+
 /* タブレット以上は縦に余裕があるので、下寄せをやめてリンク〜ボタンをひとかたまりで上下中央に置く */
 @media (min-width: 600px) {
   .nav-drawer .nav-drawer__list[aria-labelledby="drawer-guide-label"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }

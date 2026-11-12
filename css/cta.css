@@ -28,6 +28,27 @@
   .cta .cta__desc { font-size: var(--ds-fs-body); }
 }
 
+/* ---- 文字組（2026-11-12）----
+   札：英字 CONTACT だけ字間を広げ、スラッシュは細く間をとって和文と分ける。
+   h2：「24時間」をキーワードとして数字を大きく（約1.7倍）、黄色の下線で示す。黄色は文字色に使わない（青の面で 4.5:1 未満）ため線のみ。
+   句読点は行末で半角分に詰め、中央揃えの見た目の中心をそろえる。
+   リード：字間を少し広げ、見出しとの密度差で落ち着かせる。 */
+.cta .cta__label-en { letter-spacing: .14em; }
+.cta .cta__label-sep { margin-inline: .5em; font-weight: var(--ds-fw-medium); opacity: .55; }
+.cta .cta__title { line-height: 1.5; text-spacing-trim: trim-both; }
+.cta .cta__title-key {
+  /* 下線は背景で1本に描く（text-decoration だと数字と和文の境目で線が途切れるため） */
+  padding-bottom: .12em;
+  background: linear-gradient(var(--ds-highlight), var(--ds-highlight)) left bottom / 100% 3px no-repeat;
+  text-autospace: no-autospace; /* 数字と「時間」の間に自動の空きを入れず、下線を1本につなげる */
+}
+.cta .cta__title-num {
+  margin-inline-end: .04em;
+  font-size: 1.7em; line-height: 1; letter-spacing: .02em;
+  font-variant-numeric: lining-nums proportional-nums; font-feature-settings: normal;
+}
+.cta .cta__desc { letter-spacing: .04em; }
+
 /* ---- ご予約前の確認事項 ---- */
 .cta .contact-preparation > h3 {
   color: var(--ds-on-dark);
