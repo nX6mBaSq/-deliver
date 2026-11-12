@@ -38,6 +38,17 @@
   font-size: var(--ds-fs-small); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-body); letter-spacing: .02em;
 }
 
+/* ---- アイコンの大きさ（2026-11-12）
+   768〜959px：76px 固定。
+   〜767px：カードの「アイコン 3：文字 7」の割合は layout.css のまま保ち、アイコンだけを左の列の 82%（390px 幅で約76px）に縮めて中央に置く。
+   列が広がる幅でも 88px を超えない ---- */
+.process.section .process__item { grid-template-columns: 76px minmax(0, 1fr); }
+.process.section .process-art { width: 76px; height: 76px; }
+@media (max-width: 767px) {
+  .process.section .process__item { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); }
+  .process.section .process-art { justify-self: center; width: 82%; max-width: 88px; height: auto; aspect-ratio: 1 / 1; }
+}
+
 /* ---- 狭い画面（〜359px） ---- */
 @media (max-width: 359px) {
   .process.section .section-heading__title { font-size: 1.5rem; }
@@ -49,10 +60,9 @@
   .process.section .process__list { gap: var(--ds-space-md); }
 }
 
-/* ---- 600〜767px：スマホと同じ横並びのまま。アイコンが3割幅だと約180pxに膨らみ、文字の行が縦に間延びするため、
-   768px〜 と同じ 88px に固定し、文字の塊を上下中央に寄せる ---- */
+/* ---- 600〜767px：スマホと同じ横並びのまま。文字の塊を上下中央に寄せる ---- */
 @media (min-width: 600px) and (max-width: 767px) {
-  .process.section .process__item { grid-template-columns: 88px minmax(0, 1fr); align-content: center; column-gap: var(--ds-space-md); }
+  .process.section .process__item { align-content: center; column-gap: var(--ds-space-md); }
 }
 
 /* ---- PC（960px〜）：5列のカード（縦積み）。矢印は青1色 ---- */
@@ -60,5 +70,8 @@
   .process.section .section-heading__title { font-size: 2.5rem; }
   .process.section .process__item { padding: var(--ds-space-md) var(--ds-space-md) var(--ds-space-lg); }
   .process.section .process__item .process__title { margin-top: 0; }
-  .process.section .process__item:not(:last-child)::after { border-color: var(--ds-brand); }
+  /* アイコンはカード幅いっぱい（約175〜260px）だと文字より目立つため、112px に固定して左寄せ */
+  .process.section .process-art { width: 112px; height: 112px; }
+  /* 矢印はアイコンの中心の高さ（上余白 16px ＋ 半径 56px）にそろえる */
+  .process.section .process__item:not(:last-child)::after { top: calc(var(--ds-space-md) + 56px - 5px); border-color: var(--ds-brand); }
 }
