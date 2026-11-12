@@ -29,7 +29,7 @@
 /* ---- ご予約前の確認事項 ---- */
 .cta .contact-preparation > h3 {
   color: var(--ds-on-dark);
-  font-size: var(--ds-fs-card); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
+  font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading);
 }
 .cta .contact-preparation__links a { font-size: var(--ds-fs-small); line-height: var(--ds-lh-item); }
 @media (max-width: 767px) {

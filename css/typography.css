@@ -19,7 +19,7 @@ h1.section-heading__title { font-weight: 600; letter-spacing: .015em; }
   font-size: 1.0625rem; font-weight: 600; line-height: 1.7; letter-spacing: .015em; text-wrap: balance;
 }
 .spec__heading, .loadex__heading { font-weight: 600; line-height: 1.75; letter-spacing: .01em; }
-.section-heading__label { font-family: var(--font-en); font-size: .71875rem; font-weight: 500; line-height: 1.5; letter-spacing: .13em; }
+.section-heading__label { font-family: var(--font-en); font-size: .75rem; font-weight: 500; line-height: 1.5; letter-spacing: .13em; }
 .cta__label { font-size: .78125rem; font-weight: 500; letter-spacing: .04em; line-height: 1.65; }
 .hero__eyebrow, .small-label { font-size: .8125rem; line-height: 1.7; letter-spacing: .025em; }
 

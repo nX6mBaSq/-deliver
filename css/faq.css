@@ -45,7 +45,7 @@
 }
 .faq.section .faq__question-text {
   color: var(--ds-heading);
-  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); letter-spacing: .03em;
+  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); letter-spacing: .03em;
 }
 .faq.section .faq__toggle-icon { width: 24px; height: 24px; color: var(--ds-brand); font-size: 1.5rem; }
 
@@ -66,7 +66,7 @@
 
 /* ---- 狭い画面（〜359px） ---- */
 @media (max-width: 359px) {
-  .faq.section .section-heading__title { font-size: 1.625rem; }
+  .faq.section .section-heading__title { font-size: 1.5rem; }
   .faq.section .faq__question { padding-inline: var(--ds-space-sm); gap: var(--ds-space-xs); }
   .faq.section .faq__question-text { font-size: var(--ds-fs-card); }
   .faq.section .faq__answer-text { padding-inline: var(--ds-space-sm); }

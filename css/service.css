@@ -81,7 +81,7 @@
 .svc__steps .svc__tag { position: relative; margin-top: 1px; }
 /* 最後の項目は下余白なし：リンクまでの間隔を対象外カードと同じ（--ds-link-gap）にそろえる */
 .svc__steps li:last-child { padding-bottom: 0; }
-.svc__item-title { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); }
+.svc__item-title { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); }
 .svc__item-desc { margin-top: var(--ds-space-2xs) !important; font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
 
 /* ---- 対象外：白地に項目カードを縦一列（2026-11-11 修正指示_対象外カード） ---- */
@@ -101,7 +101,7 @@
 /* ---- 狭い画面（〜359px）・文字拡大時：ラベル列を縮め、本文列を折り返す ---- */
 @media (max-width: 359px) {
   .svc { --ds-label-col: 64px; --ds-col-gap: 10px; }
-  .svc__title { font-size: 1.625rem; }
+  .svc__title { font-size: 1.5rem; }
   .svc__caption { padding-inline: var(--ds-space-xs); font-size: .9375rem; }
   .svc__plus { padding-inline: 6px; }
 }

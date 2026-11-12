@@ -33,7 +33,7 @@
 .fees .fees__addon-intro { color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
 .fees .fees__addon-intro + .fees__addon-list { margin-top: var(--ds-space-md); border-top: 1px solid var(--ds-line); }
 .fees .fees__addon-item { border-color: var(--ds-line); }
-.fees .fees__addon-name { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); }
+.fees .fees__addon-name { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); }
 .fees .fees__addon-note { margin-top: 2px; color: var(--ds-sub); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-body); }
 .fees .fee-icon { background: var(--ds-tint-strong); color: var(--ds-brand); }
 .fees :is(.fees__addon-price, .fees__route-price) { color: var(--ds-heading); }
@@ -56,12 +56,12 @@
 /* ---- 行き先別の料金目安 ---- */
 .fees .fees__estimate { margin-top: var(--ds-space-lg); }
 .fees .fees__route { border-color: var(--ds-line); }
-.fees .fees__route-path { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); }
+.fees .fees__route-path { color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); }
 .fees .route-pin { color: var(--ds-brand); }
 
 /* ---- 狭い画面（〜359px）：カード内の余白を詰め、項目名を語の途中で折り返さない ---- */
 @media (max-width: 359px) {
-  .fees .section-heading__title { font-size: 1.625rem; }
+  .fees .section-heading__title { font-size: 1.5rem; }
   .fees .fees__addon, .fees .fees__estimate { padding: var(--ds-space-lg) var(--ds-space-md); }
   .fees .fees__addon-name { word-break: keep-all; white-space: nowrap; }
   .fees .fees__route-path { font-size: var(--ds-fs-card); }

@@ -49,7 +49,7 @@
 }
 .prm__title {
   margin: var(--ds-space-xs) 0 0; color: var(--ds-heading);
-  font-size: var(--ds-fs-list-title); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .03em; font-feature-settings: "palt";
+  font-size: var(--ds-fs-list-title); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); letter-spacing: .03em; font-feature-settings: "palt";
 }
 .prm__desc {
   margin-top: var(--ds-space-sm) !important; color: var(--ds-body);
@@ -58,7 +58,7 @@
 
 /* ---- 狭い画面（〜359px） ---- */
 @media (max-width: 359px) {
-  .prm.section .section-heading__title { font-size: 1.625rem; }
+  .prm.section .section-heading__title { font-size: 1.5rem; }
   .prm__list { padding-inline: var(--ds-space-md); }
 }
 

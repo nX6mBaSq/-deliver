@@ -62,7 +62,7 @@
 .cap__specs { margin-top: var(--ds-space-xs) !important; }
 .cap__specs > div { position: relative; padding: 14px 0 14px 38px; border-bottom: 1px solid var(--ds-line); }
 .cap__specs dt {
-  color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); letter-spacing: .03em;
+  color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); letter-spacing: .03em;
 }
 .cap__specs dd { margin-top: 2px; color: var(--ds-body); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-body); letter-spacing: .02em; }
 .cap__key {
@@ -93,7 +93,7 @@
 }
 .cap__items li:not(:nth-child(3n)) { border-right: 1px solid var(--ds-line); }
 .cap__items img { display: block; width: auto; height: 52px; margin-bottom: var(--ds-space-xs); }
-.cap__item-name { color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em; overflow-wrap: anywhere; }
+.cap__item-name { color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); letter-spacing: .02em; overflow-wrap: anywhere; }
 .cap__item-note { color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); overflow-wrap: anywhere; }
 
 .cap__note {
@@ -103,7 +103,7 @@
 
 /* ---- 狭い画面（〜359px）・文字拡大時 ---- */
 @media (max-width: 359px) {
-  .cap__title { font-size: 1.625rem; }
+  .cap__title { font-size: 1.5rem; }
   .cap__weight-value b { font-size: 2.125rem; }
   .cap__item-name { font-size: var(--ds-fs-small); }
 }

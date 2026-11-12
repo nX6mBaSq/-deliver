@@ -31,7 +31,7 @@
 }
 .process.section .process__item .process__title {
   margin-top: var(--ds-space-2xs); color: var(--ds-heading);
-  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-item); letter-spacing: .03em;
+  font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); letter-spacing: .03em;
 }
 .process.section .process__item .process__desc {
   margin-top: var(--ds-space-xs); color: var(--ds-body);
@@ -40,7 +40,7 @@
 
 /* ---- 狭い画面（〜359px） ---- */
 @media (max-width: 359px) {
-  .process.section .section-heading__title { font-size: 1.625rem; }
+  .process.section .section-heading__title { font-size: 1.5rem; }
 }
 
 /* ---- タブレット（600px〜） ---- */

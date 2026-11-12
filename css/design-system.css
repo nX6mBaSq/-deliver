@@ -31,9 +31,9 @@
   --ds-caution-line: #eae2d6;
 
   /* ---- 文字：サイズ（スマホ基準。PC での拡大は各セクションの @media で下記の値に切り替える） ---- */
-  --ds-fs-section: 1.875rem;         /* 30px セクション見出し h2。600px〜 2.25rem、960px〜 2.5rem */
-  --ds-fs-block: 1.25rem;            /* 20px ブロック見出し h3 */
-  --ds-fs-list-title: 1.125rem;      /* 18px 一覧の項目見出し（OUR PROMISE） */
+  --ds-fs-section: 1.625rem;         /* 26px セクション見出し h2。〜359px 1.5rem、600px〜 2.25rem、960px〜 2.5rem */
+  --ds-fs-block: 1.125rem;           /* 18px ブロック見出し h3。600px〜 1.25rem */
+  --ds-fs-list-title: 1.0625rem;     /* 17px 一覧の項目見出し（OUR PROMISE）。600px〜 1.125rem */
   --ds-fs-item: 1rem;                /* 16px 項目名（太字） */
   --ds-fs-body: 1rem;                /* 16px 本文・リード。960px〜 1.0625rem まで可 */
   --ds-fs-card: .9375rem;            /* 15px カード内の項目名（対象外カード） */
@@ -48,6 +48,7 @@
   /* 太さ（Noto Sans JP 400〜700 の可変フォント） */
   --ds-fw-body: 400;
   --ds-fw-medium: 500;
+  --ds-fw-semibold: 600;             /* 項目名・カード見出し（太字が続いて重く見えないように） */
   --ds-fw-bold: 700;
 
   /* ---- 余白：4px 刻みのスケール ---- */
@@ -81,7 +82,7 @@
   :root { --page-gutter: var(--ds-gutter); }
 }
 @media (min-width: 600px) {
-  :root { --ds-section-y: 64px; }
+  :root { --ds-section-y: 64px; --ds-fs-block: 1.25rem; --ds-fs-list-title: 1.125rem; }
 }
 @media (min-width: 960px) {
   :root { --ds-section-y: 88px; --ds-block-gap: 64px; }

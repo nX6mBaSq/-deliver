@@ -38,7 +38,7 @@
 
 .kv__title {
   margin: 0 0 16px; color: var(--ink);
-  font-size: clamp(1.75rem, 7.6vw, 2.25rem); font-weight: 700; line-height: 1.38; letter-spacing: .01em;
+  font-size: clamp(1.625rem, 7.2vw, 2.25rem); font-weight: 700; line-height: 1.38; letter-spacing: .01em;
   font-feature-settings: "palt"; text-wrap: nowrap;
 }
 .kv__title em { font-style: normal; color: var(--action); font-size: 1.14em; letter-spacing: .02em; }
