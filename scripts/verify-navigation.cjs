@@ -55,7 +55,7 @@ const previewDir = process.env.DESIGN_PREVIEW_DIR || 'design-preview/structure';
       assert.equal(await page.locator('#message').count(), 0, 'Representative message is consolidated into the company page');
       await page.goto(`${origin}/company.html`);
       assert(await page.locator('#company-info').isVisible(), 'Company info is shown on the company page');
-      assert(await page.locator('#message .message__body').isVisible(), 'Representative message is shown on the company page');
+      assert(await page.locator('#message .cmp-msg__body').isVisible(), 'Representative message is shown on the company page');
       await page.goto(`${origin}/important-notes.html`);
       await page.locator('.document-toc a[href="#cancel"]').click();
       const cancelBox = await page.locator('#cancel').boundingBox();

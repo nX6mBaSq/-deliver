@@ -1,6 +1,140 @@
 /* ==========================================================================
-   会社概要ページ専用スタイル
+   会社概要ページ（2026-11-12 トップページのデザインシステムに合わせて更新）
+   色・文字・余白は css/design-system.css のトークン（--ds-*）だけで指定する。
+   部品は「ご利用前の確認事項」（.ntc-*）・プライバシーポリシー（.pol-*）と同じ形：
+     ページ見出し＝SERVICE の見出し（英字の小見出し＋h1＋リード）
+     目次＝CTA「ご予約前の確認事項」と同じ1行ずつの一覧（PC は左に追従）
+     各項目の見出し＝青の縦線見出し（番号は線の右に小さく）
+     01 会社情報＝ラベル列｜値の表（プライバシーポリシー第9条と同じ）
+     02 代表メッセージ＝淡い青の面（写真・署名）＋白の面（本文）をつなげたカード。外周だけ角丸
+     「〜を見る」＝共通の詳細ボタン .ds-more
+   旧 .page-hero / .company-info__* / .message__* の指定が複数ファイルに残っているため、新しい .cmp-* で組む。
+   旧指定はこのファイルの末尾にコメントで残している。
    ========================================================================== */
+
+/* ---- ページ見出し ---- */
+.cmp-hero { padding-block: 0 var(--ds-intro-gap); background: var(--ds-bg-alt); color: var(--ds-body); }
+.cmp-hero > .container { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.cmp-hero p { margin: 0; }
+.cmp-hero .breadcrumb { padding-top: var(--ds-space-md); margin-bottom: var(--ds-space-xl); color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); }
+.cmp-hero .breadcrumb a { color: var(--ds-brand); }
+.cmp-hero .breadcrumb li + li::before { color: var(--ds-sub); }
+.cmp-hero__label {
+  display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: var(--ds-eyebrow-gap) !important;
+  color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
+}
+.cmp-hero__label::before { content: ""; flex: none; width: 24px; height: 2px; background: currentColor; }
+.cmp-hero__title {
+  margin: 0 0 var(--ds-lead-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
+}
+.cmp-hero__lead { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+
+/* ---- 本文の枠 ---- */
+.cmp { padding-block: var(--ds-intro-gap) var(--ds-section-y); background: var(--ds-bg); color: var(--ds-body); }
+.cmp p, .cmp h3 { margin: 0; }
+.cmp__layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ds-block-gap); max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+.cmp__body { display: grid; gap: var(--ds-block-gap); min-width: 0; }
+.cmp-link { color: var(--ds-brand); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
+.cmp-link__icon { display: inline-block; margin-left: var(--ds-space-2xs); vertical-align: -.05em; }
+@media (hover: hover) and (pointer: fine) { .cmp-link:hover { color: var(--ds-brand-hover); } }
+
+/* ---- 目次：CTA の「ご予約前の確認事項」と同じ、1行ずつタップできる一覧 ---- */
+.cmp-toc { padding: var(--ds-space-md) var(--ds-space-md) var(--ds-space-xs); border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg-alt); }
+.cmp-toc__title { padding-inline: var(--ds-space-2xs); color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); }
+.cmp-toc__list { margin: var(--ds-space-xs) 0 0; padding: 0; list-style: none; }
+.cmp-toc__list li + li { border-top: 1px solid var(--ds-line); }
+.cmp-toc__list a {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) 16px; align-items: center; gap: var(--ds-space-sm);
+  min-height: 52px; padding: var(--ds-space-sm) var(--ds-space-2xs);
+  color: var(--ds-heading); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-item); text-decoration: none;
+}
+.cmp-toc__num { color: var(--ds-brand); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.cmp-toc__icon { display: block; color: var(--ds-brand); transition: transform .2s; }
+@media (hover: hover) and (pointer: fine) {
+  .cmp-toc__list a:hover { color: var(--ds-brand-hover); }
+  .cmp-toc__list a:hover .cmp-toc__icon { transform: translateY(2px); }
+}
+
+/* ---- 各項目のブロック：青の縦線＋小さな番号の見出し ---- */
+.cmp-block { scroll-margin-top: calc(var(--header-height) + var(--ds-space-md)); }
+.cmp-block__title {
+  display: flex; align-items: center; gap: var(--ds-space-xs); margin: 0 0 var(--ds-heading-gap); color: var(--ds-heading);
+  font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em;
+}
+.cmp-block__title::before { content: ""; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--ds-brand); }
+.cmp-block__num { flex: none; color: var(--ds-brand); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+
+/* ---- 01 会社情報：ラベル列｜値（「標準引越運送約款」は2行に分けて 6rem の列に収める） ---- */
+.cmp-info { margin: 0; border-top: 1px solid var(--ds-line); }
+.cmp-info__row {
+  display: grid; grid-template-columns: 6rem minmax(0, 1fr); column-gap: var(--ds-col-gap); align-items: baseline;
+  padding-block: var(--ds-space-md); border-bottom: 1px solid var(--ds-line);
+}
+.cmp-info__row dt { color: var(--ds-sub); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-item); }
+.cmp-info__row dd { margin: 0; color: var(--ds-heading); font-size: var(--ds-fs-body); line-height: var(--ds-lh-item); letter-spacing: .02em; overflow-wrap: anywhere; }
+
+/* ---- 02 代表メッセージ：淡い青の面（写真・署名）＋白の面（本文）。写真を大きく見せるため、名前の下のミニキャッチは外した（2026-11-12） ---- */
+.cmp-msg { display: grid; grid-template-columns: minmax(0, 1fr); overflow: hidden; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-lg); background: var(--ds-bg); }
+.cmp-msg__profile {
+  display: grid; grid-template-columns: 128px minmax(0, 1fr); align-items: center; gap: var(--ds-space-lg);
+  padding: var(--ds-space-lg) var(--ds-gutter); background: var(--ds-panel);
+}
+.cmp-msg__photo {
+  display: block; width: 128px; height: 128px; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%;
+  border: 4px solid var(--ds-bg); border-radius: 50%; background: var(--ds-tint);
+}
+.cmp-msg__signature { min-width: 0; }
+.cmp-msg__role { color: var(--ds-sub); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-heading); letter-spacing: .04em; }
+.cmp-msg__name { margin-top: var(--ds-space-2xs) !important; color: var(--ds-heading); font-size: var(--ds-fs-block); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); letter-spacing: .08em; }
+/* 名前のフリガナ：名前の下に小さく、補足の色で */
+.cmp-msg__kana { margin-top: 2px !important; color: var(--ds-sub); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-heading); letter-spacing: .12em; }
+.cmp-msg__content { min-width: 0; padding: var(--ds-space-lg) var(--ds-gutter) var(--ds-space-xl); }
+.cmp-msg__eyebrow { margin-bottom: var(--ds-space-sm) !important; color: var(--ds-brand); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em; }
+.cmp-msg__catch {
+  margin-bottom: var(--ds-space-md) !important; color: var(--ds-heading);
+  font-size: var(--ds-fs-list-title); font-weight: var(--ds-fw-semibold); line-height: 1.6; letter-spacing: .02em; font-feature-settings: "palt";
+}
+.cmp-msg__body { color: var(--ds-body); font-size: var(--ds-fs-body); line-height: 1.85; letter-spacing: .02em; }
+.cmp-block .ds-more { margin-top: var(--ds-link-gap); }
+
+/* ---- 狭い画面（〜359px） ---- */
+@media (max-width: 359px) {
+  .cmp-hero__title { font-size: 1.5rem; }
+  .cmp-info__row { grid-template-columns: 5rem minmax(0, 1fr); column-gap: 10px; }
+  .cmp-msg__profile { grid-template-columns: 104px minmax(0, 1fr); gap: var(--ds-space-md); }
+  .cmp-msg__photo { width: 104px; height: 104px; }
+}
+
+/* ---- タブレット（600px〜） ---- */
+@media (min-width: 600px) {
+  .cmp-hero > .container, .cmp__layout { max-width: calc(36rem + 2 * var(--page-gutter)); }
+  .cmp-hero .breadcrumb { padding-top: var(--ds-space-lg); }
+  .cmp-hero__title { font-size: 2.25rem; }
+  .cmp-info__row { grid-template-columns: 8rem minmax(0, 1fr); }
+  .cmp-msg__profile { grid-template-columns: 152px minmax(0, 1fr); gap: var(--ds-space-xl); padding: var(--ds-space-lg) var(--ds-space-xl); }
+  .cmp-msg__photo { width: 152px; height: 152px; }
+  .cmp-msg__content { padding: var(--ds-space-xl); }
+}
+
+/* ---- PC（960px〜）：左に目次（追従）、右に本文。メッセージは 写真・署名｜本文 の横並び ---- */
+@media (min-width: 960px) {
+  .cmp-hero > .container, .cmp__layout { max-width: calc(var(--content-width) + 2 * var(--page-gutter)); }
+  .cmp-hero__title { font-size: 2.5rem; }
+  .cmp-hero__lead { font-size: 1.0625rem; }
+  .cmp__layout { grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); column-gap: 56px; align-items: start; }
+  .cmp-toc { position: sticky; top: calc(var(--header-height) + var(--ds-space-lg)); }
+  .cmp__body { max-width: 44rem; }
+  .cmp-msg { grid-template-columns: 15rem minmax(0, 1fr); }
+  .cmp-msg__profile { grid-template-columns: minmax(0, 1fr); justify-items: center; align-content: center; gap: var(--ds-space-md); padding: var(--ds-space-xl) var(--ds-space-lg); text-align: center; }
+  .cmp-msg__photo { width: 184px; height: 184px; }
+  .cmp-msg__content { padding: var(--ds-space-xl) 40px; }
+}
+
+/* ==== 旧指定（2026-11-12 まで。.company-info__* の 14px の表）。戻す場合は HTML のコメントと合わせて、内側の「*\/」を元に戻して復元する ====
+/\* ==========================================================================
+   会社概要ページ専用スタイル
+   ========================================================================== *\/
 
 .company-info {
   display: flex;
@@ -37,7 +171,7 @@
   border-bottom: 1px solid var(--c-link);
 }
 
-/* --- レスポンシブ --------------------------------------------------------- */
+/\* --- レスポンシブ --------------------------------------------------------- *\/
 @media (min-width: 480px) {
   .company-info__row {
     flex-direction: row;
@@ -52,3 +186,4 @@
     flex: 1;
   }
 }
+*/
