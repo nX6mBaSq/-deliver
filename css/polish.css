@@ -4,6 +4,10 @@
 .brand-mark { display: inline-block; width: 28px; height: 28px; flex: none; color: var(--action); }
 .footer__wordmark { display: flex; align-items: center; gap: 6px; }
 .footer__wordmark .brand-mark { color: var(--gold); margin-right: 5px; }
+/* ロゴ画像（白版=フッター / 紺版=ヘッダー・ドロワー） */
+.site-logo { display: block; height: 28px; width: auto; max-width: 100%; }
+.site-logo--footer { height: 36px; }
+@media(min-width: 768px) { .site-logo { height: 34px; } .site-logo--footer { height: 40px; } }
 .footer__promise { margin: 8px 0 20px; font-size: .8125rem; color: var(--on-dark-muted); }
 .hero__edition { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-bottom: 12px; color: var(--muted); font: 500 .625rem/1.8 Arial,sans-serif; letter-spacing: .08em; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
 .hero-figure { border-radius: 4px 4px 28px 4px; }
