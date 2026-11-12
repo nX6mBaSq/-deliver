@@ -40,6 +40,37 @@
   box-shadow: 0 4px 10px -6px rgb(8 102 214 / .5);
 }
 
+/* ---- 1200px 未満の問い合わせボタン（2026-11-12 追加） ----
+   ナビが隠れる幅ではヘッダーが「ロゴ＋メニュー」だけで寂しく、スクロール中の問い合わせ導線もないため、
+   メニューボタンの左に PC の .header__estimate と同じ青ボタンを置く。高さはメニューボタンと同じ 44px */
+.header .header__inner { gap: 8px; }
+.header__cta { display: none; }
+@media (max-width: 1199px) {
+  .header .header__cta {
+    display: inline-flex; align-items: center; gap: 6px; flex: none;
+    min-height: 44px; margin-left: auto; padding: 0 16px;
+    border-radius: 6px; background: var(--action); color: var(--on-dark);
+    box-shadow: 0 4px 10px -6px rgb(8 102 214 / .5);
+    font-size: .875rem; font-weight: 600; line-height: 1; letter-spacing: .02em; white-space: nowrap;
+    text-decoration: none;
+  }
+  .header__cta-icon { flex: none; width: 16px; height: 16px; }
+  .header__cta-more { display: none; }
+}
+/* 余裕のある幅では PC と同じ文言に */
+@media (min-width: 600px) and (max-width: 1199px) {
+  .header .header__cta { padding-inline: 20px; }
+  .header__cta-more { display: inline; }
+}
+/* 小さいスマホ（〜359px）はロゴと詰まらないようアイコンを省く */
+@media (max-width: 359px) {
+  .header .header__cta { padding-inline: 12px; }
+  .header__cta-icon { display: none; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .header .header__cta:hover { background: var(--action-hover); color: var(--on-dark); }
+}
+
 /* ---- ページ最上部ではヘッダーと本文を地続きに見せる ----
    最上部：下罫線なし（白い帯として浮かないように）。
    スクロール後（.is-scrolled／common.js）：本文の上に重なるので、罫線と淡い影で区切る */
