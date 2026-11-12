@@ -11,7 +11,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"茜deliver","description":"大阪発、少ない荷物の単身引越し。スタッフ1名とお客様の共同作業で、明朗会計と定時スタートの引越しを行います。","telephone":"+81-568-28-1105","faxNumber":"+81-568-28-6462","address":{"@type":"PostalAddress","postalCode":"480-0202","addressRegion":"愛知県","addressLocality":"西春日井郡豊山町","streetAddress":"大字豊場字大山77","addressCountry":"JP"},"areaServed":["近畿","名古屋","東京"],"founder":{"@type":"Person","name":"酒井 利明"}}</script>
 
 <link rel="preload" href="fonts/noto-sans-jp-critical.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site-index.min.css?v=3b161c48">
+<link rel="stylesheet" href="css/site-index.min.css?v=0e9c3a79">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -321,6 +321,8 @@
   </section>
   -->
 
+  <!-- 旧デザインの積載セクション（2026-11-12 ブラッシュアップ前。重量の紺帯＋寸法表4行＋積載例6列の版）
+       戻す場合：下の <section class="cap"> と差し替え、この中の「<!- -」「- ->」から半角スペースを取り除き、git で 2026-11-12 以前の css/capacity.css に戻して npm run build を実行する。
   <section class="cap" id="features" aria-labelledby="features-title">
     <div class="cap__top">
       <div class="container cap__inner">
@@ -359,12 +361,92 @@
             <li><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">冷蔵庫</span><span class="cap__item-note">2ドア</span></li>
             <li><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">洗濯機</span><span class="cap__item-note">ドラム式は<wbr>対象外</span></li>
             <li><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">衣装ケース</span><span class="cap__item-note">4段</span></li>
-            <li><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ハンガー<wbr>衣類</span><span class="cap__item-note">ラック1台分</span><!-- 仮の補足：実際の目安に差し替え --></li>
+            <li><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ハンガー<wbr>衣類</span><span class="cap__item-note">ラック1台分</span><!- - 仮の補足：実際の目安に差し替え - -></li>
             <li><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ダンボール</span><span class="cap__item-note">20個程度</span></li>
-            <li><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">マットレス</span><span class="cap__item-note">シングル</span><!-- 仮の補足：実際の対応サイズに差し替え --></li>
+            <li><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">マットレス</span><span class="cap__item-note">シングル</span><!- - 仮の補足：実際の対応サイズに差し替え - -></li>
           </ul>
           <p class="cap__note"><span class="text-unit">数量・大きさは目安です。</span><span class="text-unit">積載可否は、</span><span class="text-unit">寸法・重量をもとに</span><span class="text-unit">お見積り時に確認します。</span></p>
         </div>
+
+      <!- - 写真が用意できるまで一旦非表示（仮置き16:9：実際の作業写真。差し替え時は img width="1600" height="900" alt="…" に）
+      <div class="photo-strip">
+        <p class="graphic-kicker">PHOTO / 作業のようす</p>
+        <ul class="photo-strip__list" aria-hidden="true">
+          <li><div class="ph ph--16x9 ph--navy"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">積み込みのようす</span></div></li>
+          <li><div class="ph ph--16x9 ph--sky"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">荷室への積載</span></div></li>
+          <li><div class="ph ph--16x9 ph--sand"><span class="ph__tag">PHOTO 16:9</span><span class="ph__label">保護材での梱包</span></div></li>
+        </ul>
+      </div>
+      - ->
+
+      <!- - 相談用メモは一旦非表示
+      <details class="load-planner" id="load-planner">
+        <summary><span><span class="graphic-kicker">YOUR MOVING NOTE</span>相談用の荷物メモをつくる</span><span class="planner-plus" aria-hidden="true">＋</span></summary>
+        <div class="planner-body">
+          <p class="planner-intro">運びたい荷物の個数を入力すると、相談時に使えるメモを作れます。積載可否・料金はお見積りでご案内<span class="nobr">します。</span></p>
+          <form class="planner-form" data-load-planner>
+            <fieldset><legend>運びたい荷物</legend><div class="planner-fields">
+            <label class="planner-item"><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>冷蔵庫（2ドア）</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="fridge" data-label="冷蔵庫（2ドア）" data-unit="台" aria-label="冷蔵庫（2ドア）の個数">台</span></label>
+<label class="planner-item"><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>縦型洗濯機</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="washer" data-label="縦型洗濯機" data-unit="台" aria-label="縦型洗濯機の個数">台</span></label>
+<label class="planner-item"><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>衣装ケース</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="drawers" data-label="衣装ケース" data-unit="個" aria-label="衣装ケースの個数">個</span></label>
+<label class="planner-item"><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ハンガー衣類</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="clothes" data-label="ハンガー衣類" data-unit="着" aria-label="ハンガー衣類の個数">着</span></label>
+<label class="planner-item"><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>ダンボール</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="boxes" data-label="ダンボール" data-unit="個" aria-label="ダンボールの個数">個</span></label>
+<label class="planner-item"><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span>マットレス</span><span class="planner-count"><input type="number" inputmode="numeric" min="0" max="999" step="1" value="0" name="mattress" data-label="マットレス" data-unit="枚" aria-label="マットレスの個数">枚</span></label>
+            </div></fieldset>
+            <label class="planner-extra" for="planner-extra">ほかの荷物・大きな荷物の寸法<span>例：自転車1台、マットレス 幅97 × 長さ195cm</span></label>
+            <textarea id="planner-extra" name="extra" rows="2" maxlength="500"></textarea>
+            <div class="planner-output"><label for="planner-note">相談メモ</label><textarea id="planner-note" rows="6" readonly aria-describedby="planner-help"></textarea><p id="planner-help">メモをコピーして、見積りフォームへ貼り付けてください。このページからは送信され<span class="nobr">ません。</span></p><div class="planner-actions"><button type="button" class="btn btn--form" data-copy-note>メモをコピーする<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M13 5V3H3v10h2"/></svg></button><a href="https://docs.google.com/forms/d/e/1FAIpQLScQNe0gb9h4gkDvk3hXYW2-FbsmSJg5vmP8NfN7POZzDorhOw/viewform?usp=dialog" target="_blank" rel="noopener" class="text-link planner-form-link">見積りフォームを開く<span class="external-link-icon" aria-hidden="true">↗</span><span class="visually-hidden">（新しいタブで開きます）</span></a><button type="reset" class="planner-reset">入力をクリア</button></div><p class="planner-status" role="status" aria-live="polite" data-planner-status></p></div>
+          </form>
+          <noscript><p>自動メモの作成にはJavaScriptが必要です。荷物の種類・個数・寸法を、見積りフォームまたは電話でお知らせく<span class="nobr">ださい。</span></p><style>.planner-form{display:none}</style></noscript>
+        </div>
+      </details>
+      - ->
+      </div>
+    </div>
+  </section>
+  -->
+
+  <section class="cap" id="features" aria-labelledby="features-title">
+    <div class="container cap__inner">
+      <div class="cap__intro">
+        <p class="cap__label">03 / CAPACITY</p>
+        <h2 class="cap__title" id="features-title"><span class="text-unit">荷物は、</span><br><em class="text-unit">上下2段に分けて。</em></h2>
+        <p class="cap__lead"><span class="text-unit">マットレスや布団は上へ。</span><br><span class="text-unit">家具・家電や段ボールは下へ。</span></p>
+      </div>
+
+      <figure class="cap__figure">
+        <div class="cap__visual">
+          <img class="cap__photo" src="images/capacity-cargo.webp" srcset="images/capacity-cargo-800.webp 800w, images/capacity-cargo.webp 1536w" sizes="(min-width: 960px) 34rem, (min-width: 600px) 36rem, calc(100vw - 40px)" width="1536" height="1024" alt="軽トラックの荷室を横から見たイメージ。01の上段にマットレスと布団、02の下段に冷蔵庫・衣装ケース・段ボール箱を積んでいる。" loading="lazy" decoding="async">
+          <span class="cap__pin cap__pin--upper" aria-hidden="true">01</span>
+          <span class="cap__pin cap__pin--lower" aria-hidden="true">02</span>
+        </div>
+        <figcaption class="cap__caption">荷室と積み方のイメージ</figcaption>
+      </figure>
+
+      <div class="cap__plan">
+        <dl class="cap__tiers">
+          <div class="cap__tier"><dt><span class="cap__key" aria-hidden="true">01</span>上段<span class="cap__tier-sub">ロングスペース</span></dt><dd>奥行き250 × 幅120 × 高さ60cm</dd></div>
+          <div class="cap__tier"><dt><span class="cap__key cap__key--lower" aria-hidden="true">02</span>下段<span class="cap__tier-sub">荷室</span></dt><dd>奥行き190 × 幅120 × 高さ約110cm</dd></div>
+        </dl>
+
+        <div class="cap__examples">
+          <ul class="cap__items" aria-label="1R・1Kの積載例">
+            <li><span class="cap__badge">01<span class="visually-hidden">上段</span></span><img src="images/graphics/mattress.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">マットレス</span><span class="cap__item-note">シングル</span><!-- 仮の補足：実際の対応サイズに差し替え --></li>
+            <li><span class="cap__badge cap__badge--lower">02<span class="visually-hidden">下段</span></span><img src="images/graphics/fridge.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">冷蔵庫</span><span class="cap__item-note">2ドア</span></li>
+            <li><span class="cap__badge cap__badge--lower">02<span class="visually-hidden">下段</span></span><img src="images/graphics/washer.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">洗濯機</span><span class="cap__item-note">ドラム式は<wbr>対象外</span></li>
+            <li><span class="cap__badge cap__badge--lower">02<span class="visually-hidden">下段</span></span><img src="images/graphics/drawers.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">衣装ケース</span><span class="cap__item-note">4段</span></li>
+            <li><span class="cap__badge cap__badge--lower">02<span class="visually-hidden">下段</span></span><img src="images/graphics/clothes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ハンガー<wbr>衣類</span><span class="cap__item-note">ラック1台分</span><!-- 仮の補足：実際の目安に差し替え --></li>
+            <li><span class="cap__badge cap__badge--lower">02<span class="visually-hidden">下段</span></span><img src="images/graphics/boxes.svg" alt="" width="180" height="190" loading="lazy" decoding="async"><span class="cap__item-name">ダンボール</span><span class="cap__item-note">20個程度</span></li>
+          </ul>
+        </div>
+
+        <dl class="cap__facts">
+          <div><dt>荷室全体の高さ</dt><dd>170cm</dd></div>
+          <div><dt>積載重量の目安</dt><dd>約350kg</dd></div>
+          <div><dt>使用車両サイズ</dt><dd>幅140 × 奥行き250 × 高さ250cm</dd></div>
+        </dl>
+        <p class="cap__note"><span class="text-unit">※積載例は1R・1Kの荷物の目安です。</span><span class="text-unit">積載可否は、</span><span class="text-unit">寸法・重量をもとに</span><span class="text-unit">お見積り時に確認します。</span></p>
+      </div>
 
       <!-- 写真が用意できるまで一旦非表示（仮置き16:9：実際の作業写真。差し替え時は img width="1600" height="900" alt="…" に）
       <div class="photo-strip">
@@ -399,7 +481,6 @@
         </div>
       </details>
       -->
-      </div>
     </div>
   </section>
 

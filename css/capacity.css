@@ -1,34 +1,30 @@
-/* トップの 積載（#features・2026-11-11 リニューアル）
-   デザイン：Design/CAPACITY/CAPACITY-mobile-390.png・デザイン仕様書.md・Claude向け実装指示書.md
+/* トップの 積載（#features・2026-11-11 リニューアル → 2026-11-12 ブラッシュアップ）
    色・文字・余白は css/design-system.css のトークン（--ds-*）で指定する。
    旧 .features / .capacity-* の指定が複数ファイルに残っているため、.cap__* で組み、price.css の後に読み込む。
-   スマホ：1列（荷室の図は左右余白の内側）。PC（960px〜）：導入・重量・寸法｜図、積載例は6列。 */
+   話の軸は「上下2段」。図・段の寸法・積載例のタイルを 01・02 の番号でつなぐ。積載例は空欄が出ないよう6品を1つのグリッドに並べる。
+   重量・全体の高さ・車両サイズは補足として下の1行にまとめる（強い色の帯は使わない）。
+   面の種類は「淡い水色の面（図・積載例）」と「罫線（段の寸法・補足）」の2つだけにする。
+   スマホ：1列。PC（960px〜）：左に導入と段の寸法｜右に図、積載例は6列。 */
 
-.cap { color: var(--ds-body); }
-.cap p, .cap dl, .cap dd, .cap figure { margin: 0; }
+.cap { padding-block: var(--ds-section-y); background: var(--ds-bg); color: var(--ds-body); }
+.cap p, .cap dl, .cap dd, .cap figure, .cap ol, .cap ul, .cap h3, .cap h4 { margin: 0; }
 .cap__inner { display: grid; grid-template-columns: minmax(0, 1fr); }
 
-/* ---- 背景：前後（料金・エリア／ご利用の流れ）が淡色なので、セクション全体を白にして交互にする ---- */
-.cap { background: var(--ds-bg); }
-
-/* ---- 上半分：導入・図・重量・寸法 ---- */
-.cap__top { padding-top: var(--ds-section-y); }
-
-/* 導入（SERVICE と同じセクション見出しの形） */
+/* ---- 導入（SERVICE と同じセクション見出しの形） ---- */
 .cap__label {
   display: flex; align-items: center; gap: var(--ds-space-sm); margin-bottom: var(--ds-eyebrow-gap) !important;
   color: var(--ds-brand); font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .14em;
 }
 .cap__label::before { content: ''; flex: none; width: 24px; height: 2px; background: currentColor; }
 .cap__title {
-  margin: 0 0 var(--ds-lead-gap); color: var(--ds-heading);
+  margin: 0 0 var(--ds-lead-gap) !important; color: var(--ds-heading);
   font-size: var(--ds-fs-section); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-title); letter-spacing: .02em; font-feature-settings: "palt";
 }
 .cap__title em { font-style: normal; color: var(--ds-brand); }
 .cap__lead { font-size: var(--ds-fs-body); line-height: var(--ds-lh-body); letter-spacing: .02em; }
 
-/* 荷室の図：SERVICE の写真と同じく左右余白の内側に収め、角丸12px。番号はHTMLで重ね、寸法表の 01・02 と対応させる */
-.cap__figure { position: relative; margin: var(--ds-intro-gap) 0 0 !important; }
+/* ---- 荷室の図：番号は段の行の 01・02 と同じ色で対応させる ---- */
+.cap__figure { position: relative; margin-top: var(--ds-intro-gap) !important; }
 .cap__visual { position: relative; overflow: hidden; border-radius: var(--ds-radius-lg); background: #e6f4fd; /* 画像の地色と同じ（装飾） */ }
 .cap__photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; }
 .cap__pin {
@@ -46,66 +42,50 @@
   color: var(--ds-sub); font-size: var(--ds-fs-label); font-weight: var(--ds-fw-body); line-height: var(--ds-lh-heading); letter-spacing: .02em;
 }
 
-/* 積載重量の帯 */
-.cap__data { margin-top: var(--ds-space-md); }
-.cap__weight {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--ds-space-2xs) var(--ds-space-md);
-  padding: var(--ds-space-sm) var(--ds-space-md); border-radius: var(--ds-radius-lg); background: var(--ds-dark); color: var(--ds-on-dark);
-}
-.cap__weight-label { display: grid; gap: 2px; }
-.cap__weight-sub { color: var(--ds-on-dark-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); letter-spacing: .04em; }
-.cap__weight-label strong { font-size: var(--ds-fs-item); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .04em; }
-.cap__weight-value { margin-left: auto; font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: 1; white-space: nowrap; }
-.cap__weight-value b { margin-inline: 2px; font-size: 2.5rem; letter-spacing: -.02em; font-feature-settings: "palt"; }
-
-/* 寸法表 */
-.cap__specs { margin-top: var(--ds-space-xs) !important; }
-.cap__specs > div { position: relative; padding: 14px 0 14px 38px; border-bottom: 1px solid var(--ds-line); }
-.cap__specs dt {
-  color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); letter-spacing: .03em;
-}
-.cap__specs dd { margin-top: 2px; color: var(--ds-body); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-body); letter-spacing: .02em; }
-.cap__key {
-  position: absolute; left: 0; top: 15px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
+/* ---- 段の寸法：01上段・02下段（図の番号と対応） ----
+   .cap__plan は並べ替えのための箱なので display: contents にし、中身を .cap__inner のグリッドに直接並べる */
+.cap__plan { display: contents; }
+.cap__tiers { margin-top: var(--ds-space-lg) !important; border-top: 1px solid var(--ds-line); }
+.cap__tier { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 14px; row-gap: 2px; padding-block: var(--ds-space-sm); border-bottom: 1px solid var(--ds-line); }
+.cap__tier dt { display: grid; grid-column: 1 / -1; grid-template-columns: 24px auto 1fr; column-gap: 14px; align-items: center; color: var(--ds-heading); font-size: var(--ds-fs-item); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-item); letter-spacing: .03em; }
+.cap__tier-sub { margin-left: -6px; /* 段の名前に寄せる */ color: var(--ds-sub); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); }
+.cap__tier dd { grid-column: 2; color: var(--ds-body); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-medium); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+.cap__key, .cap__badge {
+  display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
   background: var(--ds-brand); color: var(--ds-on-dark);
   font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); line-height: 1; letter-spacing: 0;
 }
-.cap__key--lower { background: var(--ds-dark); }
-/* 使用車両：荷室の寸法ではないため、淡い円＋青のトラックで区別する（位置は他の行とそろえる） */
-.cap__key--vehicle { background: var(--ds-tint-strong); color: var(--ds-brand); }
-.cap__key svg { display: block; }
+.cap__key { align-self: center; }
+.cap__key--lower, .cap__badge--lower { background: var(--ds-dark); }
 
-/* ---- 下半分：1R・1Kの積載例（寸法表からブロック間の余白で続ける） ---- */
-.cap__bottom { padding-block: var(--ds-block-gap) var(--ds-section-y); }
-.cap__heading {
-  display: flex; align-items: center; gap: var(--ds-space-xs); margin: 0 0 var(--ds-heading-gap); color: var(--ds-heading);
-  font-size: var(--ds-fs-block); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); letter-spacing: .02em;
-}
-.cap__heading::before { content: ''; flex: none; width: 3px; height: 18px; border-radius: 2px; background: var(--ds-brand); }
-
-.cap__items {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none;
-  border-top: 1px solid var(--ds-line);
-}
+/* ---- 積載例：6品を1つのグリッドに。各タイルに 01・02 の目印 ---- */
+/* 見出しは置かず、01・02 の目印で段との対応を示す。間隔は段の寸法・補足と同じ 24px */
+.cap__examples { margin-top: var(--ds-space-lg); }
+.cap__items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ds-space-xs); padding: 0; list-style: none; }
 .cap__items li {
-  display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; padding: var(--ds-space-md) var(--ds-space-2xs);
-  border-bottom: 1px solid var(--ds-line); text-align: center;
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0;
+  padding: var(--ds-space-md) var(--ds-space-2xs) var(--ds-space-sm); border-radius: var(--ds-radius-md); background: var(--ds-panel); text-align: center;
 }
-.cap__items li:not(:nth-child(3n)) { border-right: 1px solid var(--ds-line); }
-.cap__items img { display: block; width: auto; height: 52px; margin-bottom: var(--ds-space-xs); }
-.cap__item-name { color: var(--ds-heading); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); letter-spacing: .02em; overflow-wrap: anywhere; }
-.cap__item-note { color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); overflow-wrap: anywhere; }
+.cap__badge { position: absolute; top: 6px; left: 6px; width: 20px; height: 20px; font-size: .625rem; }
+.cap__items img { display: block; width: auto; height: 44px; margin-bottom: var(--ds-space-2xs); }
+.cap__item-name { color: var(--ds-heading); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading); letter-spacing: .02em; overflow-wrap: anywhere; }
+.cap__item-note { color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-heading); word-break: keep-all; overflow-wrap: anywhere; }
 
-.cap__note {
-  margin-top: var(--ds-space-md) !important; padding: 6px 0 6px 14px; border-left: 3px solid var(--ds-line-accent);
-  color: var(--ds-body); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body);
+/* ---- 補足：全体の高さ・重量・車両サイズ（ラベル｜値の行） ---- */
+.cap__facts { margin-top: var(--ds-space-lg) !important; }
+.cap__facts > div {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px var(--ds-space-md);
+  padding-block: var(--ds-space-sm); border-bottom: 1px solid var(--ds-line);
 }
+
+.cap__facts dt { color: var(--ds-sub); font-size: var(--ds-fs-small); line-height: var(--ds-lh-body); }
+.cap__facts dd { color: var(--ds-heading); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-body); letter-spacing: .02em; }
+
+.cap__note { margin-top: var(--ds-space-md) !important; color: var(--ds-sub); font-size: var(--ds-fs-label); line-height: var(--ds-lh-body); }
 
 /* ---- 狭い画面（〜359px）・文字拡大時 ---- */
 @media (max-width: 359px) {
   .cap__title { font-size: 1.5rem; }
-  .cap__weight-value b { font-size: 2.125rem; }
-  .cap__item-name { font-size: var(--ds-fs-small); }
 }
 
 /* ---- タブレット（600px〜）：1列のまま幅を絞る ---- */
@@ -114,7 +94,7 @@
   .cap__title { font-size: 2.25rem; }
 }
 
-/* ---- PC（960px〜）：導入・重量・寸法｜図、積載例は6列 ---- */
+/* ---- PC（960px〜）：導入｜図、左に導入と段の寸法、右に図。積載例は6列 ---- */
 @media (min-width: 960px) {
   .cap__inner {
     max-width: calc(var(--content-width) + 2 * var(--page-gutter));
@@ -122,15 +102,21 @@
   }
   .cap__intro { grid-column: 1; grid-row: 1; align-self: end; }
   .cap__figure { grid-column: 2; grid-row: 1 / 3; align-self: center; margin-top: 0 !important; }
-  .cap__data { grid-column: 1; grid-row: 2; margin-top: var(--ds-space-xl); }
+  .cap__tiers { grid-column: 1; grid-row: 2; align-self: start; margin-top: var(--ds-space-xl) !important; }
+  .cap__examples, .cap__facts, .cap__note { grid-column: 1 / -1; }
+  .cap__examples { margin-top: var(--ds-space-2xl); }
   .cap__title { font-size: 2.5rem; }
   .cap__lead { font-size: 1.0625rem; }
-  .cap__pin { width: 30px; height: 30px; font-size: var(--ds-fs-label); }
-
-  .cap__examples { grid-column: 1 / -1; }
-  .cap__items { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .cap__items li:nth-child(3n) { border-right: 1px solid var(--ds-line); }
-  .cap__items li:last-child { border-right: 0; }
-  .cap__items img { height: 64px; }
+  .cap__pin { width: 30px; height: 30px; }
   .cap__caption { top: var(--ds-space-sm); left: var(--ds-space-sm); }
+
+  .cap__items { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--ds-space-sm); }
+  .cap__items li { padding-top: var(--ds-space-lg); }
+  .cap__items img { height: 56px; }
+
+  .cap__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--ds-line); }
+  .cap__facts > div { display: block; padding: var(--ds-space-md) var(--ds-space-lg); border: 0; }
+  .cap__facts > div:first-child { padding-left: 0; }
+  .cap__facts > div + div { border-left: 1px solid var(--ds-line); }
+  .cap__facts dd { margin-top: 2px; font-size: var(--ds-fs-item); }
 }
