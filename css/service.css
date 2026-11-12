@@ -59,6 +59,7 @@
   background: var(--ds-tint); color: var(--ds-brand);
   font-size: var(--ds-fs-label); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); text-align: center; letter-spacing: .02em;
 }
+/* 詳細リンクは共通部品 .ds-more（css/design-system.css）に移行（2026-11-12）。旧指定（下線＋矢印）：
 .svc__more {
   display: inline-flex; align-items: center; gap: var(--ds-space-xs); min-height: var(--ds-tap); margin-top: var(--ds-link-gap);
   color: var(--ds-brand); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
@@ -67,7 +68,7 @@
 .svc__more svg { flex: none; }
 @media (hover: hover) and (pointer: fine) {
   .svc__more:hover { color: var(--ds-brand-hover); text-decoration-thickness: 2px; }
-}
+} */
 
 /* ---- 準備：ラベルを縦線でつなぐ順序リスト ---- */
 .svc__steps { margin: 0; padding: 0; list-style: none; }
@@ -86,7 +87,8 @@
 
 /* ---- 対象外：白地に項目カードを縦一列（2026-11-11 修正指示_対象外カード） ---- */
 /* 前のブロックは「詳細を見る」のタップ領域（44px）で終わり、文字の下に約12pxの余白がある。見た目の間隔を --ds-block-gap にそろえる */
-.svc__limits { margin-top: calc(var(--ds-block-gap) - 12px); }
+/* 2026-11-12 詳細リンクを線のボタンにしたため、ボタンの線から測って --ds-block-gap にする（旧：calc(var(--ds-block-gap) - 12px)） */
+.svc__limits { margin-top: var(--ds-block-gap); }
 .svc__ng { display: grid; gap: var(--ds-space-xs); margin: 0; padding: 0; list-style: none; }
 .svc__ng li {
   display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: center;

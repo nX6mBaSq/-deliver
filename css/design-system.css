@@ -70,7 +70,7 @@
   --ds-lead-gap: 16px;               /* セクション見出し h2 → リード */
   --ds-intro-gap: 32px;              /* セクション見出しのまとまり → 内容。600px〜 40px、960px〜 48px */
   --ds-heading-gap: 14px;            /* ブロック見出し → 内容 */
-  --ds-link-gap: 6px;                /* 内容 → 「詳細を見る」リンク */
+  --ds-link-gap: 20px;               /* 内容 → 「詳細を見る」ボタン（2026-11-12 線のボタン化で 6px から変更） */
   --ds-label-col: 72px;              /* ラベル列の幅（〜359px は 64px） */
   --ds-col-gap: 12px;                /* ラベル列と本文列の間（〜359px は 10px） */
   --ds-tap: 44px;                    /* リンク・ボタンのタップ領域の最小高さ */
@@ -91,4 +91,25 @@
 }
 @media (min-width: 960px) {
   :root { --ds-section-y: 88px; --ds-block-gap: 64px; --ds-intro-gap: 48px; }
+}
+
+/* ---- 部品：詳細ボタン（「〜の詳細を見る」など、内容の続きを別の場所で読ませる2番目の操作） ----
+   使い方：<a class="ds-more" href="…"><span>詳細を見る</span><svg class="ds-more__icon" aria-hidden="true" …>右矢印</svg></a>
+   線だけの丸型ボタン。ブロックの幅いっぱいに広げ、文字は左・矢印は右端。内容の --ds-link-gap 下に置く。
+   塗りのボタン（CTA）より控えめにするため、面は白のまま、線と文字を青にする。
+   2026-11-12 テキストリンク（文字＋丸の山形）から変更。旧指定：
+.ds-more { display: inline-flex; align-items: center; gap: var(--ds-space-xs); min-height: var(--ds-tap); margin-top: 6px; color: var(--ds-brand); font-size: var(--ds-fs-small); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading); text-decoration: none; letter-spacing: .02em; }
+.ds-more__icon { display: grid; place-items: center; flex: none; width: 24px; height: 24px; border-radius: var(--ds-radius-pill); background: var(--ds-tint-strong); color: var(--ds-brand); }
+.ds-more:hover .ds-more__icon { background: var(--ds-brand); color: var(--ds-bg); transform: translateX(2px); } */
+.ds-more {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--ds-space-md);
+  width: 100%; min-height: 56px; margin-top: var(--ds-link-gap); padding: var(--ds-space-sm) var(--ds-space-lg);
+  border: 1.5px solid var(--ds-brand); border-radius: var(--ds-radius-pill); background: var(--ds-bg);
+  color: var(--ds-brand); font-size: var(--ds-fs-card); font-weight: var(--ds-fw-semibold); line-height: var(--ds-lh-heading);
+  text-decoration: none; letter-spacing: .02em;
+}
+.ds-more__icon { display: block; flex: none; }
+@media (hover: hover) and (pointer: fine) {
+  .ds-more:hover { background: var(--ds-tint); color: var(--ds-brand-hover); border-color: var(--ds-brand-hover); }
+  .ds-more:hover .ds-more__icon { transform: translateX(3px); }
 }
