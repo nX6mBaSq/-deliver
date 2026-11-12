@@ -223,7 +223,8 @@
 .important-notes__heading { display: flex; align-items: center; flex-wrap: wrap; }
 
 /* 下層ページ共通のヒーロー：トップの .hero と同じ空色の帯に、パンくず・ラベル・見出し・リード・アイコンを置く */
-.page-hero { padding-block: 0 32px; background: linear-gradient(180deg, var(--sky-wash) 0%, var(--paper) 100%); }
+/* .page-hero（旧） { padding-block: 0 32px; background: linear-gradient(180deg, var(--sky-wash) 0%, var(--paper) 100%); } */
+.page-hero { padding-block: 0 32px; background: linear-gradient(180deg, var(--surface) 0%, var(--sky-wash) 55%, var(--paper) 100%); } /* 上端をヘッダーと同じ白から始め、境目をなくす */
 .page-hero > .container { max-width: calc(var(--reading-width) + 2 * var(--page-gutter)); }
 .page-hero .breadcrumb { margin-bottom: 28px; }
 .page-hero__inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }

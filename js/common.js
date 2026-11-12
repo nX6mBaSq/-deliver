@@ -2,6 +2,15 @@
  * 共通スクリプト
  * ハンバーガーメニュー（ドロワー）の開閉。全ページで読み込む。
  */
+// ヘッダー：スクロールしたら罫線と影を出す（最上部では本文と地続きに見せる）
+(function () {
+  const header = document.querySelector(".header");
+  if (!header) return;
+  const update = () => header.classList.toggle("is-scrolled", window.scrollY > 4);
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+})();
+
 (function () {
   const drawer = document.getElementById("nav-drawer");
   const openButton = document.querySelector("[data-nav-open]");

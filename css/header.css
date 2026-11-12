@@ -29,12 +29,49 @@
   --ds-radius-md: 9px;
 }
 
+/* ---- ヘッダーの高さ：ロゴ（28px / 34px）に対して帯が高く頭でっかちに見えないよう詰める ----
+   スマホ 60px・PC 72px。ドロワー上端（.nav-drawer__head）も同じ値を使い、開閉で位置がずれないようにする */
+:root { --header-bar: 60px; }
+@media (min-width: 960px) { :root { --header-bar: 72px; } }
+.header .header__inner { min-height: var(--header-bar); padding-block: 8px; }
+.header .header__nav a { padding-block: 8px; }
+.header .header__nav .header__estimate {
+  padding: 10px 20px; border-radius: 6px;
+  box-shadow: 0 4px 10px -6px rgb(8 102 214 / .5);
+}
+
+/* ---- ページ最上部ではヘッダーと本文を地続きに見せる ----
+   最上部：下罫線なし（白い帯として浮かないように）。
+   スクロール後（.is-scrolled／common.js）：本文の上に重なるので、罫線と淡い影で区切る */
+.header { border-bottom-color: transparent; transition: border-color .2s, box-shadow .2s; }
+.header.is-scrolled { border-bottom-color: var(--line); box-shadow: 0 6px 16px -12px rgb(11 47 91 / .35); }
+@media (prefers-reduced-motion: reduce) { .header { transition: none; } }
+
+/* ---- メニューボタン：丸型の三本線（閉じるボタンも同じ丸で、開閉で形が変わらないようにする） ---- */
+.header .header__menu-button,
+.nav-drawer__head .nav-drawer__close {
+  width: 44px; min-width: 44px; height: 44px; min-height: 44px;
+  padding: 0; gap: 0; border-radius: 50%;
+  background: var(--mist); color: var(--ink);
+}
+.header .menu-lines {
+  display: block; width: 18px; height: 12px;
+  border-top: 2px solid; border-bottom: 2px solid;
+  /* 中央の線 */
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat;
+}
+.nav-drawer__head .nav-drawer__close { font-size: 26px; line-height: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .header .header__menu-button:hover,
+  .nav-drawer__head .nav-drawer__close:hover { background: var(--blue-soft); }
+}
+
 /* ---- 上端：ロゴ＋閉じるボタン（.header__inner と同じ高さ・余白） ---- */
 .nav-drawer__panel { padding-top: 0; }
 .nav-drawer__head {
   position: sticky; top: 0; z-index: 1;
   display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-md);
-  min-height: 73px; /* .header__inner 72px ＋ 下罫線 1px */
+  min-height: calc(var(--header-bar) + 1px); /* .header__inner ＋ 下罫線 1px */
   margin-inline: calc(-1 * var(--space-3));
   padding: var(--safe-top) var(--page-gutter) 0;
   border-bottom: 1px solid #dce7f2; /* .header の下罫線と同じ */
