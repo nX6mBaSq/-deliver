@@ -8,9 +8,11 @@
 
 .cta { padding-block: var(--ds-section-y); }
 
-/* ---- 見出し：英字の小見出し（金）→ h2（白）→ リード ---- */
+/* ---- 見出し：英字の小見出し（黄色の札に紺）→ h2（白）→ リード ----
+   2026-11-12 配色調整：背景を料金画像の青（--ds-brand-surface）にしたため、文字はすべて白（最も明るい箇所で 4.69:1） */
 .cta .cta__label {
-  margin: 0 0 var(--ds-eyebrow-gap);
+  margin: 0 0 var(--ds-eyebrow-gap); padding: var(--ds-space-2xs) var(--ds-space-sm); border-radius: var(--ds-radius-pill);
+  background: var(--ds-highlight); color: var(--ds-heading);
   font-size: var(--ds-fs-eyebrow); font-weight: var(--ds-fw-bold); line-height: var(--ds-lh-heading);
 }
 .cta .cta__title {
@@ -19,7 +21,7 @@
   letter-spacing: .02em; font-feature-settings: "palt";
 }
 .cta .cta__desc {
-  margin: 0 0 var(--ds-intro-gap); color: var(--ds-on-dark-sub);
+  margin: 0 0 var(--ds-intro-gap); color: var(--ds-on-dark);
   font-size: var(--ds-fs-small); line-height: var(--ds-lh-body);
 }
 @media (min-width: 600px) {
@@ -74,7 +76,7 @@
 
 /* ---- 注記・個人情報リンク ---- */
 .cta .contact-actions__note {
-  margin-top: var(--ds-space-2xs); color: var(--ds-on-dark-sub);
+  margin-top: var(--ds-space-2xs); color: var(--ds-on-dark);
   font-size: var(--ds-fs-label); line-height: var(--ds-lh-body); text-align: center;
 }
 .cta .contact-policy { margin-top: var(--ds-space-sm); font-size: var(--ds-fs-small); text-align: center; }

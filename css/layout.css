@@ -6,9 +6,10 @@
 .ph { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; min-width: 0; margin: 0; padding: 12px 14px; overflow: hidden; border-radius: 6px; background: var(--blue-soft); color: var(--ink); list-style: none; }
 .ph--1x1 { aspect-ratio: 1 / 1; }
 .ph--16x9 { aspect-ratio: 16 / 9; }
-.ph--navy { background: var(--deep); color: var(--on-dark); }
-.ph--sky { background: #bfe2fa; }
-.ph--sand { background: #c9eee8; }
+.ph--navy { background: var(--night); color: var(--on-dark); }
+/* 2026-11-12 配色調整：ヒーロー・料金画像の「紺・青・黄」にそろえる（旧 #bfe2fa・ミント #c9eee8） */
+.ph--sky { background: var(--blue-soft); }
+.ph--sand { background: var(--gold-soft); }
 .ph::before { content: ''; position: absolute; top: 50%; left: 50%; width: 28px; height: 28px; margin: -22px 0 0 -14px; background: currentColor; opacity: .35;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center / contain no-repeat; }
@@ -168,14 +169,15 @@
 .contact-preparation__links a { display: inline-flex; gap: 6px; color: var(--c-link); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
 /* Phone: a translucent panel of full-width tap rows instead of bare underlined links. */
 @media (max-width: 767px) {
-  .contact-preparation { margin: 8px 0 24px; padding: 20px 20px 8px; border: 1px solid rgb(255 255 255 / .16); border-radius: 10px; background: rgb(255 255 255 / .07); }
+  /* 面は白を重ねると白文字が 4.5:1 を下回るため、紺を薄く重ねて沈める（白文字 5.2:1 以上） */
+  .contact-preparation { margin: 8px 0 24px; padding: 20px 20px 8px; border: 1px solid rgb(255 255 255 / .24); border-radius: 10px; background: rgb(0 42 128 / .14); }
   .contact-preparation > h3 { display: flex; align-items: center; gap: 8px; }
   .contact-preparation > h3::before { content: ''; width: 4px; height: 1em; border-radius: 2px; background: var(--gold); }
   .contact-preparation .contact-preparation__links { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 8px; }
-  .contact-preparation__links li + li { border-top: 1px solid rgb(255 255 255 / .14); }
+  .contact-preparation__links li + li { border-top: 1px solid rgb(255 255 255 / .2); }
   .contact-preparation__links a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding-block: 12px; color: var(--on-dark); font-size: .875rem; text-decoration: none; }
-  .contact-preparation__links a span { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: rgb(255 255 255 / .12); color: #d6ecff; font-size: .8125rem; transition: background-color .2s, transform .2s; }
-  .contact-preparation__links a:active span { background: rgb(255 255 255 / .24); transform: translateX(2px); }
+  .contact-preparation__links a span { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--on-dark); color: var(--action); font-size: .8125rem; transition: background-color .2s, transform .2s; }
+  .contact-preparation__links a:active span { background: var(--blue-soft); transform: translateX(2px); }
 }
 /* Contact methods: three equal-weight white buttons, told apart by a colored icon chip. */
 .contact-actions { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "form" "tel" "line" "reply"; gap: 12px; max-width: 30rem; margin-inline: auto; }
@@ -183,7 +185,9 @@
 .contact-action--tel { grid-area: tel; }
 .contact-action--line { grid-area: line; }
 .contact-actions__note--reply { grid-area: reply; margin-top: 4px; }
-.contact-actions__note { font-size: .75rem; line-height: 1.7; color: var(--on-dark-muted); }
+.contact-actions__note { font-size: .75rem; line-height: 1.7; color: var(--on-dark); }
+/* 小見出しは料金画像の「5kmまで」と同じ黄色の札（色は colors.css） */
+.cta__label { display: inline-block; padding: 4px 12px; border-radius: 999px; }
 .contact-action { display: flex; align-items: center; gap: 14px; min-height: 60px; padding: 10px 18px 10px 10px; border-radius: 10px; background: var(--surface); color: var(--ink); font-size: 1rem; font-weight: 700; line-height: 1.4; text-align: left; text-decoration: none; box-shadow: 0 8px 20px -12px rgb(0 0 0 / .55); transition: transform .2s, box-shadow .2s, background-color .2s; }
 .contact-action__icon { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 8px; }
 .contact-action__icon svg { display: block; }

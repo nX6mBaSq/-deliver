@@ -22,7 +22,9 @@
   --gold: #ffd95a;
   --danger: #b03a2e;
   --danger-soft: #fdece9;
-  --night: #061f45;
+  --night: #0b2f5b;   /* 濃色の面（フッター・写真の帯）。ヒーロー見出しの紺にそろえる（旧 #061f45） */
+  --brand-surface: linear-gradient(135deg, #0a6eee 0%, var(--action) 45%, #005bd9 100%); /* 料金画像の青。白文字 4.69:1 以上 */
+  --gold-soft: #fff3c4;  /* 金の淡い面（紺の文字 12.0:1） */
   --on-dark: #ffffff;
   --on-dark-muted: #cfe4f8;
   --c-heading: var(--ink);
@@ -146,15 +148,17 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 .important-notes__list--warn .important-notes__icon { color: var(--amber); }
 .policy a:visited, .company-info__value a:visited { color: #624773; }
 
-/* A navy destination with white contact cards; the action color stays consistent. */
+/* 2026-11-12 配色調整：お問い合わせは料金画像（price-hero-3.webp）と同じ鮮やかな青の面に白いカード。
+   面の最も明るい #0a6eee でも白文字は 4.69:1。淡い青文字（#cfe4f8 は 3.6:1）や金の文字（3.42:1）は基準を下回るため、
+   文字はすべて白、小見出しは料金画像の「5kmまで」と同じ黄色の札に紺の文字（9.75:1）にする。 */
 .cta {
-  --c-heading: var(--on-dark); --c-body: var(--on-dark-muted); --c-link: #d6ecff;
-  background: radial-gradient(120% 90% at 100% 0%, rgb(63 181 242 / .14) 0%, transparent 65%), var(--deep); color: var(--on-dark-muted);
+  --c-heading: var(--on-dark); --c-body: var(--on-dark); --c-link: var(--on-dark);
+  background: var(--brand-surface); color: var(--on-dark);
 }
-.cta__label { color: var(--gold); }
+.cta__label { background: var(--gold); color: var(--ink); }
 .cta__title { color: var(--on-dark); }
-.cta__desc, .contact-other, .contact-policy { color: var(--on-dark-muted); }
-.contact-preparation { border-color: #4f7fc4; }
+.cta__desc, .contact-other, .contact-policy { color: var(--on-dark); }
+.contact-preparation { border-color: rgb(255 255 255 / .32); }
 .contact-preparation h3 { color: var(--on-dark); }
 .contact-method {
   --c-heading: var(--ink); --c-body: var(--text); --c-link: var(--action);
@@ -162,11 +166,11 @@ a, button { -webkit-tap-highlight-color: var(--blue-soft); }
 }
 .contact-method__label { color: var(--ink); }
 .contact-method small { color: var(--muted); }
-.contact-policy a { color: #d6ecff; }
+.contact-policy a { color: var(--on-dark); }
 .footer { background: var(--night); color: var(--on-dark-muted); }
 .footer__wordmark, .footer__wordmark > span { color: var(--on-dark); }
 .footer__address, .footer__tel, .footer__links, .footer__nav-list a, .footer__copyright { color: var(--on-dark-muted); }
-.footer__nav-list a, .footer__copyright { border-color: #24477a; }
+.footer__nav-list a, .footer__copyright { border-color: #3a5f90; }
 :is(a, button, [tabindex]):focus-visible { outline-color: var(--ink); box-shadow: 0 0 0 6px var(--gold); }
 @media (hover: hover) and (pointer: fine) {
   .btn--form:hover, .header__nav .header__estimate:hover, .mobile-contact__cta:hover { background: var(--action-hover); color: var(--on-dark); }

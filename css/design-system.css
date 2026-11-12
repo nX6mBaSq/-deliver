@@ -15,14 +15,16 @@
   --ds-bg-alt: var(--paper);         /* #f6fafd 交互のセクション背景 */
   --ds-tint: var(--mist);            /* #ebf5fd ラベル・タグの面 */
   --ds-tint-strong: var(--blue-soft);/* #dbeefc アイコン円など（この上の文字は --ds-brand 以上の濃さ） */
-  --ds-dark: var(--night);           /* #061f45 写真キャプション帯など濃色の面 */
+  --ds-dark: var(--night);           /* #0b2f5b 写真キャプション帯・フッターなど濃色の面（見出しの紺と同じ） */
   --ds-on-dark: var(--on-dark);
-  --ds-on-dark-sub: var(--on-dark-muted);
+  --ds-on-dark-sub: var(--on-dark-muted); /* #cfe4f8 --ds-dark の上だけで使う（青の面では 4.5:1 未満） */
+  --ds-brand-surface: var(--brand-surface); /* 料金画像の青のグラデーション（お問い合わせの面）。上の文字は白のみ */
   --ds-line: var(--line);            /* #d0e2f0 区切り線・タイムラインの線（装飾） */
   --ds-line-accent: #b9d8f2;         /* 注記の左罫線（装飾） */
   --ds-panel: #f3f8fd;               /* 写真とつなげた一覧の面（OUR PROMISE） */
   --ds-line-strong: #c5ddf2;         /* 淡色の面の上の区切り線（OUR PROMISE。--ds-line では見えにくいため） */
-  --ds-highlight: var(--gold);       /* 価格の下線など演出のみ。文字色には使わない */
+  --ds-highlight: var(--gold);       /* 価格の下線・黄色の札の面など。文字色には使わない（札の文字は --ds-heading） */
+  --ds-highlight-soft: var(--gold-soft); /* #fff3c4 金の淡い面 */
   /* 注意・対象外（承認済みの「対応できない作業・荷物」カード） */
   --ds-caution: #9a704b;             /* 見出しの縦線（非テキスト3:1以上） */
   --ds-caution-ink: #8d694d;         /* 目印の線。文字に使う場合は白・淡色面で4.5:1以上 */
